@@ -1,5 +1,3 @@
-'use client';
-
 import '@mantine/core/styles.css';
 import { Card } from '@mantine/core';
 import Link from 'next/link';
