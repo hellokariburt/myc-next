@@ -10,26 +10,23 @@ const MicIndividualMapLoad = ({ mics }: MicIndividualMapLoadType) => {
     googleMapsApiKey: `${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`,
   });
 
-  const micLat = Number(mics?.mic?.mic_address.latitude);
-  const micLong = Number(mics?.mic?.mic_address.longitude);
-  const position = { lat: micLat, lng: micLong };
-
   const containerStyle = {
     width: '100%',
     height: '100%',
   };
 
-  if (mics?.totalMics === 0) {
+  if (!mics?.mic) {
     return <></>;
   }
 
-  if (!mics) {
+  const micLat = mics.mic.mic_address?.latitude;
+  const micLong = mics.mic.mic_address?.longitude;
+
+  if (!micLat || !micLong) {
     return <></>;
   }
 
-  if (mics?.mic === null) {
-    return <></>;
-  }
+  const position = { lat: Number(micLat), lng: Number(micLong) };
 
   return isLoaded ? (
     <div className="flex w-[100vw] top-auto  h-[65vh] lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] pb-16 lg:pb-0">

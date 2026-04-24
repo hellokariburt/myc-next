@@ -57,7 +57,9 @@ const MicCard = () => {
             </div>
             <div className="pr-1 text-slate-700 font-bold">{mic.mic_address.venue}</div>
             <div className="flex flex-row flex-wrap text-green-700 text-base">
-              <p className="pr-1">{mic.mic_address.unit_number} </p>
+              {mic.mic_address.unit_number ? (
+                <p className="pr-1">{mic.mic_address.unit_number} </p>
+              ) : null}
               <p className="pr-1">{mic.mic_address.street_name},</p>
               <p className="font-bold">{capitalizeDay(mic.borough.toString())}</p>
             </div>
