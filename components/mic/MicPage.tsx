@@ -63,7 +63,7 @@ const MicPage = ({ mic }: { mic: any }) => {
         {/* Address */}
         <div className="mt-5 text-slate-600">
           <div className="flex flex-wrap gap-1 text-base">
-            {mic?.mic_address?.unit_number && (
+            {mic?.mic_address?.unit_number > 0 && (
               <span>{mic.mic_address.unit_number}</span>
             )}
             <span>{mic?.mic_address?.street_name},</span>
