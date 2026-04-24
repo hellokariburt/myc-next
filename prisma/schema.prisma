@@ -58,10 +58,11 @@ model mic_occurrence {
 model mics {
   id                  BigInt               @id(map: "mics_pk") @default(autoincrement())
   borough             String?              @db.VarChar(255)
-  confirmed           DateTime?            @db.Date
+  confirmed           String?              @db.VarChar(255)
   day                 String?              @db.VarChar(255)
   name                String?              @db.VarChar(255)
   start_time          DateTime?            @db.Time(6)
+  end_time            DateTime?            @db.Time(6)
   address_id          BigInt?
   cost_id             BigInt?
   host_id             BigInt?
@@ -72,7 +73,10 @@ model mics {
   website             String?              @db.VarChar(255)
   email_address       String?              @db.VarChar(255)
   phone_number        String?              @db.VarChar(255)
-  host_mics           host_mics[] 
+  venue_type          String?              @db.VarChar(255)
+  stage_time          String?              @db.VarChar(255)
+  other_rules         String?              @db.VarChar(500)
+  host_mics           host_mics[]
   mic_address         mic_address?         @relation(fields: [address_id], references: [address_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_address_fk")
   mic_cost            mic_cost?            @relation(fields: [cost_id], references: [cost_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_cost_fk")
   mic_occurrence      mic_occurrence?      @relation(fields: [occurrence_id], references: [occurrence_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_occurrence_fk")
