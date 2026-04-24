@@ -1,4 +1,4 @@
-import { ActionIcon, Container } from '@mantine/core';
+import { Container } from '@mantine/core';
 import '@mantine/core/styles.css';
 import { useContext, useState } from 'react';
 import { TbSearch } from 'react-icons/tb';
@@ -46,9 +46,14 @@ const Filter = () => {
         <DaySelect value={day} setValue={setDay} />
         <TimeSelect value={startTime} setValue={setStartTime} timePeriod="Start After" />
         <FreeSwitch checked={free} setChecked={setFree} />
-        <ActionIcon onClick={handleSearch} size={40}>
+        <button
+          type="button"
+          onClick={handleSearch}
+          aria-label="Search"
+          className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shrink-0"
+        >
           <TbSearch size={20} />
-        </ActionIcon>
+        </button>
       </Container>
     </header>
   );

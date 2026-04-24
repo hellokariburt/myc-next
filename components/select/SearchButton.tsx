@@ -1,18 +1,15 @@
-import { Button } from '@mantine/core';
 import { TbSearch } from 'react-icons/tb';
-import '@mantine/core/styles.css';
 
 const SearchButton = ({ onClick }: SearchButtonProps) => (
-  <Button
+  <button
+    type="button"
     aria-label="Search for mics"
-    size="md"
-    radius="xl"
-    fullWidth
-    leftSection={<TbSearch size={20} />}
     onClick={onClick}
+    className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full text-base transition-colors"
   >
+    <TbSearch size={20} />
     Search for mics
-  </Button>
+  </button>
 );
 
 export default SearchButton;
