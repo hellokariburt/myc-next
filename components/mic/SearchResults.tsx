@@ -48,12 +48,21 @@ export const SearchResults = () => {
 
   const pagingString = `${startPage}-${endPage} of `;
 
+  const totalPages = Math.ceil((mics?.totalMics || 0) / 10);
+
   return (
-    <p className="text-sm text-slate-600 pb-2">
-      {pagingString}
-      {mics?.totalMics} {paramsFree} mics in {boroughsArray}
-      {daysArray}
-      {timeArray}
-    </p>
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 pb-3">
+      <p className="text-sm text-slate-600">
+        {pagingString}
+        {mics?.totalMics} {paramsFree} mics in {boroughsArray}
+        {daysArray}
+        {timeArray}
+      </p>
+      {totalPages > 1 && (
+        <p className="text-sm text-slate-400">
+          Page {paramsPage} of {totalPages}
+        </p>
+      )}
+    </div>
   );
 };
