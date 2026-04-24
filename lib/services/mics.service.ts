@@ -38,6 +38,9 @@ const getMic = async (id: bigint) => {
       mic_cost: true,
       mic_occurrence: true,
       signup_instructions: true,
+      host_mics: {
+        include: { mic_host: true },
+      },
     },
   });
 };
