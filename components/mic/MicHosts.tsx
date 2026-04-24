@@ -23,10 +23,9 @@ const MicHosts = () => {
     </div>
   ));
 
-  console.log('WHAT IS THIS KARI', hostLoop);
   return (
     <div>
-      {hostLoop.length > 0 && (
+      {hostLoop && hostLoop.length > 0 && (
         <div className="flex flex-row px-4 pt-3 text-base">
           <p className="pr-1 font-bold">Hosts: </p>
           <div>{hostLoop}</div>
