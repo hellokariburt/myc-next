@@ -9,79 +9,38 @@ export const useQuery = (): [URLSearchParams, SetQuery, ClearQuery, GetQuery, Se
   let params = new URLSearchParams(query);
 
   const getQuery: GetQuery = (q = {}) => {
-    let update = {};
+    let update: Record<string, any> = {
+      free: 'false',
+      offset: 0,
+      limit: 10,
+      day: 'all',
+      borough: 'all',
+      'start-time': '00:00:00',
+    };
 
-    if (pathname === '/mics') {
-      update = { ...update, free: false, offset: 1, limit: 10, day: 'all', borough: 'all' };
-    }
-
-    // Getting day param
     if (params?.has('day')) {
-      update = { ...update, day: params?.get('day') };
+      update = { ...update, day: params.get('day') };
     }
 
-    // if (params?.has('day')) {
-    //   update = { ...update, day: params?.get('day') };
-    // } else {
-    //   update = { ...update, day: '' };
-    // }
-
-    // Getting borough param
-    if (params?.get('borough') === 'All') {
-      update = {
-        ...update,
-        // borough: ['Manhattan', 'Queens', 'Staten-Island', 'Bronx', 'Brooklyn'],
-        borough: ['All'],
-      };
-    } else if (params?.has('borough')) {
-      update = { ...update, borough: params?.get('borough') };
+    if (params?.has('borough')) {
+      update = { ...update, borough: params.get('borough') };
     }
 
-    // Getting time param
-    if (params?.get('start-time') === '00:00:00') {
-      update = {
-        ...update,
-        // borough: ['Manhattan', 'Queens', 'Staten-Island', 'Bronx', 'Brooklyn'],
-        'start-time': '00:00:00',
-      };
-    } else if (params?.has('start-time')) {
-      update = { ...update, 'start-time': params?.get('start-time') };
+    if (params?.has('start-time')) {
+      update = { ...update, 'start-time': params.get('start-time') };
     }
 
-    // Getting page size param
-    let pageSize;
-    // Condition to get page number if present
-    if (params?.get('pageSize')) {
-      pageSize = Number(params?.get('pageSize'));
-      update = { ...update, limit: pageSize };
-    } else {
-      pageSize = 10;
-      update = { ...update, limit: pageSize };
-    }
+    const pageSize = params?.get('pageSize') ? Number(params.get('pageSize')) : 10;
+    update = { ...update, limit: pageSize };
 
-    // Getting page number param
-    let pageNumber;
-    // Condition to get page number if present
     if (params?.get('pageNo')) {
-      const page = parseInt(params?.get('pageNo')!, 10) || 1;
-      const offset = (page - 1) * pageSize;
-
-      pageNumber = Number(params?.get('pageNo'));
-      update = { ...update, offset };
-    } else {
-      pageNumber = 0;
-      update = { ...update, offset: pageNumber };
+      const page = parseInt(params.get('pageNo')!, 10) || 1;
+      update = { ...update, offset: (page - 1) * pageSize };
     }
 
-    // Getting if free param
-    let checkFree;
     if (params?.get('free') === 'true') {
-      checkFree = 'true';
-      update = { ...update, free: checkFree };
+      update = { ...update, free: 'true' };
     }
-
-    // console.log('this is the update kari', update);
-    // console.log('This is the Q', q);
 
     return { ...update, ...q };
   };
@@ -108,7 +67,6 @@ export const useQuery = (): [URLSearchParams, SetQuery, ClearQuery, GetQuery, Se
     if (!q) {
       return null;
     }
-    // console.log('This is what I am passing a q', q.toString());
     return (
       router.push(`${pathname}?${q}`),
       {

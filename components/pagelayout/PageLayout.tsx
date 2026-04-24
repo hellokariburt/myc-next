@@ -10,6 +10,8 @@ function PageLayout({
   hasBackButton,
 }: PageLayoutProps) {
   const hasSecondaryBar = hasFilter || hasMobileFilter || hasBackButton;
+  // Nav bar = 56px (h-14). Desktop filter bar ~76px. Mobile filter/back button ~44px.
+  const spacerClass = hasSecondaryBar ? 'pt-[100px] md:pt-[132px]' : 'pt-14';
   return (
     <div className={`${className || ''}`}>
       <Header
@@ -18,7 +20,7 @@ function PageLayout({
         hasBackButton={hasBackButton}
       />
       {/* Spacer to push content below the fixed header */}
-      <div className={hasSecondaryBar ? 'pt-[104px] md:pt-[104px]' : 'pt-14'} />
+      <div className={spacerClass} />
       {children}
       <Footer />
     </div>
