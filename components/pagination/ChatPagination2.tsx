@@ -1,15 +1,14 @@
 'use client';
 
-import { useContext } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { MicListingContext } from '@/lib/context/MicListingContext';
+import { useMicSearch } from '@/lib/hooks/useMicSearch';
 
 const ChatPagination2 = () => {
-  const { mics } = useContext(MicListingContext);
-  const currentPage = Number(useSearchParams().get('pageNo')) || 1;
+  const { mics } = useMicSearch();
+  const searchParams = useSearchParams();
+  const currentPage = Number(searchParams.get('pageNo')) || 1;
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const totalPages = Math.ceil(Number(mics?.totalMics) / Number(mics?.limit)) || 1;
 
   const handleChange = (page: number) => {

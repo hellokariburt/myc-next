@@ -1,37 +1,33 @@
 'use client';
 
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { IconSearch } from '@tabler/icons-react';
 import BoroughSelect from '../select/BoroughSelect';
 import DaySelect from '../select/DaySelect';
 import FreeSwitch from '../select/FreeSwitch';
-import { MicListingContext } from '@/lib/context/MicListingContext';
 import TimeSelect from '../select/TimeSelect';
+import { buildMicSearchUrl } from '@/lib/utils/buildMicSearchUrl';
 
 const Filter = () => {
-  const { params, setQuery } = useContext(MicListingContext);
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const allBoroughsArray = params?.get('borough')?.split(',') || [];
+  const allBoroughsArray = searchParams.get('borough')?.split(',') || [];
   const boroughsArray = allBoroughsArray.includes('all') ? [] : allBoroughsArray;
 
-  const daysArray = !params?.get('day') || params.get('day')?.includes('all') ? '' : params.get('day');
+  const daysArray = !searchParams.get('day') || searchParams.get('day')?.includes('all') ? '' : searchParams.get('day');
 
-  const rawTime = params?.get('start-time');
+  const rawTime = searchParams.get('start-time');
   const startTimeString2 = !rawTime || rawTime.includes('00:00:00') ? '' : rawTime;
-  const val = params?.get('free') === 'true';
+  const val = searchParams.get('free') === 'true';
   const [borough, setBorough] = useState(boroughsArray);
   const [free, setFree] = useState(val);
   const [day, setDay] = useState(daysArray);
   const [startTime, setStartTime] = useState(startTimeString2);
 
   const handleSearch = () => {
-    const inputTerms = {
-      boroughQuery: borough.length > 0 ? borough : 'all',
-      dayQuery: day || 'all',
-      timeQuery: startTime || '00:00:00',
-      free,
-    };
-    setQuery!(inputTerms);
+    router.push(buildMicSearchUrl({ borough, day: day || '', startTime, free }));
   };
 
   return (

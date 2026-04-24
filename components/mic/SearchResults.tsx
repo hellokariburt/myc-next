@@ -1,5 +1,4 @@
-import { useContext } from 'react';
-import { MicListingContext } from '@/lib/context/MicListingContext';
+import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 
 function convertTo12HourFormat(x: any) {
@@ -21,7 +20,7 @@ function convertTo12HourFormat(x: any) {
 }
 
 export const SearchResults = () => {
-  const { mics, params } = useContext(MicListingContext);
+  const { mics, params } = useMicSearch();
 
   const getAllBoroughs = params.get('borough');
   const boroughsArray = getAllBoroughs?.includes('all') ? 'NYC' : getAllBoroughs || 'NYC';

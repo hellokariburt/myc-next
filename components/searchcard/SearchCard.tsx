@@ -7,6 +7,7 @@ import DaySelect from '../select/DaySelect';
 import FreeSwitch from '../select/FreeSwitch';
 import SearchButton from '../select/SearchButton';
 import TimeSelect from '../select/TimeSelect';
+import { buildMicSearchUrl } from '@/lib/utils/buildMicSearchUrl';
 
 const SearchCard = () => {
   const [day, setDay] = useState('');
@@ -17,11 +18,7 @@ const SearchCard = () => {
   const router = useRouter();
 
   const handleSearch = () => {
-    router.push(
-      `/mics?borough=${borough.length > 0 ? borough : 'all'}&day=${day || 'all'}&start-time=${
-        startTime || '00:00:00'
-      }&free=${free}&pageNo=1`
-    );
+    router.push(buildMicSearchUrl({ borough, day, startTime, free }));
   };
 
   return (
