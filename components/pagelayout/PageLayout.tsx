@@ -9,6 +9,7 @@ function PageLayout({
   hasMobileFilter,
   hasBackButton,
 }: PageLayoutProps) {
+  const hasSecondaryBar = hasFilter || hasMobileFilter || hasBackButton;
   return (
     <div className={`${className || ''}`}>
       <Header
@@ -16,6 +17,8 @@ function PageLayout({
         hasMobileFilter={hasMobileFilter}
         hasBackButton={hasBackButton}
       />
+      {/* Spacer to push content below the fixed header */}
+      <div className={hasSecondaryBar ? 'pt-[104px] md:pt-[104px]' : 'pt-14'} />
       {children}
       <Footer />
     </div>

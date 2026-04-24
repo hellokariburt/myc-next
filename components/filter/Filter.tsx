@@ -36,8 +36,8 @@ const Filter = () => {
   };
 
   return (
-    <header className="hidden md:flex h-[50px] mb-[120px] fixed w-full z-10 border-b border-slate-200 -mt-0.5 bg-white">
-      <div className="flex h-[56px] max-w-5xl mx-auto py-3 gap-6 items-center px-4">
+    <div className="hidden md:block border-t border-slate-100 bg-white">
+      <div className="flex max-w-5xl mx-auto py-2 gap-4 items-center px-4">
         <BoroughSelect value={borough} setValue={setBorough} />
         <DaySelect value={day} setValue={setDay} />
         <TimeSelect value={startTime} setValue={setStartTime} timePeriod="Start After" />
@@ -51,7 +51,7 @@ const Filter = () => {
           <IconSearch size={20} />
         </button>
       </div>
-    </header>
+    </div>
   );
 };
 

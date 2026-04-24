@@ -9,7 +9,7 @@ const MobileFilterButton = () => {
 
   return (
     <div>
-      <div className="h-[rem(50px)] mb-[rem(120px)] fixed w-[100%] z-10 bg-white border-2 -mt-2 p-2">
+      <div>
         <button
           type="button"
           aria-label="Update mic search"
