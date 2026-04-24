@@ -101,12 +101,14 @@ const MicPage = () => {
                 <p>{mic?.instagram}</p>
               </div>
             )}
-            {mic?.website && (
+            {mic?.website && /^https?:\/\//i.test(mic.website) && (
               <div className="flex text-base">
                 <p className="pl-16 text-blue-600 font-semibold items-center">
                   <a
                     className="underline decoration-dashed hover:decoration-solid flex gap-1 items-center"
-                    href={mic?.website}
+                    href={mic.website}
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
                     View Website
                     <IconExternalLink size="20px" />

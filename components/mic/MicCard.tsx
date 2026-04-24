@@ -25,7 +25,7 @@ const MicCard = () => {
     );
   }
 
-  if (mics?.mics.length === 0) {
+  if (mics?.mics?.length === 0) {
     return (
       <div className="flex justify-center pt-36">
         <NoMicFound />
