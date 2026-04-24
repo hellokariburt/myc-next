@@ -22,7 +22,7 @@ const MicPage = ({ mic }: { mic: any }) => {
     : null;
 
   return (
-    <div className="flex flex-col w-full lg:w-[50%] pt-24 pb-16 px-4 lg:px-8 lg:min-h-[100vh]">
+    <div className="flex flex-col w-full lg:w-[50%] pt-6 pb-16 px-4 lg:px-8 lg:min-h-[100vh]">
       {/* Main card */}
       <div className="bg-white rounded-xl shadow-md border border-slate-200 p-6 md:p-8">
         {/* Mic name + venue */}

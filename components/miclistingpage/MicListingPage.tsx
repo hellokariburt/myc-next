@@ -11,7 +11,7 @@ export function MicListingPage2() {
   const { mics, isLoading } = useContext(MicListingContext);
 
   return (
-    <PageLayout className="marker:pb-16 bg-[#F5F5F5] bg-cover h-[full]" hasFilter hasMobileFilter>
+    <PageLayout className="pb-16 bg-[#F5F5F5] bg-cover h-full" hasFilter hasMobileFilter>
       <MicCard />
       {/* <ChatPagination2 /> */}
       <MicMapLoad mics={mics} isLoading={isLoading} />

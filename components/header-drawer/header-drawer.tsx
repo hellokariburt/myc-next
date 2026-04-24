@@ -1,6 +1,18 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
+  useEffect(() => {
+    if (!opened) return undefined;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [opened, close]);
+
   if (!opened) return null;
 
   return (
@@ -9,10 +21,7 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
       <div
         className="fixed inset-0 bg-black/30 z-40"
         onClick={close}
-        onKeyDown={(e) => e.key === 'Escape' && close()}
-        role="button"
-        tabIndex={0}
-        aria-label="Close menu"
+        role="presentation"
       />
       {/* Drawer */}
       <div className="fixed top-0 left-0 w-[55%] h-full bg-white z-50 shadow-xl p-6 pt-20">

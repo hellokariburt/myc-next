@@ -49,11 +49,11 @@ export const SearchResults = () => {
   const pagingString = `${startPage}-${endPage} of `;
 
   return (
-    <h1 className="text-base pb-2">
+    <p className="text-sm text-slate-600 pb-2">
       {pagingString}
       {mics?.totalMics} {paramsFree} mics in {boroughsArray}
       {daysArray}
       {timeArray}
-    </h1>
+    </p>
   );
 };

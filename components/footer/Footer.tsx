@@ -3,10 +3,10 @@
 import { IconMail } from '@tabler/icons-react';
 
 const Footer = () => (
-  <footer className="fixed bottom-0 w-full bg-white border-t border-slate-200 z-10">
+  <footer className="w-full bg-white border-t border-slate-200">
     <div className="flex justify-between items-center px-4 py-3 max-w-5xl mx-auto">
       <a
-        href="/about"
+        href="mailto:openmycapp@gmail.com"
         className="text-sm text-slate-600 hover:text-blue-600 hover:underline"
       >
         Contact

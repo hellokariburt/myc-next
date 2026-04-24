@@ -16,7 +16,7 @@ const MicCard = () => {
 
   if (!mics || isLoading) {
     return (
-      <div className="flex pt-36 justify-center min-h-[100vh]">
+      <div className="flex pt-12 justify-center min-h-[100vh]">
         <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -24,7 +24,7 @@ const MicCard = () => {
 
   if (mics?.mics?.length === 0) {
     return (
-      <div className="flex justify-center pt-36">
+      <div className="flex justify-center pt-12">
         <NoMicFound />
       </div>
     );
@@ -37,7 +37,7 @@ const MicCard = () => {
         <button
           type="button"
           onClick={() => router.push(`/mics/${mic?.id}`)}
-          className="flex group lg:max-w-[calc(50vw-50px)] min-w-[330px] bg-white border border-slate-200 rounded-lg p-4 hover:border-blue-700 cursor-pointer shadow-[0_8px_24px_rgba(0,0,0,0.10)] text-left transition-colors"
+          className="flex group lg:max-w-[calc(50vw-50px)] min-w-[320px] bg-white border border-slate-200 rounded-xl p-4 hover:shadow-lg hover:border-blue-500 cursor-pointer shadow-md text-left transition-all"
           key={mic?.id}
         >
           <div className="flex flex-row gap-3 lg:gap-10">
@@ -78,7 +78,7 @@ const MicCard = () => {
   const openMic = mapMicsToCards(mics);
 
   return (
-    <div className="flex flex-col justify-between p-6 pt-32 md:pt-40 min-h-[100vh]">
+    <div className="flex flex-col justify-between p-6 min-h-[100vh]">
       {mics && <SearchResults />}
       <div className="flex flex-col gap-2">{openMic}</div>
       <div className="flex w-auto lg:w-[50vw] justify-center pt-16">

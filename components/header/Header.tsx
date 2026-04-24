@@ -32,6 +32,7 @@ const Header = ({ hasFilter, hasMobileFilter, hasBackButton }: HeaderProps) => {
           className="sm:hidden flex flex-col gap-1 p-2"
           onClick={() => setDrawerOpen(!drawerOpen)}
           aria-label="Toggle menu"
+          aria-expanded={drawerOpen}
         >
           <span className={`block w-5 h-0.5 bg-slate-700 transition-transform ${drawerOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
           <span className={`block w-5 h-0.5 bg-slate-700 transition-opacity ${drawerOpen ? 'opacity-0' : ''}`} />
