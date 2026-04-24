@@ -8,10 +8,11 @@ import MicIndividualMapLoad from '@/components/map/MicIndividualMapLoad';
 
 export const revalidate = 3600;
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const { id: rawId } = await params;
   let id: bigint;
   try {
-    id = BigInt(params.id);
+    id = BigInt(rawId);
   } catch {
     notFound();
   }
