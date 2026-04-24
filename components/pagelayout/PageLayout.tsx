@@ -13,7 +13,7 @@ function PageLayout({
   // Nav bar = 56px (h-14). Desktop filter bar ~76px. Mobile filter/back button ~44px.
   const spacerClass = hasSecondaryBar ? 'pt-[100px] md:pt-[132px]' : 'pt-14';
   return (
-    <div className={`${className || ''}`}>
+    <div className={`min-h-screen flex flex-col ${className || ''}`}>
       <Header
         hasFilter={hasFilter}
         hasMobileFilter={hasMobileFilter}
@@ -21,7 +21,7 @@ function PageLayout({
       />
       {/* Spacer to push content below the fixed header */}
       <div className={spacerClass} />
-      {children}
+      <div className="flex-1">{children}</div>
       <Footer />
     </div>
   );

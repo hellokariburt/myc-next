@@ -15,7 +15,8 @@ const ChatPagination2 = () => {
   const handleChange = (page: number) => {
     const params = new URLSearchParams(searchParams);
     params.set('pageNo', String(page));
-    router.push(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (totalPages <= 1) return null;
@@ -30,7 +31,7 @@ const ChatPagination2 = () => {
   }
 
   return (
-    <nav className="flex items-center gap-1 justify-center pb-32" aria-label="Pagination">
+    <nav className="flex items-center gap-1 justify-center pb-16" aria-label="Pagination">
       <button
         type="button"
         disabled={currentPage <= 1}
