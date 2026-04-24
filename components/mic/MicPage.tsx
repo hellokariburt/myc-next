@@ -45,13 +45,13 @@ const MicPage = ({ mic }: { mic: any }) => {
             {changeTime(mic?.start_time)}
           </span>
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
-            mic?.cost_id === 1
+            mic?.mic_cost?.cost_amount?.toLowerCase().includes('free')
               ? 'bg-green-50 text-green-700'
               : 'bg-amber-50 text-amber-700'
           }`}
           >
             <IconCurrencyDollar size={16} />
-            {mic?.cost_id === 1 ? 'Free' : mic?.mic_cost?.cost_amount}
+            {mic?.mic_cost?.cost_amount || 'Free'}
           </span>
           {mic?.mic_occurrence?.schedule && (
             <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-sm">

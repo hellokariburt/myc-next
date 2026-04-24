@@ -4,7 +4,9 @@ import { MicQueryParams, ALL_BOROUGHS, ALL_DAYS } from '../types/api';
 const getMics = async (params: MicQueryParams) => {
   const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
-  const costId = params.cost === 'true' ? 1 : undefined;
+  const freeFilter = params.cost === 'true'
+    ? { mic_cost: { cost_amount: { contains: 'free', mode: 'insensitive' as const } } }
+    : {};
 
   const startTime =
     params.start_time !== '00:00:00' ? `1970-01-01T${params.start_time}.000Z` : undefined;
@@ -12,7 +14,7 @@ const getMics = async (params: MicQueryParams) => {
   const where = {
     day: { in: days },
     borough: { in: boroughs },
-    cost_id: costId,
+    ...freeFilter,
     ...(startTime && { start_time: { gte: startTime } }),
   };
 

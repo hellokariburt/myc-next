@@ -61,7 +61,7 @@ const MicCard = () => {
               <div className="flex flex-row pt-3 text-base">
                 <p className="pr-1">Cost: </p>
                 <p className="font-bold">
-                  {mic?.cost_id === 1 ? 'Free' : mic?.mic_cost.cost_amount}
+                  {mic?.mic_cost?.cost_amount || 'Free'}
                 </p>
               </div>
             </div>
