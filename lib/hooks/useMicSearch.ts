@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { request } from '../utils/request';
+import { MicListResponse } from '../types/mic';
 
 export function useMicSearch() {
   const searchParams = useSearchParams();
@@ -17,14 +18,14 @@ export function useMicSearch() {
   apiParams.delete('pageSize');
   const apiQueryString = apiParams.toString();
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError } = useQuery<MicListResponse>({
     queryKey: ['mics', apiQueryString],
-    queryFn: () => request(`/api/mics?${apiQueryString}`),
+    queryFn: () => request<MicListResponse>(`/api/mics?${apiQueryString}`),
     retry: false,
   });
 
   return {
-    mics: data as any,
+    mics: data,
     isLoading,
     isError,
     params: searchParams,

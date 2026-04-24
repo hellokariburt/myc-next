@@ -10,11 +10,12 @@ import {
   IconCurrencyDollar,
 } from '@tabler/icons-react';
 
+import { MicDetail } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import MicHosts from './MicHosts';
 
-const MicPage = ({ mic }: { mic: any }) => {
+const MicPage = ({ mic }: { mic: MicDetail }) => {
   const directionsUrl = mic?.mic_address?.street_name
     ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
         `${mic.mic_address.venue}, ${mic.mic_address.street_name}, New York, NY`
@@ -38,11 +39,11 @@ const MicPage = ({ mic }: { mic: any }) => {
         <div className="flex flex-wrap gap-3 mt-5">
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
             <IconCalendar size={16} />
-            {capitalizeDay(mic.day.toString())}
+            {capitalizeDay(mic.day || '')}
           </span>
           <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-sm font-medium">
             <IconClock size={16} />
-            {changeTime(mic?.start_time)}
+            {changeTime(mic.start_time || '')}
           </span>
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
             mic?.mic_cost?.cost_amount?.toLowerCase().includes('free')
@@ -63,11 +64,11 @@ const MicPage = ({ mic }: { mic: any }) => {
         {/* Address */}
         <div className="mt-5 text-slate-600">
           <div className="flex flex-wrap gap-1 text-base">
-            {mic?.mic_address?.unit_number > 0 && (
+            {mic.mic_address && mic.mic_address.unit_number > 0 && (
               <span>{mic.mic_address.unit_number}</span>
             )}
             <span>{mic?.mic_address?.street_name},</span>
-            <span className="font-semibold">{capitalizeDay(mic.borough.toString())}</span>
+            <span className="font-semibold">{capitalizeDay(mic.borough || '')}</span>
           </div>
         </div>
 

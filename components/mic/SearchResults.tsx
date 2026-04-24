@@ -1,7 +1,7 @@
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 
-function convertTo12HourFormat(x: any) {
+function convertTo12HourFormat(x: string) {
   const [hours, minutes] = x.split(':').map(Number);
 
   let period = 'am';

@@ -49,12 +49,12 @@ const InfoMarker = ({
 export default InfoMarker;
 
 export type InfoMarkerProps = {
-  latitude: number;
-  longitude: number;
-  name: any;
-  day: any;
-  time: any;
-  venue: any;
-  cost: any;
-  href: any;
+  latitude: string | number;
+  longitude: string | number;
+  name: string;
+  day: string;
+  time: string;
+  venue: string;
+  cost: string;
+  href: string;
 };

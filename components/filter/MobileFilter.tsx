@@ -49,5 +49,5 @@ const MobileFilter = ({ onSubmit }: MobileFilterProps) => {
 export default MobileFilter;
 
 export type MobileFilterProps = {
-  onSubmit: any;
+  onSubmit: () => void;
 };

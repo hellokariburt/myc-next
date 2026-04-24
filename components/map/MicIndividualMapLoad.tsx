@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { MicDetail } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import InfoMarker from './InfoMarker';
 
-const MicIndividualMapLoad = ({ mic }: { mic: any }) => {
+const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
   const [expanded, setExpanded] = useState(false);
   const { isLoaded } = useJsApiLoader({
     id: `${process.env.NEXT_PUBLIC_MAP_ID}`,
@@ -33,20 +34,20 @@ const MicIndividualMapLoad = ({ mic }: { mic: any }) => {
   return isLoaded ? (
     <>
       <div
-        className={`flex w-[100vw] top-auto lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] lg:pb-0 ${
+        className={`flex w-full lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] lg:pb-0 ${
           expanded ? 'h-[65vh] pb-16' : 'h-[250px] pb-4'
         }`}
       >
         <GoogleMap mapContainerStyle={containerStyle} center={position} zoom={12}>
           <InfoMarker
-            latitude={mic.mic_address.latitude}
-            longitude={mic.mic_address.longitude}
-            name={mic.name}
-            venue={mic.mic_address.venue}
-            day={mic.day}
-            time={changeTime(mic.start_time)}
+            latitude={micLat}
+            longitude={micLong}
+            name={mic.name || ''}
+            venue={mic.mic_address!.venue || ''}
+            day={mic.day || ''}
+            time={changeTime(mic.start_time || '')}
             cost={mic.mic_cost?.cost_amount || 'Free'}
-            href={`https://maps.google.com/maps?q=${mic.mic_address.venue},${mic.mic_address.unit_number > 0 ? `${mic.mic_address.unit_number},` : ''}${mic.mic_address.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
+            href={`https://maps.google.com/maps?q=${mic.mic_address!.venue},${mic.mic_address!.unit_number > 0 ? `${mic.mic_address!.unit_number},` : ''}${mic.mic_address!.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
           />
         </GoogleMap>
       </div>

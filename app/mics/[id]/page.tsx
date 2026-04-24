@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
+import { MicDetail } from '@/lib/types/mic';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
 import MicIndividualMapLoad from '@/components/map/MicIndividualMapLoad';
@@ -25,7 +26,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     notFound();
   }
 
-  const mic = serialize(raw);
+  const mic = serialize(raw) as unknown as MicDetail;
 
   return (
     <PageLayout hasBackButton className="pb-16 bg-[#F5F5F5] bg-cover h-full">

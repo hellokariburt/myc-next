@@ -1,6 +1,7 @@
 import { IconBrandInstagram, IconMail } from '@tabler/icons-react';
+import { MicDetail } from '@/lib/types/mic';
 
-const MicHosts = ({ mic }: { mic: any }) => {
+const MicHosts = ({ mic }: { mic: MicDetail }) => {
   const hosts = mic?.host_mics;
 
   if (!hosts || hosts.length === 0) {
@@ -11,7 +12,7 @@ const MicHosts = ({ mic }: { mic: any }) => {
     <div className="flex items-baseline gap-2">
       <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide shrink-0">Hosts</span>
       <div className="flex flex-col gap-1">
-        {hosts.map((x: any, index: number) => (
+        {hosts.map((x, index) => (
           <div key={index} className="flex flex-wrap items-center gap-2 text-slate-700">
             <span>{x.mic_host.first_host}</span>
             {x.mic_host.email && (

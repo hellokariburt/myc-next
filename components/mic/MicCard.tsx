@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
+import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import ChatPagination2 from '../pagination/ChatPagination2';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
@@ -38,21 +39,21 @@ const MicCard = () => {
     );
   }
 
-  const mapMicsToCards = (x: any) => {
+  const mapMicsToCards = (x: MicListResponse) => {
     const items: React.ReactNode[] = [];
-    x?.mics.forEach((mic: any, index: number) => {
+    x.mics.forEach((mic: MicListItem, index: number) => {
       items.push(
         <button
           type="button"
-          onClick={() => router.push(`/mics/${mic?.id}`)}
-          aria-label={`${mic?.name} — ${capitalizeDay(mic?.day.toString())} at ${changeTime(mic?.start_time)}, ${mic?.mic_cost?.cost_amount || 'Free'}`}
+          onClick={() => router.push(`/mics/${mic.id}`)}
+          aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(mic.start_time || '')}, ${mic.mic_cost?.cost_amount || 'Free'}`}
           className="flex group w-full lg:max-w-[calc(50vw-50px)] bg-white border border-slate-200 rounded-xl p-4 hover:shadow-lg hover:border-blue-500 cursor-pointer shadow-md text-left transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          key={mic?.id}
+          key={mic.id}
         >
           <div className="flex flex-row gap-3 lg:gap-6 min-w-0">
             <div className="pr-2 lg:pr-4 pt-1 border-r-2 border-slate-300 text-sm lg:text-base shrink-0 w-[80px] lg:w-auto">
-              <p className="font-bold">{capitalizeDay(mic?.day.toString())}</p>
-              <p>{changeTime(mic?.start_time)}</p>
+              <p className="font-bold">{capitalizeDay(mic.day || '')}</p>
+              <p>{changeTime(mic.start_time || '')}</p>
               {mic?.mic_occurrence?.schedule && (
                 <p className="text-slate-500 text-xs lg:text-sm pt-4">{mic.mic_occurrence.schedule}</p>
               )}
@@ -61,13 +62,13 @@ const MicCard = () => {
               <p className="lg:text-2xl text-lg font-bold text-blue-700 group-hover:decoration-dashed group-hover:underline truncate">
                 {mic?.name}
               </p>
-              <p className="text-slate-700 font-bold text-sm lg:text-base truncate">{mic.mic_address.venue}</p>
+              <p className="text-slate-700 font-bold text-sm lg:text-base truncate">{mic.mic_address?.venue}</p>
               <div className="flex flex-row flex-wrap text-slate-600 text-sm lg:text-base">
-                {mic.mic_address.unit_number > 0 && (
+                {mic.mic_address && mic.mic_address.unit_number > 0 && (
                   <span className="pr-1">{mic.mic_address.unit_number} </span>
                 )}
-                <span className="pr-1">{mic.mic_address.street_name},</span>
-                <span className="font-bold">{capitalizeDay(mic.borough.toString())}</span>
+                <span className="pr-1">{mic.mic_address?.street_name},</span>
+                <span className="font-bold">{capitalizeDay(mic.borough || '')}</span>
               </div>
               <div className="pt-2">
                 <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs lg:text-sm font-medium ${
