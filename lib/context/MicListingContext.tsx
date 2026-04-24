@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useEffect } from 'react';
+import { createContext, useEffect, useMemo } from 'react';
 import { IconMicrophoneOff } from '@tabler/icons-react';
 import { useMics } from '../hooks/useMics';
 import { ClearQuery, GetQuery, SetPagination, SetQuery, useQuery } from '../hooks/useQuery';
@@ -15,12 +15,13 @@ export const MicListingContextProvider = ({ children }: MicListingContextProps) 
   const [params, setQuery, clearQuery, getQuery, setPagination] = useQuery();
 
   const search = getQuery();
+  const searchKey = JSON.stringify(search);
 
   const { data, isLoading, refetch, error, isError } = useMics(search);
 
   useEffect(() => {
     refetch();
-  }, [search]);
+  }, [searchKey]);
 
   const renderError = () => (
     <div className="p-32 flex flex-col">

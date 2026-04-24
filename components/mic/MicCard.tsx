@@ -16,7 +16,7 @@ const MicCard = () => {
 
   if (!mics || isLoading) {
     return (
-      <div className="flex pt-12 justify-center min-h-[100vh]">
+      <div className="flex pt-12 justify-center min-h-[100vh] relative z-10">
         <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
