@@ -30,7 +30,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const mic = serialize(raw) as unknown as MicDetail;
 
   return (
-    <PageLayout hasBackButton className="pb-16 bg-[#F5F5F5] bg-cover h-full">
+    <PageLayout hasBackButton className="pb-16 bg-[#F5F5F5] bg-cover">
       <MicPage mic={mic} />
       <MicIndividualMapLoad mic={mic} />
     </PageLayout>
