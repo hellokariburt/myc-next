@@ -2,8 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
-import { Card, Loader } from '@mantine/core';
-// import { TbMicrophoneOff } from 'react-icons/tb';
 import { MicListingContext } from '@/lib/context/MicListingContext';
 import changeTime from '@/lib/utils/changeTime';
 import ChatPagination2 from '../pagination/ChatPagination2';
@@ -14,13 +12,12 @@ import AdBanner from '../ads/AdBanner';
 
 const MicCard = () => {
   const { mics, isLoading } = useContext(MicListingContext);
-
   const router = useRouter();
 
   if (!mics || isLoading) {
     return (
       <div className="flex pt-36 justify-center min-h-[100vh]">
-        <Loader color="blue" />
+        <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -37,29 +34,24 @@ const MicCard = () => {
     const items: React.ReactNode[] = [];
     x?.mics.forEach((mic: any, index: number) => {
       items.push(
-        <Card
-          component="a"
-          onClick={() => {
-            router.push(`/mics/${mic?.id}`);
-          }}
-          className="flex group lg:max-w-[calc(50vw-50px)] min-w-[330px]  hover:border-blue-700 cursor-pointer hover:border-[1.5px] shadow-[0_8px_24px_rgba(0,0,0,0.20)]"
+        <button
+          type="button"
+          onClick={() => router.push(`/mics/${mic?.id}`)}
+          className="flex group lg:max-w-[calc(50vw-50px)] min-w-[330px] bg-white border border-slate-200 rounded-lg p-4 hover:border-blue-700 cursor-pointer shadow-[0_8px_24px_rgba(0,0,0,0.10)] text-left transition-colors"
           key={mic?.id}
-          withBorder
         >
-          <div className="flex flex-row gap-3 lg:gap-10 ">
-            <div className="pr-2 lg:pr-4 pt-2 border-r-2 border-[slate-700]   text-base">
+          <div className="flex flex-row gap-3 lg:gap-10">
+            <div className="pr-2 lg:pr-4 pt-2 border-r-2 border-slate-300 text-base">
               <p className="pr-1 font-bold">{capitalizeDay(mic?.day.toString())}</p>
               <p>{changeTime(mic?.start_time)}</p>
-              <p className="text-slate-[700] text-sm pt-10">{mic?.mic_occurrence?.schedule}</p>
+              <p className="text-slate-500 text-sm pt-10">{mic?.mic_occurrence?.schedule}</p>
             </div>
             <div>
-              <div className="flex whitespace-wrap text-[slate-700]font-semibold group-hover:text-blue-700 ">
-                <h2 className="lg:text-3xl text-2xl font-bold text-blue-700 group-hover:decoration-dashed group-hover:underline">
-                  {mic?.name}
-                </h2>
-              </div>
+              <h2 className="lg:text-3xl text-2xl font-bold text-blue-700 group-hover:decoration-dashed group-hover:underline">
+                {mic?.name}
+              </h2>
               <div className="pr-1 text-slate-700 font-bold">{mic.mic_address.venue}</div>
-              <div className="flex flex-row flex-wrap text-green-700 text-base">
+              <div className="flex flex-row flex-wrap text-slate-600 text-base">
                 {mic.mic_address.unit_number ? (
                   <p className="pr-1">{mic.mic_address.unit_number} </p>
                 ) : null}
@@ -68,14 +60,13 @@ const MicCard = () => {
               </div>
               <div className="flex flex-row pt-3 text-base">
                 <p className="pr-1">Cost: </p>
-                <p className="font-bold ">
-                  {' '}
+                <p className="font-bold">
                   {mic?.cost_id === 1 ? 'Free' : mic?.mic_cost.cost_amount}
                 </p>
               </div>
             </div>
           </div>
-        </Card>
+        </button>
       );
       if ((index + 1) % 5 === 0) {
         items.push(<AdBanner key={`ad-${index}`} />);
@@ -98,7 +89,3 @@ const MicCard = () => {
 };
 
 export default MicCard;
-
-export type MicCardProps = {
-  mics: any;
-};

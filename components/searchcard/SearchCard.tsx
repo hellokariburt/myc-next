@@ -10,7 +10,7 @@ import TimeSelect from '../select/TimeSelect';
 
 const SearchCard = () => {
   const [day, setDay] = useState('');
-  const [borough, setBorough] = useState([]);
+  const [borough, setBorough] = useState<string[]>([]);
   const [free, setFree] = useState(false);
   const [startTime, setStartTime] = useState('');
 
@@ -26,7 +26,7 @@ const SearchCard = () => {
 
   return (
     <div className="w-full md:max-w-4xl pb-12">
-      <div className="flex flex-col mx-4 shadow-[0_8px_24px_rgba(0,0,0,0.20)] p-6 gap-4 mt-4   bg-[var(--mantine-color-body)]">
+      <div className="flex flex-col mx-4 shadow-[0_8px_24px_rgba(0,0,0,0.20)] p-6 gap-4 mt-4   bg-white">
         <div className="flex flex-col md:flex-row gap-4 md:mb-2 md:items-center justify-center">
           <BoroughSelect value={borough} setValue={setBorough} />
 

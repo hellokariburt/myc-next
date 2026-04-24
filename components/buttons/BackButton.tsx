@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { TbArrowLeft } from 'react-icons/tb';
+import { IconArrowLeft } from '@tabler/icons-react';
 
 export function BackButton() {
   const router = useRouter();
@@ -13,7 +13,7 @@ export function BackButton() {
         onClick={() => router.back()}
         className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-700 text-white font-medium py-1.5 px-4 rounded-full text-sm transition-colors"
       >
-        <TbArrowLeft size={20} />
+        <IconArrowLeft size={20} />
         Back to listings
       </button>
     </div>

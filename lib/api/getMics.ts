@@ -1,4 +1,3 @@
-import qs from 'query-string';
 import { request } from '../utils/request';
 
 export const getMics: any = async (params: any) => {
@@ -7,12 +6,14 @@ export const getMics: any = async (params: any) => {
   }
 
   try {
-    const search = qs.stringify(params, {
-      encode: true,
-      skipNull: true,
+    const searchParams = new URLSearchParams();
+    Object.entries(params).forEach(([key, val]) => {
+      if (val != null && val !== '') {
+        searchParams.set(key, String(val));
+      }
     });
 
-    return await request(`/api/mics?${search}`);
+    return await request(`/api/mics?${searchParams.toString()}`);
   } catch (err) {
     throw Error('No mic found');
   }

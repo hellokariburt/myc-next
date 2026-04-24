@@ -1,54 +1,25 @@
 'use client';
 
-import { Anchor, Group, ActionIcon, rem } from '@mantine/core';
 import { IconMail } from '@tabler/icons-react';
-// import { useRouter } from 'next/navigation';
-import classes from './Footer.module.css';
-import '@mantine/core/styles.css';
 
-const links = [
-  { link: '/about', label: 'Contact' },
-  // { link: '#', label: 'Privacy' },
-];
-
-const Footer = () => {
-  // const router = useRouter();
-  const items = links.map((link) => (
-    <Anchor
-      c="#1A2A2C"
-      key={link.label}
-      lh={1}
-      // onClick={(event) => {
-      //   event.preventDefault();
-      //   router.push(link.link);
-      // }}
-      size="sm"
-      href="/about"
-    >
-      {link.label}
-    </Anchor>
-  ));
-
-  return (
-    <div className={classes.footer}>
-      <div className={classes.inner}>
-        <Group className={classes.links}>{items}</Group>
-
-        <Group gap="xs" justify="flex-end" wrap="nowrap">
-          <ActionIcon
-            component="a"
-            href="mailto:openmycapp@gmail.com"
-            aria-label="Email support"
-            size="md"
-            variant="default"
-            radius="xl"
-          >
-            <IconMail style={{ width: rem(18), height: rem(18), color: '#1A2A2C' }} stroke={1.5} />
-          </ActionIcon>
-        </Group>
-      </div>
+const Footer = () => (
+  <footer className="fixed bottom-0 w-full bg-white border-t border-slate-200 z-10">
+    <div className="flex justify-between items-center px-4 py-3 max-w-5xl mx-auto">
+      <a
+        href="/about"
+        className="text-sm text-slate-600 hover:text-blue-600 hover:underline"
+      >
+        Contact
+      </a>
+      <a
+        href="mailto:openmycapp@gmail.com"
+        aria-label="Email support"
+        className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors"
+      >
+        <IconMail size={18} stroke={1.5} />
+      </a>
     </div>
-  );
-};
+  </footer>
+);
 
 export default Footer;

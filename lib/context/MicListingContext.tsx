@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useEffect } from 'react';
-import { TbMicrophoneOff } from 'react-icons/tb';
+import { IconMicrophoneOff } from '@tabler/icons-react';
 import { useMics } from '../hooks/useMics';
 import { ClearQuery, GetQuery, SetPagination, SetQuery, useQuery } from '../hooks/useQuery';
 
@@ -25,7 +25,7 @@ export const MicListingContextProvider = ({ children }: MicListingContextProps) 
   const renderError = () => (
     <div className="p-32 flex flex-col">
       <h1>404 ... </h1>
-      <TbMicrophoneOff size={32} />
+      <IconMicrophoneOff size={32} />
       <p>No Mics Found</p>
     </div>
   );

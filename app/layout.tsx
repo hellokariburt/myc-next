@@ -1,9 +1,6 @@
-import '@mantine/core/styles.css';
 import React from 'react';
 import type { Viewport } from 'next';
 import Script from 'next/script';
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
-import { theme } from '../theme';
 import './globals.css';
 import { ReactQueryProvider } from './ReactQueryProvider';
 
@@ -24,13 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <ReactQueryProvider>
         <html lang="en">
           <head>
-            <ColorSchemeScript />
             <link rel="apple-touch-icon" href="/icon.png" />
-
             <link rel="shortcut icon" href="/icon.png" />
           </head>
           <body>
-            <MantineProvider theme={theme}>{children}</MantineProvider>
+            {children}
             <Script
               src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
               strategy="lazyOnload"

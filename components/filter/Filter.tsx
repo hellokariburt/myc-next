@@ -1,7 +1,7 @@
-import { Container } from '@mantine/core';
-import '@mantine/core/styles.css';
+'use client';
+
 import { useContext, useState } from 'react';
-import { TbSearch } from 'react-icons/tb';
+import { IconSearch } from '@tabler/icons-react';
 import BoroughSelect from '../select/BoroughSelect';
 import DaySelect from '../select/DaySelect';
 import FreeSwitch from '../select/FreeSwitch';
@@ -19,7 +19,6 @@ const Filter = () => {
   const startTimeString2 = params.get('start-time')?.includes('00:00:00')
     ? ''
     : params.getAll('start-time')[0];
-  // const startTimeString = useState(params?.getAll('start-time'))[0];
   const val = params?.get('free') === 'true';
   const [borough, setBorough] = useState(boroughsArray);
   const [free, setFree] = useState(val);
@@ -37,11 +36,8 @@ const Filter = () => {
   };
 
   return (
-    <header className="hidden md:flex h-[rem(50px)] mb-[rem(120px)] fixed w-[100%] z-10 border-2 -mt-2 bg-[var(--mantine-color-body)]">
-      <Container
-        size="md"
-        className="flex h-[rem(56px)] space-between py-3 gap-6 space-between items-center"
-      >
+    <header className="hidden md:flex h-[50px] mb-[120px] fixed w-full z-10 border-b border-slate-200 -mt-0.5 bg-white">
+      <div className="flex h-[56px] max-w-5xl mx-auto py-3 gap-6 items-center px-4">
         <BoroughSelect value={borough} setValue={setBorough} />
         <DaySelect value={day} setValue={setDay} />
         <TimeSelect value={startTime} setValue={setStartTime} timePeriod="Start After" />
@@ -52,9 +48,9 @@ const Filter = () => {
           aria-label="Search"
           className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shrink-0"
         >
-          <TbSearch size={20} />
+          <IconSearch size={20} />
         </button>
-      </Container>
+      </div>
     </header>
   );
 };

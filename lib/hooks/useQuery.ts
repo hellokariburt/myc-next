@@ -1,6 +1,5 @@
 'use client';
 
-import qs from 'query-string';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 export const useQuery = (): [URLSearchParams, SetQuery, ClearQuery, GetQuery, SetPagination] => {
@@ -120,16 +119,12 @@ export const useQuery = (): [URLSearchParams, SetQuery, ClearQuery, GetQuery, Se
   };
 
   const clearQuery: ClearQuery = (q) => {
-    const currentParams = qs.parse(params.toString());
-    if (!q || !currentParams) {
+    if (!q) {
       return null;
     }
-    // eslint-disable-next-line no-restricted-syntax, guard-for-in
-    for (const key in q) {
-      delete currentParams[key];
-    }
-
-    params = new URLSearchParams(currentParams as Record<string, string>);
+    const updated = new URLSearchParams(params.toString());
+    Object.keys(q).forEach((key) => updated.delete(key));
+    params = updated;
     return (
       router.push(`${pathname}${params.toString()}`),
       {
