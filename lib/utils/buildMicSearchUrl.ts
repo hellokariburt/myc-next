@@ -1,5 +1,5 @@
 export function buildMicSearchUrl(filters: {
-  borough: string[] | string;
+  borough: string[];
   day: string;
   startTime: string;
   free: boolean;
@@ -7,7 +7,7 @@ export function buildMicSearchUrl(filters: {
   pageSize?: number;
 }): string {
   const params = new URLSearchParams();
-  params.set('borough', filters.borough.length > 0 ? String(filters.borough) : 'all');
+  params.set('borough', filters.borough.length > 0 ? filters.borough.join(',') : 'all');
   params.set('day', filters.day || 'all');
   params.set('start-time', filters.startTime || '00:00:00');
   params.set('free', String(filters.free));

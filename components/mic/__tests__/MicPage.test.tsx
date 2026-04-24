@@ -105,9 +105,9 @@ describe('MicPage', () => {
       mic_address: { ...fullMic.mic_address!, unit_number: 0 },
     };
     rerender(<MicPage mic={noUnitMic} />);
-    // unit_number 0 should not appear in the address section
-    const addressDiv = screen.getByText('123 Main St,').parentElement;
-    expect(addressDiv?.textContent).not.toContain('0');
+    // unit_number 0 should not appear — only street and borough render
+    expect(screen.getByText('123 Main St,')).toBeInTheDocument();
+    expect(screen.queryByText('0')).not.toBeInTheDocument();
   });
 
   it('shows Free when cost_amount is null', () => {

@@ -91,9 +91,9 @@ describe('buildMicSearchUrl', () => {
     expect(params.get('borough')).toBe('all');
   });
 
-  it('handles borough as string', () => {
+  it('handles single borough in array', () => {
     const url = buildMicSearchUrl({
-      borough: 'bronx',
+      borough: ['bronx'],
       day: '',
       startTime: '',
       free: false,
