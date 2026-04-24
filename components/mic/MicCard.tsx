@@ -69,9 +69,7 @@ const MicCard = () => {
                   <span className="pr-1">{mic.mic_address.unit_number} </span>
                 )}
                 <span className="pr-1">{mic.mic_address?.street_name},</span>
-                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs lg:text-sm font-medium ${getBoroughColor(mic.borough || '')}`}>
-                  {capitalizeDay(mic.borough || '')}
-                </span>
+                <span className={`font-bold ${getBoroughColor(mic.borough || '')}`}>{capitalizeDay(mic.borough || '')}</span>
               </div>
               <div className="pt-2">
                 <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs lg:text-sm font-medium ${

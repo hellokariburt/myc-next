@@ -69,9 +69,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
               <span>{mic.mic_address.unit_number}</span>
             )}
             <span>{mic?.mic_address?.street_name},</span>
-            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm font-medium ${getBoroughColor(mic.borough || '')}`}>
-              {capitalizeDay(mic.borough || '')}
-            </span>
+            <span className={`font-semibold ${getBoroughColor(mic.borough || '')}`}>{capitalizeDay(mic.borough || '')}</span>
           </div>
         </div>
 

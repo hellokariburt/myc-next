@@ -1,11 +1,11 @@
 const boroughColors: Record<string, string> = {
-  manhattan: 'bg-blue-50 text-blue-700',
-  brooklyn: 'bg-purple-50 text-purple-700',
-  queens: 'bg-orange-50 text-orange-700',
-  bronx: 'bg-rose-50 text-rose-700',
-  'staten-island': 'bg-teal-50 text-teal-700',
+  manhattan: 'text-blue-600',
+  brooklyn: 'text-purple-600',
+  queens: 'text-orange-600',
+  bronx: 'text-rose-600',
+  'staten-island': 'text-teal-600',
 };
 
 export function getBoroughColor(borough: string): string {
-  return boroughColors[borough.toLowerCase()] || 'bg-slate-100 text-slate-700';
+  return boroughColors[borough.toLowerCase()] || 'text-slate-600';
 }
