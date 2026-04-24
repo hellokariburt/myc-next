@@ -20,6 +20,7 @@ export async function GET(request: NextRequest) {
     const mic = await getMic(id);
     return NextResponse.json(serialize({ mic }));
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }

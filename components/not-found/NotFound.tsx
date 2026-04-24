@@ -4,9 +4,7 @@ import '@mantine/core/styles.css';
 import { Card } from '@mantine/core';
 import PageLayout from '../pagelayout/PageLayout';
 
-const NotFound = () => {
-  console.log('About');
-  return (
+const NotFound = () => (
     <PageLayout className="h-[100%] items-center">
       <div className="flex flex-col items-center justify-center py-36 h-full ">
         <Card className="flex flex-1 bg-slate-500 pt-32 max-w-[800px]">
@@ -18,8 +16,7 @@ const NotFound = () => {
         </Card>
       </div>
     </PageLayout>
-  );
-};
+);
 
 export default NotFound;
 

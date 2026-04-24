@@ -7,6 +7,7 @@
   @media (max-width: mantine-breakpoint-md) {
     font-size: rem(40px);
   }
+
   @media (max-width: mantine-breakpoint-sm) {
     font-size: rem(20px);
   }
