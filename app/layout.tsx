@@ -1,6 +1,7 @@
 import '@mantine/core/styles.css';
 import React from 'react';
 import type { Viewport } from 'next';
+import Script from 'next/script';
 import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
 import './globals.css';
@@ -9,10 +10,6 @@ import { ReactQueryProvider } from './ReactQueryProvider';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  // Also supported by less commonly used
-  // interactiveWidget: 'resizes-visual',
 };
 
 export const metadata = {
@@ -31,25 +28,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <link rel="apple-touch-icon" href="/icon.png" />
 
             <link rel="shortcut icon" href="/icon.png" />
-            {/* <meta
-              name="viewport"
-              content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
-            /> */}
-            <script
-              async
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-              crossOrigin="anonymous"
-            />
-            <script
-              data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
-              async
-              src="//gc.zgo.at/count.js"
-              // data-goatcounter-settings='{"no_onload": true}'
-              data-goatcounter-settings='{"allow_local": true}'
-            />
           </head>
           <body>
             <MantineProvider theme={theme}>{children}</MantineProvider>
+            <Script
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+              strategy="lazyOnload"
+              crossOrigin="anonymous"
+            />
+            <Script
+              src="https://gc.zgo.at/count.js"
+              strategy="lazyOnload"
+              data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
+              data-goatcounter-settings='{"allow_local": true}'
+            />
           </body>
         </html>
       </ReactQueryProvider>
