@@ -13,6 +13,7 @@ import {
 import { MicDetail } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { getBoroughColor } from '@/lib/utils/boroughColor';
 import MicHosts from './MicHosts';
 
 const MicPage = ({ mic }: { mic: MicDetail }) => {
@@ -68,7 +69,9 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
               <span>{mic.mic_address.unit_number}</span>
             )}
             <span>{mic?.mic_address?.street_name},</span>
-            <span className="font-semibold">{capitalizeDay(mic.borough || '')}</span>
+            <span className={`inline-flex items-center px-2.5 py-1 rounded-full text-sm font-medium ${getBoroughColor(mic.borough || '')}`}>
+              {capitalizeDay(mic.borough || '')}
+            </span>
           </div>
         </div>
 

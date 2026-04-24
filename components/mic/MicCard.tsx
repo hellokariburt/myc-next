@@ -6,6 +6,7 @@ import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import ChatPagination2 from '../pagination/ChatPagination2';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { getBoroughColor } from '@/lib/utils/boroughColor';
 import { SearchResults } from './SearchResults';
 import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
@@ -68,7 +69,9 @@ const MicCard = () => {
                   <span className="pr-1">{mic.mic_address.unit_number} </span>
                 )}
                 <span className="pr-1">{mic.mic_address?.street_name},</span>
-                <span className="font-bold">{capitalizeDay(mic.borough || '')}</span>
+                <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs lg:text-sm font-medium ${getBoroughColor(mic.borough || '')}`}>
+                  {capitalizeDay(mic.borough || '')}
+                </span>
               </div>
               <div className="pt-2">
                 <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs lg:text-sm font-medium ${
