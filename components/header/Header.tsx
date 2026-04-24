@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Filter from '../filter/Filter';
-import MobileFilterButton from '../filter/MobileFilterButton';
 import { HeaderDrawer } from '../header-drawer/header-drawer';
 import { BackButton } from '../buttons/BackButton';
 
@@ -12,7 +11,7 @@ const links = [
   { link: 'https://forms.gle/xAaTnwZNi2mq3UDE9', label: 'Submit a Mic' },
 ];
 
-const Header = ({ hasFilter, hasMobileFilter, hasBackButton }: HeaderProps) => {
+const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -58,11 +57,6 @@ const Header = ({ hasFilter, hasMobileFilter, hasBackButton }: HeaderProps) => {
         </div>
       )}
       {hasFilter && <Filter />}
-      {hasMobileFilter && (
-        <div className="block md:hidden border-t border-slate-100 bg-white px-4 py-2">
-          <MobileFilterButton />
-        </div>
-      )}
     </header>
   );
 };
@@ -71,6 +65,5 @@ export default Header;
 
 export type HeaderProps = {
   hasFilter?: boolean;
-  hasMobileFilter?: boolean;
   hasBackButton?: boolean;
 };

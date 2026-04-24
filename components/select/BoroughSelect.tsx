@@ -33,24 +33,23 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
 
   const display = value.length > 0
     ? value.map((v) => boroughs.find((b) => b.value === v)?.label).join(', ')
-    : 'Pick borough';
+    : 'All boroughs';
 
   return (
-    <div className="w-auto md:w-[220px] relative" ref={ref}>
-      <label className="block text-sm font-semibold text-slate-800 mb-1">Borough</label>
+    <div className="relative flex-1 min-w-0" ref={ref}>
       <button
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className="flex items-center gap-2 w-full pl-3 pr-8 py-2 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-left"
+        className="flex items-center gap-2 w-full pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-left hover:border-slate-400 transition-colors"
       >
         <IconMapPin size={16} className="text-slate-400 shrink-0" />
-        <span className={value.length > 0 ? 'text-slate-800 truncate' : 'text-slate-500 truncate'}>
+        <span className={value.length > 0 ? 'text-slate-800 truncate' : 'text-slate-400 truncate'}>
           {display}
         </span>
       </button>
-      <svg className="absolute right-2.5 top-[38px] w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
       {open && (
@@ -58,7 +57,7 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
           {boroughs.map((b) => (
             <label
               key={b.value}
-              className="flex items-center gap-2 px-3 py-1.5 hover:bg-slate-50 cursor-pointer text-sm"
+              className="flex items-center gap-2 px-3 py-2 hover:bg-slate-50 cursor-pointer text-sm"
             >
               <input
                 type="checkbox"

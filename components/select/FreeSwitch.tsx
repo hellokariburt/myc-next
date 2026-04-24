@@ -1,25 +1,23 @@
 'use client';
 
+import { IconCurrencyDollar } from '@tabler/icons-react';
+
 const FreeSwitch = ({ checked, setChecked }: FreeSwitchProps) => (
-  <div className="flex items-center gap-2">
-    <span id="free-switch-label" className="text-sm font-semibold text-slate-800">Free</span>
-    <button
-      type="button"
-      role="switch"
-      aria-checked={checked}
-      aria-labelledby="free-switch-label"
-      onClick={() => setChecked(!checked)}
-      className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors cursor-pointer ${
-        checked ? 'bg-blue-600' : 'bg-slate-300'
-      }`}
-    >
-      <span
-        className={`inline-block h-4 w-4 rounded-full bg-white transition-transform ${
-          checked ? 'translate-x-6' : 'translate-x-1'
-        }`}
-      />
-    </button>
-  </div>
+  <button
+    type="button"
+    role="switch"
+    aria-checked={checked}
+    aria-label="Free mics only"
+    onClick={() => setChecked(!checked)}
+    className={`flex items-center gap-2 px-3 py-2.5 border rounded-lg text-sm transition-colors shrink-0 ${
+      checked
+        ? 'bg-blue-50 border-blue-300 text-blue-700'
+        : 'bg-white border-slate-300 text-slate-400 hover:border-slate-400'
+    }`}
+  >
+    <IconCurrencyDollar size={16} className={checked ? 'text-blue-500' : 'text-slate-400'} />
+    <span className={checked ? 'font-medium text-blue-700' : 'text-slate-500'}>Free</span>
+  </button>
 );
 
 type FreeSwitchProps = {

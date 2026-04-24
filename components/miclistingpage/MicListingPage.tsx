@@ -9,7 +9,7 @@ export function MicListingPage2() {
   const { mics, isLoading } = useMicSearch();
 
   return (
-    <PageLayout className="pb-16 bg-[#F5F5F5] bg-cover h-full" hasFilter hasMobileFilter>
+    <PageLayout className="pb-16 bg-[#F5F5F5] bg-cover h-full" hasFilter>
       <MicCard />
       <MicMapLoad mics={mics} isLoading={isLoading} />
     </PageLayout>

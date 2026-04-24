@@ -31,20 +31,26 @@ const Filter = () => {
   };
 
   return (
-    <div className="hidden md:block border-t border-slate-100 bg-white">
-      <div className="flex max-w-5xl mx-auto py-2 gap-4 items-center px-4">
-        <BoroughSelect value={borough} setValue={setBorough} />
-        <DaySelect value={day} setValue={setDay} />
-        <TimeSelect value={startTime} setValue={setStartTime} timePeriod="Start After" />
-        <FreeSwitch checked={free} setChecked={setFree} />
-        <button
-          type="button"
-          onClick={handleSearch}
-          aria-label="Search"
-          className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shrink-0"
-        >
-          <IconSearch size={20} />
-        </button>
+    <div className="border-t border-slate-100 bg-white">
+      <div className="max-w-5xl mx-auto px-4 py-2">
+        <div className="flex flex-col sm:flex-row gap-2 sm:items-center">
+          <div className="flex gap-2 flex-1 min-w-0">
+            <BoroughSelect value={borough} setValue={setBorough} />
+            <DaySelect value={day} setValue={setDay} />
+          </div>
+          <div className="flex gap-2 flex-1 min-w-0 items-center">
+            <TimeSelect value={startTime} setValue={setStartTime} />
+            <FreeSwitch checked={free} setChecked={setFree} />
+            <button
+              type="button"
+              onClick={handleSearch}
+              aria-label="Search"
+              className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shrink-0"
+            >
+              <IconSearch size={20} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
