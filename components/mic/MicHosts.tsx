@@ -1,32 +1,42 @@
 import { IconBrandInstagram, IconMail } from '@tabler/icons-react';
 
 const MicHosts = ({ mic }: { mic: any }) => {
-  const hostLoop = mic?.host_mics?.map((x: any, index: any) => (
-    <div key={index}>
-      <p>{x.mic_host.first_host}</p>
-      {x.mic_host.email && (
-        <div className="flex gap-1 text-sm items-center">
-          <IconMail size="20px" />
-          <p>{x.mic_host.email}</p>
-        </div>
-      )}
-      {x.mic_host.instagram && (
-        <div className="flex gap-1 text-sm items-center">
-          <IconBrandInstagram size="20px" />
-          <p>{x.mic_host.instagram}</p>
-        </div>
-      )}
-    </div>
-  ));
+  const hosts = mic?.host_mics;
+
+  if (!hosts || hosts.length === 0) {
+    return null;
+  }
 
   return (
-    <div>
-      {hostLoop && hostLoop.length > 0 && (
-        <div className="flex flex-row px-4 pt-3 text-base">
-          <p className="pr-1 font-bold">Hosts: </p>
-          <div>{hostLoop}</div>
-        </div>
-      )}
+    <div className="flex items-baseline gap-2">
+      <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide shrink-0">Hosts</span>
+      <div className="flex flex-col gap-1">
+        {hosts.map((x: any, index: number) => (
+          <div key={index} className="flex flex-wrap items-center gap-2 text-slate-700">
+            <span>{x.mic_host.first_host}</span>
+            {x.mic_host.email && (
+              <a
+                href={`mailto:${x.mic_host.email}`}
+                className="text-blue-600 hover:text-blue-800 flex items-center gap-0.5 text-sm"
+              >
+                <IconMail size={14} aria-hidden="true" />
+                {x.mic_host.email}
+              </a>
+            )}
+            {x.mic_host.instagram && (
+              <a
+                href={`https://instagram.com/${x.mic_host.instagram.replace(/^@/, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 flex items-center gap-0.5 text-sm"
+              >
+                <IconBrandInstagram size={14} aria-hidden="true" />
+                {x.mic_host.instagram}
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
