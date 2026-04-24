@@ -12,7 +12,7 @@ export const getMics: any = async (params: any) => {
       skipNull: true,
     });
 
-    return await request(`/api/micTimes?${search}`);
+    return await request(`/api/mics?${search}`);
   } catch (err) {
     throw Error('No mic found');
   }

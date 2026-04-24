@@ -8,8 +8,7 @@ import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import MicHosts from './MicHosts';
 
-const MicPage = ({ mic }: { mic: any }) => {
-  return (
+const MicPage = ({ mic }: { mic: any }) => (
     <div className="flex flex-col gap-6 lg:w-[50%] w-auto py-32 min-w-[300px] lg:min-h-[100vh]  text-slate-700">
       <Container fluid className="flex flex-col-reverse md:flex-row p-3 pb-6 bg-white">
         <div className="flex flex-col pt-6 pl-0 lg:pl-2 pr-6 border-none md:border-[slate-500] md:border-solid border-r-2 text-base md:text-2xl ">
@@ -112,7 +111,6 @@ const MicPage = ({ mic }: { mic: any }) => {
         </div>
       </Container>
     </div>
-  );
-};
+);
 
 export default MicPage;

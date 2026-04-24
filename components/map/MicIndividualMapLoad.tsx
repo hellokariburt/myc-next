@@ -52,6 +52,7 @@ const MicIndividualMapLoad = ({ mic }: { mic: any }) => {
       </div>
       {!expanded && (
         <button
+          type="button"
           onClick={() => setExpanded(true)}
           className="lg:hidden text-blue-600 hover:text-blue-800 text-sm font-semibold py-2 underline underline-offset-2"
         >
