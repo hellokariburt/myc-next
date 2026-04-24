@@ -1,23 +1,36 @@
-import { Suspense } from 'react';
-import { MicDetailPage2 } from '@/components/micdetailpage/MicDetailPage';
-import { MicDetailContextProvider } from '@/lib/context/MicDetailContext';
+import { notFound } from 'next/navigation';
+import { getMic } from '@/lib/services/mics.service';
+import { serialize } from '@/lib/utils/serialize';
+import PageLayout from '@/components/pagelayout/PageLayout';
+import MicPage from '@/components/mic/MicPage';
+import MicIndividualMapLoad from '@/components/map/MicIndividualMapLoad';
 
-// Unsucessful Static for Digital Ocean Static
-// export function generateStaticParams() {
-//   const totalMics = Array.from(Array(1000).keys());
-//   const openMic = totalMics.map((mic: any) => ({
-//     id: mic.toString(),
-//   }));
+export const revalidate = 3600;
 
-//   return openMic;
-// }
+export default async function Page({ params }: { params: { id: string } }) {
+  let id: bigint;
+  try {
+    id = BigInt(params.id);
+  } catch {
+    notFound();
+  }
 
-export default function Page() {
+  if (id <= BigInt(0)) {
+    notFound();
+  }
+
+  const raw = await getMic(id);
+
+  if (!raw) {
+    notFound();
+  }
+
+  const mic = serialize(raw);
+
   return (
-    <Suspense>
-      <MicDetailContextProvider>
-        <MicDetailPage2 />
-      </MicDetailContextProvider>
-    </Suspense>
+    <PageLayout hasBackButton className="marker:pb-16 bg-[#F5F5F5] bg-cover h-[full]">
+      <MicPage mic={mic} />
+      <MicIndividualMapLoad mic={mic} />
+    </PageLayout>
   );
 }

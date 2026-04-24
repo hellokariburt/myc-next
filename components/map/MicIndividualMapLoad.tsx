@@ -5,7 +5,7 @@ import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import changeTime from '@/lib/utils/changeTime';
 import InfoMarker from './InfoMarker';
 
-const MicIndividualMapLoad = ({ mics }: MicIndividualMapLoadType) => {
+const MicIndividualMapLoad = ({ mic }: { mic: any }) => {
   const [expanded, setExpanded] = useState(false);
   const { isLoaded } = useJsApiLoader({
     id: `${process.env.NEXT_PUBLIC_MAP_ID}`,
@@ -17,12 +17,12 @@ const MicIndividualMapLoad = ({ mics }: MicIndividualMapLoadType) => {
     height: '100%',
   };
 
-  if (!mics?.mic) {
+  if (!mic) {
     return <></>;
   }
 
-  const micLat = mics.mic.mic_address?.latitude;
-  const micLong = mics.mic.mic_address?.longitude;
+  const micLat = mic.mic_address?.latitude;
+  const micLong = mic.mic_address?.longitude;
 
   if (!micLat || !micLong) {
     return <></>;
@@ -39,14 +39,14 @@ const MicIndividualMapLoad = ({ mics }: MicIndividualMapLoadType) => {
       >
         <GoogleMap mapContainerStyle={containerStyle} center={position} zoom={12}>
           <InfoMarker
-            latitude={mics.mic?.mic_address.latitude}
-            longitude={mics.mic?.mic_address.longitude}
-            name={mics.mic?.name}
-            venue={mics?.mic.mic_address.venue}
-            day={mics.mic?.day}
-            time={changeTime(mics.mic?.start_time)}
-            cost={mics.mic?.cost_id === 1 ? 'Free' : mics.mic?.mic_cost.cost_amount}
-            href={`https://maps.google.com/maps?q=${mics?.mic.mic_address.venue},${mics?.mic.mic_address.unit_number},${mics?.mic.mic_address.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
+            latitude={mic.mic_address.latitude}
+            longitude={mic.mic_address.longitude}
+            name={mic.name}
+            venue={mic.mic_address.venue}
+            day={mic.day}
+            time={changeTime(mic.start_time)}
+            cost={mic.cost_id === 1 ? 'Free' : mic.mic_cost.cost_amount}
+            href={`https://maps.google.com/maps?q=${mic.mic_address.venue},${mic.mic_address.unit_number},${mic.mic_address.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
           />
         </GoogleMap>
       </div>
@@ -65,7 +65,3 @@ const MicIndividualMapLoad = ({ mics }: MicIndividualMapLoadType) => {
 };
 
 export default MicIndividualMapLoad;
-
-export type MicIndividualMapLoadType = {
-  mics: any;
-};

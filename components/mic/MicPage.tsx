@@ -1,47 +1,14 @@
 'use client';
 
-import { useContext } from 'react';
-import { Container, Loader } from '@mantine/core';
+import { Container } from '@mantine/core';
 import { IconExternalLink, IconMapPin, IconBrandInstagram, IconMail } from '@tabler/icons-react';
 import '@mantine/core/styles.css';
-// import { TbMicrophoneOff } from 'react-icons/tb';
 
-import { MicDetailContext } from '@/lib/context/MicDetailContext';
 import changeTime from '@/lib/utils/changeTime';
-// import { BackButton } from '../buttons/BackButton';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
-import NoMicFound from '../not-found/NoMicFound';
 import MicHosts from './MicHosts';
 
-const MicPage = () => {
-  const { mics, isLoading } = useContext(MicDetailContext);
-
-  if (isLoading || !mics) {
-    return (
-      <div className="flex pt-36 justify-center min-h-[100vh]">
-        <Loader color="blue" />
-      </div>
-    );
-  }
-
-  if (mics?.totalMics === 0) {
-    return (
-      <div className="flex pt-36 justify-center">
-        <NoMicFound />
-      </div>
-    );
-  }
-
-  if (mics.mic === null) {
-    return (
-      <div className="flex justify-center pt-36">
-        <NoMicFound />
-      </div>
-    );
-  }
-
-  const { mic } = mics;
-
+const MicPage = ({ mic }: { mic: any }) => {
   return (
     <div className="flex flex-col gap-6 lg:w-[50%] w-auto py-32 min-w-[300px] lg:min-h-[100vh]  text-slate-700">
       <Container fluid className="flex flex-col-reverse md:flex-row p-3 pb-6 bg-white">
@@ -81,7 +48,7 @@ const MicPage = () => {
             <p>{mic?.mic_address.street_name},</p>
             <p className="font-semibold">{capitalizeDay(mic.borough.toString())}</p>
           </div>
-          <MicHosts />
+          <MicHosts mic={mic} />
           <div className="flex flex-col px-4 pt-2 gap-2">
             {mic?.mic_address?.street_name && (
               <a
@@ -149,7 +116,3 @@ const MicPage = () => {
 };
 
 export default MicPage;
-
-export type MicPageProps = {
-  mics?: any;
-};
