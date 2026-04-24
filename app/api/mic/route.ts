@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const rawId = request.nextUrl.searchParams.get('id');
