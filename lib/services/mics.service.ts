@@ -5,7 +5,7 @@ const getMics = async (params: MicQueryParams) => {
   const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
   const freeFilter = params.cost === 'true'
-    ? { mic_cost: { cost_amount: { contains: 'free', mode: 'insensitive' as const } } }
+    ? { mic_cost: { cost_amount: { contains: 'Free' } } }
     : {};
 
   const startTime =
