@@ -72,7 +72,7 @@ const MicCard = () => {
               </div>
               <div className="pt-2">
                 <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs lg:text-sm font-medium ${
-                  !mic?.mic_cost?.cost_amount || mic.mic_cost.cost_amount.toLowerCase().includes('free')
+                  !mic?.mic_cost?.cost_amount || mic.mic_cost.cost_amount.includes('Free')
                     ? 'bg-green-50 text-green-700'
                     : 'bg-amber-50 text-amber-700'
                 }`}>

@@ -46,7 +46,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
             {changeTime(mic.start_time || '')}
           </span>
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
-            !mic?.mic_cost?.cost_amount || mic.mic_cost.cost_amount.toLowerCase().includes('free')
+            !mic?.mic_cost?.cost_amount || mic.mic_cost.cost_amount.includes('Free')
               ? 'bg-green-50 text-green-700'
               : 'bg-amber-50 text-amber-700'
           }`}
