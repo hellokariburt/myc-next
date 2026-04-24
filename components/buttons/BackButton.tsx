@@ -10,12 +10,12 @@ export function BackButton() {
   return (
     <div className="h-[rem(50px)] mb-[rem(120px)] fixed w-[100%] z-10 bg-white border-2 -mt-2 p-2">
       <Button
-        onClick={() => router.push('/')}
+        onClick={() => router.back()}
         size="compact-md"
         radius="xl"
         leftSection={<TbArrowLeft size={20} />}
       >
-        Go to search
+        Back to listings
       </Button>
     </div>
   );

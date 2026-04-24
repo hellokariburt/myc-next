@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { Container, Loader } from '@mantine/core';
-import { IconExternalLink } from '@tabler/icons-react';
+import { IconExternalLink, IconMapPin, IconBrandInstagram, IconMail } from '@tabler/icons-react';
 import '@mantine/core/styles.css';
 // import { TbMicrophoneOff } from 'react-icons/tb';
 
@@ -82,7 +82,20 @@ const MicPage = () => {
             <p className="font-semibold">{capitalizeDay(mic.borough.toString())}</p>
           </div>
           <MicHosts />
-          <div className="flex flex-col px-4 pt-2">
+          <div className="flex flex-col px-4 pt-2 gap-2">
+            {mic?.mic_address?.street_name && (
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+                  `${mic.mic_address.venue}, ${mic.mic_address.street_name}, New York, NY`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold text-base transition-colors w-fit mt-2"
+              >
+                <IconMapPin size={20} />
+                Get Directions
+              </a>
+            )}
             {mic?.signup_instructions && (
               <div className="flex pt-3">
                 <p className="pr-1 font-bold">Signup: </p>
@@ -90,30 +103,42 @@ const MicPage = () => {
               </div>
             )}
             {mic?.email_address && (
-              <div className="flex">
+              <div className="flex items-center gap-1">
                 <p className="font-bold pr-1">Email:</p>
-                <p>{mic?.email_address}</p>
+                <a
+                  href={`mailto:${mic.email_address}`}
+                  className="text-blue-600 hover:text-blue-800 underline underline-offset-2 flex items-center gap-1"
+                >
+                  <IconMail size={16} />
+                  {mic.email_address}
+                </a>
               </div>
             )}
             {mic?.instagram && (
-              <div className="flex">
+              <div className="flex items-center gap-1">
                 <p className="font-bold pr-1">Instagram:</p>
-                <p>{mic?.instagram}</p>
+                <a
+                  href={`https://instagram.com/${mic.instagram.replace(/^@/, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline underline-offset-2 flex items-center gap-1"
+                >
+                  <IconBrandInstagram size={16} />
+                  {mic.instagram}
+                </a>
               </div>
             )}
             {mic?.website && /^https?:\/\//i.test(mic.website) && (
               <div className="flex text-base">
-                <p className="pl-16 text-blue-600 font-semibold items-center">
-                  <a
-                    className="underline decoration-dashed hover:decoration-solid flex gap-1 items-center"
-                    href={mic.website}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    View Website
-                    <IconExternalLink size="20px" />
-                  </a>
-                </p>
+                <a
+                  className="text-blue-600 font-semibold underline decoration-dashed hover:decoration-solid flex gap-1 items-center"
+                  href={mic.website}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  View Website
+                  <IconExternalLink size="20px" />
+                </a>
               </div>
             )}
           </div>
