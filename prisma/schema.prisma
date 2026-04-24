@@ -85,6 +85,6 @@ model mics {
 
 model signup_instructions {
   signup_id    BigInt  @id(map: "signup_instructions_pk") @default(autoincrement())
-  instructions String? @db.VarChar(255)
+  instructions String? @db.VarChar(500)
   mics         mics[]
 }
