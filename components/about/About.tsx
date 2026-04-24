@@ -63,10 +63,10 @@ const About = () => (
         <p className="pt-2">
           Any issues feel free to email:{' '}
           <Link
-            href="mailto:openmycapp@gmail.com"
+            href="mailto:hello@findopenmyc.com"
             className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold px-1"
           >
-            openmycapp@gmail.com
+            hello@findopenmyc.com
           </Link>
         </p>
         <h3 className="font-bold text-xl pt-6">What is the technology stack?</h3>

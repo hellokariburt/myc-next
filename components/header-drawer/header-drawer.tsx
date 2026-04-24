@@ -24,7 +24,12 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
         role="presentation"
       />
       {/* Drawer */}
-      <div className="fixed top-0 left-0 w-[55%] h-full bg-white z-50 shadow-xl p-6 pt-20">
+      <nav
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className="fixed top-0 left-0 w-[55%] h-full bg-white z-50 shadow-xl p-6 pt-20"
+      >
         <Link
           href="/about"
           className="block text-slate-700 hover:text-blue-600 py-2"
@@ -39,7 +44,7 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
         >
           Submit a mic
         </Link>
-      </div>
+      </nav>
     </>
   );
 }

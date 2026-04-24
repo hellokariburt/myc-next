@@ -34,7 +34,12 @@ const MobileFilterButton = () => {
             onClick={() => setOpened(false)}
             role="presentation"
           />
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl z-50 w-[90vw] max-w-md p-6">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Update mic search"
+            className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-xl shadow-xl z-50 w-[90vw] max-w-md p-6"
+          >
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-lg font-bold text-slate-800">Update Mic Search</h2>
               <button

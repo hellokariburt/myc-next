@@ -9,14 +9,13 @@ import { MicListingContext } from '@/lib/context/MicListingContext';
 const MobileFilter = ({ onSubmit }: MobileFilterProps) => {
   const { params, setQuery } = useContext(MicListingContext);
 
-  const allBoroughsArray = params.get('borough')?.split(',') || [];
+  const allBoroughsArray = params?.get('borough')?.split(',') || [];
   const boroughsArray = allBoroughsArray.includes('all') ? [] : allBoroughsArray;
 
-  const startTimeString2 = params.get('start-time')?.includes('00:00:00')
-    ? ''
-    : params.getAll('start-time')[0];
+  const rawTime = params?.get('start-time');
+  const startTimeString2 = !rawTime || rawTime.includes('00:00:00') ? '' : rawTime;
 
-  const daysArray = params?.get('day')?.includes('all') ? '' : params.get('day');
+  const daysArray = !params?.get('day') || params.get('day')?.includes('all') ? '' : params.get('day');
 
   const [day, setDay] = useState(daysArray);
   const val = params?.get('free') === 'true';

@@ -47,7 +47,7 @@ const MicPage = ({ mic }: { mic: any }) => {
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
             mic?.mic_cost?.cost_amount?.toLowerCase().includes('free')
               ? 'bg-green-50 text-green-700'
-              : 'bg-amber-50 text-amber-700'
+              : 'bg-emerald-50 text-emerald-700'
           }`}
           >
             <IconCurrencyDollar size={16} />

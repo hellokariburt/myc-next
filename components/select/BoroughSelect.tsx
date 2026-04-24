@@ -54,7 +54,7 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
       {open && (
-        <div className="absolute mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg z-50 py-1" role="listbox">
+        <div className="absolute mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg z-50 py-1" role="group" aria-label="Borough options">
           {boroughs.map((b) => (
             <label
               key={b.value}

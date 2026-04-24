@@ -36,19 +36,22 @@ const ChatPagination2 = () => {
         type="button"
         disabled={currentPage <= 1}
         onClick={() => handleChange(currentPage - 1)}
-        className="px-3 py-1.5 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Previous page"
+        className="px-3 py-2 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Prev
       </button>
       {pages.map((page, idx) =>
         page === '...' ? (
-          <span key={`dots-${idx}`} className="px-2 text-slate-400">...</span>
+          <span key={`dots-${idx}`} className="px-1 text-slate-400" aria-hidden="true">...</span>
         ) : (
           <button
             type="button"
             key={page}
             onClick={() => handleChange(page as number)}
-            className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+            aria-label={`Page ${page}`}
+            aria-current={currentPage === page ? 'page' : undefined}
+            className={`px-3 py-2 text-sm rounded border transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               currentPage === page
                 ? 'bg-blue-600 text-white border-blue-600'
                 : 'border-slate-300 text-slate-600 hover:bg-slate-50'
@@ -62,7 +65,8 @@ const ChatPagination2 = () => {
         type="button"
         disabled={currentPage >= totalPages}
         onClick={() => handleChange(currentPage + 1)}
-        className="px-3 py-1.5 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed"
+        aria-label="Next page"
+        className="px-3 py-2 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         Next
       </button>
