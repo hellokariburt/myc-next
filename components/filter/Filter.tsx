@@ -11,14 +11,13 @@ import TimeSelect from '../select/TimeSelect';
 const Filter = () => {
   const { params, setQuery } = useContext(MicListingContext);
 
-  const allBoroughsArray = params?.get('borough')?.split(',');
-  const boroughsArray = allBoroughsArray?.includes('all') ? [] : allBoroughsArray;
+  const allBoroughsArray = params?.get('borough')?.split(',') || [];
+  const boroughsArray = allBoroughsArray.includes('all') ? [] : allBoroughsArray;
 
-  const daysArray = params?.get('day')?.includes('all') ? '' : params.get('day');
+  const daysArray = !params?.get('day') || params.get('day')?.includes('all') ? '' : params.get('day');
 
-  const startTimeString2 = params.get('start-time')?.includes('00:00:00')
-    ? ''
-    : params.getAll('start-time')[0];
+  const rawTime = params?.get('start-time');
+  const startTimeString2 = !rawTime || rawTime.includes('00:00:00') ? '' : rawTime;
   const val = params?.get('free') === 'true';
   const [borough, setBorough] = useState(boroughsArray);
   const [free, setFree] = useState(val);

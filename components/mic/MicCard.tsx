@@ -16,7 +16,7 @@ const MicCard = () => {
 
   if (!mics || isLoading) {
     return (
-      <div className="flex pt-12 justify-center min-h-[100vh] relative z-10">
+      <div className="flex pt-12 justify-center min-h-[100vh] relative z-10 lg:w-[50vw]">
         <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -24,7 +24,7 @@ const MicCard = () => {
 
   if (mics?.mics?.length === 0) {
     return (
-      <div className="flex justify-center pt-12">
+      <div className="flex justify-center pt-12 lg:w-[50vw]">
         <NoMicFound />
       </div>
     );
@@ -78,7 +78,7 @@ const MicCard = () => {
   const openMic = mapMicsToCards(mics);
 
   return (
-    <div className="flex flex-col justify-between p-6 min-h-[100vh]">
+    <div className="flex flex-col justify-between p-6 min-h-[100vh] lg:w-[50vw]">
       {mics && <SearchResults />}
       <div className="flex flex-col gap-2">{openMic}</div>
       <div className="flex justify-center pt-8">

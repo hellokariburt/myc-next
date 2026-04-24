@@ -10,8 +10,8 @@ function PageLayout({
   hasBackButton,
 }: PageLayoutProps) {
   const hasSecondaryBar = hasFilter || hasMobileFilter || hasBackButton;
-  // Nav bar = 56px (h-14). Desktop filter bar ~76px. Mobile filter/back button ~44px.
-  const spacerClass = hasSecondaryBar ? 'pt-[100px] md:pt-[132px]' : 'pt-14';
+  // Nav bar = 56px (h-14). Desktop filter bar with labels ~100px. Mobile filter/back button ~48px.
+  const spacerClass = hasSecondaryBar ? 'pt-[108px] md:pt-[160px]' : 'pt-14';
   return (
     <div className={`min-h-screen flex flex-col ${className || ''}`}>
       <Header
