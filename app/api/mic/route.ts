@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getMic } from '@/lib/services/mics.service';
+import { serialize } from '@/lib/utils/serialize';
 
 export async function GET(request: NextRequest) {
   try {
@@ -17,7 +18,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'id must be a positive integer' }, { status: 400 });
     }
     const mic = await getMic(id);
-    return NextResponse.json({ mic });
+    return NextResponse.json(serialize({ mic }));
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
