@@ -1,12 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { getIndividualMics } from '../api/getIndividualMics';
 
-export const useIndividualMics = (params?: object) =>
-  // console.log('Individual Mics Works');
-
+export const useIndividualMics = (params?: { id?: string }) =>
   useQuery({
-    queryKey: ['mics', params],
-    enabled: false,
+    queryKey: ['mic', params?.id],
+    enabled: !!params?.id,
     retry: false,
     queryFn: () => getIndividualMics(params),
   });

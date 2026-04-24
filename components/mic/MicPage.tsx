@@ -59,10 +59,12 @@ const MicPage = () => {
                 {mic?.cost_id === 1 ? 'Free' : mic?.mic_cost.cost_amount}
               </p>
             </div>
-            <div className="flex flex-row text-xs pt-5 pl-2 md:pl-0">
-              <p className="font-bold">Confirmed: </p>
-              <p className="pl-1">{mic.confirmed.slice(0, 10)}</p>
-            </div>
+            {mic.confirmed && (
+              <div className="flex flex-row text-xs pt-5 pl-2 md:pl-0">
+                <p className="font-bold">Confirmed: </p>
+                <p className="pl-1">{mic.confirmed.slice(0, 10)}</p>
+              </div>
+            )}
           </div>
         </div>
         <div>
@@ -73,7 +75,9 @@ const MicPage = () => {
           </div>
 
           <div className="flex flex-row gap-1 text-green-700 px-4 flex-wrap">
-            <p>{mic?.mic_address.unit_number}</p>
+            {mic?.mic_address.unit_number ? (
+              <p>{mic.mic_address.unit_number}</p>
+            ) : null}
             <p>{mic?.mic_address.street_name},</p>
             <p className="font-semibold">{capitalizeDay(mic.borough.toString())}</p>
           </div>

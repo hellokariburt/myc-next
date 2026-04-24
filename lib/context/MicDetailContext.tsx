@@ -1,9 +1,8 @@
 'use client';
 
-import { createContext, useEffect } from 'react';
+import { createContext } from 'react';
 import { usePathname } from 'next/navigation';
-// import { TbMicrophoneOff } from 'react-icons/tb';
-import { ClearQuery, GetQuery, SetQuery, useQuery } from '../hooks/useQuery';
+import { ClearQuery, GetQuery, SetQuery } from '../hooks/useQuery';
 import { useIndividualMics } from '../hooks/useIndividualMics';
 
 export const MicDetailContext = createContext<MicDetailContextState>({
@@ -15,28 +14,13 @@ export const MicDetailContext = createContext<MicDetailContextState>({
 });
 
 export const MicDetailContextProvider = ({ children }: MicDetailContextProps) => {
-  const [params] = useQuery();
-  // const params = new URLSearchParams();
+  const pathname = usePathname();
 
-  // Get selected objects
-  // const params = new URLSearchParams();
-  const params2 = usePathname();
-
-  // const searchDetails = getQuery();
   const search = {
-    id: params2.split('/')[2],
+    id: pathname.split('/')[2],
   };
 
-  // const kari = setQuery(search);
-  // console.log('kari', kari);
-
-  const { data, isLoading, refetch, isError } = useIndividualMics(search);
-
-  useEffect(() => {
-    refetch();
-    // You can now use the current URL
-    // ...
-  }, [params]);
+  const { data, isLoading, isError } = useIndividualMics(search);
 
   // console.log('Mic Detail Context Works', data);
 
@@ -52,7 +36,7 @@ export const MicDetailContextProvider = ({ children }: MicDetailContextProps) =>
   if (isError) return <div>Error fetching mic</div>;
 
   return (
-    <MicDetailContext.Provider value={{ mics: data, refetch, isLoading }}>
+    <MicDetailContext.Provider value={{ mics: data, isLoading }}>
       {children}
     </MicDetailContext.Provider>
   );
