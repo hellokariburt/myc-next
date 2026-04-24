@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model host_mics {
+  mics_id  BigInt
+  host_id  BigInt
+  mic_host mic_host @relation(fields: [host_id], references: [host_id], onDelete: NoAction, onUpdate: NoAction)
+  mics     mics     @relation(fields: [mics_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([mics_id, host_id])
+}
+
+model mic_address {
+  address_id   BigInt  @id(map: "mic_address_pk") @default(autoincrement())
+  city         String? @db.VarChar(255)
+  country      String? @db.VarChar(255)
+  latitude     String? @db.VarChar(255)
+  longitude    String? @db.VarChar(255)
+  venue        String? @db.VarChar(255)
+  state        String? @db.VarChar(255)
+  street_name  String? @db.VarChar(255)
+  unit_number  Int
+  zipcode      String? @db.VarChar(255)
+  neighborhood String? @db.VarChar
+  mics         mics[]
+}
+
+model mic_cost {
+  cost_id     BigInt  @id(map: "mic_cost_pk") @default(autoincrement())
+  cost_amount String? @db.VarChar(255)
+  mics        mics[]
+ 
+}
+
+model mic_host {
+  host_id    BigInt      @id(map: "mic_host_pk") @default(autoincrement())
+  fifth_host String?     @db.VarChar(255)
+  first_host String?     @db.VarChar(255)
+  email      String?     @db.VarChar(255)
+  instagram  String?     @db.VarChar(255)
+  third_host String?     @db.VarChar(255)
+  host_mics  host_mics[]
+}
+
+
+model mic_occurrence {
+  occurrence_id BigInt  @id(map: "mic_occurrence_pk")
+  schedule      String? @db.VarChar
+  mics          mics[]
+}
+
+model mics {
+  id                  BigInt               @id(map: "mics_pk") @default(autoincrement())
+  borough             String?              @db.VarChar(255)
+  confirmed           DateTime?            @db.Date
+  day                 String?              @db.VarChar(255)
+  name                String?              @db.VarChar(255)
+  start_time          DateTime?            @db.Time(6)
+  address_id          BigInt?
+  cost_id             BigInt?
+  host_id             BigInt?
+  signup_id           BigInt?
+  notes               String?              @db.VarChar(255)
+  occurrence_id       BigInt?
+  instagram           String?              @db.VarChar(255)
+  website             String?              @db.VarChar(255)
+  email_address       String?              @db.VarChar(255)
+  phone_number        String?              @db.VarChar(255)
+  host_mics           host_mics[] 
+  mic_address         mic_address?         @relation(fields: [address_id], references: [address_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_address_fk")
+  mic_cost            mic_cost?            @relation(fields: [cost_id], references: [cost_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_cost_fk")
+  mic_occurrence      mic_occurrence?      @relation(fields: [occurrence_id], references: [occurrence_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_occurrence_fk")
+  signup_instructions signup_instructions? @relation(fields: [signup_id], references: [signup_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_signup_instructions_fk")
+}
+
+model signup_instructions {
+  signup_id    BigInt  @id(map: "signup_instructions_pk") @default(autoincrement())
+  instructions String? @db.VarChar(255)
+  mics         mics[]
+}
