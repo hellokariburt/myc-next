@@ -19,7 +19,7 @@ const About = () => (
         <p className="pt-2">
           OpenMYC was created by{' '}
           <Link
-            href="https://kariandreah.github.io/"
+            href="https://kariburt.com"
             className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold"
           >
             Kari Burt
@@ -52,11 +52,11 @@ const About = () => (
           This website is built based on what mics we know of. If you know of a mic that should be
           on the list feel free to
           <Link
-            href="https://forms.gle/xAaTnwZNi2mq3UDE9"
-            className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold px-1"
+            href="/submit"
+            className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold pl-1"
           >
-            submit a mic.
-          </Link>
+            submit a mic
+          </Link>.
           We will try to keep the list as up-to-date as possible.
         </p>
         <h3 className="font-bold text-xl pt-6">I have a different issue!</h3>
@@ -74,7 +74,7 @@ const About = () => (
           OpenMYC is a fullstack application consisting of a Next.js frontend with a PostgreSQL
           database, deployed on Vercel.
         </p>
-        <h3 className="font-semibold text-xl pt-8">
+        <h3 className="font-bold text-xl pt-8">
           Thank you for checking out
           <Link
             href="/"
