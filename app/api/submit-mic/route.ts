@@ -5,6 +5,10 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
 
+    if (body.website_url) {
+      return NextResponse.json({ success: true });
+    }
+
     const { name, borough, day, start_time, venue, street_address, cost } = body;
     if (!name || !borough || !day || !start_time || !venue || !street_address || !cost) {
       return NextResponse.json(

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import Link from 'next/link';
 import PageLayout from '../pagelayout/PageLayout';
 
 const boroughs = [
@@ -59,9 +60,24 @@ const SubmitMicForm = () => {
           <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] text-center">
             <h1 className="font-bold text-4xl">Thanks!</h1>
             <p className="pt-4 text-slate-600">
-              Your mic submission has been received. We&apos;ll review it and add it to the list if
-              everything checks out.
+              Your mic submission has been received. We&apos;ll review it and get it added to the
+              list — this usually takes a few days.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
+              <Link
+                href="/"
+                className="bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-6 rounded-lg font-semibold transition-colors"
+              >
+                Browse Mics
+              </Link>
+              <button
+                type="button"
+                onClick={() => setStatus('idle')}
+                className="border border-slate-300 hover:border-slate-400 text-slate-700 py-2.5 px-6 rounded-lg font-semibold transition-colors"
+              >
+                Submit Another
+              </button>
+            </div>
           </div>
         </div>
       </PageLayout>
@@ -78,6 +94,12 @@ const SubmitMicForm = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
+            {/* Honeypot - hidden from real users, bots will fill it */}
+            <div className="absolute opacity-0 -z-10" aria-hidden="true">
+              <label htmlFor="website_url">Website</label>
+              <input id="website_url" name="website_url" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
+
             {/* Mic info */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1">
               Mic Info
@@ -88,7 +110,7 @@ const SubmitMicForm = () => {
               <input id="name" name="name" type="text" required className={inputClass} placeholder="e.g. Tuesday Night Comedy" />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="borough" className={labelClass}>Borough *</label>
                 <select id="borough" name="borough" required className={selectClass} defaultValue="">
@@ -109,7 +131,7 @@ const SubmitMicForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="start_time" className={labelClass}>Start Time *</label>
                 <input id="start_time" name="start_time" type="time" required className={inputClass} />
@@ -125,7 +147,7 @@ const SubmitMicForm = () => {
               <input id="cost" name="cost" type="text" required className={inputClass} placeholder="e.g. Free, $5, 2 drink minimum" />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="venue_type" className={labelClass}>Venue Type</label>
                 <input id="venue_type" name="venue_type" type="text" className={inputClass} placeholder="e.g. Bar, Comedy Club, Cafe" />
@@ -171,7 +193,7 @@ const SubmitMicForm = () => {
               Host & Social
             </h2>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="host_name" className={labelClass}>Host Name</label>
                 <input id="host_name" name="host_name" type="text" className={inputClass} />
@@ -182,7 +204,7 @@ const SubmitMicForm = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="instagram" className={labelClass}>Mic Instagram</label>
                 <input id="instagram" name="instagram" type="text" className={inputClass} placeholder="@handle" />
