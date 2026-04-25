@@ -28,7 +28,7 @@ const AdBanner = () => {
         className="adsbygoogle"
         style={{ display: 'block' }}
         data-ad-client={process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}
-        data-ad-slot="auto"
+        data-ad-slot="6904570293"
         data-ad-format="auto"
         data-full-width-responsive="true"
       />
