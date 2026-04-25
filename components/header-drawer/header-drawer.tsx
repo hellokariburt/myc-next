@@ -38,7 +38,7 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
           About
         </Link>
         <Link
-          href="https://forms.gle/xAaTnwZNi2mq3UDE9"
+          href="/submit"
           className="block text-slate-700 hover:text-blue-600 py-2"
           onClick={close}
         >

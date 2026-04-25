@@ -8,7 +8,7 @@ import { BackButton } from '../buttons/BackButton';
 
 const links = [
   { link: '/about', label: 'About' },
-  { link: 'https://forms.gle/xAaTnwZNi2mq3UDE9', label: 'Submit a Mic' },
+  { link: '/submit', label: 'Submit a Mic' },
 ];
 
 const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
