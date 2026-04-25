@@ -6,7 +6,7 @@ import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import ChatPagination2 from '../pagination/ChatPagination2';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
-import { getBoroughColor } from '@/lib/utils/boroughColor';
+import { getBoroughColor, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 import { SearchResults } from './SearchResults';
 import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
@@ -52,7 +52,7 @@ const MicCard = () => {
           key={mic.id}
         >
           <div className="flex flex-row gap-3 lg:gap-6 min-w-0">
-            <div className="pr-2 lg:pr-4 pt-1 border-r-2 border-slate-300 text-sm lg:text-base shrink-0 w-[80px] lg:w-auto">
+            <div className={`pr-2 lg:pr-4 pt-1 border-r-2 ${getBoroughBorderColor(mic.borough || '')} text-sm lg:text-base shrink-0 w-[80px] lg:w-auto`}>
               <p className="font-bold">{capitalizeDay(mic.day || '')}</p>
               <p>{changeTime(mic.start_time || '')}</p>
               {mic?.mic_occurrence?.schedule && (
