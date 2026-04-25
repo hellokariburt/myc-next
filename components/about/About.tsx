@@ -69,6 +69,28 @@ const About = () => (
             hello@findopenmyc.com
           </Link>
         </p>
+        <h3 className="font-bold text-xl pt-6">Where does the mic data come from?</h3>
+        <p className="pt-2">
+          Mic data is sourced from{' '}
+          <Link
+            href="https://www.comediq.us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold"
+          >
+            Comediq
+          </Link>
+          , maintained by{' '}
+          <Link
+            href="https://instagram.com/malevcomedy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 underline decoration-dashed hover:decoration-solid font-semibold"
+          >
+            Adam Malev
+          </Link>
+          . Huge thanks to him for keeping the NYC comedy community informed.
+        </p>
         <h3 className="font-bold text-xl pt-6">What is the technology stack?</h3>
         <p className="pt-2">
           OpenMYC is a fullstack application consisting of a Next.js frontend with a PostgreSQL
