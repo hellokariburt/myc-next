@@ -14,6 +14,7 @@ import { MicDetail } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { getBoroughColor } from '@/lib/utils/boroughColor';
+import extractHandles from '@/lib/utils/extractHandles';
 import MicHosts from './MicHosts';
 
 const MicPage = ({ mic }: { mic: MicDetail }) => {
@@ -114,17 +115,22 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           )}
 
           {mic?.instagram && (
-            <div className="flex items-center gap-2">
+            <div className="flex items-baseline gap-2">
               <span className="text-sm font-semibold text-slate-500 uppercase tracking-wide shrink-0">Instagram</span>
-              <a
-                href={`https://instagram.com/${mic.instagram.replace(/^@/, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline underline-offset-2 flex items-center gap-1"
-              >
-                <IconBrandInstagram size={16} />
-                {mic.instagram}
-              </a>
+              <div className="flex flex-wrap gap-x-3 gap-y-1">
+                {extractHandles(mic.instagram).map((handle) => (
+                  <a
+                    key={handle}
+                    href={`https://instagram.com/${handle.replace(/^@/, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline underline-offset-2 flex items-center gap-1"
+                  >
+                    <IconBrandInstagram size={16} />
+                    @{handle.replace(/^@/, '')}
+                  </a>
+                ))}
+              </div>
             </div>
           )}
 

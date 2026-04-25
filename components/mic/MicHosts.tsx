@@ -1,5 +1,6 @@
 import { IconBrandInstagram, IconMail } from '@tabler/icons-react';
 import { MicDetail } from '@/lib/types/mic';
+import extractHandles from '@/lib/utils/extractHandles';
 
 const MicHosts = ({ mic }: { mic: MicDetail }) => {
   const hosts = mic?.host_mics;
@@ -24,17 +25,18 @@ const MicHosts = ({ mic }: { mic: MicDetail }) => {
                 {x.mic_host.email}
               </a>
             )}
-            {x.mic_host.instagram && (
+            {x.mic_host.instagram && extractHandles(x.mic_host.instagram).map((handle) => (
               <a
-                href={`https://instagram.com/${x.mic_host.instagram.replace(/^@/, '')}`}
+                key={handle}
+                href={`https://instagram.com/${handle.replace(/^@/, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 flex items-center gap-0.5 text-sm"
               >
                 <IconBrandInstagram size={14} aria-hidden="true" />
-                {x.mic_host.instagram}
+                @{handle.replace(/^@/, '')}
               </a>
-            )}
+            ))}
           </div>
         ))}
       </div>

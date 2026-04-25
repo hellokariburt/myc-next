@@ -3,7 +3,7 @@
 import { IconMail } from '@tabler/icons-react';
 
 const Footer = () => (
-  <footer className="w-full bg-white border-t border-slate-200">
+  <footer className="w-full bg-white border-t border-slate-200 mt-auto">
     <div className="flex justify-between items-center px-4 py-3 max-w-5xl mx-auto">
       <a
         href="mailto:hello@findopenmyc.com"

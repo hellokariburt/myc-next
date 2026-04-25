@@ -26,7 +26,22 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
   const micLong = mic.mic_address?.longitude;
 
   if (!micLat || !micLong) {
-    return <></>;
+    const fallbackQuery = mic.mic_address?.street_name
+      ? encodeURIComponent(`${mic.mic_address.venue}, ${mic.mic_address.street_name}, New York, NY`)
+      : null;
+
+    return fallbackQuery ? (
+      <div className="flex w-full lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] h-[250px] bg-slate-100 items-center justify-center">
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${fallbackQuery}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:text-blue-800 underline underline-offset-2 text-sm font-semibold"
+        >
+          View on Google Maps
+        </a>
+      </div>
+    ) : <></>;
   }
 
   const position = { lat: Number(micLat), lng: Number(micLong) };
