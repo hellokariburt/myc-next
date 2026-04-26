@@ -2,6 +2,7 @@ import React from 'react';
 import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import { ReactQueryProvider } from './ReactQueryProvider';
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </head>
           <body className={inter.className}>
             {children}
+            <Analytics />
             <Script
               src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
               strategy="lazyOnload"
