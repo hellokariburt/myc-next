@@ -2,7 +2,7 @@ import React from 'react';
 import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { ReactQueryProvider } from './ReactQueryProvider';
 
