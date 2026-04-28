@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import { IconCurrencyDollar } from '@tabler/icons-react';
 import PageLayout from '../pagelayout/PageLayout';

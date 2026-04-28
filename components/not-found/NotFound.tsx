@@ -1,5 +1,3 @@
-'use client';
-
 import PageLayout from '../pagelayout/PageLayout';
 
 const NotFound = () => (

@@ -1,5 +1,3 @@
-'use client';
-
 import { IconMail } from '@tabler/icons-react';
 
 const Footer = () => (
