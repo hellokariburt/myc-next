@@ -1,0 +1,25 @@
+# OpenMYC
+
+> OpenMYC is a free search engine for comedy open mics in New York City, covering all five boroughs: Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.
+
+OpenMYC helps comedians find open mics by day of the week, borough, time, cost, and venue type. The site is maintained by Kari Burt, a comedian based in NYC.
+
+## Pages
+
+- [Home](https://findopenmyc.com/): Search and filter open mics across NYC
+- [Browse Mics](https://findopenmyc.com/mics): Full listing of all open mics with filters for borough, day, time, and cost
+- [About](https://findopenmyc.com/about): About OpenMYC, the creator, and data sources
+- [Submit a Mic](https://findopenmyc.com/submit): Submit a new open mic to be listed on OpenMYC
+
+## API
+
+- [Mics API](https://findopenmyc.com/api/mics): JSON API for querying open mics with parameters for borough, day, start_time, cost, offset, and limit
+
+## Key Facts
+
+- Covers all 5 NYC boroughs: Manhattan, Brooklyn, Queens, Bronx, Staten Island
+- Filterable by: day of week, borough, start time, cost (free or paid)
+- Includes venue name, address, neighborhood, host info, signup instructions, and schedule
+- Community-maintained: comedians can submit new mics via the submit form
+- Completely free to use
+- Contact: hello@findopenmyc.com
