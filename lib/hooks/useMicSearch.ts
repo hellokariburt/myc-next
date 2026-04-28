@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import { request } from '../utils/request';
 import { MicListResponse } from '../types/mic';
 
-export function useMicSearch() {
+export function useMicSearch(serverData?: MicListResponse) {
   const searchParams = useSearchParams();
 
   // Convert page-based URL params to offset/limit for the API
@@ -22,11 +22,12 @@ export function useMicSearch() {
     queryKey: ['mics', apiQueryString],
     queryFn: () => request<MicListResponse>(`/api/mics?${apiQueryString}`),
     retry: false,
+    initialData: serverData,
   });
 
   return {
     mics: data,
-    isLoading,
+    isLoading: serverData ? false : isLoading,
     isError,
     params: searchParams,
   };

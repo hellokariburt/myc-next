@@ -11,8 +11,8 @@ import { SearchResults } from './SearchResults';
 import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
 
-const MicCard = () => {
-  const { mics, isLoading, isError } = useMicSearch();
+const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
+  const { mics, isLoading, isError } = useMicSearch(serverData);
 
   if (isError) {
     return (
