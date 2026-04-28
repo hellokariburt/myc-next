@@ -44,17 +44,6 @@ export function HomePage({ micCount, today }: { micCount: number; today: string 
             </Link>
           ))}
         </div>
-        <div className="text-center text-slate-600 leading-relaxed space-y-3">
-          <p>
-            OpenMYC is a free search engine for comedy open mics in New York City.
-            Find open mics in Manhattan, Brooklyn, Queens, the Bronx, and Staten Island
-            — filter by day of the week, time, borough, and cost.
-          </p>
-          <p>
-            Whether you&apos;re a seasoned comedian looking for stage time or trying standup
-            for the first time, OpenMYC helps you find the right mic. Built by a comedian, for comedians.
-          </p>
-        </div>
       </div>
     </PageLayout>
   );
