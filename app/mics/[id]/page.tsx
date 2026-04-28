@@ -70,12 +70,36 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   const mic = serialize(raw) as unknown as MicDetail;
 
+  function getNextOccurrence(day: string, time: string): string {
+    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const target = days.indexOf(day.toLowerCase());
+    if (target === -1) return new Date().toISOString();
+    const now = new Date();
+    const diff = (target - now.getDay() + 7) % 7 || 7;
+    const next = new Date(now);
+    next.setDate(now.getDate() + diff);
+    const timeParts = time.match(/^(\d{1,2}):(\d{2})/);
+    if (timeParts) {
+      next.setHours(parseInt(timeParts[1], 10), parseInt(timeParts[2], 10), 0, 0);
+    } else {
+      next.setHours(19, 0, 0, 0);
+    }
+    return next.toISOString();
+  }
+
+  const startDate = getNextOccurrence(mic.day || 'monday', mic.start_time || '19:00');
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: mic.name,
     description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.borough ?? 'NYC'}`,
+    startDate,
+    eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    organizer: mic.host_mics?.[0]?.mic_host?.first_host
+      ? { '@type': 'Person', name: mic.host_mics[0].mic_host.first_host }
+      : undefined,
     location: {
       '@type': 'Place',
       name: mic.mic_address?.venue,
