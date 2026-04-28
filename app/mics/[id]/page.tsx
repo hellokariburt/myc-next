@@ -1,11 +1,16 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { MicDetail } from '@/lib/types/mic';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
-import MicIndividualMapLoad from '@/components/map/MicIndividualMapLoad';
+
+const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividualMapLoad'), {
+  ssr: false,
+  loading: () => <div className="w-full h-[250px] lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] bg-slate-100 animate-pulse" />,
+});
 
 export const revalidate = 3600;
 
