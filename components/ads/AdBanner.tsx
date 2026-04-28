@@ -23,7 +23,7 @@ const AdBanner = () => {
   }, []);
 
   return (
-    <div ref={adRef} className="w-full my-2 flex justify-center lg:max-w-[calc(50vw-50px)] min-w-[330px]">
+    <div ref={adRef} className="w-full my-2 flex justify-center lg:max-w-[calc(50vw-50px)] min-w-[330px] min-h-[100px]">
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

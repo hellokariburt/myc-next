@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
@@ -13,7 +13,6 @@ import AdBanner from '../ads/AdBanner';
 
 const MicCard = () => {
   const { mics, isLoading, isError } = useMicSearch();
-  const router = useRouter();
 
   if (isError) {
     return (
@@ -44,11 +43,10 @@ const MicCard = () => {
     const items: React.ReactNode[] = [];
     x.mics.forEach((mic: MicListItem, index: number) => {
       items.push(
-        <button
-          type="button"
-          onClick={() => router.push(`/mics/${mic.id}`)}
+        <Link
+          href={`/mics/${mic.id}`}
           aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(mic.start_time || '')}, ${mic.mic_cost?.cost_amount || 'Free'}`}
-          className="flex group w-full lg:max-w-[calc(50vw-50px)] bg-white border border-slate-200 rounded-xl p-4 hover:shadow-lg hover:border-blue-500 cursor-pointer shadow-md text-left transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          className={`flex group w-full lg:max-w-[calc(50vw-50px)] bg-white border border-slate-200 border-l-4 ${getBoroughBorderColor(mic.borough || '')} rounded-xl p-4 hover:shadow-lg hover:border-blue-500 cursor-pointer shadow-md text-left transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
           key={mic.id}
         >
           <div className="flex flex-row gap-3 lg:gap-6 min-w-0">
@@ -82,7 +80,7 @@ const MicCard = () => {
               </div>
             </div>
           </div>
-        </button>
+        </Link>
       );
       if ((index + 1) % 5 === 0) {
         items.push(<AdBanner key={`ad-${index}`} />);
