@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
-import { ReactQueryProvider } from './ReactQueryProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,7 +37,6 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ReactQueryProvider>
       <html lang="en">
         <head>
           <link rel="apple-touch-icon" href="/icon.png" />
@@ -78,6 +76,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </body>
       </html>
-    </ReactQueryProvider>
   );
 }
