@@ -5,12 +5,12 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 export default withBundleAnalyzer({
-  reactStrictMode: false,
+  reactStrictMode: true,
   // output: 'standalone',
   eslint: {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    optimizePackageImports: ['@tabler/icons-react'],
   },
 });

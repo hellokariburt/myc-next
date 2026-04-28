@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
@@ -14,12 +13,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata = {
-  title: 'OpenMYC: NYC Comedy Open Mic Search',
+  title: 'Find Open Mics in NYC | Free Comedy Open Mic Finder — OpenMYC',
   description:
-    'Find New York City comedy open mics at OpenMyc. OpenMyc is a Search Engine for comedy open mics in Manhattan, Brooklyn, Bronx, Queens and Staten Island.',
+    'Find New York City comedy open mics at OpenMYC. Search and filter open mics in Manhattan, Brooklyn, Bronx, Queens and Staten Island by day, time, and cost.',
   metadataBase: new URL('https://findopenmyc.com'),
   openGraph: {
-    title: 'OpenMYC: NYC Comedy Open Mic Search',
+    title: 'Find Open Mics in NYC | Free Comedy Open Mic Finder',
     description:
       'Search and filter comedy open mics across all 5 NYC boroughs. Find mics by day, time, borough, and cost. Free to use.',
     url: 'https://findopenmyc.com',
@@ -27,8 +26,8 @@ export const metadata = {
     type: 'website',
   },
   twitter: {
-    card: 'summary',
-    title: 'OpenMYC: NYC Comedy Open Mic Search',
+    card: 'summary_large_image',
+    title: 'Find Open Mics in NYC | Free Comedy Open Mic Finder',
     description:
       'Search and filter comedy open mics across all 5 NYC boroughs. Free to use.',
   },
@@ -39,48 +38,46 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <React.StrictMode>
-      <ReactQueryProvider>
-        <html lang="en">
-          <head>
-            <link rel="apple-touch-icon" href="/icon.png" />
-            <link rel="shortcut icon" href="/icon.png" />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify({
-                  '@context': 'https://schema.org',
-                  '@type': 'WebSite',
-                  name: 'OpenMYC',
-                  url: 'https://findopenmyc.com',
-                  description:
-                    'A free search engine for comedy open mics in New York City, covering Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
-                  potentialAction: {
-                    '@type': 'SearchAction',
-                    target: 'https://findopenmyc.com/mics?borough={borough}',
-                    'query-input': 'required name=borough',
-                  },
-                }),
-              }}
-            />
-          </head>
-          <body className={inter.className}>
-            {children}
-            <Analytics />
-            <Script
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-              strategy="lazyOnload"
-              crossOrigin="anonymous"
-            />
-            <Script
-              src="https://gc.zgo.at/count.js"
-              strategy="lazyOnload"
-              data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
-              data-goatcounter-settings='{"allow_local": true}'
-            />
-          </body>
-        </html>
-      </ReactQueryProvider>
-    </React.StrictMode>
+    <ReactQueryProvider>
+      <html lang="en">
+        <head>
+          <link rel="apple-touch-icon" href="/icon.png" />
+          <link rel="shortcut icon" href="/icon.png" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'OpenMYC',
+                url: 'https://findopenmyc.com',
+                description:
+                  'A free search engine for comedy open mics in New York City, covering Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
+                potentialAction: {
+                  '@type': 'SearchAction',
+                  target: 'https://findopenmyc.com/mics?borough={borough}',
+                  'query-input': 'required name=borough',
+                },
+              }),
+            }}
+          />
+        </head>
+        <body className={inter.className}>
+          {children}
+          <Analytics />
+          <Script
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
+          />
+          <Script
+            src="https://gc.zgo.at/count.js"
+            strategy="lazyOnload"
+            data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
+            data-goatcounter-settings='{"allow_local": true}'
+          />
+        </body>
+      </html>
+    </ReactQueryProvider>
   );
 }

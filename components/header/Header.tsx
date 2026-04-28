@@ -7,6 +7,7 @@ import { HeaderDrawer } from '../header-drawer/header-drawer';
 import { BackButton } from '../buttons/BackButton';
 
 const links = [
+  { link: '/mics', label: 'Browse Mics' },
   { link: '/about', label: 'About' },
   { link: '/submit', label: 'Submit a Mic' },
 ];

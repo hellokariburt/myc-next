@@ -31,6 +31,13 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
         className="fixed top-0 left-0 w-[55%] h-full bg-white z-50 shadow-xl p-6 pt-20"
       >
         <Link
+          href="/mics"
+          className="block text-slate-700 hover:text-blue-600 py-2"
+          onClick={close}
+        >
+          Browse Mics
+        </Link>
+        <Link
           href="/about"
           className="block text-slate-700 hover:text-blue-600 py-2"
           onClick={close}
