@@ -4,4 +4,4 @@ export default {
   title: 'HomePage',
 };
 
-export const Usage = () => <HomePage />;
+export const Usage = () => <HomePage micCount={247} today="monday" />;
