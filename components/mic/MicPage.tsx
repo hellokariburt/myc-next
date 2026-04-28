@@ -152,7 +152,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
         {/* Confirmed badge */}
         {mic?.confirmed && (
-          <p className="text-xs text-slate-400 mt-6">
+          <p className="text-xs text-slate-500 mt-6">
             {mic.confirmed}
           </p>
         )}

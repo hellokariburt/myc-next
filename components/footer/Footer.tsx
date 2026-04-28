@@ -12,7 +12,7 @@ const Footer = () => (
       <a
         href="mailto:hello@findopenmyc.com"
         aria-label="Email support"
-        className="flex items-center justify-center w-8 h-8 rounded-full border border-slate-200 text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="flex items-center justify-center w-11 h-11 rounded-full border border-slate-200 text-slate-600 hover:text-blue-600 hover:border-blue-300 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
         <IconMail size={18} stroke={1.5} />
       </a>

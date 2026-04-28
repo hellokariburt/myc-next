@@ -18,7 +18,7 @@ const MicCard = () => {
     return (
       <div className="flex flex-col items-center justify-center pt-12 min-h-[60vh] relative z-10 lg:w-[50vw] text-slate-600">
         <p className="text-xl font-bold">Something went wrong loading mics.</p>
-        <p className="text-sm text-slate-400 pt-2">Try refreshing the page.</p>
+        <p className="text-sm text-slate-500 pt-2">Try refreshing the page.</p>
       </div>
     );
   }

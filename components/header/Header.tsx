@@ -29,7 +29,7 @@ const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
         {/* Mobile hamburger */}
         <button
           type="button"
-          className="sm:hidden flex flex-col gap-1 p-2"
+          className="sm:hidden flex flex-col gap-1 p-3"
           onClick={() => setDrawerOpen(!drawerOpen)}
           aria-label="Toggle menu"
           aria-expanded={drawerOpen}

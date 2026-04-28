@@ -51,14 +51,14 @@ export const SearchResults = () => {
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 pb-3">
-      <p className="text-sm text-slate-600">
+      <p className="text-base font-semibold text-slate-800">
         {pagingString}
         {mics?.totalMics} {paramsFree} mics in {boroughsArray}
         {daysArray}
         {timeArray}
       </p>
       {totalPages > 1 && (
-        <p className="text-sm text-slate-400">
+        <p className="text-sm text-slate-500">
           Page {paramsPage} of {totalPages}
         </p>
       )}
