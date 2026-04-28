@@ -51,6 +51,11 @@ export async function generateMetadata({
       url: `https://findopenmyc.com/mics/${id}`,
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
