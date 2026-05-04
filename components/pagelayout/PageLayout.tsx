@@ -19,7 +19,7 @@ function PageLayout({
       />
       {/* Spacer to push content below the fixed header */}
       <div className={spacerClass} />
-      <div className="flex-1 pb-12">{children}</div>
+      <div className="flex-1">{children}</div>
       <Footer />
     </div>
   );

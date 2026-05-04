@@ -63,6 +63,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: 'https://findopenmyc.com/contact',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://findopenmyc.com/privacy',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://findopenmyc.com/terms',
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
     ...micPages,
   ];
 }
