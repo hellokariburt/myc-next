@@ -99,17 +99,43 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   const startDate = getNextOccurrence(mic.day || 'monday', mic.start_time || '19:00');
 
+  const dayToSchemaOrg: Record<string, string> = {
+    sunday: 'https://schema.org/Sunday',
+    monday: 'https://schema.org/Monday',
+    tuesday: 'https://schema.org/Tuesday',
+    wednesday: 'https://schema.org/Wednesday',
+    thursday: 'https://schema.org/Thursday',
+    friday: 'https://schema.org/Friday',
+    saturday: 'https://schema.org/Saturday',
+  };
+  const byDay = dayToSchemaOrg[(mic.day || '').toLowerCase()];
+  const startTimeNormalized = (mic.start_time || '').match(/^(\d{1,2}):(\d{2})/)?.[0];
+  const isWeekly = (mic.mic_occurrence?.schedule || '').trim().toLowerCase() === 'weekly';
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: mic.name,
     description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.borough ?? 'NYC'}`,
+    url: `https://findopenmyc.com/mics/${id}`,
+    image: `https://findopenmyc.com/mics/${id}/opengraph-image`,
     startDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     organizer: mic.host_mics?.[0]?.mic_host?.first_host
       ? { '@type': 'Person', name: mic.host_mics[0].mic_host.first_host }
       : undefined,
+    ...(byDay && startTimeNormalized
+      ? {
+          eventSchedule: {
+            '@type': 'Schedule',
+            byDay,
+            startTime: startTimeNormalized,
+            scheduleTimezone: 'America/New_York',
+            ...(isWeekly ? { repeatFrequency: 'P1W' } : {}),
+          },
+        }
+      : {}),
     location: {
       '@type': 'Place',
       name: mic.mic_address?.venue,

@@ -8,8 +8,29 @@ OpenMYC helps comedians find open mics by day of the week, borough, time, cost, 
 
 - [Home](https://findopenmyc.com/): Search and filter open mics across NYC
 - [Browse Mics](https://findopenmyc.com/mics): Full listing of all open mics with filters for borough, day, time, and cost
+- [Mics Tonight](https://findopenmyc.com/mics/tonight): Open mics happening tonight in NYC
+- [Free Mics](https://findopenmyc.com/mics/free): Open mics with no cover or sign-up fee
 - [About](https://findopenmyc.com/about): About OpenMYC, the creator, and data sources
 - [Submit a Mic](https://findopenmyc.com/submit): Submit a new open mic to be listed on OpenMYC
+- [Contact](https://findopenmyc.com/contact): Contact OpenMYC
+- [Privacy Policy](https://findopenmyc.com/privacy): Privacy policy
+- [Terms of Service](https://findopenmyc.com/terms): Terms of service
+
+## Borough Pages
+
+- [Manhattan](https://findopenmyc.com/mics/manhattan): Every open mic in Manhattan
+- [Brooklyn](https://findopenmyc.com/mics/brooklyn): Every open mic in Brooklyn
+- [Queens](https://findopenmyc.com/mics/queens): Every open mic in Queens
+- [Bronx](https://findopenmyc.com/mics/bronx): Every open mic in the Bronx
+- [Staten Island](https://findopenmyc.com/mics/staten-island): Every open mic in Staten Island
+
+## Borough + Day Pages
+
+Borough/day combinations follow the pattern `https://findopenmyc.com/mics/{borough}/{day}`, where `{borough}` is one of `manhattan`, `brooklyn`, `queens`, `bronx`, `staten-island` and `{day}` is one of `sunday`, `monday`, `tuesday`, `wednesday`, `thursday`, `friday`, `saturday`. Example: https://findopenmyc.com/mics/brooklyn/wednesday
+
+## Individual Mic Pages
+
+Every mic has its own page at `https://findopenmyc.com/mics/{id}` with venue, address, host, cost, signup info, and an embedded map. Mic pages include schema.org Event structured data.
 
 ## API
 
