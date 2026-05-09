@@ -3,10 +3,8 @@ import { getMics } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { MicListItem } from '@/lib/types/mic';
 import { ALL_BOROUGHS, ALL_DAYS } from '@/lib/types/api';
-import changeTime from '@/lib/utils/changeTime';
-import capitalizeDay from '@/lib/utils/capitalizeDay';
-import { getBoroughColor, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 import PageLayout from '../pagelayout/PageLayout';
+import MicListCard from '../mic/MicListCard';
 import { QuickFilters } from './QuickFilters';
 import { BoroughDayLinks } from './BoroughDayLinks';
 
@@ -93,43 +91,11 @@ export async function SeoListingPage({ title, subtitle, borough, day, free, brea
 
         <div className="flex flex-col gap-3 mb-8">
           {serialized.map((mic) => (
-            <Link
+            <MicListCard
               key={mic.id}
-              href={`/mics/${mic.id}`}
-              className={`flex group bg-white border border-slate-200 border-l-4 ${getBoroughBorderColor(mic.borough || '')} rounded-xl p-4 hover:shadow-lg hover:border-blue-500 shadow-sm transition-all`}
-            >
-              <div className="flex flex-row gap-3 lg:gap-6 min-w-0">
-                <div className={`pr-2 lg:pr-4 pt-1 border-r-2 ${getBoroughBorderColor(mic.borough || '')} text-sm lg:text-base shrink-0 w-[80px] lg:w-auto`}>
-                  <p className="font-bold">{capitalizeDay(mic.day || '')}</p>
-                  <p>{changeTime(mic.start_time || '')}</p>
-                  {mic.mic_occurrence?.schedule && (
-                    <p className="text-slate-500 text-xs lg:text-sm pt-4">{mic.mic_occurrence.schedule}</p>
-                  )}
-                </div>
-                <div className="min-w-0">
-                  <p className="lg:text-2xl text-lg font-bold text-blue-700 group-hover:underline group-hover:decoration-dashed truncate">
-                    {mic.name}
-                  </p>
-                  <p className="text-slate-700 font-bold text-sm lg:text-base truncate">{mic.mic_address?.venue}</p>
-                  <div className="flex flex-row flex-wrap text-slate-600 text-sm lg:text-base">
-                    {mic.mic_address && mic.mic_address.unit_number > 0 && (
-                      <span className="pr-1">{mic.mic_address.unit_number} </span>
-                    )}
-                    <span className="pr-1">{mic.mic_address?.street_name},</span>
-                    <span className={`font-bold ${getBoroughColor(mic.borough || '')}`}>{capitalizeDay(mic.borough || '')}</span>
-                  </div>
-                  <div className="pt-2">
-                    <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs lg:text-sm font-medium ${
-                      !mic.mic_cost?.cost_amount || mic.mic_cost.cost_amount.includes('Free')
-                        ? 'bg-green-50 text-green-700'
-                        : 'bg-amber-50 text-amber-700'
-                    }`}>
-                      {mic.mic_cost?.cost_amount || 'Free'}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </Link>
+              mic={mic}
+              hideBoroughBadge={borough?.length === 1}
+            />
           ))}
         </div>
 
