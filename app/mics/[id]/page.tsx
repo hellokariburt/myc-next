@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import { notFound } from 'next/navigation';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
+import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
@@ -38,9 +39,11 @@ export async function generateMetadata({
 
   const venue = mic.mic_address?.venue ?? '';
   const borough = mic.borough ?? 'NYC';
+  const neighborhood = mic.mic_address?.neighborhood;
   const day = mic.day ?? '';
+  const locationPhrase = neighborhood ? `${neighborhood}, ${borough}` : borough;
   const title = `${mic.name} — ${borough} Open Mic | OpenMYC`;
-  const description = `${mic.name} at ${venue} in ${borough}. ${day}s. Find details, signup info, cost, and location on OpenMYC.`;
+  const description = `${mic.name} at ${venue} in ${locationPhrase}. ${day}s. Find details, signup info, cost, and location on OpenMYC.`;
 
   return {
     title,
@@ -140,7 +143,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: mic.name,
-    description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.borough ?? 'NYC'}`,
+    description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.mic_address?.neighborhood ?? mic.borough ?? 'NYC'}`,
     url: `https://findopenmyc.com/mics/${id}`,
     image: `https://findopenmyc.com/mics/${id}/opengraph-image`,
     startDate,
@@ -183,7 +186,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
       ? {
           offers: {
             '@type': 'Offer',
-            price: mic.mic_cost.cost_amount.toLowerCase().includes('free') ? '0' : mic.mic_cost.cost_amount,
+            price: isFreeCost(mic.mic_cost.cost_amount) ? '0' : mic.mic_cost.cost_amount,
             priceCurrency: 'USD',
           },
         }

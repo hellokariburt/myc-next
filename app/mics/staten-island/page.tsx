@@ -18,8 +18,8 @@ export default function Page() {
   return (
     <SeoListingPage
       title="Open Mics in Staten Island"
-      subtitle="Every comedy open mic in Staten Island, NYC"
       borough={['staten-island']}
+      boroughKey="staten-island"
       breadcrumbs={getBoroughBreadcrumbs('staten-island')}
       pageUrl="https://findopenmyc.com/mics/staten-island"
       dayLinksBorough="staten-island"

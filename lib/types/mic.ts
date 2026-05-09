@@ -13,13 +13,13 @@ export interface MicListItem {
   venue_type: string | null;
   stage_time: string | null;
   other_rules: string | null;
-  neighborhood?: string | null;
   mic_address: {
     venue: string | null;
     street_name: string | null;
     unit_number: number;
     latitude: string | null;
     longitude: string | null;
+    neighborhood: string | null;
   } | null;
   mic_cost: {
     cost_amount: string | null;

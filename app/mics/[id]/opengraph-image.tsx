@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
+import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
 
 export const revalidate = 3600;
@@ -113,7 +114,7 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             <div
               style={{
                 display: 'flex',
-                background: mic.mic_cost?.cost_amount?.toLowerCase().includes('free') ? '#16A34A' : 'rgba(255,255,255,0.1)',
+                background: isFreeCost(mic.mic_cost?.cost_amount) ? '#16A34A' : 'rgba(255,255,255,0.1)',
                 padding: '8px 20px',
                 borderRadius: '999px',
                 fontWeight: 600,

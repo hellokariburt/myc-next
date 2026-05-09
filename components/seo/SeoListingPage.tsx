@@ -3,6 +3,11 @@ import { getMics } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { MicListItem } from '@/lib/types/mic';
 import { ALL_BOROUGHS, ALL_DAYS } from '@/lib/types/api';
+import {
+  getBoroughAccentBar,
+  getBoroughEyebrow,
+  getBoroughDisplayShort,
+} from '@/lib/utils/boroughColor';
 import PageLayout from '../pagelayout/PageLayout';
 import MicListCard from '../mic/MicListCard';
 import { QuickFilters } from './QuickFilters';
@@ -15,16 +20,16 @@ interface Breadcrumb {
 
 interface SeoListingProps {
   title: string;
-  subtitle: string;
   borough?: string[];
   day?: string[];
   free?: boolean;
   breadcrumbs?: Breadcrumb[];
   pageUrl?: string;
   dayLinksBorough?: string;
+  boroughKey?: string;
 }
 
-export async function SeoListingPage({ title, subtitle, borough, day, free, breadcrumbs, pageUrl, dayLinksBorough }: SeoListingProps) {
+export async function SeoListingPage({ title, borough, day, free, breadcrumbs, pageUrl, dayLinksBorough, boroughKey }: SeoListingProps) {
   const { mics, count } = await getMics({
     borough: borough ?? [...ALL_BOROUGHS],
     day: day ?? [...ALL_DAYS],
@@ -65,7 +70,7 @@ export async function SeoListingPage({ title, subtitle, borough, day, free, brea
   };
 
   return (
-    <PageLayout className="bg-[#F5F5F5]">
+    <PageLayout className="bg-slate-50">
       {breadcrumbsJsonLd && (
         <script
           type="application/ld+json"
@@ -79,13 +84,22 @@ export async function SeoListingPage({ title, subtitle, borough, day, free, brea
         />
       )}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-slate-800 mb-2">{title}</h1>
-        <p className="text-slate-500 mb-1">{subtitle}</p>
-        <p className="text-base font-semibold text-slate-800 mb-4">
-          {count} {free ? 'free ' : ''}mic{count !== 1 ? 's' : ''} found
+        {boroughKey && (
+          <>
+            <div className={`h-1 ${getBoroughAccentBar(boroughKey)} rounded-full mb-6`} />
+            <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(boroughKey)}`}>
+              {getBoroughDisplayShort(boroughKey)} · NYC Open Mics
+            </p>
+          </>
+        )}
+        <h1 className="text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-slate-900 mb-2">
+          {title}
+        </h1>
+        <p className="text-sm text-slate-500 mb-8">
+          {count} {free ? 'free ' : ''}mic{count !== 1 ? 's' : ''} · updated daily
         </p>
 
-        <QuickFilters className="mb-6" />
+        <QuickFilters className="mb-6" hideBorough={boroughKey} />
 
         {dayLinksBorough && <BoroughDayLinks borough={dayLinksBorough} className="mb-6" />}
 
@@ -108,9 +122,9 @@ export async function SeoListingPage({ title, subtitle, borough, day, free, brea
         <div className="text-center pt-4">
           <Link
             href="/mics"
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-colors"
+            className="text-blue-600 hover:text-blue-800 text-sm underline underline-offset-2"
           >
-            Search all mics with filters
+            Need more filters? Search all mics →
           </Link>
         </div>
       </div>

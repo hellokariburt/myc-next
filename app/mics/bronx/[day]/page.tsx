@@ -24,8 +24,8 @@ export default async function Page({ params }: { params: Promise<{ day: string }
   return (
     <SeoListingPage
       title={`${capitalize(day)} Open Mics in ${getBoroughDisplayName(BOROUGH)}`}
-      subtitle={`Every ${capitalize(day)} comedy open mic in ${getBoroughDisplayName(BOROUGH)}, NYC`}
       borough={[BOROUGH]}
+      boroughKey={BOROUGH}
       day={[day]}
       breadcrumbs={getBoroughDayBreadcrumbs(BOROUGH, day)}
       pageUrl={`https://findopenmyc.com/mics/${BOROUGH}/${day}`}

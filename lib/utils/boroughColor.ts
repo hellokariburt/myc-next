@@ -7,11 +7,27 @@ const boroughColors: Record<string, string> = {
 };
 
 const boroughBorderColors: Record<string, string> = {
-  manhattan: 'border-blue-400',
-  brooklyn: 'border-purple-400',
-  queens: 'border-orange-400',
-  bronx: 'border-rose-400',
-  'staten-island': 'border-teal-400',
+  manhattan: 'border-blue-500',
+  brooklyn: 'border-purple-500',
+  queens: 'border-orange-500',
+  bronx: 'border-rose-500',
+  'staten-island': 'border-teal-500',
+};
+
+const boroughAccentBar: Record<string, string> = {
+  manhattan: 'bg-blue-500',
+  brooklyn: 'bg-purple-500',
+  queens: 'bg-orange-500',
+  bronx: 'bg-rose-500',
+  'staten-island': 'bg-teal-500',
+};
+
+const boroughEyebrow: Record<string, string> = {
+  manhattan: 'text-blue-700',
+  brooklyn: 'text-purple-700',
+  queens: 'text-orange-700',
+  bronx: 'text-rose-700',
+  'staten-island': 'text-teal-700',
 };
 
 const boroughBadgeClasses: Record<string, string> = {
@@ -44,4 +60,12 @@ export function getBoroughBadgeClasses(borough: string): string {
 
 export function getBoroughDisplayShort(borough: string): string {
   return boroughDisplayShort[borough.toLowerCase()] || borough;
+}
+
+export function getBoroughAccentBar(borough: string): string {
+  return boroughAccentBar[borough.toLowerCase()] || 'bg-slate-300';
+}
+
+export function getBoroughEyebrow(borough: string): string {
+  return boroughEyebrow[borough.toLowerCase()] || 'text-slate-700';
 }

@@ -17,7 +17,6 @@ export default function Page() {
   return (
     <SeoListingPage
       title="Free Open Mics in NYC"
-      subtitle="Every free comedy open mic across the 5 boroughs"
       free
       breadcrumbs={[
         { name: 'Home', url: 'https://findopenmyc.com/' },

@@ -27,7 +27,6 @@ export default function Page() {
   return (
     <SeoListingPage
       title={`Open Mics Tonight — ${capitalize(today)}`}
-      subtitle={`Every comedy open mic happening tonight in NYC`}
       day={[today]}
       breadcrumbs={[
         { name: 'Home', url: 'https://findopenmyc.com/' },

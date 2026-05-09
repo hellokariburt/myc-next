@@ -27,7 +27,6 @@ const fullMic: MicDetail = {
   venue_type: 'Bar',
   stage_time: '5 min',
   other_rules: null,
-  neighborhood: 'East Village',
   phone_number: null,
   notes: null,
   mic_address: {
@@ -36,6 +35,7 @@ const fullMic: MicDetail = {
     unit_number: 5,
     latitude: '40.7',
     longitude: '-73.9',
+    neighborhood: 'East Village',
   },
   mic_cost: { cost_amount: 'Free' },
   mic_occurrence: { schedule: 'Weekly' },
@@ -64,7 +64,6 @@ describe('MicPage', () => {
   it('renders without optional fields', () => {
     const minimalMic: MicDetail = {
       ...fullMic,
-      neighborhood: null,
       instagram: null,
       website: null,
       email_address: null,
@@ -78,6 +77,7 @@ describe('MicPage', () => {
         unit_number: 0,
         latitude: null,
         longitude: null,
+        neighborhood: null,
       },
     };
 

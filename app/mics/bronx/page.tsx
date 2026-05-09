@@ -18,8 +18,8 @@ export default function Page() {
   return (
     <SeoListingPage
       title="Open Mics in the Bronx"
-      subtitle="Every comedy open mic in the Bronx, NYC"
       borough={['bronx']}
+      boroughKey="bronx"
       breadcrumbs={getBoroughBreadcrumbs('bronx')}
       pageUrl="https://findopenmyc.com/mics/bronx"
       dayLinksBorough="bronx"

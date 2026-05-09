@@ -15,6 +15,7 @@ import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { getBoroughColor } from '@/lib/utils/boroughColor';
 import extractHandles from '@/lib/utils/extractHandles';
+import { isFreeCost } from '@/lib/utils/isFree';
 import MicHosts from './MicHosts';
 
 const MicPage = ({ mic }: { mic: MicDetail }) => {
@@ -33,8 +34,8 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           {mic?.name}
         </h1>
         <p className="text-lg font-semibold text-slate-700 mt-1">{mic?.mic_address?.venue}</p>
-        {mic?.neighborhood && (
-          <p className="text-sm text-slate-500">{mic.neighborhood}</p>
+        {mic?.mic_address?.neighborhood && (
+          <p className="text-sm text-slate-500">{mic.mic_address.neighborhood}</p>
         )}
 
         {/* Quick info row */}
@@ -48,7 +49,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
             {changeTime(mic.start_time || '')}
           </span>
           <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
-            !mic?.mic_cost?.cost_amount || mic.mic_cost.cost_amount.includes('Free')
+            isFreeCost(mic?.mic_cost?.cost_amount)
               ? 'bg-green-50 text-green-700'
               : 'bg-amber-50 text-amber-700'
           }`}
