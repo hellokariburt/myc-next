@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import SearchCard from '../searchcard/SearchCard';
 import { Title } from '../title/Title';
 import PageLayout from '../pagelayout/PageLayout';
@@ -6,20 +5,26 @@ import { QuickFilters } from '../seo/QuickFilters';
 
 export function HomePage({ micCount }: { micCount: number }) {
   return (
-    <PageLayout className="bg-[#F5F5F5] bg-cover">
-      <div className="flex flex-col items-center justify-center min-h-[80vh] md:gap-6 gap-2 pb-12">
+    <PageLayout className="bg-slate-50">
+      <div className="flex flex-col items-center justify-start min-h-[80vh] pt-16 md:pt-24 pb-16 px-4">
         <Title />
-        <p className="text-slate-500 text-lg">
-          Currently tracking <span className="font-bold text-slate-700">{micCount}</span> open mics across NYC
+
+        <p className="text-slate-500 text-sm md:text-base mt-6">
+          Currently tracking{' '}
+          <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span>{' '}
+          open mics across NYC
         </p>
-        <SearchCard />
-        <Link
-          href="/mics/tonight"
-          className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 rounded-full text-base transition-colors shadow-md"
-        >
-          What&apos;s happening tonight?
-        </Link>
-        <QuickFilters className="justify-center max-w-xl px-4" />
+
+        <div className="w-full mt-8">
+          <SearchCard />
+        </div>
+
+        <div className="w-full max-w-2xl mt-2">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 text-center mb-3">
+            Or jump straight to
+          </p>
+          <QuickFilters variant="subtle" className="justify-center" />
+        </div>
       </div>
     </PageLayout>
   );

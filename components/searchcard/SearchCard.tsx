@@ -22,8 +22,8 @@ const SearchCard = () => {
   };
 
   return (
-    <div className="w-full md:max-w-4xl pb-12">
-      <div className="flex flex-col mx-4 shadow-md border border-slate-200 rounded-xl p-6 gap-4 mt-4 bg-white">
+    <div className="w-full md:max-w-4xl mx-auto">
+      <div className="flex flex-col mx-4 shadow-sm ring-1 ring-slate-200 rounded-2xl p-6 gap-4 bg-white">
         <div className="flex flex-col md:flex-row gap-3 md:items-center">
           <BoroughSelect value={borough} setValue={setBorough} />
           <DaySelect value={day} setValue={setDay} />
