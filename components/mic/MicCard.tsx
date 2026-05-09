@@ -43,7 +43,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
         <MicListCard
           key={mic.id}
           mic={mic}
-          className="w-full lg:max-w-[calc(50vw-50px)]"
+          className="w-full"
         />
       );
       if ((index + 1) % 5 === 0) {
@@ -56,7 +56,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const openMic = mapMicsToCards(mics);
 
   return (
-    <div className="flex flex-col justify-between px-3 py-6 sm:p-6 min-h-[100vh] lg:w-[50vw]">
+    <div className="flex flex-col px-3 py-6 sm:p-6 min-w-0">
       {mics && <SearchResults />}
       <div className="flex flex-col gap-3">{openMic}</div>
       <div className="flex justify-center pt-8">

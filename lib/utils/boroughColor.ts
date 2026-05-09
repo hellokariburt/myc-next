@@ -7,11 +7,11 @@ const boroughColors: Record<string, string> = {
 };
 
 const boroughBorderColors: Record<string, string> = {
-  manhattan: 'border-blue-500',
-  brooklyn: 'border-purple-500',
-  queens: 'border-orange-500',
-  bronx: 'border-rose-500',
-  'staten-island': 'border-teal-500',
+  manhattan: 'border-l-blue-500',
+  brooklyn: 'border-l-purple-500',
+  queens: 'border-l-orange-500',
+  bronx: 'border-l-rose-500',
+  'staten-island': 'border-l-teal-500',
 };
 
 const boroughAccentBar: Record<string, string> = {
@@ -51,7 +51,7 @@ export function getBoroughColor(borough: string): string {
 }
 
 export function getBoroughBorderColor(borough: string): string {
-  return boroughBorderColors[borough.toLowerCase()] || 'border-slate-300';
+  return boroughBorderColors[borough.toLowerCase()] || 'border-l-slate-300';
 }
 
 export function getBoroughBadgeClasses(borough: string): string {

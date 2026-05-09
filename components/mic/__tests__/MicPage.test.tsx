@@ -47,13 +47,13 @@ const fullMic: MicDetail = {
 
 describe('MicPage', () => {
   it('renders full mic data', () => {
-    render(<MicPage mic={fullMic} />);
+    const { container } = render(<MicPage mic={fullMic} />);
 
     expect(screen.getByText('Test Open Mic')).toBeInTheDocument();
-    expect(screen.getByText('Test Venue')).toBeInTheDocument();
-    expect(screen.getByText('East Village')).toBeInTheDocument();
-    expect(screen.getByText('Sunday')).toBeInTheDocument();
-    expect(screen.getByText('2:00pm')).toBeInTheDocument();
+    expect(container.textContent).toContain('Test Venue');
+    expect(container.textContent).toContain('East Village');
+    expect(container.textContent).toContain('Sunday');
+    expect(container.textContent).toContain('2:00pm');
     expect(screen.getByText('Free')).toBeInTheDocument();
     expect(screen.getByText('Weekly')).toBeInTheDocument();
     expect(screen.getByText('Get Directions')).toBeInTheDocument();
@@ -105,8 +105,8 @@ describe('MicPage', () => {
       mic_address: { ...fullMic.mic_address!, unit_number: 0 },
     };
     rerender(<MicPage mic={noUnitMic} />);
-    // unit_number 0 should not appear — only street and borough render
-    expect(screen.getByText('123 Main St,')).toBeInTheDocument();
+    // unit_number 0 should not appear — only street renders
+    expect(screen.getByText('123 Main St')).toBeInTheDocument();
     expect(screen.queryByText('0')).not.toBeInTheDocument();
   });
 

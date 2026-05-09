@@ -37,7 +37,7 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
     ));
 
   return (
-    <div className="flex w-full h-[65vh] lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] pb-16 lg:pb-0">
+    <div className="flex w-full h-[65vh] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start">
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={11}>
         {!isLoading && micPins}
       </GoogleMap>

@@ -10,7 +10,9 @@ import MicPage from '@/components/mic/MicPage';
 
 const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividualMapLoad'), {
   ssr: false,
-  loading: () => <div className="w-full h-[250px] lg:fixed lg:top-0 lg:right-0 lg:w-[50vw] lg:h-[95vh] bg-slate-100 animate-pulse" />,
+  loading: () => (
+    <div className="w-full h-[250px] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start bg-slate-100 animate-pulse rounded-2xl" />
+  ),
 });
 
 export const revalidate = 3600;
@@ -194,13 +196,17 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   };
 
   return (
-    <PageLayout hasBackButton className="pb-16 bg-[#F5F5F5] bg-cover">
+    <PageLayout hasBackButton className="pb-16 bg-slate-50">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <MicPage mic={mic} />
-      <MicIndividualMapLoad mic={mic} />
+      <div className="lg:grid lg:grid-cols-[1fr_minmax(360px,40vw)] lg:gap-4 lg:px-4 max-w-7xl mx-auto">
+        <MicPage mic={mic} />
+        <div className="px-4 lg:px-0 lg:py-6">
+          <MicIndividualMapLoad mic={mic} />
+        </div>
+      </div>
     </PageLayout>
   );
 }
