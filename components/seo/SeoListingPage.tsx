@@ -8,15 +8,22 @@ import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { getBoroughColor, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 import PageLayout from '../pagelayout/PageLayout';
 
+interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
 interface SeoListingProps {
   title: string;
   subtitle: string;
   borough?: string[];
   day?: string[];
   free?: boolean;
+  breadcrumbs?: Breadcrumb[];
+  pageUrl?: string;
 }
 
-export async function SeoListingPage({ title, subtitle, borough, day, free }: SeoListingProps) {
+export async function SeoListingPage({ title, subtitle, borough, day, free, breadcrumbs, pageUrl }: SeoListingProps) {
   const { mics, count } = await getMics({
     borough: borough ?? [...ALL_BOROUGHS],
     day: day ?? [...ALL_DAYS],
@@ -28,8 +35,48 @@ export async function SeoListingPage({ title, subtitle, borough, day, free }: Se
 
   const serialized = serialize(mics) as unknown as MicListItem[];
 
+  const breadcrumbsJsonLd =
+    breadcrumbs && breadcrumbs.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: breadcrumbs.map((b, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: b.name,
+            item: b.url,
+          })),
+        }
+      : null;
+
+  const itemListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: title,
+    ...(pageUrl ? { url: pageUrl } : {}),
+    numberOfItems: serialized.length,
+    itemListElement: serialized.map((mic, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `https://findopenmyc.com/mics/${mic.id}`,
+      name: mic.name,
+    })),
+  };
+
   return (
     <PageLayout className="bg-[#F5F5F5]">
+      {breadcrumbsJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+        />
+      )}
+      {serialized.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+        />
+      )}
       <div className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-slate-800 mb-2">{title}</h1>
         <p className="text-slate-500 mb-1">{subtitle}</p>

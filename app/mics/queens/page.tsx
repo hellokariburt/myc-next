@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SeoListingPage } from '@/components/seo/SeoListingPage';
+import { getBoroughBreadcrumbs } from '@/lib/seo/boroughDayPage';
 
 export const revalidate = 3600;
 
@@ -19,6 +20,8 @@ export default function Page() {
       title="Open Mics in Queens"
       subtitle="Every comedy open mic in Queens, NYC"
       borough={['queens']}
+      breadcrumbs={getBoroughBreadcrumbs('queens')}
+      pageUrl="https://findopenmyc.com/mics/queens"
     />
   );
 }

@@ -29,6 +29,12 @@ export default function Page() {
       title={`Open Mics Tonight — ${capitalize(today)}`}
       subtitle={`Every comedy open mic happening tonight in NYC`}
       day={[today]}
+      breadcrumbs={[
+        { name: 'Home', url: 'https://findopenmyc.com/' },
+        { name: 'Open Mics', url: 'https://findopenmyc.com/mics' },
+        { name: 'Tonight', url: 'https://findopenmyc.com/mics/tonight' },
+      ]}
+      pageUrl="https://findopenmyc.com/mics/tonight"
     />
   );
 }

@@ -19,6 +19,12 @@ export default function Page() {
       title="Free Open Mics in NYC"
       subtitle="Every free comedy open mic across the 5 boroughs"
       free
+      breadcrumbs={[
+        { name: 'Home', url: 'https://findopenmyc.com/' },
+        { name: 'Open Mics', url: 'https://findopenmyc.com/mics' },
+        { name: 'Free', url: 'https://findopenmyc.com/mics/free' },
+      ]}
+      pageUrl="https://findopenmyc.com/mics/free"
     />
   );
 }

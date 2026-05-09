@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SeoListingPage } from '@/components/seo/SeoListingPage';
-import { generateBoroughDayMetadata, getBoroughDisplayName, capitalize, validDays } from '@/lib/seo/boroughDayPage';
+import { generateBoroughDayMetadata, getBoroughDayBreadcrumbs, getBoroughDisplayName, capitalize, validDays } from '@/lib/seo/boroughDayPage';
 
 export const revalidate = 3600;
 
@@ -27,6 +27,8 @@ export default async function Page({ params }: { params: Promise<{ day: string }
       subtitle={`Every ${capitalize(day)} comedy open mic in ${getBoroughDisplayName(BOROUGH)}, NYC`}
       borough={[BOROUGH]}
       day={[day]}
+      breadcrumbs={getBoroughDayBreadcrumbs(BOROUGH, day)}
+      pageUrl={`https://findopenmyc.com/mics/${BOROUGH}/${day}`}
     />
   );
 }

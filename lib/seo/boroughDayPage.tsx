@@ -19,6 +19,26 @@ export function capitalize(s: string): string {
 
 export const validDays = [...ALL_DAYS] as string[];
 
+export interface Breadcrumb {
+  name: string;
+  url: string;
+}
+
+export function getBoroughBreadcrumbs(borough: string): Breadcrumb[] {
+  return [
+    { name: 'Home', url: 'https://findopenmyc.com/' },
+    { name: 'Open Mics', url: 'https://findopenmyc.com/mics' },
+    { name: getBoroughDisplayName(borough), url: `https://findopenmyc.com/mics/${borough}` },
+  ];
+}
+
+export function getBoroughDayBreadcrumbs(borough: string, day: string): Breadcrumb[] {
+  return [
+    ...getBoroughBreadcrumbs(borough),
+    { name: capitalize(day), url: `https://findopenmyc.com/mics/${borough}/${day}` },
+  ];
+}
+
 export function generateBoroughDayMetadata(borough: string, day: string): Metadata {
   const boroughName = getBoroughDisplayName(borough);
   const dayName = capitalize(day);
