@@ -22,6 +22,7 @@ export default function Page() {
       borough={['manhattan']}
       breadcrumbs={getBoroughBreadcrumbs('manhattan')}
       pageUrl="https://findopenmyc.com/mics/manhattan"
+      dayLinksBorough="manhattan"
     />
   );
 }

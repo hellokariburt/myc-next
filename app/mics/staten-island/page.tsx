@@ -22,6 +22,7 @@ export default function Page() {
       borough={['staten-island']}
       breadcrumbs={getBoroughBreadcrumbs('staten-island')}
       pageUrl="https://findopenmyc.com/mics/staten-island"
+      dayLinksBorough="staten-island"
     />
   );
 }

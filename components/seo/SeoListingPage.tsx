@@ -7,6 +7,8 @@ import changeTime from '@/lib/utils/changeTime';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { getBoroughColor, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 import PageLayout from '../pagelayout/PageLayout';
+import { QuickFilters } from './QuickFilters';
+import { BoroughDayLinks } from './BoroughDayLinks';
 
 interface Breadcrumb {
   name: string;
@@ -21,9 +23,10 @@ interface SeoListingProps {
   free?: boolean;
   breadcrumbs?: Breadcrumb[];
   pageUrl?: string;
+  dayLinksBorough?: string;
 }
 
-export async function SeoListingPage({ title, subtitle, borough, day, free, breadcrumbs, pageUrl }: SeoListingProps) {
+export async function SeoListingPage({ title, subtitle, borough, day, free, breadcrumbs, pageUrl, dayLinksBorough }: SeoListingProps) {
   const { mics, count } = await getMics({
     borough: borough ?? [...ALL_BOROUGHS],
     day: day ?? [...ALL_DAYS],
@@ -80,9 +83,13 @@ export async function SeoListingPage({ title, subtitle, borough, day, free, brea
       <div className="max-w-4xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-slate-800 mb-2">{title}</h1>
         <p className="text-slate-500 mb-1">{subtitle}</p>
-        <p className="text-base font-semibold text-slate-800 mb-6">
+        <p className="text-base font-semibold text-slate-800 mb-4">
           {count} {free ? 'free ' : ''}mic{count !== 1 ? 's' : ''} found
         </p>
+
+        <QuickFilters className="mb-6" />
+
+        {dayLinksBorough && <BoroughDayLinks borough={dayLinksBorough} className="mb-6" />}
 
         <div className="flex flex-col gap-3 mb-8">
           {serialized.map((mic) => (
