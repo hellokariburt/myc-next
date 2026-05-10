@@ -3,7 +3,6 @@
 import {
   IconExternalLink,
   IconMapPin,
-  IconBrandInstagram,
   IconMail,
 } from '@tabler/icons-react';
 
@@ -17,6 +16,7 @@ import {
 } from '@/lib/utils/boroughColor';
 import extractHandles from '@/lib/utils/extractHandles';
 import { isFreeCost } from '@/lib/utils/isFree';
+import { linkifyText } from '@/lib/utils/linkifyText';
 import MicHosts from './MicHosts';
 
 const labelClass =
@@ -111,7 +111,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
             <>
               <dt className={`${labelClass} pt-0.5`}>Signup</dt>
               <dd className="text-slate-800 leading-relaxed">
-                {mic.signup_instructions.instructions}
+                {linkifyText(mic.signup_instructions.instructions)}
               </dd>
             </>
           )}
@@ -141,9 +141,8 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
                     href={`https://instagram.com/${handle.replace(/^@/, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
+                    className="text-blue-600 hover:text-blue-800 underline underline-offset-2"
                   >
-                    <IconBrandInstagram size={16} />
                     @{handle.replace(/^@/, '')}
                   </a>
                 ))}
