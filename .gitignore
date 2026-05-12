@@ -135,3 +135,6 @@ dist
 # Docker file
 .dockerignore
 
+# Claude Code local assistant data
+.claude/
+
