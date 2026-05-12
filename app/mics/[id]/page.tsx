@@ -125,6 +125,16 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   const parsedTime = parseTimeOfDay(mic.start_time || '');
   const startDate = getNextOccurrence(mic.day || 'monday', parsedTime);
+  const endDate = new Date(new Date(startDate).getTime() + 2 * 60 * 60 * 1000).toISOString();
+
+  function normalizePrice(raw: string | null | undefined): string | null {
+    if (!raw) return null;
+    if (isFreeCost(raw)) return '0';
+    const match = raw.match(/\d+(?:\.\d+)?/);
+    return match ? match[0] : null;
+  }
+  const priceValue = normalizePrice(mic.mic_cost?.cost_amount);
+  const micUrl = `https://findopenmyc.com/mics/${id}`;
 
   const dayToSchemaOrg: Record<string, string> = {
     sunday: 'https://schema.org/Sunday',
@@ -146,14 +156,16 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     '@type': 'Event',
     name: mic.name,
     description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.mic_address?.neighborhood ?? mic.borough ?? 'NYC'}`,
-    url: `https://findopenmyc.com/mics/${id}`,
+    url: micUrl,
     image: `https://findopenmyc.com/mics/${id}/opengraph-image`,
     startDate,
+    endDate,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     organizer: mic.host_mics?.[0]?.mic_host?.first_host
-      ? { '@type': 'Person', name: mic.host_mics[0].mic_host.first_host }
-      : undefined,
+      ? { '@type': 'Person', name: mic.host_mics[0].mic_host.first_host, url: micUrl }
+      : { '@type': 'Organization', name: 'OpenMYC', url: 'https://findopenmyc.com' },
+    performer: { '@type': 'PerformingGroup', name: 'Open mic comedians' },
     ...(byDay && startTimeNormalized
       ? {
           eventSchedule: {
@@ -184,12 +196,15 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           }
         : {}),
     },
-    ...(mic.mic_cost?.cost_amount
+    ...(priceValue !== null
       ? {
           offers: {
             '@type': 'Offer',
-            price: isFreeCost(mic.mic_cost.cost_amount) ? '0' : mic.mic_cost.cost_amount,
+            price: priceValue,
             priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            url: micUrl,
+            validFrom: new Date().toISOString(),
           },
         }
       : {}),
