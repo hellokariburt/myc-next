@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: 'Browse NYC Open Mics | OpenMYC',
   description:
     'Browse and filter comedy open mics across Manhattan, Brooklyn, Queens, the Bronx, and Staten Island. Filter by day, time, borough, and cost.',
+  alternates: { canonical: 'https://findopenmyc.com/mics' },
   openGraph: {
     title: 'Browse NYC Open Mics | OpenMYC',
     description:

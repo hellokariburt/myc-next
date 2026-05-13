@@ -48,6 +48,7 @@ export function generateBoroughDayMetadata(borough: string, day: string): Metada
   return {
     title,
     description,
+    alternates: { canonical: `https://findopenmyc.com/mics/${borough}/${day}` },
     openGraph: {
       title,
       description,

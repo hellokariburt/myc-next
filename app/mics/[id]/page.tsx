@@ -50,6 +50,7 @@ export async function generateMetadata({
   return {
     title,
     description,
+    alternates: { canonical: `https://findopenmyc.com/mics/${id}` },
     openGraph: {
       title,
       description,

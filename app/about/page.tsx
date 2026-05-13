@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'About OpenMYC | NYC Comedy Open Mic Finder',
   description:
     'OpenMYC is a free tool built by comedian Kari Burt to help comedians find open mics across all 5 NYC boroughs. Learn about the project, data sources, and how to contribute.',
+  alternates: { canonical: 'https://findopenmyc.com/about' },
   openGraph: {
     title: 'About OpenMYC',
     description:

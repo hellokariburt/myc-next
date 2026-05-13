@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: 'Submit an Open Mic | OpenMYC',
   description:
     'Know about an open mic in NYC that is not listed? Submit it to OpenMYC and help fellow comedians find new stages.',
+  alternates: { canonical: 'https://findopenmyc.com/submit' },
   openGraph: {
     title: 'Submit an Open Mic | OpenMYC',
     description: 'Help fellow comedians find new stages. Submit an NYC open mic to OpenMYC.',

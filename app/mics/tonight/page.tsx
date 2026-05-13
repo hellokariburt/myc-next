@@ -14,6 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: `Open Mics Tonight in NYC — ${today} | OpenMYC`,
     description: `Find every comedy open mic happening tonight (${today}) in New York City. Browse by borough and cost.`,
+    alternates: { canonical: 'https://findopenmyc.com/mics/tonight' },
     openGraph: {
       title: `Open Mics Tonight in NYC — ${today} | OpenMYC`,
       description: `Every comedy open mic happening tonight in NYC.`,

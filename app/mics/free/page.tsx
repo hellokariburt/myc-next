@@ -6,6 +6,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: 'Free Open Mics in NYC | OpenMYC',
   description: 'Find every free comedy open mic in New York City. No cover, no drink minimum. Browse by borough and day.',
+  alternates: { canonical: 'https://findopenmyc.com/mics/free' },
   openGraph: {
     title: 'Free Open Mics in NYC | OpenMYC',
     description: 'Find every free comedy open mic in New York City.',
