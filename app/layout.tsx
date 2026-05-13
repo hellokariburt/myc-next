@@ -51,11 +51,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 url: 'https://findopenmyc.com',
                 description:
                   'A free search engine for comedy open mics in New York City, covering Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
-                potentialAction: {
-                  '@type': 'SearchAction',
-                  target: 'https://findopenmyc.com/mics?borough={borough}',
-                  'query-input': 'required name=borough',
-                },
               }),
             }}
           />

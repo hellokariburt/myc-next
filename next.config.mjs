@@ -13,4 +13,16 @@ export default withBundleAnalyzer({
   experimental: {
     optimizePackageImports: ['@tabler/icons-react'],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*/opengraph-image:suffix*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      },
+      {
+        source: '/opengraph-image:suffix*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex' }],
+      },
+    ];
+  },
 });
