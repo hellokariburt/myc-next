@@ -45,7 +45,7 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
         className="flex items-center gap-2 w-full pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-left hover:border-slate-400 transition-colors"
       >
         <IconMapPin size={16} className="text-slate-400 shrink-0" />
-        <span className={value.length > 0 ? 'text-slate-800 truncate' : 'text-slate-400 truncate'}>
+        <span className={value.length > 0 ? 'text-slate-800 truncate' : 'text-slate-600 truncate'}>
           {display}
         </span>
       </button>

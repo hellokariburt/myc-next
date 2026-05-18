@@ -28,6 +28,7 @@ const Footer = () => (
           <p className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">OpenMYC</p>
           <ul className="flex flex-col gap-2">
             <li><Link href="/about" className={linkClass}>About</Link></li>
+            <li><Link href="/guides" className={linkClass}>Guides</Link></li>
             <li><Link href="/submit" className={linkClass}>Submit a Mic</Link></li>
             <li><Link href="/contact" className={linkClass}>Contact</Link></li>
           </ul>

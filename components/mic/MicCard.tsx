@@ -8,6 +8,8 @@ import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
 import MicListCard from './MicListCard';
 
+const adsEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
+
 const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const { mics, isLoading, isError } = useMicSearch(serverData);
 
@@ -46,7 +48,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
           className="w-full"
         />
       );
-      if ((index + 1) % 5 === 0) {
+      if (adsEnabled && (index + 1) % 5 === 0) {
         items.push(<AdBanner key={`ad-${index}`} />);
       }
     });
