@@ -8,6 +8,7 @@ import {
   getBoroughEyebrow,
   getBoroughDisplayShort,
 } from '@/lib/utils/boroughColor';
+import { buildMicUrl } from '@/lib/utils/micUrl';
 import PageLayout from '../pagelayout/PageLayout';
 import MicListCard from '../mic/MicListCard';
 import { QuickFilters } from './QuickFilters';
@@ -64,7 +65,7 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
     itemListElement: serialized.map((mic, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      url: `https://findopenmyc.com/mics/${mic.id}`,
+      url: buildMicUrl(mic),
       name: mic.name,
     })),
   };

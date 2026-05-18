@@ -1,10 +1,17 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
+import {
+  buildMicOgImageUrl,
+  buildMicPath,
+  buildMicUrl,
+  isCanonicalMicPathSegment,
+  parseMicIdParam,
+} from '@/lib/utils/micUrl';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
 
@@ -18,13 +25,8 @@ const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividua
 export const revalidate = 3600;
 
 async function fetchMic(rawId: string): Promise<MicDetail | null> {
-  let id: bigint;
-  try {
-    id = BigInt(rawId);
-  } catch {
-    return null;
-  }
-  if (id <= BigInt(0)) return null;
+  const id = parseMicIdParam(rawId);
+  if (!id) return null;
   const raw = await getMic(id);
   if (!raw) return null;
   return serialize(raw) as unknown as MicDetail;
@@ -50,11 +52,11 @@ export async function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: `https://findopenmyc.com/mics/${id}` },
+    alternates: { canonical: buildMicUrl(mic) },
     openGraph: {
       title,
       description,
-      url: `https://findopenmyc.com/mics/${id}`,
+      url: buildMicUrl(mic),
       type: 'website',
     },
     twitter: {
@@ -67,16 +69,8 @@ export async function generateMetadata({
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id: rawId } = await params;
-  let id: bigint;
-  try {
-    id = BigInt(rawId);
-  } catch {
-    notFound();
-  }
-
-  if (id <= BigInt(0)) {
-    notFound();
-  }
+  const id = parseMicIdParam(rawId);
+  if (!id) notFound();
 
   const raw = await getMic(id);
 
@@ -85,6 +79,9 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   }
 
   const mic = serialize(raw) as unknown as MicDetail;
+  if (!isCanonicalMicPathSegment(rawId, mic)) {
+    permanentRedirect(buildMicPath(mic));
+  }
 
   function parseTimeOfDay(value: string): { hours: number; minutes: number } | null {
     const iso = value.match(/T(\d{2}):(\d{2})/);
@@ -135,7 +132,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     return match ? match[0] : null;
   }
   const priceValue = normalizePrice(mic.mic_cost?.cost_amount);
-  const micUrl = `https://findopenmyc.com/mics/${id}`;
+  const micUrl = buildMicUrl(mic);
 
   const dayToSchemaOrg: Record<string, string> = {
     sunday: 'https://schema.org/Sunday',
@@ -158,7 +155,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     name: mic.name,
     description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.mic_address?.neighborhood ?? mic.borough ?? 'NYC'}`,
     url: micUrl,
-    image: `https://findopenmyc.com/mics/${id}/opengraph-image`,
+    image: buildMicOgImageUrl(mic),
     startDate,
     endDate,
     eventStatus: 'https://schema.org/EventScheduled',

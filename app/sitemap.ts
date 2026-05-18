@@ -1,17 +1,29 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/prisma';
+import { buildMicUrl } from '@/lib/utils/micUrl';
 
 const boroughs = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
 const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const mics = await prisma.mics.findMany({
-    select: { id: true },
+    select: {
+      id: true,
+      name: true,
+      borough: true,
+      day: true,
+      mic_address: {
+        select: {
+          venue: true,
+          neighborhood: true,
+        },
+      },
+    },
     orderBy: { id: 'asc' },
   });
 
   const micPages = mics.map((mic) => ({
-    url: `https://findopenmyc.com/mics/${mic.id}`,
+    url: buildMicUrl(mic),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));

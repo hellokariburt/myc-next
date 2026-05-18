@@ -3,6 +3,7 @@ import { getMic } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
+import { parseMicIdParam } from '@/lib/utils/micUrl';
 
 export const revalidate = 3600;
 export const size = { width: 1200, height: 630 };
@@ -35,7 +36,9 @@ export default async function Image({ params }: { params: Promise<{ id: string }
 
   let mic: MicDetail | null = null;
   try {
-    const raw = await getMic(BigInt(id));
+    const micId = parseMicIdParam(id);
+    if (!micId) throw new Error('Invalid mic id');
+    const raw = await getMic(micId);
     if (raw) mic = serialize(raw) as unknown as MicDetail;
   } catch {
     // fall through to fallback

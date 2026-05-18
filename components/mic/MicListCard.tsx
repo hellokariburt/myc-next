@@ -8,6 +8,7 @@ import {
   getBoroughDisplayShort,
 } from '@/lib/utils/boroughColor';
 import { isFreeCost } from '@/lib/utils/isFree';
+import { buildMicPath } from '@/lib/utils/micUrl';
 
 interface Props {
   mic: MicListItem;
@@ -20,7 +21,7 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
 
   return (
     <Link
-      href={`/mics/${mic.id}`}
+      href={buildMicPath(mic)}
       aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(
         mic.start_time || ''
       )}, ${mic.mic_cost?.cost_amount || 'Free'}`}
