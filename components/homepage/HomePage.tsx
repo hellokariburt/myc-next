@@ -1,12 +1,19 @@
+import { MicListItem } from '@/lib/types/mic';
 import SearchCard from '../searchcard/SearchCard';
 import { Title } from '../title/Title';
 import PageLayout from '../pagelayout/PageLayout';
 import { QuickFilters } from '../seo/QuickFilters';
+import UpcomingMics from './UpcomingMics';
 
-export function HomePage({ micCount }: { micCount: number }) {
+interface Props {
+  micCount: number;
+  upcoming?: MicListItem[];
+}
+
+export function HomePage({ micCount, upcoming = [] }: Props) {
   return (
     <PageLayout className="bg-slate-50">
-      <div className="flex flex-col items-center justify-start min-h-[80vh] pt-16 md:pt-24 pb-16 px-4">
+      <div className="flex flex-col items-center justify-start pt-16 md:pt-24 pb-20 px-4">
         <Title />
 
         <p className="text-slate-500 text-sm md:text-base mt-6">
@@ -25,6 +32,8 @@ export function HomePage({ micCount }: { micCount: number }) {
           </p>
           <QuickFilters variant="subtle" className="justify-center" />
         </div>
+
+        <UpcomingMics mics={upcoming} />
       </div>
     </PageLayout>
   );
