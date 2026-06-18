@@ -7370,5 +7370,77 @@
     "instagram": "@oddballmatt1",
     "confirmed": "Verified 5/8 Malev",
     "other_rules": null
+  },
+  {
+    "name": "BibbleBash 2",
+    "day": "friday",
+    "start_time": "23:59:00",
+    "end_time": "01:30:00",
+    "venue_name": "BibbleBash",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "1139 Jefferson Ave #1",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11221",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free",
+    "stage_time": "5 min",
+    "signup_instructions": null,
+    "host": "@laramieflick",
+    "instagram": "@laramieflick",
+    "confirmed": "Unverified",
+    "other_rules": null
+  },
+  {
+    "name": "BibbleBash",
+    "day": "friday",
+    "start_time": "22:00:00",
+    "end_time": "23:59:00",
+    "venue_name": "BibbleBash",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "1139 Jefferson Ave #1",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11221",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free",
+    "stage_time": "5 min",
+    "signup_instructions": null,
+    "host": "@laramieflick",
+    "instagram": "@laramieflick",
+    "confirmed": "Unverified",
+    "other_rules": null
+  },
+  {
+    "name": "Crash Landing Comedy",
+    "day": "monday",
+    "start_time": "20:00:00",
+    "end_time": "21:30:00",
+    "venue_name": "Red Eye",
+    "borough": "manhattan",
+    "neighborhood": "Hell's Kitchen",
+    "address": {
+      "street_name": "355 W 41st St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10036",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free",
+    "stage_time": "5 min",
+    "signup_instructions": null,
+    "host": "@ashleyryantv",
+    "instagram": "@ashleyryantv",
+    "confirmed": "Unverified",
+    "other_rules": null
   }
 ]
