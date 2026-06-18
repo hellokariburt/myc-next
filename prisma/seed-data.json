@@ -2238,29 +2238,6 @@
     "other_rules": null
   },
   {
-    "name": "The Bull Jive mic",
-    "day": "tuesday",
-    "start_time": "17:10:00",
-    "end_time": "18:10:00",
-    "venue_name": "Cowboy Tom's",
-    "borough": "manhattan",
-    "neighborhood": "Lower east side",
-    "address": {
-      "street_name": "120 Orchard St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10002"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$5",
-    "stage_time": "5-7 min",
-    "signup_instructions": "https://slotted.co/thebulljive/",
-    "host": "Chase Allen",
-    "instagram": "@seechaselounge",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": "Buy a drink please"
-  },
-  {
     "name": "Laughpack @ housewatch",
     "day": "tuesday",
     "start_time": "17:15:00",
@@ -2400,30 +2377,6 @@
     "signup_instructions": "signup there",
     "host": "Aarian punter",
     "instagram": "@aarianpopepunter23",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Behavior Mic",
-    "day": "tuesday",
-    "start_time": "18:00:00",
-    "end_time": "20:00:00",
-    "venue_name": "Echo Bravo",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "445 Troutman St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11237",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "3 min",
-    "stage_time": "3 min",
-    "signup_instructions": "signup there",
-    "host": "@graci3city @silliebobbiebrown",
-    "instagram": "@behaviormic",
     "confirmed": "Unverified",
     "other_rules": null
   },
@@ -2763,30 +2716,6 @@
     "other_rules": "show up first go up first depending on the host"
   },
   {
-    "name": "*Biweekly* Best Night Ever",
-    "day": "tuesday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "Fiction Bar",
-    "borough": "brooklyn",
-    "neighborhood": "Williamsburg",
-    "address": {
-      "street_name": "308 Hooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11211",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "Free (buy smth at bar pls)",
-    "stage_time": null,
-    "signup_instructions": "signup there",
-    "host": "Audreym.b and Akshaypsa",
-    "instagram": "@bestnightevercomedy",
-    "confirmed": "Unverified",
-    "other_rules": "winner gets $20 or booked on Hope's show"
-  },
-  {
     "name": "(LGBTQ + Women) Is This Gay?",
     "day": "tuesday",
     "start_time": "19:00:00",
@@ -3047,30 +2976,6 @@
     "instagram": "@pablopolancolol",
     "confirmed": "Verified 5/8 Malev",
     "other_rules": null
-  },
-  {
-    "name": "Peer Pressure",
-    "day": "tuesday",
-    "start_time": "19:30:00",
-    "end_time": "21:00:00",
-    "venue_name": "Block Hill Station",
-    "borough": "brooklyn",
-    "neighborhood": "Park Slope/South Slope",
-    "address": {
-      "street_name": "718 5th Ave",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11215",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "Free (buy smth at bar pls)",
-    "stage_time": "5 min",
-    "signup_instructions": "signup there",
-    "host": "Meg Felling & John Fox",
-    "instagram": "@peerpressurecomedy",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": "Cap at 18 comics"
   },
   {
     "name": "I-9 mic",
@@ -3380,30 +3285,6 @@
     "host": "Danny Metz",
     "instagram": "@dannymetz0",
     "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "BUCKET Pandamonium",
-    "day": "tuesday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "@spaandaa @caragh.ab",
-    "instagram": "@pandamoniumcomedyy",
-    "confirmed": "Verified 5/8 Malev",
     "other_rules": null
   },
   {
