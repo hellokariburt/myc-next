@@ -71,7 +71,7 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
   };
 
   return (
-    <PageLayout className="bg-slate-50">
+    <PageLayout className="bg-[#f6efe4]">
       {breadcrumbsJsonLd && (
         <script
           type="application/ld+json"

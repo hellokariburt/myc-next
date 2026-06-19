@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function GuidesPage() {
   return (
-    <PageLayout className="bg-slate-50">
+    <PageLayout className="bg-[#f6efe4]">
       <section className="max-w-5xl mx-auto px-4 py-12 md:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">

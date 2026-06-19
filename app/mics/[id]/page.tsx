@@ -209,7 +209,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   };
 
   return (
-    <PageLayout hasBackButton className="pb-16 bg-slate-50">
+    <PageLayout hasBackButton className="pb-16 bg-[#f6efe4]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

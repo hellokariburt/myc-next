@@ -13,7 +13,7 @@ interface Props {
 
 export function HomePage({ micCount, upcoming = [] }: Props) {
   return (
-    <PageLayout className="bg-slate-50">
+    <PageLayout className="bg-[#f6efe4]">
       <div className="flex flex-col items-center justify-start pt-16 md:pt-24 pb-20 px-4">
         <Title />
 

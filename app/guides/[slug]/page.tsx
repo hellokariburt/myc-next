@@ -43,7 +43,7 @@ export default async function GuideArticlePage({
   }
 
   return (
-    <PageLayout className="bg-slate-50">
+    <PageLayout className="bg-[#f6efe4]">
       <article className="max-w-3xl mx-auto px-4 py-12 md:py-16">
         <Link href="/guides" className="text-sm font-semibold text-blue-700 hover:text-blue-800">
           Back to guides

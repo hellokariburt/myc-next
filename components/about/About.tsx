@@ -4,7 +4,7 @@ import PageLayout from '../pagelayout/PageLayout';
 
 const About = () => (
   <PageLayout>
-    <div className="bg-slate-50">
+    <div className="bg-[#f6efe4]">
       <div className="max-w-5xl mx-auto px-4 py-12 md:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
