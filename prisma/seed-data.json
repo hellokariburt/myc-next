@@ -759,52 +759,6 @@
     "other_rules": null
   },
   {
-    "name": "Craig Lottner's Open Mic",
-    "day": "monday",
-    "start_time": "12:30:00",
-    "end_time": "14:00:00",
-    "venue_name": "West side Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "UWS",
-    "address": {
-      "street_name": "201 W 75th St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10023"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "Free",
-    "stage_time": "10 min",
-    "signup_instructions": "No sign-up details",
-    "host": "Craig Lottner",
-    "instagram": "@craiglottner",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Greg Giraldo's Open Mic",
-    "day": "monday",
-    "start_time": "15:00:00",
-    "end_time": "16:30:00",
-    "venue_name": "West side Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "UWS",
-    "address": {
-      "street_name": "201 W 75th St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10023"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "Free",
-    "stage_time": "5 min",
-    "signup_instructions": "No sign-up details",
-    "host": "Greg Giraldo",
-    "instagram": "@greggiraldojr",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Greenwich village comedy club",
     "day": "monday",
     "start_time": "15:00:00",
@@ -1375,30 +1329,6 @@
     "host": null,
     "instagram": "@pillowfightmic",
     "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Comedy in Harlem",
-    "day": "monday",
-    "start_time": "18:00:00",
-    "end_time": "19:30:00",
-    "venue_name": "Comedy in Harlem",
-    "borough": "manhattan",
-    "neighborhood": "Harlem",
-    "address": {
-      "street_name": "750A St Nicholas Ave",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10031",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": "SUGU",
-    "host": "SashaLynn Medina",
-    "instagram": "@comedyinharlem",
-    "confirmed": "Verified tediously 5/13 Malev",
     "other_rules": null
   },
   {
@@ -8885,30 +8815,6 @@
     "other_rules": null
   },
   {
-    "name": "Comedy in Harlem",
-    "day": "monday",
-    "start_time": "17:00:00",
-    "end_time": "19:30:00",
-    "venue_name": "Comedy in Harlem",
-    "borough": "manhattan",
-    "neighborhood": "Harlem",
-    "address": {
-      "street_name": "750A St. Nicholas Ave",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10031",
-      "country": "USA"
-    },
-    "venue_type": null,
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": null,
-    "host": "Comedy in Harlem",
-    "instagram": "@comedyinharlem",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
     "name": "NYCC Mid Mic",
     "day": "monday",
     "start_time": "17:00:00",
@@ -9289,30 +9195,6 @@
     "signup_instructions": "In-person signup at door ($5 cash)",
     "host": "Austin O",
     "instagram": "@austino19",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Grand Prize",
-    "day": "tuesday",
-    "start_time": "13:00:00",
-    "end_time": null,
-    "venue_name": "West Side Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "UWS",
-    "address": {
-      "street_name": "201 W 75th St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10023",
-      "country": "USA"
-    },
-    "venue_type": null,
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": null,
-    "host": "West Side Comedy Club",
-    "instagram": "@westsidecomedyclub",
     "confirmed": "Unverified",
     "other_rules": null
   },
@@ -10393,30 +10275,6 @@
     "signup_instructions": "Register online via Laughing Buddha Tickettailor (opens one week in advance)",
     "host": "Laughing Buddha",
     "instagram": "@laughingbuddhacomedy",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Try New S**T",
-    "day": "thursday",
-    "start_time": "16:30:00",
-    "end_time": "18:30:00",
-    "venue_name": "West Side Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "UWS",
-    "address": {
-      "street_name": "201 W 75th St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10023",
-      "country": "USA"
-    },
-    "venue_type": null,
-    "cost": "$6",
-    "stage_time": "5 min",
-    "signup_instructions": null,
-    "host": "West Side Comedy Club",
-    "instagram": "@westsidecomedyclub",
     "confirmed": "Unverified",
     "other_rules": null
   },
