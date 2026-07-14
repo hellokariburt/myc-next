@@ -12,6 +12,7 @@ const Footer = () => (
             <li><Link href="/mics" className={linkClass}>All Mics</Link></li>
             <li><Link href="/mics/tonight" className={linkClass}>Tonight</Link></li>
             <li><Link href="/mics/free" className={linkClass}>Free Mics</Link></li>
+            <li><Link href="/shows" className={linkClass}>Indie Shows</Link></li>
           </ul>
         </div>
         <div>

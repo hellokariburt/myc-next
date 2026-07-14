@@ -64,6 +64,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: 'https://findopenmyc.com/shows',
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
     ...boroughPages,
     ...boroughDayPages,
     {

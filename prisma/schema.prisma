@@ -89,6 +89,21 @@ model signup_instructions {
   mics         mics[]
 }
 
+model shows {
+  id            BigInt   @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  venue         String?  @db.VarChar(255)
+  borough       String?  @db.VarChar(255)
+  neighborhood  String?  @db.VarChar(255)
+  day           String?  @db.VarChar(255)
+  time_text     String?  @db.VarChar(255)
+  instagram     String?  @db.VarChar(255)
+  schedule      String?  @db.VarChar(50)
+  location_note String?  @db.VarChar(255)
+  confirmed     String?  @db.VarChar(255)
+  created_at    DateTime @default(now())
+}
+
 model mic_submissions {
   id              BigInt   @id @default(autoincrement())
   name            String   @db.VarChar(255)
