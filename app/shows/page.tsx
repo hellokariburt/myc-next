@@ -28,10 +28,10 @@ export default async function ShowsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
             Beyond the mics
           </p>
-          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal text-slate-900">
+          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
             NYC indie comedy shows, night by night
           </h1>
-          <p className="mt-5 text-lg leading-8 text-slate-600">
+          <p className="mt-5 text-lg leading-8 text-slate-700">
             The bar shows, basement shows, and rooftop shows that make up the city&apos;s indie
             scene. Listings show each show&apos;s public info only — follow the show&apos;s
             Instagram for lineups, tickets, and location details.

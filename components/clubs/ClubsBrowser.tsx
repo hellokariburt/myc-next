@@ -20,7 +20,7 @@ const FILTER_BOROUGHS = [
 ];
 
 const pillBase =
-  'rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500';
+  'rounded-full border px-4 py-2.5 sm:py-1.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500';
 const pillOff = `${pillBase} bg-white border-slate-200 text-slate-700 hover:bg-slate-50`;
 
 const BOROUGH_ORDER = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];

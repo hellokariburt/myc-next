@@ -17,6 +17,7 @@ export type ShowListItem = {
   location_note: string | null;
   latitude: string | null;
   longitude: string | null;
+  next_date: string | null;
   image: string | null;
 };
 
@@ -61,6 +62,7 @@ export async function getShows(): Promise<ShowListItem[]> {
       location_note: s.location_note,
       latitude: s.latitude,
       longitude: s.longitude,
+      next_date: s.next_date,
       image: findShowArt(s.instagram, s.name),
     }))
     .sort((a, b) => {

@@ -27,10 +27,10 @@ export default async function ClubsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
             The rooms
           </p>
-          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal text-slate-900">
+          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
             NYC comedy clubs
           </h1>
-          <p className="mt-5 text-lg leading-8 text-slate-600">
+          <p className="mt-5 text-lg leading-8 text-slate-700">
             The city&apos;s dedicated stand-up rooms — verified open, borough by borough. Many run
             open mics too: check <a href="/mics" className="underline">the mic list</a> for stage
             time at these clubs.

@@ -88,10 +88,15 @@ const SubmitMicForm = () => {
 
   return (
     <PageLayout>
-      <div className="flex flex-col items-center justify-center py-36 min-h-[100vh]">
+      <div className="flex flex-col items-center justify-start pt-16 pb-24 px-4 min-h-[100vh]">
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] w-full">
-          <h1 className="font-bold text-4xl">{isShow ? 'Submit a Show' : 'Submit a Mic'}</h1>
-          <p className="pt-2 text-slate-500 text-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
+            Add to the board
+          </p>
+          <h1 className="mt-2 font-display text-4xl md:text-5xl tracking-normal leading-[1.02] text-slate-900">
+            {isShow ? 'Submit a Show' : 'Submit a Mic'}
+          </h1>
+          <p className="pt-3 text-slate-700 text-sm">
             {isShow
               ? "Run or know an indie show that's not on the list? Let us know and we'll get it added."
               : "Know of an open mic that's not on the list? Let us know and we'll get it added."}
@@ -109,8 +114,8 @@ const SubmitMicForm = () => {
                 role="radio"
                 aria-checked={type === t}
                 onClick={() => setType(t)}
-                className={`px-4 py-1.5 rounded-md text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  type === t ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                className={`px-4 py-2.5 sm:py-1.5 rounded-md text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  type === t ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {t === 'mic' ? 'Open Mic' : 'Indie Show'}

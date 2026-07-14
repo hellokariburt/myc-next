@@ -16,8 +16,20 @@ interface Props {
   hideBoroughBadge?: boolean;
 }
 
+// one-line badge token; prose like "but you get a free drink" moves to a caption
+function costToken(cost: string | null | undefined, isFree: boolean): string {
+  if (isFree) return 'Free';
+  const dollars = (cost || '').match(/\$\d+(?:\.\d{2})?/);
+  if (dollars) return dollars[0];
+  const c = (cost || '').trim();
+  return c.length <= 14 ? c : 'Paid';
+}
+
 export default function MicListCard({ mic, className = '', hideBoroughBadge }: Props) {
   const isFree = isFreeCost(mic.mic_cost?.cost_amount);
+  const rawCost = mic.mic_cost?.cost_amount || 'Free';
+  const token = costToken(rawCost, isFree);
+  const costCaption = token !== rawCost && rawCost.length > token.length ? rawCost : null;
 
   return (
     <Link
@@ -42,15 +54,18 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-base lg:text-lg font-semibold text-slate-900 group-hover:underline decoration-slate-400 underline-offset-2 truncate">
+          <p className="text-base lg:text-lg font-semibold text-slate-900 group-hover:underline decoration-slate-400 underline-offset-2 line-clamp-2 break-words">
             {mic.name}
           </p>
-          <p className="text-slate-600 text-sm lg:text-base truncate">
+          <p className="text-slate-600 text-sm lg:text-base line-clamp-2 break-words">
             {mic.mic_address?.venue}
             {mic.mic_address?.neighborhood && (
               <span className="text-slate-500"> · {mic.mic_address.neighborhood}</span>
             )}
           </p>
+          {costCaption && (
+            <p className="text-xs text-slate-500 pt-0.5 line-clamp-1">{costCaption}</p>
+          )}
           <div className="flex flex-wrap items-center gap-2 pt-2">
             {!hideBoroughBadge && mic.borough && (
               <span
@@ -62,13 +77,13 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
               </span>
             )}
             <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ring-1 ${
+              className={`inline-flex items-center whitespace-nowrap px-2.5 py-0.5 rounded-full text-xs font-medium ring-1 ${
                 isFree
                   ? 'bg-green-50 text-green-700 ring-green-200'
                   : 'bg-amber-50 text-amber-700 ring-amber-200'
               }`}
             >
-              {mic.mic_cost?.cost_amount || 'Free'}
+              {token}
             </span>
           </div>
         </div>

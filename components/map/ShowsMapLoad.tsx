@@ -1,6 +1,7 @@
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import ShowInfoMarker from './ShowInfoMarker';
 import { ShowListItem } from '@/lib/services/shows.service';
+import { formatTimeText } from '@/lib/utils/formatTimeText';
 
 const containerStyle = {
   width: '100%',
@@ -29,7 +30,7 @@ const ShowsMapLoad = ({ shows }: { shows: ShowListItem[] }) => {
         name={show.name}
         venue={show.venue || ''}
         day={show.day || ''}
-        time={show.time_text || ''}
+        time={formatTimeText(show.time_text)}
         instagram={show.instagram || ''}
         borough={show.borough}
       />

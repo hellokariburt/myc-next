@@ -24,10 +24,10 @@ export default function GuidesPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
             OpenMYC Guides
           </p>
-          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal text-slate-900">
+          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
             Practical NYC open mic advice, not just listings
           </h1>
-          <p className="mt-5 text-lg leading-8 text-slate-600">
+          <p className="mt-5 text-lg leading-8 text-slate-700">
             OpenMYC tracks where mics are. These guides cover how the rooms actually work:
             first-timer logistics, signup formats, venue differences, and the unwritten rules
             that make nights in the city go smoother.

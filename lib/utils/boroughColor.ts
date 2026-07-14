@@ -95,3 +95,16 @@ const boroughSolid: Record<string, string> = {
 export function getBoroughSolid(borough: string): string {
   return boroughSolid[borough.toLowerCase()] || 'bg-slate-900 border-slate-900 text-white';
 }
+
+// gradient banner for imageless club cards
+const boroughBanner: Record<string, string> = {
+  manhattan: 'bg-gradient-to-br from-blue-500 to-blue-700',
+  brooklyn: 'bg-gradient-to-br from-purple-500 to-purple-700',
+  queens: 'bg-gradient-to-br from-orange-500 to-orange-700',
+  bronx: 'bg-gradient-to-br from-rose-500 to-rose-700',
+  'staten-island': 'bg-gradient-to-br from-teal-500 to-teal-700',
+};
+
+export function getBoroughBanner(borough: string): string {
+  return boroughBanner[borough.toLowerCase()] || 'bg-gradient-to-br from-slate-500 to-slate-700';
+}

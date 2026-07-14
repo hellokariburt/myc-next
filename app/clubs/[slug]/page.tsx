@@ -98,7 +98,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               />
             )}
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <h1 className="font-display text-3xl md:text-5xl tracking-normal text-slate-900">
+              <h1 className="font-display text-3xl md:text-5xl tracking-normal leading-[1.02] text-slate-900">
                 {club.name}
               </h1>
               {club.borough && (

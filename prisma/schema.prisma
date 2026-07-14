@@ -102,6 +102,7 @@ model shows {
   location_note String?  @db.VarChar(255)
   latitude      String?  @db.VarChar(255)
   longitude     String?  @db.VarChar(255)
+  next_date     String?  @db.VarChar(10)
   confirmed     String?  @db.VarChar(255)
   created_at    DateTime @default(now())
 }

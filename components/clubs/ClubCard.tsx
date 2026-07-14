@@ -5,6 +5,7 @@ import {
   getBoroughBorderColor,
   getBoroughBadgeClasses,
   getBoroughDisplayShort,
+  getBoroughBanner,
 } from '@/lib/utils/boroughColor';
 
 export default function ClubCard({ club }: { club: ClubListItem }) {
@@ -23,7 +24,7 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
         club.borough || ''
       )} rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
     >
-      {club.image && (
+      {club.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={club.image}
@@ -31,6 +32,15 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
           loading="lazy"
           className="w-full h-36 object-cover bg-slate-100 border-b border-slate-100"
         />
+      ) : (
+        <div
+          aria-hidden="true"
+          className={`w-full h-36 flex items-center justify-center px-6 ${getBoroughBanner(club.borough || '')}`}
+        >
+          <span className="font-display uppercase text-2xl text-white/95 text-center leading-none">
+            {club.name}
+          </span>
+        </div>
       )}
       <div className="px-5 py-4 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-3">

@@ -18,6 +18,7 @@ interface SeedShow {
   instagram: string | null;
   schedule: string | null;
   location_note: string | null;
+  next_date?: string | null;
   confirmed: string | null;
 }
 

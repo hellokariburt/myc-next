@@ -20,15 +20,15 @@ export function QuickFilters({
   const subtle = variant === 'subtle';
 
   const tonightCls = subtle
-    ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-orange-500 hover:text-orange-600 transition-colors'
-    : 'inline-flex items-center px-3 py-1.5 rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors';
+    ? 'inline-flex items-center gap-1.5 px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-orange-500 hover:text-orange-600 transition-colors'
+    : 'inline-flex items-center px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-orange-500 text-white text-sm font-semibold hover:bg-orange-600 transition-colors';
 
   const freeCls = subtle
-    ? 'inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-green-600 hover:text-green-700 transition-colors'
-    : 'inline-flex items-center px-3 py-1.5 rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-700 transition-colors';
+    ? 'inline-flex items-center gap-1.5 px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-green-600 hover:text-green-700 transition-colors'
+    : 'inline-flex items-center px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-700 transition-colors';
 
   const boroughCls =
-    'inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors';
+    'inline-flex items-center px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors';
 
   return (
     <nav aria-label="Quick filters" className={`flex flex-wrap gap-2 ${className}`}>
