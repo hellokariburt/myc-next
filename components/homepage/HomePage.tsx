@@ -5,6 +5,7 @@ import { Title } from '../title/Title';
 import PageLayout from '../pagelayout/PageLayout';
 import { QuickFilters } from '../seo/QuickFilters';
 import UpcomingMics from './UpcomingMics';
+import { t } from '@/lib/i18n';
 
 interface Props {
   micCount: number;
@@ -18,14 +19,14 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
         <Title />
 
         <p className="text-slate-500 text-sm md:text-base mt-6">
-          <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span> mics on the
-          board right now — every one checked against the scene
+          <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span>{' '}
+          {t('home.countLineAfterCount')}
         </p>
 
         <div className="w-full mt-8 relative">
           <div className="md:max-w-4xl mx-auto relative">
             <span className="absolute -top-3 left-8 z-10 rounded-full bg-slate-900 px-3 py-1 font-display uppercase tracking-wide text-xs text-white">
-              Find a mic
+              {t('home.searchTab')}
             </span>
             <SearchCard />
           </div>
@@ -33,7 +34,7 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
 
         <div className="w-full max-w-2xl mt-2">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 text-center mb-3">
-            Or jump straight to
+            {t('home.jumpTo')}
           </p>
           <QuickFilters variant="subtle" className="justify-center" />
         </div>
@@ -45,21 +46,20 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-                  Beyond the listings
+                  {t('home.guides.eyebrow')}
                 </p>
                 <h2 className="mt-3 text-2xl md:text-3xl font-black tracking-tight text-slate-900">
-                  Guides for first-timers, room strategy, and NYC mic etiquette
+                  {t('home.guides.heading')}
                 </h2>
                 <p className="mt-3 text-slate-600 leading-7">
-                  OpenMYC now includes editorial guides to help comics understand signup formats,
-                  room types, and what to expect before heading out.
+                  {t('home.guides.body')}
                 </p>
               </div>
               <Link
                 href="/guides"
                 className="inline-flex rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
               >
-                Read the guides
+                {t('home.guides.cta')}
               </Link>
             </div>
           </div>

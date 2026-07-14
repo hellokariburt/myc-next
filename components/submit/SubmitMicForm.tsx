@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
 import PageLayout from '../pagelayout/PageLayout';
+import { t } from '@/lib/i18n';
 
 const boroughs = [
   { value: 'manhattan', label: 'Manhattan' },
@@ -61,24 +62,23 @@ const SubmitMicForm = () => {
       <PageLayout>
         <div className="flex flex-col items-center justify-center py-36 min-h-[100vh]">
           <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] text-center">
-            <h1 className="font-bold text-4xl">Thanks!</h1>
+            <h1 className="font-bold text-4xl">{t('submit.messages.thanksTitle')}</h1>
             <p className="pt-4 text-slate-600">
-              Your submission has been received. We&apos;ll review it and get it added to the
-              list — this usually takes a few days.
+              {t('submit.messages.thanksBody')}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
               <Link
                 href="/"
                 className="bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-6 rounded-lg font-semibold transition-colors"
               >
-                Browse Mics
+                {t('submit.messages.browseMics')}
               </Link>
               <button
                 type="button"
                 onClick={() => setStatus('idle')}
                 className="border border-slate-300 hover:border-slate-400 text-slate-700 py-2.5 px-6 rounded-lg font-semibold transition-colors"
               >
-                Submit Another
+                {t('submit.messages.submitAnother')}
               </button>
             </div>
           </div>
@@ -92,15 +92,13 @@ const SubmitMicForm = () => {
       <div className="flex flex-col items-center justify-start pt-16 pb-24 px-4 min-h-[100vh]">
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] w-full">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-            Add to the board
+            {t('submit.eyebrow')}
           </p>
           <h1 className="mt-2 font-display text-4xl md:text-5xl tracking-normal leading-[1.02] text-slate-900">
-            {isShow ? 'Submit a Show' : 'Submit a Mic'}
+            {isShow ? t('submit.titleShow') : t('submit.titleMic')}
           </h1>
           <p className="pt-3 text-slate-700 text-sm">
-            {isShow
-              ? "Run or know a show that's not on the list? Let us know and we'll get it added."
-              : "Know of an open mic that's not on the list? Let us know and we'll get it added."}
+            {isShow ? t('submit.introShow') : t('submit.introMic')}
           </p>
 
           {/* mic/show toggle removed while the shows section is dormant;
@@ -108,34 +106,34 @@ const SubmitMicForm = () => {
           <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
             {/* Honeypot - hidden from real users, bots will fill it */}
             <div className="absolute opacity-0 -z-10" aria-hidden="true">
-              <label htmlFor="website_url">Website</label>
+              <label htmlFor="website_url">{t('submit.fields.website')}</label>
               <input id="website_url" name="website_url" type="text" tabIndex={-1} autoComplete="off" />
             </div>
 
             {/* Mic info */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1">
-              {isShow ? 'Show Info' : 'Mic Info'}
+              {isShow ? t('submit.sections.showInfo') : t('submit.sections.micInfo')}
             </h2>
 
             <div>
-              <label htmlFor="name" className={labelClass}>{isShow ? 'Show Name *' : 'Mic Name *'}</label>
-              <input id="name" name="name" type="text" required className={inputClass} placeholder="e.g. Tuesday Night Comedy" />
+              <label htmlFor="name" className={labelClass}>{isShow ? t('submit.fields.showName') : t('submit.fields.micName')}</label>
+              <input id="name" name="name" type="text" required className={inputClass} placeholder={t('submit.fields.namePlaceholder')} />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="borough" className={labelClass}>Borough *</label>
+                <label htmlFor="borough" className={labelClass}>{t('submit.fields.borough')}</label>
                 <select id="borough" name="borough" required className={selectClass} defaultValue="">
-                  <option value="" disabled>Select borough</option>
+                  <option value="" disabled>{t('submit.fields.boroughPlaceholder')}</option>
                   {boroughs.map((b) => (
                     <option key={b.value} value={b.value}>{b.label}</option>
                   ))}
                 </select>
               </div>
               <div>
-                <label htmlFor="day" className={labelClass}>Day *</label>
+                <label htmlFor="day" className={labelClass}>{t('submit.fields.day')}</label>
                 <select id="day" name="day" required className={selectClass} defaultValue="">
-                  <option value="" disabled>Select day</option>
+                  <option value="" disabled>{t('submit.fields.dayPlaceholder')}</option>
                   {days.map((d) => (
                     <option key={d.value} value={d.value}>{d.label}</option>
                   ))}
@@ -145,111 +143,111 @@ const SubmitMicForm = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="start_time" className={labelClass}>Start Time *</label>
+                <label htmlFor="start_time" className={labelClass}>{t('submit.fields.startTime')}</label>
                 <input id="start_time" name="start_time" type="time" required className={inputClass} />
               </div>
               <div>
-                <label htmlFor="end_time" className={labelClass}>End Time</label>
+                <label htmlFor="end_time" className={labelClass}>{t('submit.fields.endTime')}</label>
                 <input id="end_time" name="end_time" type="time" className={inputClass} />
               </div>
             </div>
 
             <div>
-              <label htmlFor="cost" className={labelClass}>{isShow ? 'Cost / Tickets' : 'Cost *'}</label>
-              <input id="cost" name="cost" type="text" required={!isShow} className={inputClass} placeholder={isShow ? 'e.g. Free, $10 tickets, 2 drink minimum' : 'e.g. Free, $5, 2 drink minimum'} />
+              <label htmlFor="cost" className={labelClass}>{isShow ? t('submit.fields.costShow') : t('submit.fields.cost')}</label>
+              <input id="cost" name="cost" type="text" required={!isShow} className={inputClass} placeholder={isShow ? t('submit.fields.costShowPlaceholder') : t('submit.fields.costPlaceholder')} />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="venue_type" className={labelClass}>Venue Type</label>
-                <input id="venue_type" name="venue_type" type="text" className={inputClass} placeholder="e.g. Bar, Comedy Club, Cafe" />
+                <label htmlFor="venue_type" className={labelClass}>{t('submit.fields.venueType')}</label>
+                <input id="venue_type" name="venue_type" type="text" className={inputClass} placeholder={t('submit.fields.venueTypePlaceholder')} />
               </div>
               {!isShow && (
                 <div>
-                  <label htmlFor="stage_time" className={labelClass}>Stage Time</label>
-                  <input id="stage_time" name="stage_time" type="text" className={inputClass} placeholder="e.g. 5 minutes" />
+                  <label htmlFor="stage_time" className={labelClass}>{t('submit.fields.stageTime')}</label>
+                  <input id="stage_time" name="stage_time" type="text" className={inputClass} placeholder={t('submit.fields.stageTimePlaceholder')} />
                 </div>
               )}
             </div>
 
             {!isShow && (
               <div>
-                <label htmlFor="signup_info" className={labelClass}>Signup Info</label>
-                <input id="signup_info" name="signup_info" type="text" className={inputClass} placeholder="e.g. Sign up at the door, Bucket pull" />
+                <label htmlFor="signup_info" className={labelClass}>{t('submit.fields.signupInfo')}</label>
+                <input id="signup_info" name="signup_info" type="text" className={inputClass} placeholder={t('submit.fields.signupInfoPlaceholder')} />
               </div>
             )}
 
             <div>
-              <label htmlFor="schedule" className={labelClass}>Schedule</label>
-              <input id="schedule" name="schedule" type="text" className={inputClass} placeholder="e.g. Weekly, Every other week, First Tuesday of month" />
+              <label htmlFor="schedule" className={labelClass}>{t('submit.fields.schedule')}</label>
+              <input id="schedule" name="schedule" type="text" className={inputClass} placeholder={t('submit.fields.schedulePlaceholder')} />
             </div>
 
             {/* Venue info */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1 mt-2">
-              Venue
+              {t('submit.sections.venue')}
             </h2>
 
             <div>
-              <label htmlFor="venue" className={labelClass}>Venue Name *</label>
-              <input id="venue" name="venue" type="text" required className={inputClass} placeholder="e.g. The Stand" />
+              <label htmlFor="venue" className={labelClass}>{t('submit.fields.venueName')}</label>
+              <input id="venue" name="venue" type="text" required className={inputClass} placeholder={t('submit.fields.venueNamePlaceholder')} />
             </div>
 
             <div>
               <label htmlFor="street_address" className={labelClass}>
-                {isShow ? 'Street Address' : 'Street Address *'}
+                {isShow ? t('submit.fields.streetAddressOptional') : t('submit.fields.streetAddress')}
               </label>
-              <input id="street_address" name="street_address" type="text" required={!isShow} className={inputClass} placeholder={isShow ? 'e.g. 239 3rd Ave (leave blank for DM-for-location)' : 'e.g. 239 3rd Ave'} />
+              <input id="street_address" name="street_address" type="text" required={!isShow} className={inputClass} placeholder={t('submit.fields.streetAddressPlaceholder')} />
             </div>
 
             <div>
-              <label htmlFor="neighborhood" className={labelClass}>Neighborhood</label>
-              <input id="neighborhood" name="neighborhood" type="text" className={inputClass} placeholder="e.g. East Village, Williamsburg" />
+              <label htmlFor="neighborhood" className={labelClass}>{t('submit.fields.neighborhood')}</label>
+              <input id="neighborhood" name="neighborhood" type="text" className={inputClass} placeholder={t('submit.fields.neighborhoodPlaceholder')} />
             </div>
 
             {/* Host & social */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1 mt-2">
-              Host & Social
+              {t('submit.sections.hostSocial')}
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="host_name" className={labelClass}>Host Name</label>
+                <label htmlFor="host_name" className={labelClass}>{t('submit.fields.hostName')}</label>
                 <input id="host_name" name="host_name" type="text" className={inputClass} />
               </div>
               <div>
-                <label htmlFor="host_instagram" className={labelClass}>Host Instagram</label>
+                <label htmlFor="host_instagram" className={labelClass}>{t('submit.fields.hostInstagram')}</label>
                 <input id="host_instagram" name="host_instagram" type="text" className={inputClass} placeholder="@handle" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="instagram" className={labelClass}>{isShow ? 'Show Instagram' : 'Mic Instagram'}</label>
+                <label htmlFor="instagram" className={labelClass}>{isShow ? t('submit.fields.instagramShow') : t('submit.fields.instagramMic')}</label>
                 <input id="instagram" name="instagram" type="text" className={inputClass} placeholder="@handle" />
               </div>
               <div>
-                <label htmlFor="website" className={labelClass}>Website</label>
-                <input id="website" name="website" type="text" className={inputClass} placeholder="https://" />
+                <label htmlFor="website" className={labelClass}>{t('submit.fields.website')}</label>
+                <input id="website" name="website" type="text" className={inputClass} placeholder={t('submit.fields.websitePlaceholder')} />
               </div>
             </div>
 
             {/* Extra */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1 mt-2">
-              Anything Else
+              {t('submit.sections.extra')}
             </h2>
 
             <div>
-              <label htmlFor="notes" className={labelClass}>Notes</label>
-              <textarea id="notes" name="notes" rows={3} className={inputClass} placeholder="Anything else we should know about this mic?" />
+              <label htmlFor="notes" className={labelClass}>{t('submit.fields.notes')}</label>
+              <textarea id="notes" name="notes" rows={3} className={inputClass} placeholder={t('submit.fields.notesPlaceholder')} />
             </div>
 
             <div>
-              <label htmlFor="submitter_email" className={labelClass}>Your Email (optional)</label>
-              <input id="submitter_email" name="submitter_email" type="email" className={inputClass} placeholder="In case we have questions" />
+              <label htmlFor="submitter_email" className={labelClass}>{t('submit.fields.email')}</label>
+              <input id="submitter_email" name="submitter_email" type="email" className={inputClass} placeholder={t('submit.fields.emailPlaceholder')} />
             </div>
 
             {status === 'error' && (
-              <p className="text-red-600 text-sm">Something went wrong. Please try again.</p>
+              <p className="text-red-600 text-sm">{t('submit.messages.error')}</p>
             )}
 
             <button
@@ -257,7 +255,7 @@ const SubmitMicForm = () => {
               disabled={status === 'submitting'}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2.5 px-6 rounded-lg font-semibold transition-colors mt-2"
             >
-              {status === 'submitting' ? 'Submitting...' : isShow ? 'Submit Show' : 'Submit Mic'}
+              {status === 'submitting' ? t('submit.buttons.submitting') : isShow ? t('submit.buttons.submitShow') : t('submit.buttons.submitMic')}
             </button>
           </form>
         </div>

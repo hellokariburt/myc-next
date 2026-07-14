@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ClubListItem } from '@/lib/services/clubs.service';
 import { nameSlug as clubSlug } from '@/lib/utils/nameSlug';
+import { t } from '@/lib/i18n';
 import {
   getBoroughBorderColor,
   getBoroughBadgeClasses,
@@ -10,10 +11,11 @@ import {
 } from '@/lib/utils/boroughColor';
 
 export default function ClubCard({ club }: { club: ClubListItem }) {
-  const stageTimeBits = [
-    club.micCount > 0 && `${club.micCount} open mic${club.micCount === 1 ? '' : 's'}`,
-    club.showCount > 0 && `${club.showCount} show${club.showCount === 1 ? '' : 's'}`,
-  ].filter(Boolean);
+  const micLabel =
+    club.micCount === 1
+      ? t('clubs.card.micCountOne', { count: club.micCount })
+      : t('clubs.card.micCountMany', { count: club.micCount });
+  const stageTimeBits = [club.micCount > 0 && micLabel].filter(Boolean);
 
   return (
     <Link
@@ -70,7 +72,7 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
         <div className="flex flex-wrap items-center gap-2 pt-3 mt-auto">
           {club.micCount > 0 && (
             <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700 ring-1 ring-green-200">
-              {club.micCount} open mic{club.micCount === 1 ? '' : 's'}
+              {micLabel}
             </span>
           )}
           {club.showCount > 0 && (
@@ -79,7 +81,7 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
             </span>
           )}
           <span className="ml-auto text-xs font-semibold text-slate-400 group-hover:text-blue-600 transition-colors">
-            Details →
+            {t('clubs.card.details')}
           </span>
         </div>
       </div>

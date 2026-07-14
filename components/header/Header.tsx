@@ -6,12 +6,14 @@ import Filter from '../filter/Filter';
 import { HeaderDrawer } from '../header-drawer/header-drawer';
 import { BackButton } from '../buttons/BackButton';
 
+import { t } from '@/lib/i18n';
+
 const links = [
-  { link: '/mics', label: 'Browse Mics' },
-  { link: '/clubs', label: 'Clubs' },
-  { link: '/guides', label: 'Guides' },
-  { link: '/about', label: 'About' },
-  { link: '/submit', label: 'Submit a Mic' },
+  { link: '/mics', label: t('nav.browseMics') },
+  { link: '/clubs', label: t('nav.clubs') },
+  { link: '/guides', label: t('nav.guides') },
+  { link: '/about', label: t('nav.about') },
+  { link: '/submit', label: t('nav.submit') },
 ];
 
 const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {

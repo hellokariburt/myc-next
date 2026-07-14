@@ -6,6 +6,7 @@ import ClubsMapSection from './ClubsMapSection';
 import { ClubListItem } from '@/lib/services/clubs.service';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
 import { useInViewIds } from '@/lib/hooks/useInViewIds';
+import { t } from '@/lib/i18n';
 import {
   getBoroughAccentBar,
   getBoroughEyebrow,
@@ -80,17 +81,17 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
     <>
       <div className="mt-8 flex flex-col gap-3">
         <label htmlFor="club-search" className="sr-only">
-          Search clubs by name, address, or neighborhood
+          {t('clubs.filters.searchAria')}
         </label>
         <input
           id="club-search"
           type="search"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search clubs, neighborhoods…"
+          placeholder={t('clubs.filters.searchPlaceholder')}
           className="w-full max-w-md px-4 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-slate-400 transition-colors"
         />
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by borough">
+        <div className="flex flex-wrap gap-2" role="group" aria-label={t('clubs.filters.boroughGroupAria')}>
           {FILTER_BOROUGHS.map((b) => (
             <button
               key={b.value}
@@ -104,7 +105,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
           ))}
         </div>
         <p className="text-sm text-slate-500" role="status">
-          {ordered.length} club{ordered.length === 1 ? '' : 's'}
+          {ordered.length === 1 ? t('clubs.filters.countOne', { count: ordered.length }) : t('clubs.filters.countMany', { count: ordered.length })}
           {(query || borough) && (
             <>
               {' · '}
@@ -116,7 +117,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
                 }}
                 className="underline decoration-dashed hover:decoration-solid"
               >
-                clear filters
+                {t('clubs.filters.clearFilters')}
               </button>
             </>
           )}
@@ -131,7 +132,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
               borough || ''
             )} p-8 text-center text-slate-600`}
           >
-            No clubs match — try clearing a filter.
+            {t('clubs.filters.empty')}
           </div>
         )}
         {grouped.map(([groupBorough, list]) => (

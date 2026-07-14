@@ -5,6 +5,7 @@ import MicListCard from '../mic/MicListCard';
 import ShowCard from '../shows/ShowCard';
 import { ShowListItem } from '@/lib/services/shows.service';
 import { MicListItem } from '@/lib/types/mic';
+import { t } from '@/lib/i18n';
 
 export default function ClubStageTabs({
   mics,
@@ -19,8 +20,7 @@ export default function ClubStageTabs({
   if (mics.length === 0 && shows.length === 0) {
     return (
       <p className="mt-10 text-slate-600">
-        No open mics or indie shows listed at this club yet — check the club&apos;s site for its
-        full calendar.
+        {t('clubs.detail.emptyStage')}
       </p>
     );
   }
@@ -34,7 +34,7 @@ export default function ClubStageTabs({
 
   return (
     <section className="mt-10">
-      <div role="tablist" aria-label="Stage time at this club" className="flex flex-wrap gap-2">
+      <div role="tablist" aria-label={t('clubs.detail.tabsAria')} className="flex flex-wrap gap-2">
         {mics.length > 0 && (
           <button
             type="button"
@@ -43,7 +43,7 @@ export default function ClubStageTabs({
             onClick={() => setTab('mics')}
             className={tabClass(tab === 'mics')}
           >
-            Open mics ({mics.length})
+            {t('clubs.detail.tabMics', { count: mics.length })}
           </button>
         )}
         {shows.length > 0 && (
@@ -54,7 +54,7 @@ export default function ClubStageTabs({
             onClick={() => setTab('shows')}
             className={tabClass(tab === 'shows')}
           >
-            Shows ({shows.length})
+            {t('clubs.detail.tabShows', { count: shows.length })}
           </button>
         )}
       </div>
