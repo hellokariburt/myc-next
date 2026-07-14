@@ -27,7 +27,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Show up earlier than you think you need to',
         paragraphs: [
-          'Roughly a quarter of the mics we track are in-person signup, and most of those are first come, first served. Some rooms are explicit about it — Fear City on the Lower East Side tells you to arrive fifteen minutes before showtime, and the mics at Eastville Comedy Club in Downtown Brooklyn open their lists thirty minutes prior. Others just quietly reward whoever walked in first. Grisly Pear on MacDougal Street runs "show up first, go up first" depending on the host, which means the difference between arriving at 5:45 and 6:15 can be the difference between a 6:30 set and a 9pm set.',
+          'Roughly a quarter of the mics we track are in-person signup, and most of those are first come, first served. Some rooms are explicit about it — Fear City on the Lower East Side caps every list at sixteen comics, and the mics at Eastville Comedy Club in Downtown Brooklyn open their lists thirty minutes prior. Others just quietly reward whoever walked in first. Grisly Pear on MacDougal Street runs "show up first, go up first" depending on the host, which means the difference between arriving at 5:45 and 6:15 can be the difference between a 6:30 set and a 9pm set.',
           'If the listing says signup starts at 6:30, treat that as the latest comfortable arrival time, not the moment to walk through the door. Early arrival also gives you time to find the host, figure out where the list lives, and avoid rushing straight from the sidewalk onto the stage with your heart rate still at subway-transfer levels.',
         ],
       },
@@ -119,7 +119,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Look for rooms that spell out their rules',
         paragraphs: [
-          'A room becomes dramatically easier when the listing already answers your questions. Compare "signup there" with Fear City\'s listing: arrive fifteen minutes before showtime, sign up in person, $5 cash, no DMs. That second room has thought about new people showing up. Ambiguity is a tax on beginners specifically — veterans already know the unwritten rules, and you don\'t yet.',
+          'A room becomes dramatically easier when the listing already answers your questions. Compare "signup there" with Fear City\'s rules: $5 cash for five minutes, list capped at sixteen, comment on the mic\'s Instagram post and a like from the club means you\'re on, stay to the end. That second room has thought about new people showing up. Ambiguity is a tax on beginners specifically — veterans already know the unwritten rules, and you don\'t yet.',
           'On this site, mics marked as verified have had their signup details confirmed recently. When you\'re new, favor those. Nothing curdles first-mic adrenaline faster than showing up to a room that moved, changed nights, or quietly died three months ago.',
         ],
       },
@@ -133,7 +133,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Daytime mics are the best-kept non-secret in the city',
         paragraphs: [
-          'Around 80 of the mics we track start before 5pm. Grisly Pear runs a Sunday 2pm mic. Comedy Shop runs afternoon mics most days of the week. Sunday afternoons in particular are a soft landing — Fear City on the Lower East Side and the Eastville Comedy Club mics in Downtown Brooklyn both run 4pm signups. Daytime rooms are smaller, lower-stakes, and full of comics who take the work seriously enough to do it in the afternoon.',
+          'Around 80 of the mics we track start before 5pm. Grisly Pear runs a Sunday 2pm mic. Comedy Shop runs afternoon mics most days of the week. Sunday afternoons in particular are a soft landing — the Eastville Comedy Club mics in Downtown Brooklyn run back-to-back 4pm and 5pm lists. Daytime rooms are smaller, lower-stakes, and full of comics who take the work seriously enough to do it in the afternoon.',
           'For a first set, a Sunday afternoon mic is about as gentle as this city gets. The lists are shorter, you won\'t wait three hours, and you\'ll be home by dinner having done the scariest thing you\'ll do all week.',
         ],
       },
@@ -216,7 +216,7 @@ export const guideArticles: GuideArticle[] = [
         heading: 'Do not make the signup harder for the host',
         paragraphs: [
           'Hosts are juggling venue pressure, room timing, and a list of comics who all quietly believe their situation is special. Late arrivals who want to be squeezed in, vague DMs to rooms that clearly say "in person only," and last-second bargaining over lineup position all add friction to a job that is usually unpaid.',
-          'The rules are rarely complicated. Fear City\'s listing says sign up in person, no DMs — so don\'t DM them. If a room signs up through a form, use the form. Being easy to deal with is a genuine competitive advantage in comedy, partly because the bar is so low.',
+          'The rules are rarely complicated, but they are room-specific. Fear City fills its lists through comments on each mic\'s Instagram post — a like from the club means you\'re on — while Grisly Pear is in-person only. Use the process the room actually asks for. Being easy to deal with is a genuine competitive advantage in comedy, partly because the bar is so low.',
         ],
       },
       {

@@ -158,13 +158,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "Free (buy smth at bar pls)",
+    "cost": "$5 cash",
     "stage_time": null,
     "signup_instructions": "Arrive 15 min before showtime to sign up in person; $5 cash (no DMs)",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
+    "confirmed": "Unverified",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "How Ya Doin' Open Mic",
@@ -346,13 +346,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Pablo Pantalones",
     "instagram": "@funmugnyc or @pabspants",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": "2 comics go up together to each pull 3 riffs from the bucket, riff back and forth on stage together, then they get to each choose another comic to take their place, it's actually super fun"
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "2 comics go up together to each pull 3 riffs from the bucket, riff back and forth on stage together, then they get to each choose another comic to take their place, it's actually super fun. List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "*1st/3rd Sun* Party Salad",
@@ -607,13 +607,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$2",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "sign up there",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Pit Improv Jam",
@@ -1137,30 +1137,6 @@
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
     "confirmed": "Verified 7/13 Claude (venue site + badslava)",
-    "other_rules": null
-  },
-  {
-    "name": "Fear City Mic",
-    "day": "monday",
-    "start_time": "18:00:00",
-    "end_time": "19:30:00",
-    "venue_name": "Fear City Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "LES",
-    "address": {
-      "street_name": "17 Essex St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10002",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": "Comment on IG @thefearcitycomedyclub",
-    "host": "Jonesy",
-    "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
     "other_rules": null
   },
   {
@@ -1738,30 +1714,6 @@
     "other_rules": null
   },
   {
-    "name": "Fear City",
-    "day": "monday",
-    "start_time": "21:00:00",
-    "end_time": "22:15:00",
-    "venue_name": "Fear City Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "LES",
-    "address": {
-      "street_name": "17 Essex St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10002",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$5",
-    "stage_time": null,
-    "signup_instructions": "Sign up in person",
-    "host": "Danny Fallon",
-    "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Noncommittal Mic",
     "day": "monday",
     "start_time": "21:00:00",
@@ -2230,13 +2182,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Jeans and a Nice Top",
@@ -2873,13 +2825,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Sign up in person",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Comedians on the Loose",
@@ -3518,13 +3470,13 @@
       "country": "USA"
     },
     "venue_type": "Bar",
-    "cost": "$5",
-    "stage_time": "4 min",
+    "cost": "$5 cash",
+    "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Grisly Pear",
@@ -4091,13 +4043,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Find IG post about mic and comment on it: @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "QED Late Mic",
@@ -4785,13 +4737,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "QED Open Mic",
@@ -5143,13 +5095,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Comedians on the Loose",
@@ -5766,13 +5718,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Fun Mug RIFF Mic",
@@ -5956,13 +5908,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$5",
+    "cost": "$5 cash",
     "stage_time": "5 min",
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Get It Goin Mic",
@@ -6293,8 +6245,8 @@
     "signup_instructions": "Comment on IG @thefearcitycomedyclub",
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
+    "confirmed": "Unverified",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "The Grisly Pear Mic",
@@ -7161,30 +7113,6 @@
     "other_rules": null
   },
   {
-    "name": "Fear City 9PM",
-    "day": "friday",
-    "start_time": "21:00:00",
-    "end_time": null,
-    "venue_name": "Fear City Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "LES",
-    "address": {
-      "street_name": "17 Essex St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10002",
-      "country": "USA"
-    },
-    "venue_type": null,
-    "cost": null,
-    "stage_time": null,
-    "signup_instructions": "Arrive 15 min before showtime to sign up in person; $5 cash (no DMs)",
-    "host": "Fear City",
-    "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
     "name": "Buddha 9",
     "day": "friday",
     "start_time": "21:00:00",
@@ -7545,9 +7473,9 @@
     "other_rules": null
   },
   {
-    "name": "Fear City 9PM",
+    "name": "Fear City Mic",
     "day": "saturday",
-    "start_time": "21:00:00",
+    "start_time": "22:00:00",
     "end_time": null,
     "venue_name": "Fear City Comedy Club",
     "borough": "manhattan",
@@ -7560,13 +7488,13 @@
       "country": "USA"
     },
     "venue_type": null,
-    "cost": null,
+    "cost": "$5 cash",
     "stage_time": null,
     "signup_instructions": "Arrive 15 min before showtime to sign up in person; $5 cash (no DMs)",
     "host": "Fear City",
     "instagram": "@thefearcitycomedyclub",
-    "confirmed": "Unverified",
-    "other_rules": null
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   },
   {
     "name": "Buddha Late",
@@ -8021,30 +7949,6 @@
     "signup_instructions": "Arrive 30 min early and sign up in person at the door",
     "host": "Setareh Comedy",
     "instagram": "@setarehcomedy",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Fear City Mic",
-    "day": "sunday",
-    "start_time": "18:00:00",
-    "end_time": "22:30:00",
-    "venue_name": "Fear City Comedy Club",
-    "borough": "manhattan",
-    "neighborhood": "LES",
-    "address": {
-      "street_name": "17 Essex St",
-      "city": "New York",
-      "state": "NY",
-      "zipcode": "10002",
-      "country": "USA"
-    },
-    "venue_type": null,
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": "Arrive 15 min before showtime to sign up in person; $5 cash (no DMs)",
-    "host": "Fear City",
-    "instagram": "@thefearcitycomedyclub",
     "confirmed": "Unverified",
     "other_rules": null
   },
@@ -9775,5 +9679,29 @@
     "instagram": "@thecomedyshopvillage",
     "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
+  },
+  {
+    "name": "Fear City Mic",
+    "day": "saturday",
+    "start_time": "18:00:00",
+    "end_time": null,
+    "venue_name": "Fear City Comedy Club",
+    "borough": "manhattan",
+    "neighborhood": "LES",
+    "address": {
+      "street_name": "17 Essex St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10002",
+      "country": "USA"
+    },
+    "venue_type": "Comedy Club",
+    "cost": "$5 cash",
+    "stage_time": "5 min",
+    "signup_instructions": "Comment on IG @thefearcitycomedyclub",
+    "host": "Jonesy",
+    "instagram": "@thefearcitycomedyclub",
+    "confirmed": "Verified 7/13 Claude (badslava)",
+    "other_rules": "List capped at 16, random order, no notes; stay to the end or be banned. Weekly mic schedule pinned Mondays on IG @thefearcitycomedyclub"
   }
 ]
