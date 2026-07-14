@@ -44,7 +44,7 @@
     "signup_instructions": "https://comedyshopnyc.com/events/",
     "host": null,
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": "show up first go up first depending on the host"
   },
   {
@@ -231,7 +231,7 @@
     "signup_instructions": "https://comedyshopnyc.com/events/",
     "host": "Comedy Shop",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": "show up first go up first depending on the host"
   },
   {
@@ -303,30 +303,6 @@
     "signup_instructions": null,
     "host": "Infinity Mic",
     "instagram": "@infinitymic.comm",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "sunday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Tiny Cupboard",
-    "instagram": "@thetinycupboard",
     "confirmed": "Unverified",
     "other_rules": null
   },
@@ -499,30 +475,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "sunday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Odd bandit (queer and femme)",
     "day": "sunday",
     "start_time": "19:00:00",
@@ -612,30 +564,6 @@
     "signup_instructions": "signup there",
     "host": "Punching Bag",
     "instagram": "@punchingbagcomedy",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "sunday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "Free (buy smth at bar pls)",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Tiny Cupboard",
-    "instagram": "@thetinycupboard",
     "confirmed": "Unverified",
     "other_rules": null
   },
@@ -735,30 +663,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "sunday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$5",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Tiny Cupboard",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
     "name": "Greenwich village comedy club",
     "day": "monday",
     "start_time": "15:00:00",
@@ -803,7 +707,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -1179,13 +1083,13 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "$7.62 but you get a free drink or fries",
+    "cost": "$1",
     "stage_time": "5 min",
     "signup_instructions": "Text Rashad Bashir",
     "host": "Rashad Bashir",
     "instagram": "@rbashir_comedy",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
+    "confirmed": "Unverified",
+    "other_rules": "Cost was previously mislabeled; historically $1, reconfirm in person"
   },
   {
     "name": "Grisly Pear",
@@ -1232,7 +1136,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -1403,30 +1307,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "monday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": null,
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": null,
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Manic Pixie Dream",
     "day": "monday",
     "start_time": "19:00:00",
@@ -1494,7 +1374,7 @@
     "signup_instructions": "Sign up in person",
     "host": "Asif L./Mike H.",
     "instagram": "@fisacomedy",
-    "confirmed": "Verified 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue calendar)",
     "other_rules": null
   },
   {
@@ -1782,31 +1662,7 @@
     "signup_instructions": "signup there",
     "host": "Jon Mahoney",
     "instagram": "@jonmahoneycomedy",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "monday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": null,
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": null,
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site)",
     "other_rules": null
   },
   {
@@ -1953,30 +1809,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "monday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5-7 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": null,
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": "First come, first served"
-  },
-  {
     "name": "Doodle Mic",
     "day": "monday",
     "start_time": "22:00:00",
@@ -1997,30 +1829,6 @@
     "signup_instructions": "Sign up in person at Young Ethel's",
     "host": null,
     "instagram": "@vanya_slouch",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "monday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Gene Morgan",
-    "instagram": "@thetinycupboard",
     "confirmed": "Verified tediously 5/13 Malev",
     "other_rules": null
   },
@@ -2064,12 +1872,12 @@
       "country": "USA"
     },
     "venue_type": "Comedy Club",
-    "cost": "5 min",
+    "cost": "$7.62 but you get a free drink or fries",
     "stage_time": "5 min",
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -2212,30 +2020,6 @@
     "signup_instructions": "Show up go up (sugu)",
     "host": "Steve Arons",
     "instagram": "Steve Arons Facebook",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard Fever Dream",
-    "day": "tuesday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there",
-    "host": "Alvaro Gamboa",
-    "instagram": "@AlvaroJokesGamboa",
     "confirmed": "Verified 5/8 Malev",
     "other_rules": null
   },
@@ -2427,7 +2211,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -2596,30 +2380,6 @@
     "instagram": "@flophousecomedy",
     "confirmed": "Verified 5/8 Malev",
     "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "tuesday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Hayden Keegan",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": "show up first go up first depending on the host"
   },
   {
     "name": "*Biweekly 1st3rd* Flopsauce",
@@ -3027,30 +2787,6 @@
     "other_rules": "Upcoming confirmed dates Feb 18th, March 4th, March 18th, April 1st, April 15th, April 29th"
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "tuesday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Tiny Cupboard",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "BCC Open Ass Mic",
     "day": "tuesday",
     "start_time": "20:30:00",
@@ -3338,29 +3074,6 @@
     "other_rules": null
   },
   {
-    "name": "Seven Minutes in Heaven",
-    "day": "wednesday",
-    "start_time": "15:30:00",
-    "end_time": "17:00:00",
-    "venue_name": "Logan's Run bar",
-    "borough": "brooklyn",
-    "neighborhood": "Park Slope",
-    "address": {
-      "street_name": "375a 5th Ave",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11215"
-    },
-    "venue_type": "Bar",
-    "cost": "$4 Cash + 1 Drink ($3 Soda, $4 Beer) Happy Hour Prices",
-    "stage_time": "7 min",
-    "signup_instructions": "https://slotted.co/sevenminutesinheaven",
-    "host": "Vinnie Pedi & Gavin Roman",
-    "instagram": "@Vinnie_Pedi",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Comedy Shop",
     "day": "wednesday",
     "start_time": "16:00:00",
@@ -3381,7 +3094,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "Comedy Shop",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -3406,29 +3119,6 @@
     "host": "Shanon Harris",
     "instagram": "@shanonharrislive",
     "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Seven Minutes in Heaven",
-    "day": "wednesday",
-    "start_time": "17:00:00",
-    "end_time": "18:30:00",
-    "venue_name": "Logan's Run bar",
-    "borough": "brooklyn",
-    "neighborhood": "Park Slope",
-    "address": {
-      "street_name": "375a 5th Ave",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11215"
-    },
-    "venue_type": "Bar",
-    "cost": "$4 Cash + 1 Drink ($3 Soda, $4 Beer) Happy Hour Prices",
-    "stage_time": "7 min",
-    "signup_instructions": "https://slotted.co/sevenminutesinheaven",
-    "host": "Vinnie Pedi & Gavin Roman",
-    "instagram": "@Vinnie_Pedi",
-    "confirmed": "Verified 5/8 Malev",
     "other_rules": null
   },
   {
@@ -3646,30 +3336,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "wednesday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Comedy Village Open  Mic",
     "day": "wednesday",
     "start_time": "17:30:00",
@@ -3833,7 +3499,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "Alexis Ramirez @asapangry_",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -4096,7 +3762,7 @@
     "signup_instructions": "in person only",
     "host": "Asif L./Mike H.",
     "instagram": "@fisacomedy",
-    "confirmed": "Verified 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue calendar)",
     "other_rules": null
   },
   {
@@ -4122,30 +3788,6 @@
     "instagram": "@losierty13",
     "confirmed": "Verified 5/8 Malev",
     "other_rules": "Last Wednesday of every month is a showcase (no mic) - Next show 5/28. Also, we book the showcase from the mics each week!"
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "wednesday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
   },
   {
     "name": "Caravan of Dreams",
@@ -4410,30 +4052,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "wednesday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Bar",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Molly Levine",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "*Monthly* external use only",
     "day": "wednesday",
     "start_time": "21:00:00",
@@ -4578,30 +4196,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "wednesday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Patrick O'Neil",
-    "instagram": "@_patrick_oneill or @thetinycupboard",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Broadway Comedy Club",
     "day": "thursday",
     "start_time": "15:00:00",
@@ -4670,7 +4264,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": "show up first go up first depending on the host"
   },
   {
@@ -4913,30 +4507,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard Fever Dream",
-    "day": "thursday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "1 item at bar min",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Alvaro Gamboa",
-    "instagram": "@AlvaroJokesGamboa",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "*biweekly* LGBTQ Oh Craft! Beer mic",
     "day": "thursday",
     "start_time": "17:30:00",
@@ -5028,7 +4598,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -5319,30 +4889,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "thursday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Josue Reveles",
-    "instagram": "@Josue.Reveles_",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "taylor drew mic",
     "day": "thursday",
     "start_time": "19:00:00",
@@ -5558,30 +5104,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "thursday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "No Steaks Mic",
     "day": "thursday",
     "start_time": "21:00:00",
@@ -5699,30 +5221,6 @@
     "host": "Rachel Warden",
     "instagram": "@traumadumpthursdaymic",
     "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "thursday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "4 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
     "other_rules": null
   },
   {
@@ -5913,7 +5411,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A grisly pear comic",
     "instagram": "@grislypear",
-    "confirmed": "Verified tediously 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -6109,30 +5607,6 @@
     "other_rules": "show up first go up first depending on the host"
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "friday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Comedy Village Open  Mic",
     "day": "friday",
     "start_time": "17:30:00",
@@ -6177,7 +5651,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "Alexis Ramirez",
     "instagram": "@asapangry_",
-    "confirmed": "Verified 5/13 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": "on insta"
   },
   {
@@ -6396,30 +5870,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "friday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@Alexdcomedy09",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "*2nd/4th Fri Two Beautiful Women",
     "day": "friday",
     "start_time": "19:00:00",
@@ -6468,30 +5918,6 @@
     "other_rules": "show up first go up first depending on the host"
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "friday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/13 Malev",
-    "other_rules": null
-  },
-  {
     "name": "*check insta* KBUG",
     "day": "friday",
     "start_time": "21:00:00",
@@ -6513,30 +5939,6 @@
     "instagram": null,
     "confirmed": "Unverified",
     "other_rules": "@knickerbockerunderground"
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "friday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Nathan Roy",
-    "instagram": "@nathan_roy_shenanigans or @thetinycupboard",
-    "confirmed": "Verified 5/13 Malev",
-    "other_rules": null
   },
   {
     "name": "Fear City Mic",
@@ -6867,7 +6269,7 @@
     "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
     "host": "A comedy shop comic",
     "instagram": "@thecomedyshopvillage",
-    "confirmed": "Verified tediously 5/8 Malev",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   },
   {
@@ -6892,30 +6294,6 @@
     "host": "Jonesy",
     "instagram": "@thefearcitycomedyclub",
     "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "theryzzmic",
-    "day": "saturday",
-    "start_time": "16:00:00",
-    "end_time": "17:30:00",
-    "venue_name": "tiny cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": null,
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
     "other_rules": null
   },
   {
@@ -6967,30 +6345,6 @@
     "other_rules": null
   },
   {
-    "name": "ct qts",
-    "day": "saturday",
-    "start_time": "17:30:00",
-    "end_time": "19:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Bushwick Comedy Club",
     "day": "saturday",
     "start_time": "18:30:00",
@@ -7013,30 +6367,6 @@
     "instagram": "@bushwickcomedyclub",
     "confirmed": "Verified tediously 5/8 Malev",
     "other_rules": "10 comics max per mic"
-  },
-  {
-    "name": "Tiny Cupboard",
-    "day": "saturday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Blue Room Host",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
   },
   {
     "name": "Comedians on the Loose",
@@ -7063,30 +6393,6 @@
     "other_rules": null
   },
   {
-    "name": "Tiny Cupboard",
-    "day": "saturday",
-    "start_time": "20:30:00",
-    "end_time": "22:00:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Umar Pasha",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified 5/8 Malev",
-    "other_rules": null
-  },
-  {
     "name": "Comedians on the Loose",
     "day": "saturday",
     "start_time": "21:00:00",
@@ -7108,30 +6414,6 @@
     "host": "Sonja Savanovic",
     "instagram": "@cotlcomedy",
     "confirmed": "Verified tediously 5/8 Malev",
-    "other_rules": null
-  },
-  {
-    "name": "Tiny Cupboard Bad Decision",
-    "day": "saturday",
-    "start_time": "22:00:00",
-    "end_time": "23:30:00",
-    "venue_name": "The Tiny Cupboard",
-    "borough": "brooklyn",
-    "neighborhood": "Bushwick",
-    "address": {
-      "street_name": "10 Cooper St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11207",
-      "country": "USA"
-    },
-    "venue_type": "Comedy Club",
-    "cost": "$2",
-    "stage_time": "5 min",
-    "signup_instructions": "sign up there Open Mics Page for Tiny Cupboard Blue Room",
-    "host": "Warren Snipes",
-    "instagram": "@thetinycupboard",
-    "confirmed": "Verified 5/8 Malev",
     "other_rules": null
   },
   {
@@ -7497,8 +6779,8 @@
   {
     "name": "Tiny Cupboard",
     "day": "thursday",
-    "start_time": "23:00:00",
-    "end_time": "23:30:00",
+    "start_time": "23:15:00",
+    "end_time": null,
     "venue_name": "The Tiny Cupboard",
     "borough": "brooklyn",
     "neighborhood": "Bushwick",
@@ -7510,12 +6792,12 @@
       "country": "USA"
     },
     "venue_type": null,
-    "cost": "Free",
+    "cost": "Free (1 item min)",
     "stage_time": "5 min",
-    "signup_instructions": null,
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
     "host": "The Tiny Cupboard",
     "instagram": "@thetinycupboard",
-    "confirmed": "Unverified",
+    "confirmed": "Verified 7/13 Claude (venue site)",
     "other_rules": null
   },
   {
@@ -7975,10 +7257,10 @@
     "other_rules": null
   },
   {
-    "name": "Tiny postshow",
+    "name": "Tiny Cupboard",
     "day": "friday",
-    "start_time": "23:45:00",
-    "end_time": "01:30:00",
+    "start_time": "23:59:00",
+    "end_time": null,
     "venue_name": "The Tiny Cupboard",
     "borough": "brooklyn",
     "neighborhood": "Bushwick",
@@ -7990,12 +7272,12 @@
       "country": "USA"
     },
     "venue_type": null,
-    "cost": "Free",
+    "cost": "Free (1 item min)",
     "stage_time": "5 min",
-    "signup_instructions": null,
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
     "host": "The Tiny Cupboard",
     "instagram": "@thetinycupboard",
-    "confirmed": "Unverified",
+    "confirmed": "Verified 7/13 Claude (venue site)",
     "other_rules": null
   },
   {
@@ -8335,10 +7617,10 @@
     "other_rules": null
   },
   {
-    "name": "Cupboard postshow",
+    "name": "Tiny Cupboard",
     "day": "saturday",
-    "start_time": "23:45:00",
-    "end_time": "01:30:00",
+    "start_time": "23:59:00",
+    "end_time": null,
     "venue_name": "The Tiny Cupboard",
     "borough": "brooklyn",
     "neighborhood": "Bushwick",
@@ -8350,12 +7632,12 @@
       "country": "USA"
     },
     "venue_type": null,
-    "cost": "Free",
+    "cost": "Free (1 item min)",
     "stage_time": "5 min",
-    "signup_instructions": null,
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
     "host": "The Tiny Cupboard",
     "instagram": "@thetinycupboard",
-    "confirmed": "Unverified",
+    "confirmed": "Verified 7/13 Claude (venue site)",
     "other_rules": null
   },
   {
@@ -9432,10 +8714,10 @@
     "venue_type": null,
     "cost": "Free",
     "stage_time": "5 min",
-    "signup_instructions": "Show up and go up; performer signup form at tinycupboardcomedians.com",
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
     "host": "The Tiny Cupboard",
     "instagram": "@thetinycupboard",
-    "confirmed": "Unverified",
+    "confirmed": "Verified 7/13 Claude (venue site + comediq)",
     "other_rules": null
   },
   {
@@ -9723,7 +9005,7 @@
     "signup_instructions": null,
     "host": "Pandamonium Comedy",
     "instagram": "@pandamoniumcomedyy",
-    "confirmed": "Unverified",
+    "confirmed": "Verified 7/13 Claude (comediq)",
     "other_rules": null
   },
   {
@@ -10372,6 +9654,126 @@
     "host": "BK Made",
     "instagram": "@bkmade_openmics",
     "confirmed": "Unverified",
+    "other_rules": null
+  },
+  {
+    "name": "Tiny Cupboard",
+    "day": "sunday",
+    "start_time": "23:00:00",
+    "end_time": null,
+    "venue_name": "The Tiny Cupboard",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "10 Cooper St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11207",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free (1 item min)",
+    "stage_time": "5 min",
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
+    "host": "The Tiny Cupboard",
+    "instagram": "@thetinycupboard",
+    "confirmed": "Verified 7/13 Claude (venue site)",
+    "other_rules": null
+  },
+  {
+    "name": "Tiny Cupboard",
+    "day": "monday",
+    "start_time": "23:00:00",
+    "end_time": null,
+    "venue_name": "The Tiny Cupboard",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "10 Cooper St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11207",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free (1 item min)",
+    "stage_time": "5 min",
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
+    "host": "The Tiny Cupboard",
+    "instagram": "@thetinycupboard",
+    "confirmed": "Verified 7/13 Claude (venue site)",
+    "other_rules": null
+  },
+  {
+    "name": "Tiny Cupboard",
+    "day": "tuesday",
+    "start_time": "23:00:00",
+    "end_time": null,
+    "venue_name": "The Tiny Cupboard",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "10 Cooper St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11207",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free (1 item min)",
+    "stage_time": "5 min",
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
+    "host": "The Tiny Cupboard",
+    "instagram": "@thetinycupboard",
+    "confirmed": "Verified 7/13 Claude (venue site)",
+    "other_rules": null
+  },
+  {
+    "name": "Tiny Cupboard",
+    "day": "wednesday",
+    "start_time": "23:00:00",
+    "end_time": null,
+    "venue_name": "The Tiny Cupboard",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "address": {
+      "street_name": "10 Cooper St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11207",
+      "country": "USA"
+    },
+    "venue_type": null,
+    "cost": "Free (1 item min)",
+    "stage_time": "5 min",
+    "signup_instructions": "Sign up online at tinycupboardgames.com/open-mic",
+    "host": "The Tiny Cupboard",
+    "instagram": "@thetinycupboard",
+    "confirmed": "Verified 7/13 Claude (venue site)",
+    "other_rules": null
+  },
+  {
+    "name": "Comedy Shop",
+    "day": "saturday",
+    "start_time": "14:30:00",
+    "end_time": "16:00:00",
+    "venue_name": "Comedy Shop",
+    "borough": "manhattan",
+    "neighborhood": "Greenwich Village",
+    "address": {
+      "street_name": "167 Bleecker St REAR",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10012",
+      "country": "USA"
+    },
+    "venue_type": "Comedy Club",
+    "cost": "$7.62 but you get a free drink or fries",
+    "stage_time": "5 min",
+    "signup_instructions": "https://reservations.waivermaster.com/book/?qs=a44dcec9-0cb5-4773-bf53-c734db1dc10a%7C22b1df29-287a-465b-95ad-a94a46f45e20%7C1961fdf3-d94c-47db-afa2-59a679580d45&oqs=evd%3D2024-07-12%26evt%3D18%3A00&_gl=1*g0fy8f*_gcl_au*MTA3MzMwNzM5LjE3MTk0NTkzNzY.*_ga*MTA1MjU3NTYxOC4xNzE5NDU5Mzc2*_ga_RVSSW2PKR7*MTcyMDgxODE5Mi4yLjAuMTcyMDgxODE5Ni4wLjAuMA..",
+    "host": "A comedy shop comic",
+    "instagram": "@thecomedyshopvillage",
+    "confirmed": "Verified 7/13 Claude (venue site + badslava)",
     "other_rules": null
   }
 ]

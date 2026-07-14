@@ -50,7 +50,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Budget for the room',
         paragraphs: [
-          'About one in four NYC mics is free, usually with the polite expectation that you buy something at the bar. Five dollars is the standard price everywhere else, and the outliers are mostly charming rather than expensive: Tiny Cupboard in Bushwick runs $2 mics, Comedy Shop in Greenwich Village charges $7.62 and hands you a free drink or fries, and a couple of East Village rooms have a one-drink minimum where the cheapest item is a $4 pineapple juice.',
+          'Nearly a third of NYC mics are free, usually with the polite expectation that you buy something at the bar. Five dollars is the standard price everywhere else, and the outliers are mostly charming rather than expensive: Comedy Shop in Greenwich Village charges $7.62 and hands you a free drink or fries, Tiny Cupboard in Bushwick ends every single night with a free mic, and a couple of East Village rooms have a one-drink minimum where the cheapest item is a $4 pineapple juice.',
           'Realistically, plan on ten to fifteen dollars for a night with one or two mics once you count the entry fee and a drink. If a room has an item minimum, honor it — that minimum is usually the only reason the venue tolerates a parade of comedians who tip in exposure.',
         ],
       },
@@ -126,7 +126,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Cheap, high-volume rooms are built for reps',
         paragraphs: [
-          'Some venues run so many mics that a rough set simply doesn\'t matter. Producer\'s Club in Hell\'s Kitchen runs about twenty $5 mics a week under one roof — if you bomb at the 5:00, the 6:00 exists. Comedy Shop in the Village runs afternoon mics nearly every day, and the $7.62 entry comes with a free drink or fries. Out in Bushwick, Tiny Cupboard keeps some of the cheapest stage time in the city, including a $2 mic and a free late-night one.',
+          'Some venues run so many mics that a rough set simply doesn\'t matter. Producer\'s Club in Hell\'s Kitchen runs about twenty $5 mics a week under one roof — if you bomb at the 5:00, the 6:00 exists. Comedy Shop in the Village runs afternoon mics nearly every day, and the $7.62 entry comes with a free drink or fries. And if you\'re a night owl, Tiny Cupboard in Bushwick closes every single night with a free 11pm-ish mic — one bar item minimum, signup online.',
           'These rooms are the comedy equivalent of an empty gym at 2pm. Nobody is watching you critically, everyone is there to work, and volume beats intensity when you\'re learning. Your goal in month one is not a great set. It\'s twenty sets.',
         ],
       },
