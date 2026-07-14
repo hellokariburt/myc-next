@@ -27,6 +27,8 @@ export interface MicListItem {
   mic_occurrence: {
     schedule: string | null;
   } | null;
+  /** venue artwork inherited from the clubs directory, when the mic's venue is a known club */
+  venue_image?: string | null;
 }
 
 /** Mic detail — shape returned by GET /mics/[id] server component after serialization */

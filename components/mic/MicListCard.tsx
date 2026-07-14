@@ -9,6 +9,7 @@ import {
 } from '@/lib/utils/boroughColor';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { buildMicPath } from '@/lib/utils/micUrl';
+import ShowThumbnail from '../shows/ShowThumbnail';
 
 interface Props {
   mic: MicListItem;
@@ -41,7 +42,10 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
         mic.borough || ''
       )} rounded-xl px-5 py-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
     >
-      <div className="flex flex-row gap-4 lg:gap-6 min-w-0 w-full">
+      <div className="flex flex-row gap-4 lg:gap-6 min-w-0 w-full items-start">
+        <div className="hidden sm:block shrink-0">
+          <ShowThumbnail name={mic.mic_address?.venue || mic.name || ''} image={mic.venue_image} />
+        </div>
         <div className="pr-3 lg:pr-4 pt-0.5 border-r border-slate-200 shrink-0 w-[88px] lg:w-[110px]">
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
             {capitalizeDay(mic.day || '')}
