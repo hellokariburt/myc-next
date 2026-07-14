@@ -135,7 +135,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
                   {fullCounts.get(groupDay) ?? list.length}
                 </span>
               </h2>
-              <div className="mt-4 grid gap-3">
+              <div className="mt-4 grid gap-3 grid-cols-[minmax(0,1fr)]">
                 {list.map((show) => (
                   <ShowCard key={show.id} show={show} />
                 ))}

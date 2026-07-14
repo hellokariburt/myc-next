@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageLayout from '@/components/pagelayout/PageLayout';
-import MicListCard from '@/components/mic/MicListCard';
-import ShowCard from '@/components/shows/ShowCard';
+import ClubStageTabs from '@/components/clubs/ClubStageTabs';
 import ClubsMapSection from '@/components/clubs/ClubsMapSection';
 import {
   getClubs,
@@ -125,7 +124,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
                   rel="noopener noreferrer"
                   className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  Full calendar ↗
+                  Website
                 </a>
               )}
               {club.instagram && (
@@ -150,40 +149,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               )}
             </div>
 
-            {mics.length > 0 && (
-              <section className="mt-10">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                  Open mics here
-                  <span className="ml-2 text-base font-medium text-slate-500">{mics.length}</span>
-                </h2>
-                <div className="mt-4 grid gap-3">
-                  {mics.map((mic) => (
-                    <MicListCard key={String(mic.id)} mic={mic} hideBoroughBadge />
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {shows.length > 0 && (
-              <section className="mt-10">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                  Shows here
-                  <span className="ml-2 text-base font-medium text-slate-500">{shows.length}</span>
-                </h2>
-                <div className="mt-4 grid gap-3">
-                  {shows.map((show) => (
-                    <ShowCard key={show.id} show={show} />
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {mics.length === 0 && shows.length === 0 && (
-              <p className="mt-10 text-slate-600">
-                No open mics or indie shows listed at this club yet — check the club&apos;s site for
-                its full calendar.
-              </p>
-            )}
+            <ClubStageTabs mics={mics} shows={shows} />
           </div>
 
           <div className="mt-8 lg:mt-0">
