@@ -18,13 +18,17 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
         <Title />
 
         <p className="text-slate-500 text-sm md:text-base mt-6">
-          Currently tracking{' '}
-          <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span>{' '}
-          open mics across NYC
+          <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span> mics on the
+          board right now — every one checked against the scene
         </p>
 
-        <div className="w-full mt-8">
-          <SearchCard />
+        <div className="w-full mt-8 relative">
+          <div className="md:max-w-4xl mx-auto relative">
+            <span className="absolute -top-3 left-8 z-10 rounded-full bg-slate-900 px-3 py-1 font-display uppercase tracking-wide text-xs text-white">
+              Find a mic
+            </span>
+            <SearchCard />
+          </div>
         </div>
 
         <div className="w-full max-w-2xl mt-2">

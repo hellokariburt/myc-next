@@ -98,7 +98,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               />
             )}
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <h1 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900">
+              <h1 className="font-display text-3xl md:text-5xl tracking-normal text-slate-900">
                 {club.name}
               </h1>
               {club.borough && (
@@ -152,7 +152,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
             <ClubStageTabs mics={mics} shows={shows} />
           </div>
 
-          <div className="mt-8 lg:mt-0">
+          <div className="mt-8 lg:mt-0 lg:self-stretch">
             <ClubsMapSection clubs={[club]} />
           </div>
         </div>

@@ -13,7 +13,11 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['var(--font-display)', 'Impact', 'Haettenschweiler', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

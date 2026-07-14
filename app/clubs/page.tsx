@@ -27,7 +27,7 @@ export default async function ClubsPage() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
             The rooms
           </p>
-          <h1 className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-slate-900">
+          <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal text-slate-900">
             NYC comedy clubs
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">

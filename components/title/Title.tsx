@@ -1,13 +1,24 @@
+const BOROUGH_DOTS = ['bg-blue-500', 'bg-purple-500', 'bg-orange-500', 'bg-rose-500', 'bg-teal-500'];
+
 export const Title = () => (
   <div className="container flex flex-col items-center">
-    <h1 className="font-black text-3xl lg:text-5xl md:text-4xl text-center leading-tight">
-      <span className="pr-1">NYC Open</span>
-      <span className="bg-gradient-to-r from-blue-500 to-orange-500 inline-block text-transparent bg-clip-text">
-        Mic Search
+    <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+      <span className="flex gap-1" aria-hidden="true">
+        {BOROUGH_DOTS.map((c) => (
+          <span key={c} className={`inline-block h-2 w-2 rounded-full ${c}`} />
+        ))}
+      </span>
+      Every night · Five boroughs
+    </p>
+    <h1 className="mt-4 font-display uppercase text-5xl md:text-7xl lg:text-8xl text-center leading-[0.95] tracking-tight text-slate-900">
+      NYC open mics,
+      <br />
+      <span className="bg-gradient-to-r from-blue-500 to-orange-500 inline-block text-transparent bg-clip-text pb-1">
+        found tonight.
       </span>
     </h1>
-    <h2 className="font-light text-xl lg:text-3xl md:text-2xl px-2 text-center text-slate-700 mt-2">
-      The easiest way to find comedy open mics in the 5 Boroughs
+    <h2 className="font-light text-lg lg:text-2xl md:text-xl px-2 text-center text-slate-700 mt-5 max-w-2xl">
+      Every comedy open mic in the city — verified, mapped, and ready for your name on the list.
     </h2>
   </div>
 );

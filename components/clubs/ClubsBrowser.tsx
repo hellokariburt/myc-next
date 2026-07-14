@@ -161,7 +161,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
           </div>
         )}
       </div>
-      <div className="mt-10">
+      <div className="mt-10 lg:mt-0 lg:self-stretch">
         <ClubsMapSection clubs={pinned} />
       </div>
       </div>

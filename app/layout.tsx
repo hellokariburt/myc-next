@@ -1,10 +1,16 @@
 import type { Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Anton } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
+const anton = Anton({
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -60,7 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }}
           />
         </head>
-        <body className={inter.className}>
+        <body className={`${inter.className} ${anton.variable}`}>
           {children}
           <Analytics />
           <Script
