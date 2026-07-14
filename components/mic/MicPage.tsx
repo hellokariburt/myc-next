@@ -21,6 +21,7 @@ import { linkifyText } from '@/lib/utils/linkifyText';
 import { guideArticleMap } from '@/lib/content/guides';
 import { getMicEditorialContent } from '@/lib/content/micEditorial';
 import MicHosts from './MicHosts';
+import { t } from '@/lib/i18n';
 
 const labelClass =
   'text-xs font-semibold uppercase tracking-wider text-slate-500 shrink-0';
@@ -66,7 +67,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
         {/* Showtime hero */}
         <div className="mt-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
           <div>
-            <p className={labelClass}>When</p>
+            <p className={labelClass}>{t('mics.detail.when')}</p>
             <p className="mt-1 text-2xl md:text-3xl font-bold text-slate-900 tabular-nums leading-tight">
               {capitalizeDay(mic.day || '')}s · {changeTime(mic.start_time || '')}
             </p>
@@ -101,7 +102,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors w-fit"
             >
               <IconMapPin size={18} />
-              Get Directions
+              {t('mics.detail.getDirections')}
             </a>
           )}
         </div>
@@ -114,7 +115,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
           {mic?.signup_instructions?.instructions && (
             <>
-              <dt className={`${labelClass} pt-0.5`}>Signup</dt>
+              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.signup')}</dt>
               <dd className="text-slate-800 leading-relaxed">
                 {linkifyText(mic.signup_instructions.instructions)}
               </dd>
@@ -123,7 +124,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
           {mic?.email_address && (
             <>
-              <dt className={`${labelClass} pt-0.5`}>Email</dt>
+              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.email')}</dt>
               <dd>
                 <a
                   href={`mailto:${mic.email_address}`}
@@ -138,7 +139,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
           {mic?.instagram && (
             <>
-              <dt className={`${labelClass} pt-0.5`}>Instagram</dt>
+              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.instagram')}</dt>
               <dd className="flex flex-wrap gap-x-4 gap-y-1">
                 {extractHandles(mic.instagram).map((handle) => (
                   <a
@@ -157,7 +158,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
           {mic?.website && /^https?:\/\//i.test(mic.website) && (
             <>
-              <dt className={`${labelClass} pt-0.5`}>Website</dt>
+              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.website')}</dt>
               <dd>
                 <a
                   className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
@@ -174,7 +175,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
         </dl>
 
         <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">What to expect</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900">{t('mics.detail.whatToExpect')}</h2>
           <div className="mt-4 space-y-4 text-slate-700 leading-7">
             {editorial.whatToExpect.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
@@ -184,7 +185,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <section className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900">Venue notes</h2>
+            <h2 className="text-xl font-bold tracking-tight text-slate-900">{t('mics.detail.venueNotes')}</h2>
             <div className="mt-3 space-y-3 text-slate-700 leading-7">
               {editorial.venueContext.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
@@ -193,7 +194,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           </section>
 
           <section className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900">Before you go</h2>
+            <h2 className="text-xl font-bold tracking-tight text-slate-900">{t('mics.detail.beforeYouGo')}</h2>
             <div className="mt-3 space-y-3 text-slate-700 leading-7">
               {editorial.beforeYouGo.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
