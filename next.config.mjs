@@ -13,6 +13,11 @@ export default withBundleAnalyzer({
   experimental: {
     optimizePackageImports: ['@tabler/icons-react'],
   },
+  async redirects() {
+    // shows section dormant since 2026-07 (data, seed, art, and components
+    // preserved — see prisma/shows-seed-data.json and components/shows/)
+    return [{ source: '/shows', destination: '/clubs', permanent: false }];
+  },
   async headers() {
     const securityHeaders = [
       {

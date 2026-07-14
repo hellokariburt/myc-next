@@ -57,7 +57,7 @@ export async function getMicsAtClub(clubName: string) {
 }
 
 export async function getClubs(): Promise<ClubListItem[]> {
-  const [rows, micVenues, showVenues] = await Promise.all([
+  const [rows, micVenues] = await Promise.all([
     prisma.clubs.findMany({
       where: { NOT: { confirmed: { startsWith: 'Stale' } } },
       orderBy: [{ borough: 'asc' }, { name: 'asc' }],
@@ -65,17 +65,13 @@ export async function getClubs(): Promise<ClubListItem[]> {
     prisma.mic_address.findMany({
       select: { venue: true, mics: { select: { id: true } } },
     }),
-    prisma.shows.findMany({
-      where: { NOT: { confirmed: { startsWith: 'Stale' } } },
-      select: { venue: true },
-    }),
   ]);
 
   const countsFor = (name: string) => ({
     micCount: micVenues
       .filter((a) => venueMatchesClub(a.venue, name))
       .reduce((n, a) => n + a.mics.length, 0),
-    showCount: showVenues.filter((s) => venueMatchesClub(s.venue, name)).length,
+    showCount: 0, // shows section dormant
   });
 
   return rows.map((c) => ({

@@ -8,7 +8,6 @@ import { BackButton } from '../buttons/BackButton';
 
 const links = [
   { link: '/mics', label: 'Browse Mics' },
-  { link: '/shows', label: 'Shows' },
   { link: '/clubs', label: 'Clubs' },
   { link: '/guides', label: 'Guides' },
   { link: '/about', label: 'About' },

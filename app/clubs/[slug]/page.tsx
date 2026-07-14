@@ -8,10 +8,8 @@ import {
   getClubs,
   getMicsAtClub,
   clubSlug,
-  venueMatchesClub,
   ClubListItem,
 } from '@/lib/services/clubs.service';
-import { getShows, ShowListItem } from '@/lib/services/shows.service';
 import { serialize } from '@/lib/utils/serialize';
 import { MicListItem } from '@/lib/types/mic';
 import {
@@ -50,8 +48,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
   const club = await getClub(params.slug);
   if (!club) notFound();
 
-  const [allShows, micsAtClub] = await Promise.all([getShows(), getMicsAtClub(club.name)]);
-  const shows: ShowListItem[] = allShows.filter((s) => venueMatchesClub(s.venue, club.name));
+  const micsAtClub = await getMicsAtClub(club.name);
   // serialize() converts BigInt ids to numbers at runtime; cast reflects that
   const mics = serialize(micsAtClub) as unknown as MicListItem[];
 
@@ -149,7 +146,8 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               )}
             </div>
 
-            <ClubStageTabs mics={mics} shows={shows} />
+            {/* shows section dormant — pass empty so only mics render */}
+            <ClubStageTabs mics={mics} shows={[]} />
           </div>
 
           <div className="mt-8 lg:mt-0 lg:self-stretch">

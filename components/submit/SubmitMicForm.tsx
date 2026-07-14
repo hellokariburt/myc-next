@@ -31,8 +31,9 @@ const selectClass = `${inputClass} appearance-none`;
 
 const SubmitMicForm = () => {
   const [status, setStatus] = useState<Status>('idle');
-  const [type, setType] = useState<'mic' | 'show'>('mic');
-  const isShow = type === 'show';
+  // shows section dormant — form is mic-only; API still accepts submission_type
+  const type = 'mic';
+  const isShow = false;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -102,27 +103,8 @@ const SubmitMicForm = () => {
               : "Know of an open mic that's not on the list? Let us know and we'll get it added."}
           </p>
 
-          <div
-            role="radiogroup"
-            aria-label="What are you submitting?"
-            className="mt-4 inline-flex rounded-lg border border-slate-300 p-1 bg-slate-50"
-          >
-            {(['mic', 'show'] as const).map((t) => (
-              <button
-                key={t}
-                type="button"
-                role="radio"
-                aria-checked={type === t}
-                onClick={() => setType(t)}
-                className={`px-4 py-2.5 sm:py-1.5 rounded-md text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  type === t ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                {t === 'mic' ? 'Open Mic' : 'Show'}
-              </button>
-            ))}
-          </div>
-
+          {/* mic/show toggle removed while the shows section is dormant;
+              the API still accepts submission_type for revival */}
           <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
             {/* Honeypot - hidden from real users, bots will fill it */}
             <div className="absolute opacity-0 -z-10" aria-hidden="true">
