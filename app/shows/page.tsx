@@ -6,14 +6,14 @@ import { getShows } from '@/lib/services/shows.service';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'NYC Indie Comedy Shows | OpenMYC',
+  title: 'NYC Comedy Shows | OpenMYC',
   description:
-    'Independent stand-up comedy shows across NYC — bar shows, basement shows, and rooftop shows in Manhattan, Brooklyn, Queens, and the Bronx, organized by night.',
+    'Comedy shows across NYC — bar shows, basement rooms, and club residencies in all five boroughs, organized by night.',
   alternates: { canonical: 'https://findopenmyc.com/shows' },
   openGraph: {
-    title: 'NYC Indie Comedy Shows',
+    title: 'NYC Comedy Shows',
     description:
-      'Independent stand-up shows across NYC, organized by night. Found via the scene, listed with their public info.',
+      'Comedy shows across NYC, organized by night. Found via the scene, listed with their public info.',
     url: 'https://findopenmyc.com/shows',
   },
 };
@@ -29,11 +29,11 @@ export default async function ShowsPage() {
             Beyond the mics
           </p>
           <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
-            NYC indie comedy shows, night by night
+            NYC comedy shows, night by night
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-700">
-            The bar shows, basement shows, and rooftop shows that make up the city&apos;s indie
-            scene. Listings show each show&apos;s public info only — follow the show&apos;s
+            The bar shows, basement rooms, rooftop shows, and club residencies that make up the
+            city&apos;s scene. Listings show each show&apos;s public info only — follow the show&apos;s
             Instagram for lineups, tickets, and location details.
           </p>
         </div>

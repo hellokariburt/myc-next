@@ -98,7 +98,7 @@ const SubmitMicForm = () => {
           </h1>
           <p className="pt-3 text-slate-700 text-sm">
             {isShow
-              ? "Run or know an indie show that's not on the list? Let us know and we'll get it added."
+              ? "Run or know a show that's not on the list? Let us know and we'll get it added."
               : "Know of an open mic that's not on the list? Let us know and we'll get it added."}
           </p>
 
@@ -118,7 +118,7 @@ const SubmitMicForm = () => {
                   type === t ? 'bg-slate-900 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                {t === 'mic' ? 'Open Mic' : 'Indie Show'}
+                {t === 'mic' ? 'Open Mic' : 'Show'}
               </button>
             ))}
           </div>

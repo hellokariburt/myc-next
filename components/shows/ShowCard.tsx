@@ -8,19 +8,40 @@ import {
 } from '@/lib/utils/boroughColor';
 import ShowThumbnail from './ShowThumbnail';
 
-// "Next: Jul 26" chip — only while the date is today or later, so a passed
-// date silently disappears instead of going stale on the page
+const DAY_INDEX: Record<string, number> = {
+  sunday: 0,
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+  thursday: 4,
+  friday: 5,
+  saturday: 6,
+};
+
+// Every card gets a date. Weekly shows compute their next occurrence from
+// their weekday (self-maintaining); monthlies/pop-ups use next_date, and a
+// passed next_date silently disappears instead of going stale on the page.
 function nextDateLabel(show: ShowListItem): string | null {
-  if (!show.next_date) return null;
-  const today = new Date().toISOString().slice(0, 10);
-  if (show.next_date < today) return null;
-  const [y, m, d] = show.next_date.split('-').map(Number);
-  const label = new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-US', {
+  const now = new Date();
+  const todayIso = now.toISOString().slice(0, 10);
+
+  let iso: string | null = null;
+  if (show.next_date && show.next_date >= todayIso) {
+    iso = show.next_date;
+  } else if (show.schedule === 'weekly' && show.day && show.day in DAY_INDEX) {
+    const d = new Date(now);
+    const delta = (DAY_INDEX[show.day] - d.getDay() + 7) % 7;
+    d.setDate(d.getDate() + delta);
+    iso = d.toISOString().slice(0, 10);
+  }
+  if (!iso) return null;
+  if (iso === todayIso) return 'Tonight';
+  const [y, m, day] = iso.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, day)).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
     timeZone: 'UTC',
   });
-  return show.next_date === today ? 'Tonight' : label;
 }
 
 export default function ShowCard({ show }: { show: ShowListItem }) {
