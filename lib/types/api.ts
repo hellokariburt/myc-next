@@ -23,6 +23,7 @@ export interface MicQueryParams {
   offset: number;
   start_time: string;
   cost: string;
+  q?: string;
 }
 
 // HH:MM:SS with valid hour (00-23), minute (00-59), second (00-59)

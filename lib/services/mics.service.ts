@@ -34,11 +34,45 @@ async function venueImageFor(venue: string | null | undefined): Promise<string |
   return found;
 }
 
+const DAY_INDEX: Record<string, number> = {
+  sunday: 0,
+  monday: 1,
+  tuesday: 2,
+  wednesday: 3,
+  thursday: 4,
+  friday: 5,
+  saturday: 6,
+};
+
+// "today" in the city the mics are in, not the server's timezone
+function nycDayIndex(): number {
+  const day = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    timeZone: 'America/New_York',
+  })
+    .format(new Date())
+    .toLowerCase();
+  return DAY_INDEX[day] ?? 0;
+}
+
 const getMics = async (params: MicQueryParams) => {
   const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
   const freeFilter = params.cost === 'true'
     ? { mic_cost: { cost_amount: { contains: 'Free' } } }
+    : {};
+  const qFilter = params.q
+    ? {
+        OR: [
+          { name: { contains: params.q, mode: 'insensitive' as const } },
+          { mic_address: { is: { venue: { contains: params.q, mode: 'insensitive' as const } } } },
+          {
+            mic_address: {
+              is: { neighborhood: { contains: params.q, mode: 'insensitive' as const } },
+            },
+          },
+        ],
+      }
     : {};
 
   const startTime =
@@ -48,32 +82,51 @@ const getMics = async (params: MicQueryParams) => {
     day: { in: days },
     borough: { in: boroughs },
     ...freeFilter,
+    ...qFilter,
     ...(startTime && { start_time: { gte: startTime } }),
   };
 
-  const [rows, count] = await prisma.$transaction([
-    prisma.mics.findMany({
-      include: { mic_address: true, mic_cost: true, mic_occurrence: true },
-      where,
-      orderBy: { id: 'asc' },
-      skip: params.offset,
-      take: params.limit,
-    }),
-    prisma.mics.count({ where }),
-  ]);
+  // Order by relevance for a comic looking for stage time: today's mics
+  // first (time ascending), then the rest of the week. Day-distance can't be
+  // expressed in a Prisma orderBy, so sort a lightweight id list in JS and
+  // hydrate the requested page.
+  const keys = await prisma.mics.findMany({
+    where,
+    select: { id: true, day: true, start_time: true },
+  });
+  const today = nycDayIndex();
+  keys.sort((a, b) => {
+    const da = ((DAY_INDEX[a.day || ''] ?? 7) - today + 7) % 7;
+    const db = ((DAY_INDEX[b.day || ''] ?? 7) - today + 7) % 7;
+    if (da !== db) return da - db;
+    const ta = a.start_time ? a.start_time.getTime() : 0;
+    const tb = b.start_time ? b.start_time.getTime() : 0;
+    if (ta !== tb) return ta - tb;
+    return Number(a.id - b.id);
+  });
+  const pageIds = keys.slice(params.offset, params.offset + params.limit).map((k) => k.id);
+
+  const rows = await prisma.mics.findMany({
+    include: { mic_address: true, mic_cost: true, mic_occurrence: true },
+    where: { id: { in: pageIds } },
+  });
+  const byId = new Map(rows.map((r) => [r.id.toString(), r]));
+  const ordered = pageIds
+    .map((id) => byId.get(id.toString()))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
 
   const mics = await Promise.all(
-    rows.map(async (m) => ({
+    ordered.map(async (m) => ({
       ...m,
       venue_image: await venueImageFor(m.mic_address?.venue),
     }))
   );
 
-  return { mics, count };
+  return { mics, count: keys.length };
 };
 
-const getMic = async (id: bigint) =>
-  prisma.mics.findUnique({
+const getMic = async (id: bigint) => {
+  const mic = await prisma.mics.findUnique({
     where: { id },
     include: {
       mic_address: true,
@@ -85,5 +138,8 @@ const getMic = async (id: bigint) =>
       },
     },
   });
+  if (!mic) return mic;
+  return { ...mic, venue_image: await venueImageFor(mic.mic_address?.venue) };
+};
 
 export { getMics, getMic };

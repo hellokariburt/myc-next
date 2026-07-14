@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   IconExternalLink,
@@ -42,8 +43,21 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
       <div
         className={`bg-white rounded-2xl shadow-sm ring-1 ring-slate-200/70 border-l-[6px] ${getBoroughBorderColor(
           mic.borough || ''
-        )} p-6 md:p-8`}
+        )} overflow-hidden p-6 md:p-8 ${mic.venue_image ? 'pt-0 md:pt-0 px-0 md:px-0' : ''}`}
       >
+        {mic.venue_image && (
+          <div className="relative w-full h-44 md:h-60 bg-slate-100 border-b border-slate-100 mb-6">
+            <Image
+              src={mic.venue_image}
+              alt={mic.mic_address?.venue || ''}
+              fill
+              sizes="(min-width: 1024px) 60vw, 100vw"
+              priority
+              className={mic.venue_image.includes('.logo.') ? 'object-contain p-6' : 'object-cover'}
+            />
+          </div>
+        )}
+        <div className={mic.venue_image ? 'px-6 md:px-8 pb-0' : ''}>
         {/* Eyebrow */}
         <p
           className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(
@@ -224,6 +238,7 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
         {mic?.confirmed && (
           <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>
         )}
+        </div>
       </div>
     </div>
   );

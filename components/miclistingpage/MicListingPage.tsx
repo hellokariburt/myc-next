@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import MicCard from '../mic/MicCard';
+import MicsQuickChrome from '../mic/MicsQuickChrome';
 import PageLayout from '../pagelayout/PageLayout';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import { MicListResponse } from '@/lib/types/mic';
@@ -17,7 +18,12 @@ export function MicListingPage2({ serverData }: { serverData?: MicListResponse }
   return (
     <PageLayout className="pb-16 bg-[#f6efe4] bg-cover" hasFilter>
       <div className="lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:px-4">
-        <MicCard serverData={serverData} />
+        <div>
+          <div className="px-3 pt-4 sm:px-6 lg:px-0">
+            <MicsQuickChrome />
+          </div>
+          <MicCard serverData={serverData} />
+        </div>
         <MicMapLoad mics={mics} isLoading={isLoading} />
       </div>
     </PageLayout>

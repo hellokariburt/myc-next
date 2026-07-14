@@ -30,7 +30,10 @@ export function parseParams(searchParams: URLSearchParams): MicQueryParams | str
     return 'start-time must be in HH:MM:SS format (e.g. 19:00:00)';
   }
 
+  const q = (searchParams.get('q') ?? '').trim().slice(0, 80);
+
   return {
+    q,
     day: dayArray,
     borough: boroughArray,
     limit,
