@@ -142,4 +142,4 @@ const getMic = async (id: bigint) => {
   return { ...mic, venue_image: await venueImageFor(mic.mic_address?.venue) };
 };
 
-export { getMics, getMic };
+export { getMics, getMic, venueImageFor };

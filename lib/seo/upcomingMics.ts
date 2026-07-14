@@ -32,6 +32,16 @@ function getEtNow(): { dow: number; hhmm: string } {
   return { dow, hhmm: `${get('hour')}:${get('minute')}` };
 }
 
+async function withVenueImages(mics: UpcomingMic[]): Promise<UpcomingMic[]> {
+  const { venueImageFor } = await import('../services/mics.service');
+  return Promise.all(
+    mics.map(async (m) => ({
+      ...m,
+      venue_image: await venueImageFor(m.mic_address?.venue),
+    }))
+  );
+}
+
 export async function getUpcomingMics(limit = 4): Promise<UpcomingMic[]> {
   const { dow, hhmm } = getEtNow();
   const todayCutoff = `1970-01-01T${hhmm}:00.000Z`;
@@ -61,5 +71,5 @@ export async function getUpcomingMics(limit = 4): Promise<UpcomingMic[]> {
     result.push(...more);
   }
 
-  return result.filter((mic) => mic.name && mic.mic_address?.venue);
+  return withVenueImages(result.filter((mic) => mic.name && mic.mic_address?.venue));
 }
