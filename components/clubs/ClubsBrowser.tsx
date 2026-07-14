@@ -1,11 +1,26 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import ClubCard from './ClubCard';
 import ClubsMapSection from './ClubsMapSection';
 import { ClubListItem } from '@/lib/services/clubs.service';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
-import { getBoroughAccentBar, getBoroughEyebrow } from '@/lib/utils/boroughColor';
+import {
+  getBoroughAccentBar,
+  getBoroughEyebrow,
+  getBoroughSolid,
+  getBoroughBorderColor,
+} from '@/lib/utils/boroughColor';
+
+const FILTER_BOROUGHS = [
+  { value: 'manhattan', label: 'Manhattan' },
+  { value: 'brooklyn', label: 'Brooklyn' },
+  { value: 'queens', label: 'Queens' },
+];
+
+const pillBase =
+  'rounded-full border px-4 py-1.5 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500';
+const pillOff = `${pillBase} bg-white border-slate-200 text-slate-700 hover:bg-slate-50`;
 
 const BOROUGH_ORDER = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
 const BOROUGH_LABEL: Record<string, string> = {
@@ -32,25 +47,95 @@ function boroughOrdered(clubs: ClubListItem[]): ClubListItem[] {
 }
 
 export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
+  const [query, setQuery] = useState('');
+  const [borough, setBorough] = useState<string | null>(null);
+
   // stable identity — the chunking hook resets whenever its input array changes
-  const ordered = useMemo(() => boroughOrdered(clubs), [clubs]);
+  const ordered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const filtered = clubs.filter((c) => {
+      if (borough && c.borough !== borough) return false;
+      if (q) {
+        const hay = `${c.name} ${c.address || ''} ${c.neighborhood || ''} ${c.description || ''}`.toLowerCase();
+        if (!hay.includes(q)) return false;
+      }
+      return true;
+    });
+    return boroughOrdered(filtered);
+  }, [clubs, query, borough]);
+
   const { visible, done, sentinelRef } = useInfiniteChunks(ordered, 12);
   const grouped = groupClubs(visible);
-  const fullCounts = new Map(groupClubs(clubs).map(([b, list]) => [b, list.length]));
+  const fullCounts = new Map(groupClubs(ordered).map(([b, list]) => [b, list.length]));
 
   return (
-    <div className="mt-2 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
+    <>
+      <div className="mt-8 flex flex-col gap-3">
+        <label htmlFor="club-search" className="sr-only">
+          Search clubs by name, address, or neighborhood
+        </label>
+        <input
+          id="club-search"
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search clubs, neighborhoods…"
+          className="w-full max-w-md px-4 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-slate-400 transition-colors"
+        />
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by borough">
+          {FILTER_BOROUGHS.map((b) => (
+            <button
+              key={b.value}
+              type="button"
+              aria-pressed={borough === b.value}
+              onClick={() => setBorough(borough === b.value ? null : b.value)}
+              className={borough === b.value ? `${pillBase} ${getBoroughSolid(b.value)}` : pillOff}
+            >
+              {b.label}
+            </button>
+          ))}
+        </div>
+        <p className="text-sm text-slate-500" role="status">
+          {ordered.length} club{ordered.length === 1 ? '' : 's'}
+          {(query || borough) && (
+            <>
+              {' · '}
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery('');
+                  setBorough(null);
+                }}
+                className="underline decoration-dashed hover:decoration-solid"
+              >
+                clear filters
+              </button>
+            </>
+          )}
+        </p>
+      </div>
+
+      <div className="mt-2 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
       <div>
-        {grouped.map(([borough, list]) => (
-          <section key={borough} className="mt-10">
+        {ordered.length === 0 && (
+          <div
+            className={`mt-10 bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
+              borough || ''
+            )} p-8 text-center text-slate-600`}
+          >
+            No clubs match — try clearing a filter.
+          </div>
+        )}
+        {grouped.map(([groupBorough, list]) => (
+          <section key={groupBorough} className="mt-10">
             <h2 className="flex items-center gap-3 text-2xl font-bold tracking-tight text-slate-900">
               <span
-                className={`inline-block h-7 w-1.5 rounded-full ${getBoroughAccentBar(borough)}`}
+                className={`inline-block h-7 w-1.5 rounded-full ${getBoroughAccentBar(groupBorough)}`}
                 aria-hidden="true"
               />
-              {BOROUGH_LABEL[borough]}
-              <span className={`text-base font-semibold ${getBoroughEyebrow(borough)}`}>
-                {fullCounts.get(borough) ?? list.length}
+              {BOROUGH_LABEL[groupBorough]}
+              <span className={`text-base font-semibold ${getBoroughEyebrow(groupBorough)}`}>
+                {fullCounts.get(groupBorough) ?? list.length}
               </span>
             </h2>
             <div className="mt-4 grid gap-4 xl:grid-cols-2">
@@ -69,6 +154,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
       <div className="mt-10">
         <ClubsMapSection clubs={visible} />
       </div>
-    </div>
+      </div>
+    </>
   );
 }
