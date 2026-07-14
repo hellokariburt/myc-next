@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import PageLayout from '@/components/pagelayout/PageLayout';
-import ClubCard from '@/components/clubs/ClubCard';
-import ClubsMapSection from '@/components/clubs/ClubsMapSection';
-import { getClubs, ClubListItem } from '@/lib/services/clubs.service';
+import ClubsBrowser from '@/components/clubs/ClubsBrowser';
+import { getClubs } from '@/lib/services/clubs.service';
 
 export const revalidate = 3600;
 
@@ -18,28 +17,8 @@ export const metadata: Metadata = {
   },
 };
 
-const BOROUGH_ORDER = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
-const BOROUGH_LABEL: Record<string, string> = {
-  manhattan: 'Manhattan',
-  brooklyn: 'Brooklyn',
-  queens: 'Queens',
-  bronx: 'Bronx',
-  'staten-island': 'Staten Island',
-};
-
-function groupClubs(clubs: ClubListItem[]): [string, ClubListItem[]][] {
-  const groups = new Map<string, ClubListItem[]>();
-  BOROUGH_ORDER.forEach((b) => groups.set(b, []));
-  clubs.forEach((c) => {
-    const key = c.borough && groups.has(c.borough) ? c.borough : 'manhattan';
-    groups.get(key)!.push(c);
-  });
-  return [...groups.entries()].filter(([, list]) => list.length > 0);
-}
-
 export default async function ClubsPage() {
   const clubs = await getClubs();
-  const grouped = groupClubs(clubs);
 
   return (
     <PageLayout className="bg-[#f6efe4]">
@@ -64,26 +43,7 @@ export default async function ClubsPage() {
           </div>
         )}
 
-        <div className="mt-2 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
-          <div>
-            {grouped.map(([borough, list]) => (
-              <section key={borough} className="mt-10">
-                <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-                  {BOROUGH_LABEL[borough]}
-                  <span className="ml-2 text-base font-medium text-slate-500">{list.length}</span>
-                </h2>
-                <div className="mt-4 grid gap-4 xl:grid-cols-2">
-                  {list.map((club) => (
-                    <ClubCard key={club.id} club={club} />
-                  ))}
-                </div>
-              </section>
-            ))}
-          </div>
-          <div className="mt-10">
-            <ClubsMapSection clubs={clubs} />
-          </div>
-        </div>
+        <ClubsBrowser clubs={clubs} />
       </section>
     </PageLayout>
   );

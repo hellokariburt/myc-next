@@ -5,6 +5,7 @@ import ShowCard from './ShowCard';
 import ShowsMapSection from './ShowsMapSection';
 import { ShowListItem } from '@/lib/services/shows.service';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
 
 const DAY_ORDER = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
@@ -50,7 +51,10 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
     });
   }, [shows, query, day, borough]);
 
-  const grouped = groupShows(filtered);
+  // full filtered set drives the map + counts; cards render progressively
+  const { visible, done, sentinelRef } = useInfiniteChunks(filtered, 24);
+  const grouped = groupShows(visible);
+  const fullCounts = new Map(groupShows(filtered).map(([d, list]) => [d, list.length]));
 
   return (
     <>
@@ -127,7 +131,9 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
             <section key={groupDay} id={groupDay} className="mb-10 scroll-mt-24">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900">
                 {groupDay === 'pop-ups' ? 'Pop-up shows' : `${capitalizeDay(groupDay)} shows`}
-                <span className="ml-2 text-base font-medium text-slate-500">{list.length}</span>
+                <span className="ml-2 text-base font-medium text-slate-500">
+                  {fullCounts.get(groupDay) ?? list.length}
+                </span>
               </h2>
               <div className="mt-4 grid gap-3">
                 {list.map((show) => (
@@ -136,6 +142,11 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
               </div>
             </section>
           ))}
+          {!done && (
+            <div ref={sentinelRef} className="flex justify-center py-6" aria-hidden="true">
+              <div className="w-6 h-6 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+          )}
         </div>
         <ShowsMapSection shows={filtered} />
       </div>

@@ -20,11 +20,10 @@ export type ShowListItem = {
   image: string | null;
 };
 
+import { nameSlug } from '../utils/nameSlug';
+
 export function showSlug(name: string): string {
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
+  return nameSlug(name);
 }
 
 // Optional artwork: public/show-art/<instagram-handle>.<ext>, else <name-slug>.<ext>

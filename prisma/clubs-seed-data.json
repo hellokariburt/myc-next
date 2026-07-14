@@ -500,10 +500,36 @@
     "borough": "brooklyn",
     "neighborhood": "Gowanus",
     "website": "https://www.thebellhouseny.com/",
-    "instagram": "thebellhouseny",
+    "instagram": "bellhouseny",
     "description": "Big Gowanus room that anchors Brooklyn's comedy-and-podcast circuit, regularly hosting major stand-up tapings and touring comedy shows.",
     "latitude": "40.6732966",
     "longitude": "-73.9911721",
     "confirmed": "Verified 7/13 Claude \u2014 pending gap-scan confirmation"
+  },
+  {
+    "name": "The Second City New York",
+    "address": "64 N 9th St",
+    "zipcode": "11249",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "website": "https://www.secondcity.com/new-york",
+    "instagram": "secondcitynyc",
+    "description": "The legendary sketch and improv institution's New York outpost \u2014 two cabaret-style theaters plus a training center, running sketch, improv, and stand-up seven nights a week.",
+    "confirmed": "Verified 7/13 Claude (secondcity.com + Time Out, July 2026)",
+    "latitude": "40.7207700",
+    "longitude": "-73.9595900"
+  },
+  {
+    "name": "Brooklyn Improv",
+    "address": "64 N 9th St",
+    "zipcode": "11249",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "website": "https://improv.com/brooklyn/",
+    "instagram": "brooklynimprov",
+    "description": "The famed Improv chain's return to New York after 30 years, opened May 2026 in the Second City complex, booking national stand-up headliners nightly.",
+    "confirmed": "Verified 7/13 Claude (improv.com July 2026 calendar, Deadline)",
+    "latitude": "40.7207700",
+    "longitude": "-73.9595900"
   }
 ]

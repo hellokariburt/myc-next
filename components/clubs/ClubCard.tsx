@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ClubListItem, clubSlug } from '@/lib/services/clubs.service';
+import type { ClubListItem } from '@/lib/services/clubs.service';
+import { nameSlug as clubSlug } from '@/lib/utils/nameSlug';
 import {
   getBoroughBorderColor,
   getBoroughBadgeClasses,
