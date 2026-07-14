@@ -7,7 +7,7 @@
     "neighborhood": "Theater District",
     "website": "https://www.broadwaycomedyclub.com/",
     "instagram": "broadway_comedy_club",
-    "description": "Bi-level club near Times Square with three showrooms — a 225-seat main room, a 70-seat theater, and a 60-seat cafe room — running stand-up nightly.",
+    "description": "Bi-level club near Times Square with three showrooms \u2014 a 225-seat main room, a 70-seat theater, and a 60-seat cafe room \u2014 running stand-up nightly.",
     "latitude": "40.7643561",
     "longitude": "-73.9853335",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -59,7 +59,7 @@
     "neighborhood": "Penn Station",
     "website": "https://www.laughingbuddhacomedy.com/",
     "instagram": "laughingbuddhacomedy",
-    "description": "Laughing Buddha's home room above the Blarney Stone — daily registered open mics, classes, and weekly ticketed showcases.",
+    "description": "Laughing Buddha's home room above the Blarney Stone \u2014 daily registered open mics, classes, and weekly ticketed showcases.",
     "latitude": "40.7497962",
     "longitude": "-73.9951195",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -124,7 +124,7 @@
     "neighborhood": "Greenwich Village",
     "website": "https://www.comedycellar.com/",
     "instagram": "comedycellarusa",
-    "description": "NYC's most famous stand-up club since 1982 — rotating multi-comic lineups nightly and frequent unannounced celebrity drop-ins.",
+    "description": "NYC's most famous stand-up club since 1982 \u2014 rotating multi-comic lineups nightly and frequent unannounced celebrity drop-ins.",
     "latitude": "40.7301950",
     "longitude": "-74.0004117",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -143,7 +143,7 @@
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
   },
   {
-    "name": "New York Comedy Club — East Village",
+    "name": "New York Comedy Club \u2014 East Village",
     "address": "85 E 4th St",
     "zipcode": "10003",
     "borough": "manhattan",
@@ -163,7 +163,7 @@
     "neighborhood": "East Village",
     "website": "https://www.stmarkscomedy.com/",
     "instagram": "stmarkscomedyclub",
-    "description": "Speakeasy-style room hidden behind an art bookstore — the city's only Latino-owned comedy club, with nightly stand-up.",
+    "description": "Speakeasy-style room hidden behind an art bookstore \u2014 the city's only Latino-owned comedy club, with nightly stand-up.",
     "latitude": "40.7292100",
     "longitude": "-73.9892569",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -215,7 +215,7 @@
     "neighborhood": "East Village",
     "website": "https://ucbcomedy.com/venues/ny-theater/",
     "instagram": "ucbtny",
-    "description": "Upright Citizens Brigade's flagship improv and sketch theater, reopened in 2024 — home of ASSSSCAT and nightly improv, sketch, and stand-up.",
+    "description": "Upright Citizens Brigade's flagship improv and sketch theater, reopened in 2024 \u2014 home of ASSSSCAT and nightly improv, sketch, and stand-up.",
     "latitude": "40.7327925",
     "longitude": "-73.9861484",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -254,7 +254,7 @@
     "neighborhood": "Lower East Side",
     "website": "https://caveat.nyc/",
     "instagram": "caveatnyc",
-    "description": "110-seat basement theater and bar dedicated to nerdy comedy — stand-up, game shows, science-comedy, and musicals.",
+    "description": "110-seat basement theater and bar dedicated to nerdy comedy \u2014 stand-up, game shows, science-comedy, and musicals.",
     "latitude": "40.7206837",
     "longitude": "-73.9843195",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -267,13 +267,13 @@
     "neighborhood": "Chelsea",
     "website": "https://thepit-nyc.com",
     "instagram": "thepitnyc",
-    "description": "Improv and sketch theater and training center running the PIT Loft plus Lab and Fishbowl rooms at 154–156 W 29th St, seven days a week.",
+    "description": "Improv and sketch theater and training center running the PIT Loft plus Lab and Fishbowl rooms at 154\u2013156 W 29th St, seven days a week.",
     "latitude": "40.7472614",
     "longitude": "-73.9916621",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
   },
   {
-    "name": "New York Comedy Club — Midtown",
+    "name": "New York Comedy Club \u2014 Midtown",
     "address": "241 E 24th St",
     "zipcode": "10010",
     "borough": "manhattan",
@@ -286,7 +286,7 @@
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
   },
   {
-    "name": "New York Comedy Club — Upper West Side",
+    "name": "New York Comedy Club \u2014 Upper West Side",
     "address": "236 W 78th St",
     "zipcode": "10024",
     "borough": "manhattan",
@@ -306,7 +306,7 @@
     "neighborhood": "Upper East Side",
     "website": "https://comicstriplive.com",
     "instagram": "thecomicstriplive",
-    "description": "NYC's longest-running stand-up showroom (since 1976) — early proving ground for Eddie Murphy, Seinfeld, and Chris Rock.",
+    "description": "NYC's longest-running stand-up showroom (since 1976) \u2014 early proving ground for Eddie Murphy, Seinfeld, and Chris Rock.",
     "latitude": "40.7748559",
     "longitude": "-73.9538591",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -319,7 +319,7 @@
     "neighborhood": "Upper East Side",
     "website": "https://rodneysnewyorkcomedyclub.com",
     "instagram": "rodneycomedyclub",
-    "description": "Opened 2023 on the historic Dangerfield's stage — a ~200-seat room with shows nightly plus weekend late shows.",
+    "description": "Opened 2023 on the historic Dangerfield's stage \u2014 a ~200-seat room with shows nightly plus weekend late shows.",
     "latitude": "40.7611900",
     "longitude": "-73.9607400",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -345,7 +345,7 @@
     "neighborhood": "Harlem",
     "website": "https://www.comedyinharlem.com",
     "instagram": "comedyinharlem",
-    "description": "NYC's only Black-owned dedicated comedy club — an intimate room with full bar, food, and DJ, weekly headliner shows and two recurring open mics.",
+    "description": "NYC's only Black-owned dedicated comedy club \u2014 an intimate room with full bar, food, and DJ, weekly headliner shows and two recurring open mics.",
     "latitude": "40.8255654",
     "longitude": "-73.9435573",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -397,7 +397,7 @@
     "neighborhood": "Bushwick",
     "website": "https://www.bushwickcomedy.com/",
     "instagram": "bushwickcomedyclub",
-    "description": "Comedian-owned storefront club — Brooklyn's only BYOB comedy club — running nightly showcases plus the weekly Comedy Lottery.",
+    "description": "Comedian-owned storefront club \u2014 Brooklyn's only BYOB comedy club \u2014 running nightly showcases plus the weekly Comedy Lottery.",
     "latitude": "40.7019708",
     "longitude": "-73.9298171",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -423,7 +423,7 @@
     "neighborhood": "Greenpoint",
     "website": "https://www.greenpointcomedyclub.com/",
     "instagram": "greenpointcomedyclub",
-    "description": "Stand-up club opened April 2026 by comedians Jeremy Pinsly and Kayla Sossin — a ~60-seat showroom behind a front cocktail bar.",
+    "description": "Stand-up club opened April 2026 by comedians Jeremy Pinsly and Kayla Sossin \u2014 a ~60-seat showroom behind a front cocktail bar.",
     "latitude": "40.7297553",
     "longitude": "-73.9583024",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
@@ -475,9 +475,35 @@
     "neighborhood": "Astoria",
     "website": "https://qedastoria.com/",
     "instagram": "qedastoria",
-    "description": "Small woman-owned comedy and arts venue hosting 100+ events a month — daily open mics, showcases, storytelling, and classes.",
+    "description": "Small woman-owned comedy and arts venue hosting 100+ events a month \u2014 daily open mics, showcases, storytelling, and classes.",
     "latitude": "40.7758832",
     "longitude": "-73.9151365",
     "confirmed": "Verified 7/13 Claude (web sweep, 2026-dated evidence)"
+  },
+  {
+    "name": "Littlefield",
+    "address": "635 Sackett St",
+    "zipcode": "11217",
+    "borough": "brooklyn",
+    "neighborhood": "Gowanus",
+    "website": "https://littlefieldnyc.com/",
+    "instagram": "littlefieldnyc",
+    "description": "Gowanus performance venue and one of Brooklyn's core alt-comedy stages, hosting stand-up showcases, live podcasts, and New York Comedy Festival shows.",
+    "latitude": "40.6781613",
+    "longitude": "-73.9827396",
+    "confirmed": "Verified 7/13 Claude (Kutti Gang May 2026 listing + NYCF venue); added at Kari's request"
+  },
+  {
+    "name": "The Bell House",
+    "address": "149 7th St",
+    "zipcode": "11215",
+    "borough": "brooklyn",
+    "neighborhood": "Gowanus",
+    "website": "https://www.thebellhouseny.com/",
+    "instagram": "thebellhouseny",
+    "description": "Big Gowanus room that anchors Brooklyn's comedy-and-podcast circuit, regularly hosting major stand-up tapings and touring comedy shows.",
+    "latitude": "40.6732966",
+    "longitude": "-73.9911721",
+    "confirmed": "Verified 7/13 Claude \u2014 pending gap-scan confirmation"
   }
 ]
