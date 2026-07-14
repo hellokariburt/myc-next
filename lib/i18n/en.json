@@ -1,0 +1,162 @@
+{
+  "nav": {
+    "browseMics": "Browse Mics",
+    "clubs": "Clubs",
+    "guides": "Guides",
+    "about": "About",
+    "submit": "Submit a Mic"
+  },
+  "footer": {
+    "browse": {
+      "heading": "Browse",
+      "allMics": "All Mics",
+      "tonight": "Tonight",
+      "freeMics": "Free Mics",
+      "comedyClubs": "Comedy Clubs"
+    },
+    "boroughs": {
+      "heading": "Boroughs",
+      "manhattan": "Manhattan",
+      "brooklyn": "Brooklyn",
+      "queens": "Queens",
+      "bronx": "Bronx",
+      "statenIsland": "Staten Island"
+    },
+    "site": {
+      "heading": "OpenMYC",
+      "about": "About",
+      "guides": "Guides",
+      "submit": "Submit a Mic",
+      "contact": "Contact"
+    },
+    "legal": {
+      "heading": "Legal",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    }
+  },
+  "home": {
+    "eyebrow": "Every night · Five boroughs",
+    "headlinePlain": "NYC",
+    "headlineGradient": "open mics,",
+    "headlineRest": "found tonight.",
+    "subhead": "Every comedy open mic in the city — verified, mapped, and ready for your name on the list.",
+    "countLine": "{count} mics on the board right now — every one checked against the scene",
+    "searchTab": "Find a mic",
+    "jumpTo": "Or jump straight to",
+    "guides": {
+      "eyebrow": "Beyond the listings",
+      "heading": "Guides for first-timers, room strategy, and NYC mic etiquette",
+      "body": "OpenMYC now includes editorial guides to help comics understand signup formats, room types, and what to expect before heading out.",
+      "cta": "Read the guides"
+    }
+  },
+  "search": {
+    "button": "Search for mics",
+    "buttonAria": "Search for mics"
+  },
+  "mics": {
+    "card": {
+      "free": "Free",
+      "paid": "Paid"
+    }
+  },
+  "clubs": {
+    "page": {
+      "eyebrow": "The rooms",
+      "heading": "NYC comedy clubs",
+      "intro": "The city's dedicated stand-up rooms — verified open, borough by borough. Many run open mics too: check the mic list for stage time at these clubs.",
+      "introLinkText": "the mic list"
+    },
+    "filters": {
+      "searchPlaceholder": "Search clubs, neighborhoods…",
+      "searchAria": "Search clubs by name, address, or neighborhood",
+      "boroughGroupAria": "Filter by borough",
+      "countOne": "{count} club",
+      "countMany": "{count} clubs",
+      "clearFilters": "clear filters",
+      "empty": "No clubs match — try clearing a filter."
+    },
+    "card": {
+      "micCountOne": "{count} open mic",
+      "micCountMany": "{count} open mics",
+      "details": "Details →"
+    },
+    "detail": {
+      "backLink": "← All comedy clubs",
+      "website": "Website",
+      "directions": "Directions",
+      "tabsAria": "Stage time at this club",
+      "tabMics": "Open mics ({count})",
+      "tabShows": "Shows ({count})",
+      "emptyStage": "No open mics or indie shows listed at this club yet — check the club's site for its full calendar."
+    }
+  },
+  "submit": {
+    "eyebrow": "Add to the board",
+    "titleMic": "Submit a Mic",
+    "titleShow": "Submit a Show",
+    "introMic": "Know of an open mic that's not on the list? Let us know and we'll get it added.",
+    "introShow": "Run or know a show that's not on the list? Let us know and we'll get it added.",
+    "sections": {
+      "micInfo": "Mic Info",
+      "showInfo": "Show Info",
+      "venue": "Venue",
+      "hostSocial": "Host & Social",
+      "extra": "Anything Else"
+    },
+    "fields": {
+      "micName": "Mic Name *",
+      "showName": "Show Name *",
+      "namePlaceholder": "e.g. Tuesday Night Comedy",
+      "borough": "Borough *",
+      "boroughPlaceholder": "Select borough",
+      "day": "Day *",
+      "dayPlaceholder": "Select day",
+      "startTime": "Start Time *",
+      "endTime": "End Time",
+      "cost": "Cost *",
+      "costShow": "Cost / Tickets",
+      "costPlaceholder": "e.g. Free, $5, 2 drink minimum",
+      "costShowPlaceholder": "e.g. Free, $10 tickets, 2 drink minimum",
+      "venueType": "Venue Type",
+      "venueTypePlaceholder": "e.g. Bar, Comedy Club, Cafe",
+      "stageTime": "Stage Time",
+      "stageTimePlaceholder": "e.g. 5 minutes",
+      "signupInfo": "Signup Info",
+      "signupInfoPlaceholder": "e.g. Sign up at the door, Bucket pull",
+      "schedule": "Schedule",
+      "schedulePlaceholder": "e.g. Weekly, Every other week, First Tuesday of month",
+      "venueName": "Venue Name *",
+      "venueNamePlaceholder": "e.g. The Stand",
+      "streetAddress": "Street Address *",
+      "streetAddressOptional": "Street Address",
+      "streetAddressPlaceholder": "e.g. 239 3rd Ave",
+      "neighborhood": "Neighborhood",
+      "neighborhoodPlaceholder": "e.g. East Village, Williamsburg",
+      "hostName": "Host Name",
+      "hostInstagram": "Host Instagram",
+      "instagramMic": "Mic Instagram",
+      "instagramShow": "Show Instagram",
+      "handlePlaceholder": "@handle",
+      "website": "Website",
+      "websitePlaceholder": "https://",
+      "notes": "Notes",
+      "notesPlaceholder": "Anything else we should know about this mic?",
+      "email": "Your Email (optional)",
+      "emailPlaceholder": "In case we have questions"
+    },
+    "buttons": {
+      "submitMic": "Submit Mic",
+      "submitShow": "Submit Show",
+      "submitting": "Submitting..."
+    },
+    "messages": {
+      "error": "Something went wrong. Please try again.",
+      "thanksTitle": "Thanks!",
+      "thanksBody": "Your submission has been received. We'll review it and get it added to the list — this usually takes a few days.",
+      "browseMics": "Browse Mics",
+      "submitAnother": "Submit Another"
+    }
+  }
+}
