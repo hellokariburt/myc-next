@@ -77,7 +77,7 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Signup mics are the basic reps engine',
         paragraphs: [
-          'A standard signup mic is the most straightforward format in comedy: you sign up, wait your turn, do your time, and move on. This is the bulk of the NYC circuit. The high-volume operations are built entirely on this model — Tiny Cupboard in Bushwick runs over twenty mics a week, Producer\'s Club in Hell\'s Kitchen runs around twenty, and Grisly Pear keeps ten going in the Village. Nobody is pretending these are shows. They are the gym.',
+          'A standard signup mic is the most straightforward format in comedy: you sign up, wait your turn, do your time, and move on. This is the bulk of the NYC circuit. The high-volume operations are built entirely on this model — Producer\'s Club in Hell\'s Kitchen runs around twenty mics a week, Grisly Pear keeps ten going in the Village, and Comedy Shop stacks afternoon mics nearly every day. Nobody is pretending these are shows. They are the gym.',
           'These rooms are best when you need stage reps, want to test new material in front of other comics, or are still learning how different neighborhoods feel. The tradeoff is that the "audience" is mostly comics waiting to go up, so a joke that dies at a 4pm signup mic might still work fine in front of civilians. Learn to read the difference between "this joke is bad" and "this room is forty comics deep and everyone is writing."',
         ],
       },
@@ -126,14 +126,14 @@ export const guideArticles: GuideArticle[] = [
       {
         heading: 'Cheap, high-volume rooms are built for reps',
         paragraphs: [
-          'Some venues run so many mics that a rough set simply doesn\'t matter. Tiny Cupboard in Bushwick runs more than twenty $2 mics a week — if you bomb at the 5:30, the 7:00 exists. Producer\'s Club in Hell\'s Kitchen runs about twenty $5 mics a week under one roof. Comedy Shop in the Village runs a dozen, and its afternoon mics come with a free drink or fries for the $7.62 entry.',
+          'Some venues run so many mics that a rough set simply doesn\'t matter. Producer\'s Club in Hell\'s Kitchen runs about twenty $5 mics a week under one roof — if you bomb at the 5:00, the 6:00 exists. Comedy Shop in the Village runs afternoon mics nearly every day, and the $7.62 entry comes with a free drink or fries. Out in Bushwick, Tiny Cupboard keeps some of the cheapest stage time in the city, including a $2 mic and a free late-night one.',
           'These rooms are the comedy equivalent of an empty gym at 2pm. Nobody is watching you critically, everyone is there to work, and volume beats intensity when you\'re learning. Your goal in month one is not a great set. It\'s twenty sets.',
         ],
       },
       {
         heading: 'Daytime mics are the best-kept non-secret in the city',
         paragraphs: [
-          'Around 80 of the mics we track start before 5pm. Grisly Pear runs a Sunday 2pm mic. Comedy Shop runs afternoon mics most days. Seven Minutes in Heaven in Park Slope runs Wednesday mics at 3:30 and 5:00 with happy-hour drink prices. Daytime rooms are smaller, lower-stakes, and full of comics who take the work seriously enough to do it in the afternoon.',
+          'Around 80 of the mics we track start before 5pm. Grisly Pear runs a Sunday 2pm mic. Comedy Shop runs afternoon mics most days of the week. Sunday afternoons in particular are a soft landing — Fear City on the Lower East Side and the Eastville Comedy Club mics in Downtown Brooklyn both run 4pm signups. Daytime rooms are smaller, lower-stakes, and full of comics who take the work seriously enough to do it in the afternoon.',
           'For a first set, a Sunday afternoon mic is about as gentle as this city gets. The lists are shorter, you won\'t wait three hours, and you\'ll be home by dinner having done the scariest thing you\'ll do all week.',
         ],
       },
