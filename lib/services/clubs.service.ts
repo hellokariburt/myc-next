@@ -31,6 +31,29 @@ export type ClubListItem = {
   image: string | null;
 };
 
+export function clubSlug(name: string): string {
+  return showSlug(name);
+}
+
+const squash = (s: string | null | undefined) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+// venue-name match: club "The Stand" ~ mic venue "The Stand NYC", etc.
+export function venueMatchesClub(venue: string | null | undefined, clubName: string): boolean {
+  const v = squash(venue);
+  const c = squash(clubName.replace(/\((williamsburg|east village)\)/i, ''));
+  if (!v || v.length < 5 || !c) return false;
+  return v.includes(c) || c.includes(v);
+}
+
+// All mics whose venue matches a club name (for club detail pages)
+export async function getMicsAtClub(clubName: string) {
+  const mics = await prisma.mics.findMany({
+    include: { mic_address: true, mic_cost: true, mic_occurrence: true },
+    orderBy: { id: 'asc' },
+  });
+  return mics.filter((m) => venueMatchesClub(m.mic_address?.venue, clubName));
+}
+
 export async function getClubs(): Promise<ClubListItem[]> {
   const rows = await prisma.clubs.findMany({
     where: { NOT: { confirmed: { startsWith: 'Stale' } } },

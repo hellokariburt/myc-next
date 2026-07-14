@@ -1,4 +1,5 @@
-import { ClubListItem } from '@/lib/services/clubs.service';
+import Link from 'next/link';
+import { ClubListItem, clubSlug } from '@/lib/services/clubs.service';
 import {
   getBoroughBorderColor,
   getBoroughBadgeClasses,
@@ -13,18 +14,27 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
       )} rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow`}
     >
       {club.image && (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={club.image}
-          alt=""
-          loading="lazy"
-          className="w-full h-36 object-cover bg-slate-100 border-b border-slate-100"
-        />
+        <Link href={`/clubs/${clubSlug(club.name)}`} tabIndex={-1} aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={club.image}
+            alt=""
+            loading="lazy"
+            className="w-full h-36 object-cover bg-slate-100 border-b border-slate-100 hover:opacity-95 transition-opacity"
+          />
+        </Link>
       )}
       <div className="px-5 py-4">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-base lg:text-lg font-semibold text-slate-900">{club.name}</p>
+          <p className="text-base lg:text-lg font-semibold text-slate-900">
+            <Link
+              href={`/clubs/${clubSlug(club.name)}`}
+              className="hover:underline decoration-slate-400 underline-offset-2 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
+            >
+              {club.name}
+            </Link>
+          </p>
           <p className="text-slate-600 text-sm lg:text-base">
             {club.address}
             {club.neighborhood && <span className="text-slate-500"> · {club.neighborhood}</span>}

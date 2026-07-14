@@ -29,6 +29,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
+  const clubs = await prisma.clubs.findMany({
+    where: { NOT: { confirmed: { startsWith: 'Stale' } } },
+    select: { name: true },
+  });
+  const clubPages = clubs.map((c) => ({
+    url: `https://findopenmyc.com/clubs/${c.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   const boroughPages = boroughs.map((b) => ({
     url: `https://findopenmyc.com/mics/${b}`,
     changeFrequency: 'weekly' as const,
@@ -74,6 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    ...clubPages,
     ...boroughPages,
     ...boroughDayPages,
     {
