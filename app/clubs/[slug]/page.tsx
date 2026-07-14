@@ -125,7 +125,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
                   rel="noopener noreferrer"
                   className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  Website
+                  Full calendar ↗
                 </a>
               )}
               {club.instagram && (
