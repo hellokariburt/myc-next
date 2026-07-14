@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const GRADIENTS = [
   'from-blue-500 to-indigo-600',
   'from-emerald-500 to-teal-600',
@@ -30,13 +32,11 @@ function initials(name: string): string {
 export default function ShowThumbnail({ name, image }: { name: string; image?: string | null }) {
   if (image) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
+      <Image
         src={image}
         alt=""
         width={64}
         height={64}
-        loading="lazy"
         className="w-14 h-14 lg:w-16 lg:h-16 shrink-0 rounded-xl object-cover shadow-sm bg-slate-100"
       />
     );

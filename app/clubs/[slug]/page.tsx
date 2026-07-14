@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import PageLayout from '@/components/pagelayout/PageLayout';
@@ -87,12 +88,16 @@ export default async function ClubPage({ params }: { params: { slug: string } })
         <div className="mt-6 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-6 lg:items-start">
           <div>
             {club.image && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={club.image}
-                alt={`${club.name}`}
-                className="w-full max-h-80 object-cover rounded-2xl border border-slate-200 shadow-sm bg-slate-100"
-              />
+              <div className="relative w-full h-56 md:h-80 rounded-2xl border border-slate-200 shadow-sm bg-slate-100 overflow-hidden">
+                <Image
+                  src={club.image}
+                  alt={`${club.name}`}
+                  fill
+                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  priority
+                  className="object-cover"
+                />
+              </div>
             )}
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <h1 className="font-display text-3xl md:text-5xl tracking-normal leading-[1.02] text-slate-900">

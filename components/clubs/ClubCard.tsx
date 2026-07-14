@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import type { ClubListItem } from '@/lib/services/clubs.service';
 import { nameSlug as clubSlug } from '@/lib/utils/nameSlug';
@@ -25,13 +26,15 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
       )} rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
     >
       {club.image ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={club.image}
-          alt=""
-          loading="lazy"
-          className="w-full h-36 object-cover bg-slate-100 border-b border-slate-100"
-        />
+        <div className="relative w-full h-36 bg-slate-100 border-b border-slate-100">
+          <Image
+            src={club.image}
+            alt=""
+            fill
+            sizes="(min-width: 1280px) 30vw, (min-width: 1024px) 45vw, 100vw"
+            className="object-cover"
+          />
+        </div>
       ) : (
         <div
           aria-hidden="true"
