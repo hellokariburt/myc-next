@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import ClubsBrowser from '@/components/clubs/ClubsBrowser';
 import { getClubs } from '@/lib/services/clubs.service';
+import { t } from '@/lib/i18n';
 
 export const revalidate = 3600;
 
@@ -25,10 +26,10 @@ export default async function ClubsPage() {
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-            The rooms
+            {t('clubs.page.eyebrow')}
           </p>
           <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
-            NYC comedy clubs
+            {t('clubs.page.heading')}
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-700">
             The city&apos;s dedicated stand-up rooms — verified open, borough by borough. Many run

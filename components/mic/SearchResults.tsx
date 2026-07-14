@@ -19,27 +19,31 @@ function convertTo12HourFormat(x: string) {
   return `${hours12}:${minutes.toString().padStart(2, '0')}${period}`;
 }
 
+import { t } from '@/lib/i18n';
+
 export const SearchResults = () => {
   const { mics, params } = useMicSearch();
 
   const getAllBoroughs = params.get('borough');
-  const boroughsArray = getAllBoroughs?.includes('all') ? 'NYC' : getAllBoroughs || 'NYC';
+  const boroughsArray = getAllBoroughs?.includes('all')
+    ? t('mics.results.allNyc')
+    : getAllBoroughs || t('mics.results.allNyc');
 
   const getAllDays = params.get('day');
   const daysArray = getAllDays?.includes('all')
     ? ''
     : getAllDays
-      ? ` on ${capitalizeDay(getAllDays.toString())}`
+      ? t('mics.results.onDay', { day: capitalizeDay(getAllDays.toString()) })
       : '';
 
   const getStartTime = params.get('start-time');
   const timeArray = getStartTime?.includes('00:00:00')
     ? ''
     : getStartTime
-      ? ` after ${convertTo12HourFormat(getStartTime.toString())}`
+      ? t('mics.results.afterTime', { time: convertTo12HourFormat(getStartTime.toString()) })
       : '';
 
-  const paramsFree = params.get('free') === 'true' ? 'Free' : '';
+  const paramsFree = params.get('free') === 'true' ? t('mics.results.free') : '';
 
   const paramsPage = parseInt(params.get('pageNo') || '1', 10);
   const startPage = 1 + (paramsPage - 1) * 10;
@@ -59,7 +63,7 @@ export const SearchResults = () => {
       </p>
       {totalPages > 1 && (
         <p className="text-sm text-slate-500">
-          Page {paramsPage} of {totalPages}
+          {t('mics.results.pageOf', { page: paramsPage, total: totalPages })}
         </p>
       )}
     </div>

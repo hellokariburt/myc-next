@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { IconMapPin } from '@tabler/icons-react';
 
+import { t } from '@/lib/i18n';
+
 const boroughs = [
   { value: 'manhattan', label: 'Manhattan' },
   { value: 'brooklyn', label: 'Brooklyn' },
@@ -33,7 +35,7 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
 
   const display = value.length > 0
     ? value.map((v) => boroughs.find((b) => b.value === v)?.label).join(', ')
-    : 'All boroughs';
+    : t('mics.selects.allBoroughs');
 
   return (
     <div className="relative flex-1 min-w-0" ref={ref}>

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import { guideArticles } from '@/lib/content/guides';
+import { t } from '@/lib/i18n';
 
 export const metadata: Metadata = {
   title: 'NYC Open Mic Guides | OpenMYC',
@@ -22,15 +23,13 @@ export default function GuidesPage() {
       <section className="max-w-5xl mx-auto px-4 py-12 md:py-16">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-            OpenMYC Guides
+            {t('guides.page.eyebrow')}
           </p>
           <h1 className="mt-3 font-display text-4xl md:text-6xl tracking-normal leading-[1.02] text-slate-900">
-            Practical NYC open mic advice, not just listings
+            {t('guides.page.heading')}
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-700">
-            OpenMYC tracks where mics are. These guides cover how the rooms actually work:
-            first-timer logistics, signup formats, venue differences, and the unwritten rules
-            that make nights in the city go smoother.
+            {t('guides.page.intro')}
           </p>
         </div>
 
@@ -55,7 +54,7 @@ export default function GuidesPage() {
                 href={`/guides/${article.slug}`}
                 className="mt-5 inline-flex rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
               >
-                Read guide
+                {t('guides.page.readGuide')}
               </Link>
             </article>
           ))}

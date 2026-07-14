@@ -1,6 +1,7 @@
 'use client';
 
 import { IconCalendar } from '@tabler/icons-react';
+import { t } from '@/lib/i18n';
 
 const days = [
   { value: 'sunday', label: 'Sunday' },
@@ -23,7 +24,7 @@ const DaySelect = ({ value, setValue }: DaySelectProps) => (
         value ? 'text-slate-800' : 'text-slate-600'
       }`}
     >
-      <option value="">Any day</option>
+      <option value="">{t('mics.selects.anyDay')}</option>
       {days.map((d) => (
         <option key={d.value} value={d.value}>{d.label}</option>
       ))}

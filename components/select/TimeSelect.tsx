@@ -1,6 +1,7 @@
 'use client';
 
 import { IconClock } from '@tabler/icons-react';
+import { t } from '@/lib/i18n';
 
 const generateTimeOptions = () => {
   const times = [];
@@ -21,12 +22,12 @@ const TimeSelect = ({ value, setValue }: TimeSelectProps) => {
       <select
         value={value || ''}
         onChange={(e) => setValue(e.target.value || '')}
-        aria-label="Start time"
+        aria-label={t('mics.selects.startTimeAria')}
         className={`w-full pl-9 pr-8 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none hover:border-slate-400 transition-colors ${
           value ? 'text-slate-800' : 'text-slate-600'
         }`}
       >
-        <option value="">Any time</option>
+        <option value="">{t('mics.selects.anyTime')}</option>
         {times.map((t) => (
           <option key={t.value} value={t.value}>{t.label}</option>
         ))}

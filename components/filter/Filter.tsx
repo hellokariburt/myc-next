@@ -8,6 +8,7 @@ import DaySelect from '../select/DaySelect';
 import FreeSwitch from '../select/FreeSwitch';
 import TimeSelect from '../select/TimeSelect';
 import { buildMicSearchUrl } from '@/lib/utils/buildMicSearchUrl';
+import { t } from '@/lib/i18n';
 
 const Filter = () => {
   const searchParams = useSearchParams();
@@ -44,7 +45,7 @@ const Filter = () => {
             <button
               type="button"
               onClick={handleSearch}
-              aria-label="Search"
+              aria-label={t('mics.selects.filterSearchAria')}
               className="flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shrink-0"
             >
               <IconSearch size={20} />

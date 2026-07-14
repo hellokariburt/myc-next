@@ -12,6 +12,7 @@ import {
   ClubListItem,
 } from '@/lib/services/clubs.service';
 import { serialize } from '@/lib/utils/serialize';
+import { t } from '@/lib/i18n';
 import { MicListItem } from '@/lib/types/mic';
 import {
   getBoroughBadgeClasses,
@@ -81,7 +82,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <nav className="text-sm text-slate-500">
           <Link href="/clubs" className="underline decoration-dashed hover:decoration-solid">
-            ← All comedy clubs
+            {t('clubs.detail.backLink')}
           </Link>
         </nav>
 
@@ -126,7 +127,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
                   rel="noopener noreferrer"
                   className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  Website
+                  {t('clubs.detail.website')}
                 </a>
               )}
               {club.instagram && (
@@ -146,7 +147,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
                   rel="noopener noreferrer"
                   className="rounded-full bg-white border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
-                  Directions
+                  {t('clubs.detail.directions')}
                 </a>
               )}
             </div>

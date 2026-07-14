@@ -3,6 +3,8 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 
+import { t } from '@/lib/i18n';
+
 const ChatPagination2 = () => {
   const { mics } = useMicSearch();
   const searchParams = useSearchParams();
@@ -30,15 +32,15 @@ const ChatPagination2 = () => {
   }
 
   return (
-    <nav className="flex items-center gap-1 justify-center pb-16" aria-label="Pagination">
+    <nav className="flex items-center gap-1 justify-center pb-16" aria-label={t('mics.pagination.ariaNav')}>
       <button
         type="button"
         disabled={currentPage <= 1}
         onClick={() => handleChange(currentPage - 1)}
-        aria-label="Previous page"
+        aria-label={t('mics.pagination.prevAria')}
         className="px-3 py-2 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Prev
+        {t('mics.pagination.prev')}
       </button>
       {pages.map((page, idx) =>
         page === '...' ? (
@@ -48,7 +50,7 @@ const ChatPagination2 = () => {
             type="button"
             key={page}
             onClick={() => handleChange(page as number)}
-            aria-label={`Page ${page}`}
+            aria-label={t('mics.pagination.pageAria', { page: String(page) })}
             aria-current={currentPage === page ? 'page' : undefined}
             className={`px-3 py-2 text-sm rounded border transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
               currentPage === page
@@ -64,10 +66,10 @@ const ChatPagination2 = () => {
         type="button"
         disabled={currentPage >= totalPages}
         onClick={() => handleChange(currentPage + 1)}
-        aria-label="Next page"
+        aria-label={t('mics.pagination.nextAria')}
         className="px-3 py-2 text-sm rounded border border-slate-300 text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500"
       >
-        Next
+        {t('mics.pagination.next')}
       </button>
     </nav>
   );
