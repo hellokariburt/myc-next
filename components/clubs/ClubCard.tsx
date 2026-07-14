@@ -28,13 +28,17 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
       )} rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
     >
       {club.image ? (
-        <div className="relative w-full h-36 bg-slate-100 border-b border-slate-100">
+        <div
+          className={`relative w-full h-36 border-b border-slate-100 ${
+            club.image.includes('.logo.') ? getBoroughBanner(club.borough || '') : 'bg-slate-100'
+          }`}
+        >
           <Image
             src={club.image}
             alt=""
             fill
             sizes="(min-width: 1280px) 30vw, (min-width: 1024px) 45vw, 100vw"
-            className="object-cover"
+            className={club.image.includes('.logo.') ? 'object-contain p-5' : 'object-cover'}
           />
         </div>
       ) : (

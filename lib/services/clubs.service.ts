@@ -5,12 +5,19 @@ import { showSlug } from './shows.service';
 
 const prisma = new PrismaClient();
 
-// Optional imagery harvested from each club's own website: public/club-art/<name-slug>.<ext>
+// Optional imagery harvested from each club's own website.
+// <name-slug>.<ext> = photo/banner (cover rendering); <name-slug>.logo.<ext> =
+// logo fallback (contained rendering on a tinted band) used until a photo exists.
 function findClubArt(name: string): string | null {
   const key = showSlug(name);
   for (const ext of ['jpg', 'jpeg', 'png', 'webp']) {
     if (existsSync(join(process.cwd(), 'public', 'club-art', `${key}.${ext}`))) {
       return `/club-art/${key}.${ext}`;
+    }
+  }
+  for (const ext of ['png', 'webp', 'jpg']) {
+    if (existsSync(join(process.cwd(), 'public', 'club-art', `${key}.logo.${ext}`))) {
+      return `/club-art/${key}.logo.${ext}`;
     }
   }
   return null;
