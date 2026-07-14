@@ -31,13 +31,15 @@ const selectClass = `${inputClass} appearance-none`;
 
 const SubmitMicForm = () => {
   const [status, setStatus] = useState<Status>('idle');
+  const [type, setType] = useState<'mic' | 'show'>('mic');
+  const isShow = type === 'show';
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const data = { ...Object.fromEntries(formData.entries()), submission_type: type };
 
     try {
       const res = await fetch('/api/submit-mic', {
@@ -60,7 +62,7 @@ const SubmitMicForm = () => {
           <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] text-center">
             <h1 className="font-bold text-4xl">Thanks!</h1>
             <p className="pt-4 text-slate-600">
-              Your mic submission has been received. We&apos;ll review it and get it added to the
+              Your submission has been received. We&apos;ll review it and get it added to the
               list — this usually takes a few days.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6">
@@ -88,10 +90,33 @@ const SubmitMicForm = () => {
     <PageLayout>
       <div className="flex flex-col items-center justify-center py-36 min-h-[100vh]">
         <div className="bg-white rounded-xl shadow-md border border-slate-200 p-8 max-w-[600px] w-full">
-          <h1 className="font-bold text-4xl">Submit a Mic</h1>
+          <h1 className="font-bold text-4xl">{isShow ? 'Submit a Show' : 'Submit a Mic'}</h1>
           <p className="pt-2 text-slate-500 text-sm">
-            Know of an open mic that&apos;s not on the list? Let us know and we&apos;ll get it added.
+            {isShow
+              ? "Run or know an indie show that's not on the list? Let us know and we'll get it added."
+              : "Know of an open mic that's not on the list? Let us know and we'll get it added."}
           </p>
+
+          <div
+            role="radiogroup"
+            aria-label="What are you submitting?"
+            className="mt-4 inline-flex rounded-lg border border-slate-300 p-1 bg-slate-50"
+          >
+            {(['mic', 'show'] as const).map((t) => (
+              <button
+                key={t}
+                type="button"
+                role="radio"
+                aria-checked={type === t}
+                onClick={() => setType(t)}
+                className={`px-4 py-1.5 rounded-md text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  type === t ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                {t === 'mic' ? 'Open Mic' : 'Indie Show'}
+              </button>
+            ))}
+          </div>
 
           <form onSubmit={handleSubmit} className="mt-6 flex flex-col gap-4">
             {/* Honeypot - hidden from real users, bots will fill it */}
@@ -102,11 +127,11 @@ const SubmitMicForm = () => {
 
             {/* Mic info */}
             <h2 className="font-bold text-lg text-slate-800 border-b border-slate-200 pb-1">
-              Mic Info
+              {isShow ? 'Show Info' : 'Mic Info'}
             </h2>
 
             <div>
-              <label htmlFor="name" className={labelClass}>Mic Name *</label>
+              <label htmlFor="name" className={labelClass}>{isShow ? 'Show Name *' : 'Mic Name *'}</label>
               <input id="name" name="name" type="text" required className={inputClass} placeholder="e.g. Tuesday Night Comedy" />
             </div>
 
@@ -143,8 +168,8 @@ const SubmitMicForm = () => {
             </div>
 
             <div>
-              <label htmlFor="cost" className={labelClass}>Cost *</label>
-              <input id="cost" name="cost" type="text" required className={inputClass} placeholder="e.g. Free, $5, 2 drink minimum" />
+              <label htmlFor="cost" className={labelClass}>{isShow ? 'Cost / Tickets' : 'Cost *'}</label>
+              <input id="cost" name="cost" type="text" required={!isShow} className={inputClass} placeholder={isShow ? 'e.g. Free, $10 tickets, 2 drink minimum' : 'e.g. Free, $5, 2 drink minimum'} />
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -152,16 +177,20 @@ const SubmitMicForm = () => {
                 <label htmlFor="venue_type" className={labelClass}>Venue Type</label>
                 <input id="venue_type" name="venue_type" type="text" className={inputClass} placeholder="e.g. Bar, Comedy Club, Cafe" />
               </div>
-              <div>
-                <label htmlFor="stage_time" className={labelClass}>Stage Time</label>
-                <input id="stage_time" name="stage_time" type="text" className={inputClass} placeholder="e.g. 5 minutes" />
-              </div>
+              {!isShow && (
+                <div>
+                  <label htmlFor="stage_time" className={labelClass}>Stage Time</label>
+                  <input id="stage_time" name="stage_time" type="text" className={inputClass} placeholder="e.g. 5 minutes" />
+                </div>
+              )}
             </div>
 
-            <div>
-              <label htmlFor="signup_info" className={labelClass}>Signup Info</label>
-              <input id="signup_info" name="signup_info" type="text" className={inputClass} placeholder="e.g. Sign up at the door, Bucket pull" />
-            </div>
+            {!isShow && (
+              <div>
+                <label htmlFor="signup_info" className={labelClass}>Signup Info</label>
+                <input id="signup_info" name="signup_info" type="text" className={inputClass} placeholder="e.g. Sign up at the door, Bucket pull" />
+              </div>
+            )}
 
             <div>
               <label htmlFor="schedule" className={labelClass}>Schedule</label>
@@ -179,8 +208,10 @@ const SubmitMicForm = () => {
             </div>
 
             <div>
-              <label htmlFor="street_address" className={labelClass}>Street Address *</label>
-              <input id="street_address" name="street_address" type="text" required className={inputClass} placeholder="e.g. 239 3rd Ave" />
+              <label htmlFor="street_address" className={labelClass}>
+                {isShow ? 'Street Address' : 'Street Address *'}
+              </label>
+              <input id="street_address" name="street_address" type="text" required={!isShow} className={inputClass} placeholder={isShow ? 'e.g. 239 3rd Ave (leave blank for DM-for-location)' : 'e.g. 239 3rd Ave'} />
             </div>
 
             <div>
@@ -206,7 +237,7 @@ const SubmitMicForm = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="instagram" className={labelClass}>Mic Instagram</label>
+                <label htmlFor="instagram" className={labelClass}>{isShow ? 'Show Instagram' : 'Mic Instagram'}</label>
                 <input id="instagram" name="instagram" type="text" className={inputClass} placeholder="@handle" />
               </div>
               <div>
@@ -239,7 +270,7 @@ const SubmitMicForm = () => {
               disabled={status === 'submitting'}
               className="bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white py-2.5 px-6 rounded-lg font-semibold transition-colors mt-2"
             >
-              {status === 'submitting' ? 'Submitting...' : 'Submit Mic'}
+              {status === 'submitting' ? 'Submitting...' : isShow ? 'Submit Show' : 'Submit Mic'}
             </button>
           </form>
         </div>

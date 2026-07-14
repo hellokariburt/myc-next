@@ -20,6 +20,7 @@
     "export": "npm run build && mv out _static",
     "db:seed": "npx tsx prisma/seed.ts",
     "db:seed:shows": "npx tsx prisma/seed-shows.ts",
+    "db:seed:clubs": "npx tsx prisma/seed-clubs.ts",
     "db:migrate": "npx prisma migrate dev",
     "db:generate": "npx prisma generate"
   },

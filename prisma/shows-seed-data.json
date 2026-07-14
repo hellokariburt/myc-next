@@ -21,7 +21,9 @@
     "instagram": "comedyinharlem",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8255654",
+    "longitude": "-73.9435573"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -33,7 +35,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "Mo Mondays No Problems",
@@ -69,7 +73,9 @@
     "instagram": "purechaoscomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 2026 listings place it at Alphaville Bushwick, not Ros Bar"
+    "confirmed": "Verified 7/13 Claude (web) — 2026 listings place it at Alphaville Bushwick, not Ros Bar",
+    "latitude": "40.6980320",
+    "longitude": "-73.9252662"
   },
   {
     "name": "Comedy at Alke Bar",
@@ -81,7 +87,9 @@
     "instagram": "comedyatalke",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8003762",
+    "longitude": "-73.9550525"
   },
   {
     "name": "Comedy Village",
@@ -93,19 +101,23 @@
     "instagram": "comedyvillagenyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7591181",
+    "longitude": "-73.9903828"
   },
   {
     "name": "Brownie Points",
-    "venue": "Flop House",
+    "venue": "Flop House Comedy Club",
     "borough": "brooklyn",
-    "neighborhood": null,
-    "day": "monday",
-    "time_text": "8:00 PM",
+    "neighborhood": "Williamsburg",
+    "day": "thursday",
+    "time_text": "9:30 PM",
     "instagram": "browniepointscomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
   },
   {
     "name": "Three Monkeys Comedy",
@@ -117,7 +129,9 @@
     "instagram": "thethreemonkeysbarnyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue in-house account"
+    "confirmed": "Verified 7/13 Claude (web) — venue in-house account",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "The Pear",
@@ -129,7 +143,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "House Show",
@@ -141,7 +157,9 @@
     "instagram": "thecomedyshopvillage",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7287630",
+    "longitude": "-74.0002387"
   },
   {
     "name": "Tiny Cupboard",
@@ -153,7 +171,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "The Pear Midtown",
@@ -165,7 +185,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Franking Stine",
@@ -177,7 +199,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 likely real name Frankenstein's Baby at Union Hall \u2014 flag naming"
+    "confirmed": "Verified 7/13 Claude (web) — likely real name Frankenstein's Baby at Union Hall — flag naming",
+    "latitude": "40.6760421",
+    "longitude": "-73.9800916"
   },
   {
     "name": "Ambush Comedy",
@@ -189,7 +213,9 @@
     "instagram": "ambushcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 moved to Dead Letter No. 9 Williamsburg"
+    "confirmed": "Verified 7/13 Claude (web) — moved to Dead Letter No. 9 Williamsburg",
+    "latitude": "40.7159838",
+    "longitude": "-73.9649064"
   },
   {
     "name": "Bushwicks Finest",
@@ -201,7 +227,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6836915",
+    "longitude": "-73.9112136"
   },
   {
     "name": "Roofless",
@@ -225,7 +253,9 @@
     "instagram": "tuesdaysattheredroom",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 real name Tuesdays at the Red Room"
+    "confirmed": "Verified 7/13 Claude (web) — real name Tuesdays at the Red Room",
+    "latitude": "40.7263556",
+    "longitude": "-73.9896688"
   },
   {
     "name": "Big Wave Comedy",
@@ -237,7 +267,9 @@
     "instagram": "bigwavecomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7273460",
+    "longitude": "-73.9845469"
   },
   {
     "name": "Keep it Casual",
@@ -249,7 +281,9 @@
     "instagram": "keepitcasual_comedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6963535",
+    "longitude": "-73.9299985"
   },
   {
     "name": "Aggressively Chill",
@@ -261,7 +295,9 @@
     "instagram": "aggressivelychillcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7027061",
+    "longitude": "-73.9295401"
   },
   {
     "name": "Sala Con Fuego",
@@ -273,7 +309,9 @@
     "instagram": "salsaconfuego",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account; real spelling Salsa Con Fuego"
+    "confirmed": "Verified 7/13 Claude (web) — venue account; real spelling Salsa Con Fuego",
+    "latitude": "40.8622004",
+    "longitude": "-73.9113629"
   },
   {
     "name": "Not Ripe Bananas",
@@ -285,7 +323,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 real name is Not Ripe Bananas at West Side Comedy Club"
+    "confirmed": "Verified 7/13 Claude (web) — real name is Not Ripe Bananas at West Side Comedy Club",
+    "latitude": "40.7806357",
+    "longitude": "-73.9802391"
   },
   {
     "name": "The Pear Midtown",
@@ -297,7 +337,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "New Kids Comedy",
@@ -333,7 +375,9 @@
     "instagram": "downbadcomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 moved to St Marks Comedy Club Wednesdays"
+    "confirmed": "Verified 7/13 Claude (web) — moved to St Marks Comedy Club Wednesdays",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "The Hostel Show",
@@ -345,7 +389,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": null,
+    "longitude": null
   },
   {
     "name": "The Apartment Show",
@@ -381,7 +427,9 @@
     "instagram": "whatelsecomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7198479",
+    "longitude": "-73.9894319"
   },
   {
     "name": "Wild Card Comedy Show",
@@ -393,7 +441,9 @@
     "instagram": "wildcardcomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6980320",
+    "longitude": "-73.9252662"
   },
   {
     "name": "The Pear",
@@ -405,7 +455,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "House Show",
@@ -417,7 +469,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -429,7 +483,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "Comedy Village",
@@ -441,7 +497,9 @@
     "instagram": "comedyvillagenyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7591181",
+    "longitude": "-73.9903828"
   },
   {
     "name": "House Show",
@@ -453,7 +511,9 @@
     "instagram": "stmarkscomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "Close up Comedy",
@@ -465,7 +525,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7207463",
+    "longitude": "-73.9888103"
   },
   {
     "name": "The Standard",
@@ -477,7 +539,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7353952",
+    "longitude": "-73.9882194"
   },
   {
     "name": "Brookyn Underground Comedy",
@@ -489,7 +553,9 @@
     "instagram": "brooklynundergroundcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7100246",
+    "longitude": "-73.9333934"
   },
   {
     "name": "Three Monkeys Comedy",
@@ -501,7 +567,9 @@
     "instagram": "thethreemonkeysbarnyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue in-house account"
+    "confirmed": "Verified 7/13 Claude (web) — venue in-house account",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "Stankfacecomedy",
@@ -513,7 +581,9 @@
     "instagram": "stankfacecomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 now Stankface Sundays at Brooklyn Art Haus, possibly not Starr Bar Wednesdays"
+    "confirmed": "Verified 7/13 Claude (web) — now Stankface Sundays at Brooklyn Art Haus, possibly not Starr Bar Wednesdays",
+    "latitude": "40.7050054",
+    "longitude": "-73.9230385"
   },
   {
     "name": "Let's See What's Happens",
@@ -537,7 +607,9 @@
     "instagram": null,
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6800678",
+    "longitude": "-73.9900365"
   },
   {
     "name": "Good Eggs",
@@ -549,19 +621,23 @@
     "instagram": null,
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 NYCC 2026 event pages"
+    "confirmed": "Verified 7/13 Claude (web) — NYCC 2026 event pages",
+    "latitude": "40.7391552",
+    "longitude": "-73.9816996"
   },
   {
     "name": "Comics You Should Know",
-    "venue": "The Gutter",
+    "venue": "Greenpoint Comedy Club",
     "borough": "brooklyn",
-    "neighborhood": null,
+    "neighborhood": "Greenpoint",
     "day": "wednesday",
-    "time_text": "9:00 PM",
+    "time_text": "8:00 PM",
     "instagram": "cysknyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 weekly Wednesdays current 2026"
+    "confirmed": "Verified 7/13 Claude (tickets.greenpointcomedyclub.com) — weekly Wednesdays, moved from The Gutter",
+    "latitude": "40.7297600",
+    "longitude": "-73.9583000"
   },
   {
     "name": "Horse Play ( Pop Up)",
@@ -573,7 +649,9 @@
     "instagram": "horseplaycomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7123705",
+    "longitude": "-74.0156900"
   },
   {
     "name": "UG COMEDY SHOW",
@@ -597,7 +675,9 @@
     "instagram": "purechaoscomedy",
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 2026 listings place it at Alphaville Bushwick, not Ros Bar"
+    "confirmed": "Verified 7/13 Claude (web) — 2026 listings place it at Alphaville Bushwick, not Ros Bar",
+    "latitude": "40.6980320",
+    "longitude": "-73.9252662"
   },
   {
     "name": "Ambush Comedy",
@@ -609,7 +689,9 @@
     "instagram": "ambushcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 moved to Dead Letter No. 9 Williamsburg"
+    "confirmed": "Verified 7/13 Claude (web) — moved to Dead Letter No. 9 Williamsburg",
+    "latitude": "40.7159838",
+    "longitude": "-73.9649064"
   },
   {
     "name": "We Have Fun",
@@ -621,7 +703,9 @@
     "instagram": "wehavefuncomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 real name We Have Fun, Wednesdays at Young Ethels"
+    "confirmed": "Verified 7/13 Claude (web) — real name We Have Fun, Wednesdays at Young Ethels",
+    "latitude": "40.6671642",
+    "longitude": "-73.9881720"
   },
   {
     "name": "Punching Bag Comedy",
@@ -633,7 +717,9 @@
     "instagram": "millardcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6920294",
+    "longitude": "-73.9913110"
   },
   {
     "name": "Not a Boy or Girl Comedy",
@@ -669,7 +755,9 @@
     "instagram": "schoolnightcomedy_",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7353952",
+    "longitude": "-73.9882194"
   },
   {
     "name": "White Guy Wednesday",
@@ -693,7 +781,9 @@
     "instagram": "comedyvillagenyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7591181",
+    "longitude": "-73.9903828"
   },
   {
     "name": "House Show",
@@ -705,7 +795,9 @@
     "instagram": "stmarkscomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "The Pear Midtown",
@@ -717,7 +809,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -729,7 +823,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6836915",
+    "longitude": "-73.9112136"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -741,7 +837,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "The Pear",
@@ -753,7 +851,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Please Tell Comedy",
@@ -765,7 +865,9 @@
     "instagram": "plztellcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6932326",
+    "longitude": "-73.9690543"
   },
   {
     "name": "Professional Un-Professionals",
@@ -777,7 +879,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 real name Professional Un-Professionals, Wednesdays at Jakes Dilemma"
+    "confirmed": "Verified 7/13 Claude (web) — real name Professional Un-Professionals, Wednesdays at Jakes Dilemma",
+    "latitude": "40.7843285",
+    "longitude": "-73.9776980"
   },
   {
     "name": "Training Day Comedy",
@@ -789,7 +893,9 @@
     "instagram": "trainingdayycomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7788277",
+    "longitude": "-73.9226552"
   },
   {
     "name": "Stuy Guys",
@@ -801,7 +907,9 @@
     "instagram": "stuyguys",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6880276",
+    "longitude": "-73.9272410"
   },
   {
     "name": "Bomb Shelter Comedy",
@@ -813,7 +921,9 @@
     "instagram": "bombsheltercomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7623116",
+    "longitude": "-73.9898921"
   },
   {
     "name": "Lover Boyz Comedy",
@@ -825,7 +935,9 @@
     "instagram": "loverboyzcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7145615",
+    "longitude": "-73.9425485"
   },
   {
     "name": "Pure Chaos",
@@ -837,7 +949,9 @@
     "instagram": "purechaoscomedy",
     "schedule": "bi-weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7145615",
+    "longitude": "-73.9425485"
   },
   {
     "name": "Barbershop Show",
@@ -849,7 +963,9 @@
     "instagram": "theronnieshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8026514",
+    "longitude": "-73.9643235"
   },
   {
     "name": "Comedy Island",
@@ -861,7 +977,7 @@
     "instagram": "comedyislandshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 at Cafe Balearica"
+    "confirmed": "Verified 7/13 Claude (web) — at Cafe Balearica"
   },
   {
     "name": "UG! COMEDY",
@@ -877,15 +993,17 @@
   },
   {
     "name": "Xo Comedy Show",
-    "venue": "The Comedy Shop",
-    "borough": "manhattan",
-    "neighborhood": null,
-    "day": "thursday",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "tuesday",
     "time_text": "8:00 PM",
     "instagram": "frankiedoescomedy",
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 now at Whiskey Cellar/Flop House not Comedy Shop"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar) — rotating Tuesday slot, 7/21",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
   },
   {
     "name": "Infinite Jokes",
@@ -921,19 +1039,21 @@
     "instagram": "dumbfunny.co",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Stale 7/13: venue is Brightside Tavern, Jersey City \u2014 out of NYC scope"
+    "confirmed": "Stale 7/13: venue is Brightside Tavern, Jersey City — out of NYC scope"
   },
   {
     "name": "Chud City",
-    "venue": "St Marks Comedy Club",
+    "venue": "Flop House Comedy Club (East Village)",
     "borough": "manhattan",
-    "neighborhood": null,
-    "day": "thursday",
-    "time_text": "10:00 PM",
+    "neighborhood": "East Village",
+    "day": "sunday",
+    "time_text": "6:00 PM",
     "instagram": "chudcitycomedy",
-    "schedule": "weekly",
+    "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Stale 7/13: not on St Marks calendar; now at The Gutter (NYCF Nov 2026)"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar) — now at 201 Allen St, was St Marks",
+    "latitude": "40.7218776",
+    "longitude": "-73.9892158"
   },
   {
     "name": "Slander Factory",
@@ -945,7 +1065,9 @@
     "instagram": "slanderfactory",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7011832",
+    "longitude": "-73.9141927"
   },
   {
     "name": "The Good Mood Show ( Bi-weekly)",
@@ -957,7 +1079,9 @@
     "instagram": "goodmoodnyc",
     "schedule": "bi-weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7254448",
+    "longitude": "-73.9926303"
   },
   {
     "name": "Savage Comedy",
@@ -969,7 +1093,9 @@
     "instagram": "savagecomedythursdays",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6711107",
+    "longitude": "-73.9846022"
   },
   {
     "name": "Tight Pants",
@@ -981,7 +1107,9 @@
     "instagram": "tightpantscomedy",
     "schedule": "bi-weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7291113",
+    "longitude": "-73.9892338"
   },
   {
     "name": "Smash Comedy",
@@ -993,7 +1121,9 @@
     "instagram": "smashcomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": null,
+    "longitude": null
   },
   {
     "name": "Overlook Comedy",
@@ -1005,7 +1135,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7517703",
+    "longitude": "-73.9721987"
   },
   {
     "name": "Laugh Alot 45",
@@ -1017,11 +1149,13 @@
     "instagram": "laughalotcomedynyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7070059",
+    "longitude": "-73.9226871"
   },
   {
     "name": "Elite Art Only",
-    "venue": "L\u2019Wren",
+    "venue": "L’Wren",
     "borough": "brooklyn",
     "neighborhood": null,
     "day": "thursday",
@@ -1041,7 +1175,9 @@
     "instagram": "goldenspiralcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7273568",
+    "longitude": "-73.9863567"
   },
   {
     "name": "Stone Street Comedy",
@@ -1065,7 +1201,9 @@
     "instagram": null,
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7353952",
+    "longitude": "-73.9882194"
   },
   {
     "name": "Dough",
@@ -1077,11 +1215,13 @@
     "instagram": "doughcomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6939965",
+    "longitude": "-74.0005421"
   },
   {
     "name": "Skitsburg",
-    "venue": "Pinebox Rock Shop",
+    "venue": "Pine Box Rock Shop",
     "borough": "brooklyn",
     "neighborhood": null,
     "day": "thursday",
@@ -1089,7 +1229,9 @@
     "instagram": "skitsburg",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7053900",
+    "longitude": "-73.9329500"
   },
   {
     "name": "Three Monkeys",
@@ -1101,7 +1243,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "The Pear",
@@ -1113,19 +1257,23 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Sesh Comedy",
-    "venue": "140 Eldridge Street",
+    "venue": "Sesh Comedy",
     "borough": "manhattan",
-    "neighborhood": null,
+    "neighborhood": "Lower East Side",
     "day": "thursday",
     "time_text": "8:30 and 9:30pm",
     "instagram": "seshcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Stale 7/13: Thursday showcase ended Jul 2024; Sesh runs Fri/Sat now"
+    "confirmed": "Stale 7/13: Thursday showcase ended Jul 2024; Sesh runs Fri/Sat now",
+    "latitude": "40.7167011",
+    "longitude": "-73.9946320"
   },
   {
     "name": "House Show",
@@ -1137,7 +1285,9 @@
     "instagram": "thecomedyshopvillage",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7287630",
+    "longitude": "-74.0002387"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -1149,7 +1299,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "The Pear Midtown",
@@ -1161,7 +1313,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Comedy Village",
@@ -1173,7 +1327,9 @@
     "instagram": "comedyvillagenyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7591181",
+    "longitude": "-73.9903828"
   },
   {
     "name": "Flop House",
@@ -1185,7 +1341,9 @@
     "instagram": "flophousecomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7124353",
+    "longitude": "-73.9561171"
   },
   {
     "name": "All Good Show",
@@ -1201,7 +1359,7 @@
   },
   {
     "name": "Last Stop Comedy",
-    "venue": "Ray\u2019s Pizza Bar",
+    "venue": "Ray’s Pizza Bar",
     "borough": "manhattan",
     "neighborhood": null,
     "day": "thursday",
@@ -1257,7 +1415,9 @@
     "instagram": null,
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6657806",
+    "longitude": "-73.9538180"
   },
   {
     "name": "Smolder Comedy",
@@ -1269,7 +1429,9 @@
     "instagram": "smoldercomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7047932",
+    "longitude": "-73.9233535"
   },
   {
     "name": "Golden Hour Weekly",
@@ -1329,7 +1491,9 @@
     "instagram": "muddywaterscomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6868109",
+    "longitude": "-73.9594329"
   },
   {
     "name": "Barbershop Show",
@@ -1341,7 +1505,9 @@
     "instagram": "theronnieshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8026514",
+    "longitude": "-73.9643235"
   },
   {
     "name": "Black Cat Friday's",
@@ -1353,7 +1519,9 @@
     "instagram": "blackcatcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7190616",
+    "longitude": "-73.9848116"
   },
   {
     "name": "The Pregame",
@@ -1365,7 +1533,7 @@
     "instagram": "thepregamecomedy",
     "schedule": "bi-weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 series endDate Jul 24 2026"
+    "confirmed": "Verified 7/13 Claude (web) — series endDate Jul 24 2026"
   },
   {
     "name": "Underground Overground",
@@ -1401,7 +1569,9 @@
     "instagram": "nottheapollo",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.8242066",
+    "longitude": "-73.9456088"
   },
   {
     "name": "Bitches Brew",
@@ -1413,7 +1583,9 @@
     "instagram": "bitchesbrewcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6731784",
+    "longitude": "-73.9896756"
   },
   {
     "name": "UG! COMEDY",
@@ -1449,7 +1621,9 @@
     "instagram": "boyzinthewoodsny",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6785668",
+    "longitude": "-73.9585722"
   },
   {
     "name": "Friday Night Laughs",
@@ -1461,7 +1635,9 @@
     "instagram": "rbashir_comedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 now billed Friday Night Laughs"
+    "confirmed": "Verified 7/13 Claude (web) — now billed Friday Night Laughs",
+    "latitude": "40.8255654",
+    "longitude": "-73.9435573"
   },
   {
     "name": "Flop House",
@@ -1473,7 +1649,9 @@
     "instagram": "flophousecomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7124353",
+    "longitude": "-73.9561171"
   },
   {
     "name": "House Show",
@@ -1485,7 +1663,9 @@
     "instagram": "stmarkscomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -1497,7 +1677,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "St Marks Comedy Club",
@@ -1509,7 +1691,9 @@
     "instagram": "stmarkscomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "Tiny Cupboard (church)",
@@ -1521,7 +1705,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6836915",
+    "longitude": "-73.9112136"
   },
   {
     "name": "Three Monkeys Show",
@@ -1533,7 +1719,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 Sheba's Speakeasy 2026 activity at the bar"
+    "confirmed": "Verified 7/13 Claude (web) — Sheba's Speakeasy 2026 activity at the bar",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "Broadway Comedy",
@@ -1549,15 +1737,17 @@
   },
   {
     "name": "Sesh Comedy",
-    "venue": "140 Eldridge Street",
+    "venue": "Sesh Comedy",
     "borough": "manhattan",
-    "neighborhood": null,
+    "neighborhood": "Lower East Side",
     "day": "friday",
     "time_text": "8:30 and 9:30pm",
     "instagram": "seshcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 Fri/Sat showcases current"
+    "confirmed": "Verified 7/13 Claude (seshcomedy.com) — club now at 55 Chrystie St",
+    "latitude": "40.7167011",
+    "longitude": "-73.9946320"
   },
   {
     "name": "The Pear",
@@ -1569,11 +1759,13 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
-    "name": "Flop House Comedy",
-    "venue": "Flop House (Grand St)",
+    "name": "The Best Indie Comedy Night in Williamsburg",
+    "venue": "Flop House Comedy Club",
     "borough": "brooklyn",
     "neighborhood": null,
     "day": "friday",
@@ -1581,7 +1773,9 @@
     "instagram": "flophousecomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
   },
   {
     "name": "The Pear Midtown",
@@ -1593,7 +1787,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Purple Park Comedy",
@@ -1617,7 +1813,9 @@
     "instagram": "theronnieshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8026514",
+    "longitude": "-73.9643235"
   },
   {
     "name": "Comedic Distancing (Bi weekly)",
@@ -1669,15 +1867,17 @@
   },
   {
     "name": "Sesh Comedy",
-    "venue": "140 Eldridge Street",
+    "venue": "Sesh Comedy",
     "borough": "manhattan",
-    "neighborhood": null,
+    "neighborhood": "Lower East Side",
     "day": "saturday",
     "time_text": "8:30 and 9:30pm",
     "instagram": "seshcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 Fri/Sat showcases current"
+    "confirmed": "Verified 7/13 Claude (seshcomedy.com) — club now at 55 Chrystie St",
+    "latitude": "40.7167011",
+    "longitude": "-73.9946320"
   },
   {
     "name": "Washed Up Comedy",
@@ -1701,19 +1901,23 @@
     "instagram": "astigmatismcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7215670",
+    "longitude": "-73.9883850"
   },
   {
-    "name": "Only friends Comedy",
-    "venue": "Tootles and French",
-    "borough": "queens",
-    "neighborhood": null,
-    "day": "saturday",
-    "time_text": "10:00 PM",
+    "name": "OnlyFriends Comedy",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "tuesday",
+    "time_text": "8:00 PM",
     "instagram": "onlyfriendscomedy_",
-    "schedule": "weekly",
+    "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar) — rotating Tuesday slot, next 7/14",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
   },
   {
     "name": "Smash Comedy",
@@ -1737,7 +1941,9 @@
     "instagram": "andremyriecomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7112983",
+    "longitude": "-73.9631927"
   },
   {
     "name": "Picture This Comedy",
@@ -1749,7 +1955,9 @@
     "instagram": "picturethiscomedy",
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6760421",
+    "longitude": "-73.9800916"
   },
   {
     "name": "Three Monkeys Comedy",
@@ -1761,7 +1969,9 @@
     "instagram": "thethreemonkeysbarnyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue in-house account"
+    "confirmed": "Verified 7/13 Claude (web) — venue in-house account",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "Flop House",
@@ -1773,7 +1983,9 @@
     "instagram": "flophousecomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7124353",
+    "longitude": "-73.9561171"
   },
   {
     "name": "Best of Astoria",
@@ -1785,7 +1997,9 @@
     "instagram": "bestofastoriacomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7758832",
+    "longitude": "-73.9151365"
   },
   {
     "name": "Comedy in Harlem (House Shows)",
@@ -1797,7 +2011,9 @@
     "instagram": "comedyinharlem",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8255654",
+    "longitude": "-73.9435573"
   },
   {
     "name": "House Show",
@@ -1809,7 +2025,9 @@
     "instagram": "thecomedyshopvillage",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7287630",
+    "longitude": "-74.0002387"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -1821,11 +2039,13 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
-    "name": "Flop House Comedy",
-    "venue": "Flop House (Grand St)",
+    "name": "The Best Indie Comedy Night in Williamsburg",
+    "venue": "Flop House Comedy Club",
     "borough": "brooklyn",
     "neighborhood": null,
     "day": "saturday",
@@ -1833,7 +2053,9 @@
     "instagram": "flophousecomedyclub",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
   },
   {
     "name": "The Pear Midtown",
@@ -1845,7 +2067,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Harlem Nights",
@@ -1869,7 +2093,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Bomb Shelter Comedy",
@@ -1881,7 +2107,9 @@
     "instagram": "bombsheltercomedyshow",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7623116",
+    "longitude": "-73.9898921"
   },
   {
     "name": "Roofless Comedy",
@@ -1905,7 +2133,9 @@
     "instagram": "brooklynundergroundcomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 2026 shows but Mika collab was 2021"
+    "confirmed": "Verified 7/13 Claude (web) — 2026 shows but Mika collab was 2021",
+    "latitude": "40.7049847",
+    "longitude": "-73.9319496"
   },
   {
     "name": "Barely Making It Comedy (1st&3rd )",
@@ -1929,7 +2159,9 @@
     "instagram": "sundaysqool",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7188557",
+    "longitude": "-73.9883675"
   },
   {
     "name": "Comedy Mob",
@@ -1941,7 +2173,9 @@
     "instagram": "comedymobnyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7391552",
+    "longitude": "-73.9816996"
   },
   {
     "name": "Brownish",
@@ -1953,7 +2187,9 @@
     "instagram": "brownishlive",
     "schedule": "monthly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7391552",
+    "longitude": "-73.9816996"
   },
   {
     "name": "Comedy Island Show",
@@ -1977,7 +2213,9 @@
     "instagram": "secretsaucecomedynyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7328760",
+    "longitude": "-73.9857799"
   },
   {
     "name": "Just Good Comedy",
@@ -1989,7 +2227,9 @@
     "instagram": "justgoodcomedynyc",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.6731784",
+    "longitude": "-73.9896756"
   },
   {
     "name": "Vigbar Laughs",
@@ -2001,7 +2241,9 @@
     "instagram": "vigbarlaughs",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 weekly Sundays Jul-Aug 2026; venue is Soho not Brooklyn"
+    "confirmed": "Verified 7/13 Claude (web) — weekly Sundays Jul-Aug 2026; venue is Soho not Brooklyn",
+    "latitude": "40.7211586",
+    "longitude": "-73.9946239"
   },
   {
     "name": "Laughs at Lux",
@@ -2025,7 +2267,9 @@
     "instagram": "postmovescomedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6620467",
+    "longitude": "-73.9508541"
   },
   {
     "name": "Mixed Signals Comedy",
@@ -2037,7 +2281,9 @@
     "instagram": "mixedsignals_comedy",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7124353",
+    "longitude": "-73.9561171"
   },
   {
     "name": "The Sunday Show",
@@ -2049,7 +2295,9 @@
     "instagram": "thesundayshoww",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7140448",
+    "longitude": "-73.9489746"
   },
   {
     "name": "Old Heads Comedy",
@@ -2061,7 +2309,9 @@
     "instagram": "oldheadscomics",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7292100",
+    "longitude": "-73.9892569"
   },
   {
     "name": "House Show",
@@ -2073,7 +2323,9 @@
     "instagram": "thecomedyshopvillage",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.7287630",
+    "longitude": "-74.0002387"
   },
   {
     "name": "The Pear Midtown",
@@ -2085,7 +2337,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account"
+    "confirmed": "Verified 7/13 Claude (web) — venue account",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Bushwicks Finest (House Show)",
@@ -2097,7 +2351,9 @@
     "instagram": "thetinycupboard",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.6837140",
+    "longitude": "-73.9112160"
   },
   {
     "name": "The Pear",
@@ -2109,7 +2365,9 @@
     "instagram": "grislypear",
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 venue account covers both locations"
+    "confirmed": "Verified 7/13 Claude (web) — venue account covers both locations",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Three Monkeys Show",
@@ -2121,7 +2379,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 Sheba's Speakeasy 2026 activity at the bar"
+    "confirmed": "Verified 7/13 Claude (web) — Sheba's Speakeasy 2026 activity at the bar",
+    "latitude": "40.7641352",
+    "longitude": "-73.9830578"
   },
   {
     "name": "Sugar Shack Sundays",
@@ -2133,7 +2393,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web)"
+    "confirmed": "Verified 7/13 Claude (web)",
+    "latitude": "40.8255654",
+    "longitude": "-73.9435573"
   },
   {
     "name": "Sunday Service (1st/3rd )",
@@ -2145,7 +2407,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7297722",
+    "longitude": "-74.0007706"
   },
   {
     "name": "Sundays Cool Comedy Show",
@@ -2157,7 +2421,9 @@
     "instagram": null,
     "schedule": "weekly",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 handle unconfirmed"
+    "confirmed": "Verified 7/13 Claude (web) — handle unconfirmed",
+    "latitude": "40.6838165",
+    "longitude": "-73.9563662"
   },
   {
     "name": "Underground Overground",
@@ -2205,7 +2471,9 @@
     "instagram": "goodgodcomedy",
     "schedule": "pop-up",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 moved to Union Hall from Sultan Room"
+    "confirmed": "Verified 7/13 Claude (web) — moved to Union Hall from Sultan Room",
+    "latitude": "40.6760421",
+    "longitude": "-73.9800916"
   },
   {
     "name": "Prohitbition",
@@ -2233,7 +2501,7 @@
   },
   {
     "name": "Street Talk Comedy",
-    "venue": "SESH Comedy",
+    "venue": "Sesh Comedy",
     "borough": "manhattan",
     "neighborhood": "Lower East Side",
     "day": null,
@@ -2241,7 +2509,9 @@
     "instagram": "streettalkcomedy",
     "schedule": "pop-up",
     "location_note": null,
-    "confirmed": "Verified 7/13 Claude (web) \u2014 2026 shows at SESH Manhattan not Queens"
+    "confirmed": "Verified 7/13 Claude (seshcomedy.com) — club now at 55 Chrystie St",
+    "latitude": "40.7167011",
+    "longitude": "-73.9946320"
   },
   {
     "name": "NMFD Comedy",
@@ -2313,6 +2583,120 @@
     "instagram": "avantgardecomedy",
     "schedule": "pop-up",
     "location_note": null,
-    "confirmed": "Unverified (Jared spreadsheet 7/13)"
+    "confirmed": "Unverified (Jared spreadsheet 7/13)",
+    "latitude": "40.7167336",
+    "longitude": "-73.9933772"
+  },
+  {
+    "name": "The 9:30 Comedy Show",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "friday",
+    "time_text": "9:30 PM",
+    "instagram": "flophousecomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
+  },
+  {
+    "name": "The 11pm Comedy Show",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "friday",
+    "time_text": "11:00 PM",
+    "instagram": "flophousecomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
+  },
+  {
+    "name": "The 9:30 Comedy Show",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "saturday",
+    "time_text": "9:30 PM",
+    "instagram": "flophousecomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
+  },
+  {
+    "name": "The 11pm Comedy Show",
+    "venue": "Flop House Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Williamsburg",
+    "day": "saturday",
+    "time_text": "11:00 PM",
+    "instagram": "flophousecomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7122549",
+    "longitude": "-73.9557579"
+  },
+  {
+    "name": "Best of NYC Friday Night Showcase",
+    "venue": "Flop House Comedy Club (East Village)",
+    "borough": "manhattan",
+    "neighborhood": "East Village",
+    "day": "friday",
+    "time_text": "8:00 PM",
+    "instagram": "flophousecomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (flophousecomedy.com calendar)",
+    "latitude": "40.7218776",
+    "longitude": "-73.9892158"
+  },
+  {
+    "name": "The Comedy Lottery",
+    "venue": "Bushwick Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "day": "tuesday",
+    "time_text": "8:30 PM",
+    "instagram": "bushwickcomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (bushwickcomedy.com) — weekly dates through Aug 2026",
+    "latitude": "40.7019700",
+    "longitude": "-73.9298200"
+  },
+  {
+    "name": "Friday Night Showcase",
+    "venue": "Bushwick Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "day": "friday",
+    "time_text": "8:00 PM",
+    "instagram": "bushwickcomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (bushwickcomedy.com) — weekly dates through Aug 2026",
+    "latitude": "40.7019700",
+    "longitude": "-73.9298200"
+  },
+  {
+    "name": "Saturday Night Showcase",
+    "venue": "Bushwick Comedy Club",
+    "borough": "brooklyn",
+    "neighborhood": "Bushwick",
+    "day": "saturday",
+    "time_text": "8:00 PM",
+    "instagram": "bushwickcomedyclub",
+    "schedule": "weekly",
+    "location_note": null,
+    "confirmed": "Verified 7/13 Claude (bushwickcomedy.com) — weekly dates through Aug 2026",
+    "latitude": "40.7019700",
+    "longitude": "-73.9298200"
   }
 ]

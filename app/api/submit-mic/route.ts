@@ -9,25 +9,34 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true });
     }
 
+    const submissionType = body.submission_type === 'show' ? 'show' : 'mic';
     const { name, borough, day, start_time, venue, street_address, cost } = body;
-    if (!name || !borough || !day || !start_time || !venue || !street_address || !cost) {
+    if (!name || !borough || !day || !start_time || !venue) {
       return NextResponse.json(
-        { error: 'Missing required fields: name, borough, day, start_time, venue, street_address, cost' },
+        { error: 'Missing required fields: name, borough, day, start_time, venue' },
+        { status: 400 }
+      );
+    }
+    // street address + cost required for mics; shows may be DM-for-location / ticketed
+    if (submissionType === 'mic' && (!street_address || !cost)) {
+      return NextResponse.json(
+        { error: 'Missing required fields: street_address, cost' },
         { status: 400 }
       );
     }
 
     await prisma.mic_submissions.create({
       data: {
+        submission_type: submissionType,
         name: body.name,
         borough: body.borough,
         day: body.day,
         start_time: body.start_time,
         end_time: body.end_time || null,
         venue: body.venue,
-        street_address: body.street_address,
+        street_address: body.street_address || '',
         neighborhood: body.neighborhood || null,
-        cost: body.cost,
+        cost: body.cost || '',
         venue_type: body.venue_type || null,
         stage_time: body.stage_time || null,
         signup_info: body.signup_info || null,
