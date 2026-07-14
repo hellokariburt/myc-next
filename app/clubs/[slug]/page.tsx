@@ -52,7 +52,11 @@ export default async function ClubPage({ params }: { params: { slug: string } })
 
   const micsAtClub = await getMicsAtClub(club.name);
   // serialize() converts BigInt ids to numbers at runtime; cast reflects that
-  const mics = serialize(micsAtClub) as unknown as MicListItem[];
+  const mics = (serialize(micsAtClub) as unknown as MicListItem[]).map((m) => ({
+    ...m,
+    // every mic here is at this club — inherit its artwork
+    venue_image: club.image,
+  }));
 
   const jsonLd = {
     '@context': 'https://schema.org',
