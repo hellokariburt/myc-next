@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { MarkerF, InfoWindow } from '@react-google-maps/api';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
-import { boroughPinIcon } from '@/lib/utils/mapPin';
+import { pinIcon, PIN_FREE, PIN_PAID } from '@/lib/utils/mapPin';
+import { isFreeCost } from '@/lib/utils/isFree';
 
 const InfoMarker = ({
   latitude,
@@ -24,7 +25,7 @@ const InfoMarker = ({
         lng: parseFloat(`${longitude}`),
       }}
       title={name}
-      icon={boroughPinIcon(borough)}
+      icon={pinIcon(isFreeCost(cost) ? PIN_FREE : PIN_PAID)}
     >
       {infowindowOpen && (
         <InfoWindow onCloseClick={() => setInfowindowOpen(false)}>

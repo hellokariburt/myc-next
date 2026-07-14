@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import ClubCard from './ClubCard';
 import ClubsMapSection from './ClubsMapSection';
 import { ClubListItem } from '@/lib/services/clubs.service';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
+import { useInViewIds } from '@/lib/hooks/useInViewIds';
 import {
   getBoroughAccentBar,
   getBoroughEyebrow,
@@ -68,6 +69,13 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
   const grouped = groupClubs(visible);
   const fullCounts = new Map(groupClubs(ordered).map(([b, list]) => [b, list.length]));
 
+  const listRef = useRef<HTMLDivElement>(null);
+  const inViewIds = useInViewIds(listRef, visible);
+  const pinned = useMemo(
+    () => visible.filter((c) => inViewIds.has(c.id)),
+    [visible, inViewIds]
+  );
+
   return (
     <>
       <div className="mt-8 flex flex-col gap-3">
@@ -116,7 +124,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
       </div>
 
       <div className="mt-2 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
-      <div>
+      <div ref={listRef}>
         {ordered.length === 0 && (
           <div
             className={`mt-10 bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
@@ -140,7 +148,9 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
             </h2>
             <div className="mt-4 grid gap-4 xl:grid-cols-2">
               {list.map((club) => (
-                <ClubCard key={club.id} club={club} />
+                <div key={club.id} data-pin={club.id} className="min-w-0">
+                  <ClubCard club={club} />
+                </div>
               ))}
             </div>
           </section>
@@ -152,7 +162,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
         )}
       </div>
       <div className="mt-10">
-        <ClubsMapSection clubs={visible} />
+        <ClubsMapSection clubs={pinned} />
       </div>
       </div>
     </>

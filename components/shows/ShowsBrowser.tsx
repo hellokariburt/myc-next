@@ -1,11 +1,12 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import ShowCard from './ShowCard';
 import ShowsMapSection from './ShowsMapSection';
 import { ShowListItem } from '@/lib/services/shows.service';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
+import { useInViewIds } from '@/lib/hooks/useInViewIds';
 import { getBoroughSolid, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 
 const DAY_ORDER = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
@@ -52,10 +53,17 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
     });
   }, [shows, query, day, borough]);
 
-  // full filtered set drives the map + counts; cards render progressively
+  // cards render progressively; the map mirrors the cards near the viewport
   const { visible, done, sentinelRef } = useInfiniteChunks(filtered, 24);
   const grouped = groupShows(visible);
   const fullCounts = new Map(groupShows(filtered).map(([d, list]) => [d, list.length]));
+
+  const listRef = useRef<HTMLDivElement>(null);
+  const inViewIds = useInViewIds(listRef, visible);
+  const pinned = useMemo(
+    () => visible.filter((s) => inViewIds.has(s.id)),
+    [visible, inViewIds]
+  );
 
   return (
     <>
@@ -122,7 +130,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
       </div>
 
       <div className="mt-6 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
-        <div>
+        <div ref={listRef}>
           {grouped.length === 0 && (
             <div
               className={`bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
@@ -142,7 +150,9 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
               </h2>
               <div className="mt-4 grid gap-3 grid-cols-[minmax(0,1fr)]">
                 {list.map((show) => (
-                  <ShowCard key={show.id} show={show} />
+                  <div key={show.id} data-pin={show.id} className="min-w-0">
+                    <ShowCard show={show} />
+                  </div>
                 ))}
               </div>
             </section>
@@ -153,7 +163,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
             </div>
           )}
         </div>
-        <ShowsMapSection shows={visible} />
+        <ShowsMapSection shows={pinned} />
       </div>
     </>
   );

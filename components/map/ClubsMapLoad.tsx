@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleMap, MarkerF, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 import { ClubListItem } from '@/lib/services/clubs.service';
-import { boroughPinIcon } from '@/lib/utils/mapPin';
+import { pinIcon, PIN_BRAND } from '@/lib/utils/mapPin';
 
 const containerStyle = {
   width: '100%',
@@ -17,7 +17,7 @@ const ClubMarker = ({ club }: { club: ClubListItem }) => {
       onClick={() => setOpen(true)}
       position={{ lat: parseFloat(club.latitude!), lng: parseFloat(club.longitude!) }}
       title={club.name}
-      icon={boroughPinIcon(club.borough)}
+      icon={pinIcon(PIN_BRAND)}
     >
       {open && (
         <InfoWindow onCloseClick={() => setOpen(false)}>
