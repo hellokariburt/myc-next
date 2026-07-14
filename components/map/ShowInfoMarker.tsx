@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MarkerF, InfoWindow } from '@react-google-maps/api';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { boroughPinIcon } from '@/lib/utils/mapPin';
 
 export type ShowInfoMarkerProps = {
   latitude: string;
@@ -10,6 +11,7 @@ export type ShowInfoMarkerProps = {
   day: string;
   time: string;
   instagram: string;
+  borough?: string | null;
 };
 
 const ShowInfoMarker = ({
@@ -20,6 +22,7 @@ const ShowInfoMarker = ({
   day,
   time,
   instagram,
+  borough,
 }: ShowInfoMarkerProps) => {
   const [infowindowOpen, setInfowindowOpen] = useState(false);
 
@@ -28,6 +31,7 @@ const ShowInfoMarker = ({
       onClick={() => setInfowindowOpen(true)}
       position={{ lat: parseFloat(latitude), lng: parseFloat(longitude) }}
       title={name}
+      icon={boroughPinIcon(borough)}
     >
       {infowindowOpen && (
         <InfoWindow onCloseClick={() => setInfowindowOpen(false)}>

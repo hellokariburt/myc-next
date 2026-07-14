@@ -31,6 +31,7 @@ const ShowsMapLoad = ({ shows }: { shows: ShowListItem[] }) => {
         day={show.day || ''}
         time={show.time_text || ''}
         instagram={show.instagram || ''}
+        borough={show.borough}
       />
     ));
 

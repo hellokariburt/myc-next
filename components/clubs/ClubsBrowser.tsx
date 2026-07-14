@@ -5,6 +5,7 @@ import ClubCard from './ClubCard';
 import ClubsMapSection from './ClubsMapSection';
 import { ClubListItem } from '@/lib/services/clubs.service';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
+import { getBoroughAccentBar, getBoroughEyebrow } from '@/lib/utils/boroughColor';
 
 const BOROUGH_ORDER = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
 const BOROUGH_LABEL: Record<string, string> = {
@@ -42,9 +43,13 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
       <div>
         {grouped.map(([borough, list]) => (
           <section key={borough} className="mt-10">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h2 className="flex items-center gap-3 text-2xl font-bold tracking-tight text-slate-900">
+              <span
+                className={`inline-block h-7 w-1.5 rounded-full ${getBoroughAccentBar(borough)}`}
+                aria-hidden="true"
+              />
               {BOROUGH_LABEL[borough]}
-              <span className="ml-2 text-base font-medium text-slate-500">
+              <span className={`text-base font-semibold ${getBoroughEyebrow(borough)}`}>
                 {fullCounts.get(borough) ?? list.length}
               </span>
             </h2>
@@ -62,7 +67,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
         )}
       </div>
       <div className="mt-10">
-        <ClubsMapSection clubs={clubs} />
+        <ClubsMapSection clubs={visible} />
       </div>
     </div>
   );

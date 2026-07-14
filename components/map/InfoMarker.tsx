@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MarkerF, InfoWindow } from '@react-google-maps/api';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { boroughPinIcon } from '@/lib/utils/mapPin';
 
 const InfoMarker = ({
   latitude,
@@ -11,6 +12,7 @@ const InfoMarker = ({
   venue,
   cost,
   href,
+  borough,
 }: InfoMarkerProps) => {
   const [infowindowOpen, setInfowindowOpen] = useState(false);
 
@@ -22,6 +24,7 @@ const InfoMarker = ({
         lng: parseFloat(`${longitude}`),
       }}
       title={name}
+      icon={boroughPinIcon(borough)}
     >
       {infowindowOpen && (
         <InfoWindow onCloseClick={() => setInfowindowOpen(false)}>
@@ -57,4 +60,5 @@ export type InfoMarkerProps = {
   venue: string;
   cost: string;
   href: string;
+  borough?: string | null;
 };

@@ -69,3 +69,29 @@ export function getBoroughAccentBar(borough: string): string {
 export function getBoroughEyebrow(borough: string): string {
   return boroughEyebrow[borough.toLowerCase()] || 'text-slate-700';
 }
+
+// Tailwind 500-weight hex values — used for map pins where CSS classes can't reach
+const boroughHex: Record<string, string> = {
+  manhattan: '#3b82f6',
+  brooklyn: '#a855f7',
+  queens: '#f97316',
+  bronx: '#f43f5e',
+  'staten-island': '#14b8a6',
+};
+
+export function getBoroughHex(borough: string): string {
+  return boroughHex[borough.toLowerCase()] || '#64748b';
+}
+
+// solid pill classes for active borough filters
+const boroughSolid: Record<string, string> = {
+  manhattan: 'bg-blue-600 border-blue-600 text-white',
+  brooklyn: 'bg-purple-600 border-purple-600 text-white',
+  queens: 'bg-orange-600 border-orange-600 text-white',
+  bronx: 'bg-rose-600 border-rose-600 text-white',
+  'staten-island': 'bg-teal-600 border-teal-600 text-white',
+};
+
+export function getBoroughSolid(borough: string): string {
+  return boroughSolid[borough.toLowerCase()] || 'bg-slate-900 border-slate-900 text-white';
+}

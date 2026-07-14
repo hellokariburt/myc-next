@@ -6,6 +6,7 @@ import ShowsMapSection from './ShowsMapSection';
 import { ShowListItem } from '@/lib/services/shows.service';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { useInfiniteChunks } from '@/lib/hooks/useInfiniteChunks';
+import { getBoroughSolid, getBoroughBorderColor } from '@/lib/utils/boroughColor';
 
 const DAY_ORDER = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
@@ -78,7 +79,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
               type="button"
               aria-pressed={borough === b.value}
               onClick={() => setBorough(borough === b.value ? null : b.value)}
-              className={borough === b.value ? pillOn : pillOff}
+              className={borough === b.value ? `${pillBase} ${getBoroughSolid(b.value)}` : pillOff}
             >
               {b.label}
             </button>
@@ -123,7 +124,11 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
       <div className="mt-6 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
         <div>
           {grouped.length === 0 && (
-            <div className="bg-white rounded-xl border border-slate-200 p-8 text-center text-slate-600">
+            <div
+              className={`bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
+                borough || ''
+              )} p-8 text-center text-slate-600`}
+            >
               No shows match — try clearing a filter.
             </div>
           )}
@@ -148,7 +153,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
             </div>
           )}
         </div>
-        <ShowsMapSection shows={filtered} />
+        <ShowsMapSection shows={visible} />
       </div>
     </>
   );
