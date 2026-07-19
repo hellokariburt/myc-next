@@ -14,6 +14,7 @@ import {
 } from '@/lib/utils/micUrl';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
+import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
 const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividualMapLoad'), {
   ssr: false,
@@ -212,7 +213,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     <PageLayout hasBackButton className="pb-16 bg-[#f6efe4]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }}
       />
       <div className="lg:grid lg:grid-cols-[1fr_minmax(360px,40vw)] lg:gap-4 lg:px-4 max-w-7xl mx-auto">
         <MicPage mic={mic} />

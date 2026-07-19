@@ -3,6 +3,7 @@ import { Inter, Anton } from 'next/font/google';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
+import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
 const inter = Inter({ subsets: ['latin'] });
 const anton = Anton({
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
+              __html: jsonLdHtml({
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
                 name: 'OpenMYC',

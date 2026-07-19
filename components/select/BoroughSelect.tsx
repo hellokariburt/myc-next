@@ -16,6 +16,7 @@ const boroughs = [
 const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -24,6 +25,29 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
     document.addEventListener('mousedown', handler);
     return () => document.removeEventListener('mousedown', handler);
   }, []);
+
+  // Keyboard users previously had no way out: the panel closed only on an
+  // outside mousedown. Since it is absolutely positioned over the day/time
+  // selects below it, tabbing past the last checkbox landed focus on a control
+  // completely hidden behind the panel.
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    const onFocusIn = (e: FocusEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    document.addEventListener('focusin', onFocusIn);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.removeEventListener('focusin', onFocusIn);
+    };
+  }, [open]);
 
   const toggle = (borough: string) => {
     if (value.includes(borough)) {
@@ -39,11 +63,15 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
 
   return (
     <div className="relative flex-1 min-w-0" ref={ref}>
+      {/* aria-haspopup is "true", not "listbox": this opens a group of
+          checkboxes, not option rows. Claiming listbox tells a screen reader to
+          expect arrow-key navigation that does not exist here. */}
       <button
+        ref={triggerRef}
         type="button"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
-        aria-haspopup="listbox"
+        aria-haspopup="true"
         className="flex items-center gap-2 w-full pl-3 pr-8 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-left hover:border-slate-400 transition-colors"
       >
         <IconMapPin size={16} className="text-slate-400 shrink-0" />

@@ -86,9 +86,26 @@ async function getBoroughCounts(): Promise<Record<string, number>> {
 const getMics = async (params: MicQueryParams) => {
   const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
+  // Must mirror isFreeCost (lib/utils/isFree.ts), which decides whether a mic
+  // renders a Free badge: empty/absent cost counts as free, and the match is
+  // case-insensitive on a leading "free". The old filter was a case-sensitive
+  // `contains: 'Free'` requiring a mic_cost row, so mics badged free could be
+  // missing from /mics/free — and a cost like "Totally Free" was the reverse,
+  // listed as free while the badge said paid.
   const freeFilter = params.cost === 'true'
-    ? { mic_cost: { cost_amount: { contains: 'Free' } } }
-    : {};
+    ? {
+        OR: [
+          { cost_id: null },
+          { mic_cost: { is: { cost_amount: null } } },
+          { mic_cost: { is: { cost_amount: '' } } },
+          {
+            mic_cost: {
+              is: { cost_amount: { startsWith: 'free', mode: 'insensitive' as const } },
+            },
+          },
+        ],
+      }
+    : null;
   const qFilter = params.q
     ? {
         OR: [
@@ -101,17 +118,19 @@ const getMics = async (params: MicQueryParams) => {
           },
         ],
       }
-    : {};
+    : null;
 
   const startTime =
     params.start_time !== '00:00:00' ? `1970-01-01T${params.start_time}.000Z` : undefined;
 
+  // Both filters carry their own `OR`, so they have to be combined through
+  // `AND` — spreading them into one object would silently drop whichever came
+  // first.
   const where = {
     day: { in: days },
     borough: { in: boroughs },
-    ...freeFilter,
-    ...qFilter,
     ...(startTime && { start_time: { gte: startTime } }),
+    AND: [freeFilter, qFilter].filter(Boolean) as object[],
   };
 
   // Order by relevance for a comic looking for stage time: today's mics

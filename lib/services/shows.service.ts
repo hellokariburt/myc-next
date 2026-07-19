@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
 import { existsSync } from 'fs';
 import { join } from 'path';
 
-const prisma = new PrismaClient();
 
 export type ShowListItem = {
   id: string;
@@ -22,6 +20,7 @@ export type ShowListItem = {
 };
 
 import { nameSlug } from '../utils/nameSlug';
+import prisma from '../prisma';
 
 export function showSlug(name: string): string {
   return nameSlug(name);

@@ -18,6 +18,7 @@ import {
   getBoroughBadgeClasses,
   getBoroughDisplayShort,
 } from '@/lib/utils/boroughColor';
+import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
 export const revalidate = 3600;
 
@@ -81,7 +82,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
     <PageLayout className="bg-[#f6efe4]">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }}
       />
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <nav className="text-sm text-slate-500">

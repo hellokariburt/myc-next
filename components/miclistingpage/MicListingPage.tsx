@@ -23,11 +23,11 @@ export function MicListingPage2({
 }) {
   const { mics, isLoading } = useMicSearch(serverData);
 
-  // No `hasFilter`: the header Filter used to render here too, and its Search
-  // button rebuilt the URL from scratch via buildMicSearchUrl — which has no
-  // `q` field, so it silently dropped the active text search while the search
-  // box kept displaying the discarded term. MicsQuickChrome patches params
-  // instead of rebuilding them, so it is now the only filter surface here.
+  // MicsQuickChrome is the only filter surface here. The header Filter that
+  // used to render alongside it rebuilt the URL from scratch via
+  // buildMicSearchUrl — which has no `q` field, so it silently dropped the
+  // active text search while the search box kept displaying the discarded
+  // term. That component has since been deleted outright.
   return (
     <PageLayout className="pb-16 bg-[#f6efe4] bg-cover">
       <div className="lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:px-4">

@@ -1,9 +1,8 @@
-import { PrismaClient } from '@prisma/client';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { showSlug } from './shows.service';
+import prisma from '../prisma';
 
-const prisma = new PrismaClient();
 
 // Optional imagery harvested from each club's own website.
 // <name-slug>.<ext> = photo/banner (cover rendering); <name-slug>.logo.<ext> =

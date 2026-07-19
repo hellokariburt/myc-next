@@ -52,15 +52,27 @@ export default function MicsQuickChrome({
   const currentDay = params.get('day') || '';
   const isFree = params.get('free') === 'true';
   const isTonight = Boolean(today) && currentDay === today;
-  const hasFilters = Boolean(q || currentBorough || currentDay || isFree);
+  // start-time has no control on this page — only the homepage SearchCard can
+  // set it — so it must still count as an active filter and still be cleared.
+  // Otherwise a user arriving from that card sees a filtered list, taps Clear,
+  // and the time filter survives while the Clear link itself disappears.
+  const hasStartTime = Boolean(params.get('start-time')) && params.get('start-time') !== '00:00:00';
+  const hasFilters = Boolean(q || currentBorough || currentDay || isFree || hasStartTime);
 
   // Hide boroughs with no mics at all rather than shipping a filter to an
   // empty room. Boroughs we have no count for stay visible — an absent count
   // means the lookup failed, not that the borough is empty.
   const boroughs = BOROUGHS.filter((b) => boroughCounts[b.value] !== 0);
 
+  // The debounced search fires up to 350ms after the render that scheduled it.
+  // Reading `params` through a ref means it commits against the URL as it is
+  // when the timer fires, not as it was when the user typed — otherwise typing
+  // then tapping a pill within the debounce window reverts the pill.
+  const paramsRef = useRef(params);
+  paramsRef.current = params;
+
   const update = (patch: Record<string, string | null>) => {
-    const next = new URLSearchParams(params.toString());
+    const next = new URLSearchParams(paramsRef.current.toString());
     Object.entries(patch).forEach(([k, v]) => {
       if (v === null || v === '') next.delete(k);
       else next.set(k, v);
@@ -84,7 +96,7 @@ export default function MicsQuickChrome({
   const clearAll = () => {
     setQ('');
     if (debounce.current) clearTimeout(debounce.current);
-    update({ q: null, borough: null, day: null, free: null });
+    update({ q: null, borough: null, day: null, free: null, 'start-time': null });
   };
 
   return (
@@ -142,8 +154,9 @@ export default function MicsQuickChrome({
               className={on ? `${pillBase} ${getBoroughSolid(b.value)}` : pillOff}
             >
               {b.label}
+              {/* slate-500 not slate-400: 400 on white is 2.56:1, under AA. */}
               {count !== undefined && (
-                <span className={`ml-1.5 tabular-nums ${on ? 'opacity-75' : 'text-slate-400'}`}>
+                <span className={`ml-1.5 tabular-nums ${on ? 'opacity-75' : 'text-slate-500'}`}>
                   {count}
                 </span>
               )}
@@ -175,7 +188,9 @@ export default function MicsQuickChrome({
         ))}
       </ScrollRow>
 
-      <p className="text-sm text-slate-500" role="status" aria-live="polite">
+      {/* slate-600 not slate-500: this sits on the #f6efe4 cream page background,
+          where slate-500 is 4.17:1 — under AA for 14px text. */}
+      <p className="text-sm text-slate-600" role="status" aria-live="polite">
         {totalMics !== undefined &&
           (totalMics === 1
             ? t('mics.browser.countOne', { count: totalMics })

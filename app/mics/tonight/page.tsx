@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
 import { SeoListingPage } from '@/components/seo/SeoListingPage';
+import { nycDayName } from '@/lib/services/mics.service';
 
 export const revalidate = 60;
-
-const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 function capitalize(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 export async function generateMetadata(): Promise<Metadata> {
-  const today = capitalize(days[new Date().getDay()]);
+  // Must be NYC time, not the server's: Vercel runs UTC, so a local-clock
+  // getDay() rolls over to tomorrow at 7/8pm ET — the exact hours this page
+  // is for. getMics sorts by the same NYC day, so this keeps them agreeing.
+  const today = capitalize(nycDayName());
   return {
     title: `Open Mics Tonight in NYC — ${today} | OpenMYC`,
     description: `Find every comedy open mic happening tonight (${today}) in New York City. Browse by borough and cost.`,
@@ -24,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function Page() {
-  const today = days[new Date().getDay()];
+  const today = nycDayName();
   return (
     <SeoListingPage
       title={`Open Mics Tonight — ${capitalize(today)}`}

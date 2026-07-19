@@ -13,6 +13,7 @@ import PageLayout from '../pagelayout/PageLayout';
 import MicListCard from '../mic/MicListCard';
 import { QuickFilters } from './QuickFilters';
 import { BoroughDayLinks } from './BoroughDayLinks';
+import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
 interface Breadcrumb {
   name: string;
@@ -31,16 +32,32 @@ interface SeoListingProps {
 }
 
 export async function SeoListingPage({ title, borough, day, free, breadcrumbs, pageUrl, dayLinksBorough, boroughKey }: SeoListingProps) {
+  // Caps page weight — Manhattan alone is 263 mics. `count` is the unclamped
+  // total, so it must never be presented as the number of cards on the page.
+  const LISTING_LIMIT = 100;
+
   const { mics, count } = await getMics({
     borough: borough ?? [...ALL_BOROUGHS],
     day: day ?? [...ALL_DAYS],
-    limit: 100,
+    limit: LISTING_LIMIT,
     offset: 0,
     start_time: '00:00:00',
     cost: free ? 'true' : 'false',
   });
 
   const serialized = serialize(mics) as unknown as MicListItem[];
+  const truncated = count > serialized.length;
+
+  // Onward link to the full filtered set, so the mics past the cap are still
+  // reachable from the page Google indexes for this borough/day.
+  const fullListHref = (() => {
+    const p = new URLSearchParams();
+    if (borough?.length === 1) p.set('borough', borough[0]);
+    if (day?.length === 1) p.set('day', day[0]);
+    if (free) p.set('free', 'true');
+    const qs = p.toString();
+    return qs ? `/mics?${qs}` : '/mics';
+  })();
 
   const breadcrumbsJsonLd =
     breadcrumbs && breadcrumbs.length > 0
@@ -75,13 +92,13 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
       {breadcrumbsJsonLd && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(breadcrumbsJsonLd) }}
         />
       )}
       {serialized.length > 0 && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdHtml(itemListJsonLd) }}
         />
       )}
       <div className="max-w-4xl mx-auto px-4 py-8">
@@ -96,8 +113,19 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
         <h1 className="text-3xl lg:text-4xl font-bold tracking-tight leading-tight text-slate-900 mb-2">
           {title}
         </h1>
-        <p className="text-sm text-slate-500 mb-8">
-          {count} {free ? 'free ' : ''}mic{count !== 1 ? 's' : ''} · updated daily
+        <p className="text-sm text-slate-600 mb-8">
+          {truncated ? (
+            <>
+              Showing {serialized.length} of {count} {free ? 'free ' : ''}mics ·{' '}
+              <Link href={fullListHref} className="underline hover:text-slate-900">
+                see all
+              </Link>
+            </>
+          ) : (
+            <>
+              {count} {free ? 'free ' : ''}mic{count !== 1 ? 's' : ''} · updated daily
+            </>
+          )}
         </p>
 
         <QuickFilters className="mb-6" hideBorough={boroughKey} />

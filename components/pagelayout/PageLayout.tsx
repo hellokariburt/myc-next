@@ -5,18 +5,15 @@ import Footer from '../footer/Footer';
 function PageLayout({
   children,
   className,
-  hasFilter,
   hasBackButton,
 }: PageLayoutProps) {
-  const hasSecondaryBar = hasFilter || hasBackButton;
-  // Nav bar = 56px (h-14). Filter bar ~52px. Back button ~48px.
-  const spacerClass = hasSecondaryBar ? 'pt-[108px] sm:pt-[116px]' : 'pt-14';
+  // Nav bar = 56px (h-14); back button bar ~48px. The filter bar this also
+  // used to account for is gone. These values are inherited, not re-measured —
+  // if header spacing ever looks off, measure it rather than trusting them.
+  const spacerClass = hasBackButton ? 'pt-[108px] sm:pt-[116px]' : 'pt-14';
   return (
     <div className={`min-h-screen flex flex-col ${className || ''}`}>
-      <Header
-        hasFilter={hasFilter}
-        hasBackButton={hasBackButton}
-      />
+      <Header hasBackButton={hasBackButton} />
       {/* Spacer to push content below the fixed header */}
       <div className={spacerClass} />
       <main className="flex-1">{children}</main>
@@ -30,6 +27,5 @@ export default PageLayout;
 export type PageLayoutProps = {
   children?: React.ReactNode;
   className?: string;
-  hasFilter?: boolean;
   hasBackButton?: boolean;
 };

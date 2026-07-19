@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Filter from '../filter/Filter';
 import { HeaderDrawer } from '../header-drawer/header-drawer';
 import { BackButton } from '../buttons/BackButton';
 
 import { navLinks } from '@/lib/nav';
 
-const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
+const Header = ({ hasBackButton }: HeaderProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   return (
@@ -53,7 +52,6 @@ const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
           <BackButton />
         </div>
       )}
-      {hasFilter && <Filter />}
     </header>
   );
 };
@@ -61,6 +59,5 @@ const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
 export default Header;
 
 export type HeaderProps = {
-  hasFilter?: boolean;
   hasBackButton?: boolean;
 };
