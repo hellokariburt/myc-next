@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getMics } from '@/lib/services/mics.service';
+import { getMics, getBoroughCounts, nycDayName } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { parseParams } from '@/lib/api/parseParams';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicListingPage2 } from '../../components/miclistingpage/MicListingPage';
-import { QuickFilters } from '@/components/seo/QuickFilters';
 
 export const metadata: Metadata = {
   title: 'Browse NYC Open Mics | OpenMYC',
@@ -60,16 +59,18 @@ export default async function Page({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const params = await searchParams;
-  const serverData = await fetchInitialMics(params);
+  const [serverData, boroughCounts] = await Promise.all([
+    fetchInitialMics(params),
+    getBoroughCounts().catch(() => ({})),
+  ]);
 
   return (
-    <>
-      <div className="max-w-5xl mx-auto px-4 pt-4">
-        <QuickFilters />
-      </div>
-      <Suspense>
-        <MicListingPage2 serverData={serverData} />
-      </Suspense>
-    </>
+    <Suspense>
+      <MicListingPage2
+        serverData={serverData}
+        boroughCounts={boroughCounts}
+        today={nycDayName()}
+      />
+    </Suspense>
   );
 }

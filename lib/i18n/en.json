@@ -103,7 +103,13 @@
       "searchAria": "Search mics by name, venue, or neighborhood",
       "boroughGroupAria": "Filter by borough",
       "dayGroupAria": "Filter by day",
-      "today": "Today"
+      "today": "Today",
+      "intentGroupAria": "Quick filters",
+      "tonight": "Tonight",
+      "free": "Free",
+      "countOne": "{count} mic",
+      "countMany": "{count} mics",
+      "clearFilters": "clear filters"
     }
   },
   "clubs": {

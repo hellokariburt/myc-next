@@ -44,15 +44,43 @@ const DAY_INDEX: Record<string, number> = {
   saturday: 6,
 };
 
-// "today" in the city the mics are in, not the server's timezone
-function nycDayIndex(): number {
-  const day = new Intl.DateTimeFormat('en-US', {
+// "today" in the city the mics are in, not the server's timezone. Exported
+// because the Tonight pill has to agree with the today-first sort — a client
+// computing this from the browser clock would disagree outside ET.
+function nycDayName(): string {
+  return new Intl.DateTimeFormat('en-US', {
     weekday: 'long',
     timeZone: 'America/New_York',
   })
     .format(new Date())
     .toLowerCase();
-  return DAY_INDEX[day] ?? 0;
+}
+
+function nycDayIndex(): number {
+  return DAY_INDEX[nycDayName()] ?? 0;
+}
+
+/**
+ * Total mics per borough, ignoring the active filters. Used to weight the
+ * borough chips and to hide boroughs with no inventory at all (Staten Island
+ * currently has none). Deliberately unfiltered: these read as "how big is this
+ * borough's scene", not "how many match your current query".
+ */
+async function getBoroughCounts(): Promise<Record<string, number>> {
+  const rows = await prisma.mics.groupBy({
+    by: ['borough'],
+    _count: { _all: true },
+  });
+  // Seed every borough at 0 first: groupBy returns no row for a borough with
+  // no mics, and the caller needs to tell "zero mics" apart from "counts
+  // unavailable" (an empty object) to decide whether to hide the chip.
+  const counts: Record<string, number> = Object.fromEntries(
+    ALL_BOROUGHS.map((b) => [b, 0])
+  );
+  for (const row of rows) {
+    if (row.borough) counts[row.borough] = row._count._all;
+  }
+  return counts;
 }
 
 const getMics = async (params: MicQueryParams) => {
@@ -142,4 +170,4 @@ const getMic = async (id: bigint) => {
   return { ...mic, venue_image: await venueImageFor(mic.mic_address?.venue) };
 };
 
-export { getMics, getMic, venueImageFor };
+export { getMics, getMic, venueImageFor, getBoroughCounts, nycDayName };
