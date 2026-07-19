@@ -15,6 +15,7 @@ import {
 import PageLayout from '@/components/pagelayout/PageLayout';
 import MicPage from '@/components/mic/MicPage';
 import { jsonLdHtml } from '@/lib/seo/jsonLd';
+import { parseTimeOfDay, getNextOccurrence, ASSUMED_DURATION_MS } from '@/lib/utils/nextOccurrence';
 
 const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividualMapLoad'), {
   ssr: false,
@@ -84,47 +85,9 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     permanentRedirect(buildMicPath(mic));
   }
 
-  function parseTimeOfDay(value: string): { hours: number; minutes: number } | null {
-    const iso = value.match(/T(\d{2}):(\d{2})/);
-    if (iso) return { hours: parseInt(iso[1], 10), minutes: parseInt(iso[2], 10) };
-    const plain = value.match(/^(\d{1,2}):(\d{2})/);
-    if (plain) return { hours: parseInt(plain[1], 10), minutes: parseInt(plain[2], 10) };
-    return null;
-  }
-
-  function isoAtEtWallTime(year: number, monthIndex: number, day: number, hours: number, minutes: number): string {
-    const utcMs = Date.UTC(year, monthIndex, day, hours, minutes, 0);
-    const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
-      hourCycle: 'h23',
-      year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
-    }).formatToParts(new Date(utcMs));
-    const get = (t: string) => parseInt(parts.find((p) => p.type === t)?.value || '0', 10);
-    const etMs = Date.UTC(get('year'), get('month') - 1, get('day'), get('hour'), get('minute'), 0);
-    return new Date(utcMs - (etMs - utcMs)).toISOString();
-  }
-
-  function getNextOccurrence(day: string, time: { hours: number; minutes: number } | null): string {
-    const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    const target = days.indexOf(day.toLowerCase());
-    if (target === -1) return new Date().toISOString();
-    const now = new Date();
-    const etTodayParts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/New_York',
-      year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'long',
-    }).formatToParts(now);
-    const get = (t: string) => etTodayParts.find((p) => p.type === t)?.value || '';
-    const etYear = parseInt(get('year'), 10);
-    const etMonth = parseInt(get('month'), 10) - 1;
-    const etDay = parseInt(get('day'), 10);
-    const etDow = days.indexOf(get('weekday').toLowerCase());
-    const diff = (target - etDow + 7) % 7 || 7;
-    return isoAtEtWallTime(etYear, etMonth, etDay + diff, time?.hours ?? 19, time?.minutes ?? 0);
-  }
-
   const parsedTime = parseTimeOfDay(mic.start_time || '');
   const startDate = getNextOccurrence(mic.day || 'monday', parsedTime);
-  const endDate = new Date(new Date(startDate).getTime() + 2 * 60 * 60 * 1000).toISOString();
+  const endDate = new Date(new Date(startDate).getTime() + ASSUMED_DURATION_MS).toISOString();
 
   function normalizePrice(raw: string | null | undefined): string | null {
     if (!raw) return null;
