@@ -19,7 +19,6 @@ import {
 import extractHandles from '@/lib/utils/extractHandles';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { linkifyText } from '@/lib/utils/linkifyText';
-import { getMicEditorialContent } from '@/lib/content/micEditorial';
 import MicHosts from './MicHosts';
 import { t } from '@/lib/i18n';
 
@@ -34,7 +33,6 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
     : null;
 
   const isFree = isFreeCost(mic?.mic_cost?.cost_amount);
-  const editorial = getMicEditorialContent(mic);
 
   return (
     <div className="flex flex-col w-full pt-6 pb-16 px-4 lg:px-8">
@@ -186,34 +184,22 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           )}
         </dl>
 
-        <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
-          <h2 className="text-2xl font-bold tracking-tight text-slate-900">{t('mics.detail.whatToExpect')}</h2>
-          <div className="mt-4 space-y-4 text-slate-700 leading-7">
-            {editorial.whatToExpect.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+        {/* House rules replace the generated "What to expect / Venue notes /
+            Before you go" prose, which restated facts already on this page and
+            padded them. This is real per-mic information (62 of 406 mics have
+            it) and was previously buried at the bottom of that filler. Mics
+            without rules simply show nothing here — the listing facts above
+            stand on their own. */}
+        {mic?.other_rules && (
+          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              {t('mics.detail.houseRules')}
+            </h2>
+            <p className="mt-4 text-slate-700 leading-7">
+              {linkifyText(mic.other_rules)}
+            </p>
           </div>
-        </div>
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
-          <section className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900">{t('mics.detail.venueNotes')}</h2>
-            <div className="mt-3 space-y-3 text-slate-700 leading-7">
-              {editorial.venueContext.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h2 className="text-xl font-bold tracking-tight text-slate-900">{t('mics.detail.beforeYouGo')}</h2>
-            <div className="mt-3 space-y-3 text-slate-700 leading-7">
-              {editorial.beforeYouGo.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
-        </div>
+        )}
 
         {mic?.confirmed && (
           <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>

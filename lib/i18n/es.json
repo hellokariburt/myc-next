@@ -83,10 +83,8 @@
       "email": "Email",
       "instagram": "Instagram",
       "website": "Website",
-      "whatToExpect": "What to expect",
-      "venueNotes": "Venue notes",
-      "beforeYouGo": "Before you go",
-      "getDirections": "Get Directions"
+      "getDirections": "Get Directions",
+      "houseRules": "House rules"
     },
     "browser": {
       "searchPlaceholder": "Search mics, venues, neighborhoods…",

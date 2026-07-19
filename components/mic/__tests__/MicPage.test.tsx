@@ -59,9 +59,14 @@ describe('MicPage', () => {
     expect(screen.getByText('Get Directions')).toBeInTheDocument();
     expect(screen.getByText('Sign up at the door')).toBeInTheDocument();
     expect(screen.getByText('Visit site')).toBeInTheDocument();
-    expect(screen.getByText('What to expect')).toBeInTheDocument();
-    expect(screen.getByText('Venue notes')).toBeInTheDocument();
-    expect(screen.getByText('Before you go')).toBeInTheDocument();
+    // The fixture has other_rules: null, so no house-rules block should render.
+    expect(screen.queryByText('House rules')).not.toBeInTheDocument();
+  });
+
+  it('renders house rules when the mic has them', () => {
+    render(<MicPage mic={{ ...fullMic, other_rules: 'List capped at 16, stay to the end.' }} />);
+    expect(screen.getByText('House rules')).toBeInTheDocument();
+    expect(screen.getByText(/List capped at 16/)).toBeInTheDocument();
   });
 
   it('renders without optional fields', () => {
