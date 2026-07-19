@@ -2,7 +2,6 @@
   "nav": {
     "browseMics": "Browse Mics",
     "clubs": "Clubs",
-    "guides": "Guides",
     "about": "About",
     "submit": "Submit a Mic"
   },
@@ -25,7 +24,6 @@
     "site": {
       "heading": "OpenMYC",
       "about": "About",
-      "guides": "Guides",
       "submit": "Submit a Mic",
       "contact": "Contact"
     },
@@ -44,12 +42,6 @@
     "countLine": "{count} mics on the board right now — every one checked against the scene",
     "searchTab": "Find a mic",
     "jumpTo": "Or jump straight to",
-    "guides": {
-      "eyebrow": "Beyond the listings",
-      "heading": "Guides for first-timers, room strategy, and NYC mic etiquette",
-      "body": "OpenMYC now includes editorial guides to help comics understand signup formats, room types, and what to expect before heading out.",
-      "cta": "Read the guides"
-    },
     "countLineAfterCount": "mics on the board right now — every one checked against the scene"
   },
   "search": {
@@ -210,14 +202,6 @@
       "thanksBody": "Your submission has been received. We'll review it and get it added to the list — this usually takes a few days.",
       "browseMics": "Browse Mics",
       "submitAnother": "Submit Another"
-    }
-  },
-  "guides": {
-    "page": {
-      "eyebrow": "OpenMYC Guides",
-      "heading": "Practical NYC open mic advice, not just listings",
-      "intro": "OpenMYC tracks where mics are. These guides cover how the rooms actually work: first-timer logistics, signup formats, venue differences, and the unwritten rules that make nights in the city go smoother.",
-      "readGuide": "Read guide"
     }
   }
 }

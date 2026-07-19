@@ -12,7 +12,6 @@ export interface MicEditorialContent {
   venueContext: string[];
   whatToExpect: string[];
   beforeYouGo: string[];
-  guideSlug: string;
 }
 
 const curatedByVenue: Record<string, CuratedMicCopy> = {
@@ -97,16 +96,6 @@ const curatedByName: Record<string, CuratedMicCopy> = {
 
 function normalize(value: string | null | undefined): string {
   return (value ?? '').trim().toLowerCase();
-}
-
-function pickGuideSlug(mic: MicDetail): string {
-  if (mic.venue_type && normalize(mic.venue_type).includes('coffee')) {
-    return 'bar-mics-vs-coffee-shop-mics';
-  }
-  if (mic.signup_instructions?.instructions) {
-    return 'bringer-vs-signup-mics';
-  }
-  return 'first-nyc-open-mic';
 }
 
 function buildVenueContext(mic: MicDetail): string[] {
@@ -199,6 +188,5 @@ export function getMicEditorialContent(mic: MicDetail): MicEditorialContent {
     venueContext: curated.venueContext ?? buildVenueContext(mic),
     whatToExpect: [...(curated.whatToExpect ?? []), ...buildWhatToExpect(mic)],
     beforeYouGo: buildBeforeYouGo(mic),
-    guideSlug: pickGuideSlug(mic),
   };
 }

@@ -38,8 +38,8 @@ const About = () => (
               </p>
               <p>
                 OpenMYC is meant to feel like a real tool made by someone who uses it, not a scraped
-                list dropped onto a template. The listings are paired with context, editorial guides,
-                and a transparent explanation of where the data comes from.
+                list dropped onto a template. The listings are paired with context and a transparent
+                explanation of where the data comes from.
               </p>
             </div>
           </section>
@@ -65,15 +65,6 @@ const About = () => (
               <div>
                 <dt className="text-sm font-semibold text-slate-900">Built with</dt>
                 <dd className="mt-1">Next.js, PostgreSQL, Prisma, and Vercel</dd>
-              </div>
-              <div>
-                <dt className="text-sm font-semibold text-slate-900">Editorial section</dt>
-                <dd className="mt-1">
-                  <Link href="/guides" className="text-blue-700 hover:text-blue-800">
-                    Open mic guides
-                  </Link>{' '}
-                  for first-timers and working comics
-                </dd>
               </div>
             </dl>
           </aside>

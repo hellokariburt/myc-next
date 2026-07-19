@@ -19,7 +19,6 @@ import {
 import extractHandles from '@/lib/utils/extractHandles';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { linkifyText } from '@/lib/utils/linkifyText';
-import { guideArticleMap } from '@/lib/content/guides';
 import { getMicEditorialContent } from '@/lib/content/micEditorial';
 import MicHosts from './MicHosts';
 import { t } from '@/lib/i18n';
@@ -36,7 +35,6 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
 
   const isFree = isFreeCost(mic?.mic_cost?.cost_amount);
   const editorial = getMicEditorialContent(mic);
-  const relatedGuide = guideArticleMap[editorial.guideSlug];
 
   return (
     <div className="flex flex-col w-full pt-6 pb-16 px-4 lg:px-8">
@@ -216,24 +214,6 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
             </div>
           </section>
         </div>
-
-        {relatedGuide && (
-          <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-5">
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-700">
-              New to this format?
-            </p>
-            <h2 className="mt-2 text-xl font-bold tracking-tight text-slate-900">
-              {relatedGuide.title}
-            </h2>
-            <p className="mt-2 text-slate-700 leading-7">{relatedGuide.description}</p>
-            <Link
-              href={`/guides/${relatedGuide.slug}`}
-              className="mt-4 inline-flex rounded-full bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-800"
-            >
-              Read the guide
-            </Link>
-          </div>
-        )}
 
         {mic?.confirmed && (
           <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>

@@ -62,7 +62,6 @@ describe('MicPage', () => {
     expect(screen.getByText('What to expect')).toBeInTheDocument();
     expect(screen.getByText('Venue notes')).toBeInTheDocument();
     expect(screen.getByText('Before you go')).toBeInTheDocument();
-    expect(screen.getByText('Read the guide')).toBeInTheDocument();
   });
 
   it('renders without optional fields', () => {

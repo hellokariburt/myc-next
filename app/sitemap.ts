@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/prisma';
-import { guideArticles } from '@/lib/content/guides';
 import { buildMicUrl } from '@/lib/utils/micUrl';
 
 const boroughs = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
@@ -85,16 +84,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...clubPages,
     ...boroughPages,
     ...boroughDayPages,
-    {
-      url: 'https://findopenmyc.com/guides',
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    ...guideArticles.map((article) => ({
-      url: `https://findopenmyc.com/guides/${article.slug}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })),
     {
       url: 'https://findopenmyc.com/about',
       changeFrequency: 'monthly',

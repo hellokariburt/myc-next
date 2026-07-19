@@ -40,30 +40,6 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
         </div>
 
         <UpcomingMics mics={upcoming} />
-
-        <section className="w-full max-w-5xl mt-12">
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 shadow-sm">
-            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-              <div className="max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-blue-700">
-                  {t('home.guides.eyebrow')}
-                </p>
-                <h2 className="mt-3 text-2xl md:text-3xl font-black tracking-tight text-slate-900">
-                  {t('home.guides.heading')}
-                </h2>
-                <p className="mt-3 text-slate-600 leading-7">
-                  {t('home.guides.body')}
-                </p>
-              </div>
-              <Link
-                href="/guides"
-                className="inline-flex rounded-full bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
-              >
-                {t('home.guides.cta')}
-              </Link>
-            </div>
-          </div>
-        </section>
       </div>
     </PageLayout>
   );

@@ -6,9 +6,8 @@ import es from './es.json';
  * (home.*, clubs.*, submit.* …) — locatability over DRY: repeated
  * strings stay repeated per section so each can change independently.
  *
- * es.json currently mirrors en.json verbatim; translated values (and
- * hand-written Spanish guides in lib/content/guides/es.ts) can land
- * later without touching components.
+ * es.json currently mirrors en.json verbatim; translated values can
+ * land later without touching components.
  */
 export type Locale = 'en' | 'es';
 

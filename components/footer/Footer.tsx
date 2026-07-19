@@ -30,7 +30,6 @@ const Footer = () => (
           <p className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-3">{t('footer.site.heading')}</p>
           <ul className="flex flex-col gap-2">
             <li><Link href="/about" className={linkClass}>{t('footer.site.about')}</Link></li>
-            <li><Link href="/guides" className={linkClass}>{t('footer.site.guides')}</Link></li>
             <li><Link href="/submit" className={linkClass}>{t('footer.site.submit')}</Link></li>
             <li><Link href="/contact" className={linkClass}>{t('footer.site.contact')}</Link></li>
           </ul>

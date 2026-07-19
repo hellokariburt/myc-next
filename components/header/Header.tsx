@@ -11,7 +11,6 @@ import { t } from '@/lib/i18n';
 const links = [
   { link: '/mics', label: t('nav.browseMics') },
   { link: '/clubs', label: t('nav.clubs') },
-  { link: '/guides', label: t('nav.guides') },
   { link: '/about', label: t('nav.about') },
   { link: '/submit', label: t('nav.submit') },
 ];
