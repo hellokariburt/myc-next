@@ -39,7 +39,6 @@
     "headlineGradient": "open mics,",
     "headlineRest": "found tonight.",
     "subhead": "Every comedy open mic in the city — verified, mapped, and ready for your name on the list.",
-    "countLine": "{count} mics on the board right now — every one checked against the scene",
     "searchTab": "Find a mic",
     "jumpTo": "Or jump straight to",
     "countLineAfterCount": "mics on the board right now — every one checked against the scene"
@@ -49,12 +48,7 @@
     "buttonAria": "Search for mics"
   },
   "mics": {
-    "card": {
-      "free": "Free",
-      "paid": "Paid"
-    },
     "results": {
-      "summary": "{range}{total} {free} mics in {borough}{day}{time}",
       "free": "Free",
       "allNyc": "NYC",
       "onDay": " on {day}",
@@ -81,8 +75,7 @@
       "anyTime": "Any time",
       "startTimeAria": "Start time",
       "freeAria": "Free mics only",
-      "freeLabel": "Free",
-      "filterSearchAria": "Search"
+      "freeLabel": "Free"
     },
     "detail": {
       "when": "When",
@@ -93,10 +86,7 @@
       "whatToExpect": "What to expect",
       "venueNotes": "Venue notes",
       "beforeYouGo": "Before you go",
-      "getDirections": "Get Directions",
-      "cost": "Cost",
-      "hosts": "Hosts",
-      "backTo": "Back to"
+      "getDirections": "Get Directions"
     },
     "browser": {
       "searchPlaceholder": "Search mics, venues, neighborhoods…",
@@ -115,9 +105,7 @@
   "clubs": {
     "page": {
       "eyebrow": "The rooms",
-      "heading": "NYC comedy clubs",
-      "intro": "The city's dedicated stand-up rooms — verified open, borough by borough. Many run open mics too: check the mic list for stage time at these clubs.",
-      "introLinkText": "the mic list"
+      "heading": "NYC comedy clubs"
     },
     "filters": {
       "searchPlaceholder": "Search clubs, neighborhoods…",
@@ -189,7 +177,6 @@
       "hostInstagram": "Host Instagram",
       "instagramMic": "Mic Instagram",
       "instagramShow": "Show Instagram",
-      "handlePlaceholder": "@handle",
       "website": "Website",
       "websitePlaceholder": "https://",
       "notes": "Notes",
