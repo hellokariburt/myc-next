@@ -6,14 +6,7 @@ import Filter from '../filter/Filter';
 import { HeaderDrawer } from '../header-drawer/header-drawer';
 import { BackButton } from '../buttons/BackButton';
 
-import { t } from '@/lib/i18n';
-
-const links = [
-  { link: '/mics', label: t('nav.browseMics') },
-  { link: '/clubs', label: t('nav.clubs') },
-  { link: '/about', label: t('nav.about') },
-  { link: '/submit', label: t('nav.submit') },
-];
+import { navLinks } from '@/lib/nav';
 
 const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -43,7 +36,7 @@ const Header = ({ hasFilter, hasBackButton }: HeaderProps) => {
         </button>
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-1">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.link}
