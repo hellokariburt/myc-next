@@ -2,6 +2,8 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import { showSlug } from './shows.service';
 import prisma from '../prisma';
+import clubsSeed from '../../prisma/clubs-seed-data.json';
+import { allMics } from '../data/micsSnapshot';
 
 
 // Optional imagery harvested from each club's own website.
@@ -55,23 +57,85 @@ export function venueMatchesClub(venue: string | null | undefined, clubName: str
 
 // All mics whose venue matches a club name (for club detail pages)
 export async function getMicsAtClub(clubName: string) {
-  const mics = await prisma.mics.findMany({
-    include: { mic_address: true, mic_cost: true, mic_occurrence: true },
-    orderBy: { id: 'asc' },
-  });
-  return mics.filter((m) => venueMatchesClub(m.mic_address?.venue, clubName));
+  try {
+    const mics = await prisma.mics.findMany({
+      include: { mic_address: true, mic_cost: true, mic_occurrence: true },
+      orderBy: { id: 'asc' },
+    });
+    return mics.filter((m) => venueMatchesClub(m.mic_address?.venue, clubName));
+  } catch {
+    // DB unavailable — match against the snapshot instead.
+    return allMics().filter((m) => venueMatchesClub(m.mic_address?.venue, clubName));
+  }
+}
+
+interface SeedClub {
+  name: string;
+  address: string | null;
+  zipcode: string | null;
+  borough: string | null;
+  neighborhood: string | null;
+  website: string | null;
+  instagram: string | null;
+  description: string | null;
+  latitude: string | null;
+  longitude: string | null;
+  confirmed: string | null;
+}
+
+// DB-free club directory from the committed seed + snapshot mic counts — the
+// getClubs fallback while Neon is locked.
+function clubsFromSeed(): ClubListItem[] {
+  const mics = allMics();
+  return (clubsSeed as SeedClub[])
+    .filter((c) => !(c.confirmed || '').toLowerCase().startsWith('stale'))
+    .map((c) => ({
+      id: clubSlug(c.name),
+      name: c.name,
+      address: c.address ?? null,
+      zipcode: c.zipcode ?? null,
+      borough: c.borough ?? null,
+      neighborhood: c.neighborhood ?? null,
+      website: c.website ?? null,
+      instagram: c.instagram ?? null,
+      description: c.description ?? null,
+      latitude: c.latitude ?? null,
+      longitude: c.longitude ?? null,
+      image: findClubArt(c.name),
+      micCount: mics.filter((m) => venueMatchesClub(m.mic_address?.venue, c.name)).length,
+      showCount: 0,
+    }));
+}
+
+/**
+ * DB-free club→art directory used by venueImageFor while the mic read path runs
+ * off the snapshot. Reads the committed clubs seed rather than the DB; club art
+ * is cosmetic (venue fallback imagery), so the seed list is close enough for the
+ * bridge window. Returns only clubs that actually have art on disk.
+ */
+export function clubArtDirectory(): { name: string; image: string }[] {
+  return (clubsSeed as { name: string }[])
+    .map((c) => ({ name: c.name, image: findClubArt(c.name) }))
+    .filter((c): c is { name: string; image: string } => Boolean(c.image));
 }
 
 export async function getClubs(): Promise<ClubListItem[]> {
-  const [rows, micVenues] = await Promise.all([
-    prisma.clubs.findMany({
-      where: { NOT: { confirmed: { startsWith: 'Stale' } } },
-      orderBy: [{ borough: 'asc' }, { name: 'asc' }],
-    }),
-    prisma.mic_address.findMany({
-      select: { venue: true, mics: { select: { id: true } } },
-    }),
-  ]);
+  let rows: Awaited<ReturnType<typeof prisma.clubs.findMany>>;
+  let micVenues: { venue: string | null; mics: { id: bigint }[] }[];
+  try {
+    [rows, micVenues] = await Promise.all([
+      prisma.clubs.findMany({
+        where: { NOT: { confirmed: { startsWith: 'Stale' } } },
+        orderBy: [{ borough: 'asc' }, { name: 'asc' }],
+      }),
+      prisma.mic_address.findMany({
+        select: { venue: true, mics: { select: { id: true } } },
+      }),
+    ]);
+  } catch {
+    // DB unavailable — serve the seed-derived directory.
+    return clubsFromSeed();
+  }
 
   const countsFor = (name: string) => ({
     micCount: micVenues

@@ -1,45 +1,66 @@
 import { MetadataRoute } from 'next';
 import prisma from '@/lib/prisma';
 import { buildMicUrl } from '@/lib/utils/micUrl';
+import { allMics } from '@/lib/data/micsSnapshot';
+import clubsSeed from '@/prisma/clubs-seed-data.json';
 
 const boroughs = ['manhattan', 'brooklyn', 'queens', 'bronx', 'staten-island'];
 const days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
+const clubUrl = (name: string) =>
+  `https://findopenmyc.com/clubs/${name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')}`;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const mics = await prisma.mics.findMany({
-    select: {
-      id: true,
-      name: true,
-      borough: true,
-      day: true,
-      mic_address: {
-        select: {
-          venue: true,
-          neighborhood: true,
-        },
+  let micPages: MetadataRoute.Sitemap;
+  let clubPages: MetadataRoute.Sitemap;
+
+  try {
+    const mics = await prisma.mics.findMany({
+      select: {
+        id: true,
+        name: true,
+        borough: true,
+        day: true,
+        mic_address: { select: { venue: true, neighborhood: true } },
       },
-    },
-    orderBy: { id: 'asc' },
-  });
+      orderBy: { id: 'asc' },
+    });
+    micPages = mics.map((mic) => ({
+      url: buildMicUrl(mic),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
 
-  const micPages = mics.map((mic) => ({
-    url: buildMicUrl(mic),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  const clubs = await prisma.clubs.findMany({
-    where: { NOT: { confirmed: { startsWith: 'Stale' } } },
-    select: { name: true },
-  });
-  const clubPages = clubs.map((c) => ({
-    url: `https://findopenmyc.com/clubs/${c.name
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '')}`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
+    const clubs = await prisma.clubs.findMany({
+      where: { NOT: { confirmed: { startsWith: 'Stale' } } },
+      select: { name: true },
+    });
+    clubPages = clubs.map((c) => ({
+      url: clubUrl(c.name),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6,
+    }));
+  } catch {
+    // DB unavailable — build the URL set from the snapshot + club seed. Records
+    // without a recovered id (id 0) are skipped rather than emit /mics/0-...
+    micPages = allMics()
+      .filter((m) => m.id)
+      .map((m) => ({
+        url: buildMicUrl(m),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      }));
+    clubPages = (clubsSeed as { name: string; confirmed: string | null }[])
+      .filter((c) => !(c.confirmed || '').toLowerCase().startsWith('stale'))
+      .map((c) => ({
+        url: clubUrl(c.name),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      }));
+  }
 
   const boroughPages = boroughs.map((b) => ({
     url: `https://findopenmyc.com/mics/${b}`,

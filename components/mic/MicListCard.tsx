@@ -32,17 +32,14 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
   const token = costToken(rawCost, isFree);
   const costCaption = token !== rawCost && rawCost.length > token.length ? rawCost : null;
 
-  return (
-    <Link
-      href={buildMicPath(mic)}
-      aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(
-        mic.start_time || ''
-      )}, ${mic.mic_cost?.cost_amount || 'Free'}`}
-      className={`flex group bg-white border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
-        mic.borough || ''
-      )} rounded-xl px-5 py-4 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
-    >
-      <div className="flex flex-row gap-4 lg:gap-6 min-w-0 w-full items-start">
+  // A handful of snapshot records have no recovered detail id (id 0); render
+  // them as a non-clickable card rather than a link to /mics/0-... (a 404).
+  const baseClass = `flex bg-white border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
+    mic.borough || ''
+  )} rounded-xl px-5 py-4 shadow-sm`;
+
+  const body = (
+    <div className="flex flex-row gap-4 lg:gap-6 min-w-0 w-full items-start">
         <div className="hidden sm:block shrink-0">
           <ShowThumbnail name={mic.mic_address?.venue || mic.name || ''} image={mic.venue_image} />
         </div>
@@ -92,6 +89,21 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
           </div>
         </div>
       </div>
+  );
+
+  if (!mic.id) {
+    return <div className={`${baseClass} ${className}`}>{body}</div>;
+  }
+
+  return (
+    <Link
+      href={buildMicPath(mic)}
+      aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(
+        mic.start_time || ''
+      )}, ${mic.mic_cost?.cost_amount || 'Free'}`}
+      className={`${baseClass} group hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
+    >
+      {body}
     </Link>
   );
 }

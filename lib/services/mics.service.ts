@@ -2,8 +2,11 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 import prisma from '../prisma';
 import { MicQueryParams, ALL_BOROUGHS, ALL_DAYS } from '../types/api';
-import { getClubs, venueMatchesClub } from './clubs.service';
+import { clubArtDirectory, venueMatchesClub } from './clubs.service';
 import { nameSlug } from '../utils/nameSlug';
+import { isFreeCost } from '../utils/isFree';
+import { allMics, snapshotMicById } from '../data/micsSnapshot';
+import { MicListItem } from '../types/mic';
 
 // venue -> image lookup: club directory art first, then venue's own art
 // (public/venue-art/<venue-slug>.<ext>); cached per lambda instance
@@ -13,10 +16,7 @@ const venueArtCache = new Map<string, string | null>();
 async function venueImageFor(venue: string | null | undefined): Promise<string | null> {
   if (!venue) return null;
   if (!clubArtCache) {
-    const clubs = await getClubs();
-    clubArtCache = clubs
-      .filter((c) => c.image)
-      .map((c) => ({ name: c.name, image: c.image as string }));
+    clubArtCache = clubArtDirectory();
   }
   const hit = clubArtCache.find((c) => venueMatchesClub(venue, c.name));
   if (hit) return hit.image;
@@ -67,126 +67,96 @@ function nycDayIndex(): number {
  * borough's scene", not "how many match your current query".
  */
 async function getBoroughCounts(): Promise<Record<string, number>> {
-  const rows = await prisma.mics.groupBy({
-    by: ['borough'],
-    _count: { _all: true },
-  });
-  // Seed every borough at 0 first: groupBy returns no row for a borough with
-  // no mics, and the caller needs to tell "zero mics" apart from "counts
-  // unavailable" (an empty object) to decide whether to hide the chip.
+  // Seed every borough at 0 first: a borough with no mics needs to read as
+  // "zero mics" (chip hidden) rather than "counts unavailable" (empty object).
   const counts: Record<string, number> = Object.fromEntries(
     ALL_BOROUGHS.map((b) => [b, 0])
   );
-  for (const row of rows) {
-    if (row.borough) counts[row.borough] = row._count._all;
+  for (const m of allMics()) {
+    if (m.borough) counts[m.borough] = (counts[m.borough] ?? 0) + 1;
   }
   return counts;
 }
 
+// "1970-01-01T14:00:00.000Z" -> "14:00:00" for HH:MM:SS string comparison.
+function timeOfDay(startTime: string | null): string | null {
+  return startTime ? startTime.slice(11, 19) : null;
+}
+
 const getMics = async (params: MicQueryParams) => {
-  const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
-  const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
-  // Must mirror isFreeCost (lib/utils/isFree.ts), which decides whether a mic
-  // renders a Free badge: empty/absent cost counts as free, and the match is
-  // case-insensitive on a leading "free". The old filter was a case-sensitive
-  // `contains: 'Free'` requiring a mic_cost row, so mics badged free could be
-  // missing from /mics/free — and a cost like "Totally Free" was the reverse,
-  // listed as free while the badge said paid.
-  const freeFilter = params.cost === 'true'
-    ? {
-        OR: [
-          { cost_id: null },
-          { mic_cost: { is: { cost_amount: null } } },
-          { mic_cost: { is: { cost_amount: '' } } },
-          {
-            mic_cost: {
-              is: { cost_amount: { startsWith: 'free', mode: 'insensitive' as const } },
-            },
-          },
-        ],
-      }
-    : null;
-  const qFilter = params.q
-    ? {
-        OR: [
-          { name: { contains: params.q, mode: 'insensitive' as const } },
-          { mic_address: { is: { venue: { contains: params.q, mode: 'insensitive' as const } } } },
-          {
-            mic_address: {
-              is: { neighborhood: { contains: params.q, mode: 'insensitive' as const } },
-            },
-          },
-        ],
-      }
-    : null;
+  const boroughSet = new Set(params.borough.length === 0 ? ALL_BOROUGHS : params.borough);
+  const daySet = new Set(params.day.length === 0 ? ALL_DAYS : params.day);
+  const q = params.q ? params.q.toLowerCase() : '';
+  // start_time '00:00:00' means "no lower bound"; nulls are excluded once a
+  // bound is set, matching the old Prisma `gte`.
+  const timeFilter = params.start_time !== '00:00:00' ? params.start_time : null;
 
-  const startTime =
-    params.start_time !== '00:00:00' ? `1970-01-01T${params.start_time}.000Z` : undefined;
-
-  // Both filters carry their own `OR`, so they have to be combined through
-  // `AND` — spreading them into one object would silently drop whichever came
-  // first.
-  const where = {
-    day: { in: days },
-    borough: { in: boroughs },
-    ...(startTime && { start_time: { gte: startTime } }),
-    AND: [freeFilter, qFilter].filter(Boolean) as object[],
-  };
-
-  // Order by relevance for a comic looking for stage time: today's mics
-  // first (time ascending), then the rest of the week. Day-distance can't be
-  // expressed in a Prisma orderBy, so sort a lightweight id list in JS and
-  // hydrate the requested page.
-  const keys = await prisma.mics.findMany({
-    where,
-    select: { id: true, day: true, start_time: true },
+  const filtered = allMics().filter((m) => {
+    if (!m.day || !daySet.has(m.day)) return false;
+    if (!m.borough || !boroughSet.has(m.borough)) return false;
+    if (timeFilter) {
+      const t = timeOfDay(m.start_time);
+      if (!t || t < timeFilter) return false;
+    }
+    // Mirror isFreeCost: empty/absent cost counts as free, case-insensitive
+    // leading "free" — same predicate the Free badge uses.
+    if (params.cost === 'true' && !isFreeCost(m.mic_cost?.cost_amount)) return false;
+    if (q) {
+      const haystack = [m.name, m.mic_address?.venue, m.mic_address?.neighborhood]
+        .filter((s): s is string => Boolean(s))
+        .map((s) => s.toLowerCase());
+      if (!haystack.some((s) => s.includes(q))) return false;
+    }
+    return true;
   });
+
+  // Order by relevance for a comic looking for stage time: today's mics first
+  // (time ascending), then the rest of the week.
   const today = nycDayIndex();
-  keys.sort((a, b) => {
+  filtered.sort((a, b) => {
     const da = ((DAY_INDEX[a.day || ''] ?? 7) - today + 7) % 7;
     const db = ((DAY_INDEX[b.day || ''] ?? 7) - today + 7) % 7;
     if (da !== db) return da - db;
-    const ta = a.start_time ? a.start_time.getTime() : 0;
-    const tb = b.start_time ? b.start_time.getTime() : 0;
-    if (ta !== tb) return ta - tb;
-    return Number(a.id - b.id);
+    const ta = timeOfDay(a.start_time) ?? '';
+    const tb = timeOfDay(b.start_time) ?? '';
+    if (ta !== tb) return ta < tb ? -1 : 1;
+    return a.id - b.id;
   });
-  const pageIds = keys.slice(params.offset, params.offset + params.limit).map((k) => k.id);
 
-  const rows = await prisma.mics.findMany({
-    include: { mic_address: true, mic_cost: true, mic_occurrence: true },
-    where: { id: { in: pageIds } },
-  });
-  const byId = new Map(rows.map((r) => [r.id.toString(), r]));
-  const ordered = pageIds
-    .map((id) => byId.get(id.toString()))
-    .filter((r): r is NonNullable<typeof r> => Boolean(r));
-
-  const mics = await Promise.all(
-    ordered.map(async (m) => ({
+  const page = filtered.slice(params.offset, params.offset + params.limit);
+  const mics: MicListItem[] = await Promise.all(
+    page.map(async (m) => ({
       ...m,
       venue_image: await venueImageFor(m.mic_address?.venue),
     }))
   );
 
-  return { mics, count: keys.length };
+  return { mics, count: filtered.length };
 };
 
 const getMic = async (id: bigint) => {
-  const mic = await prisma.mics.findUnique({
-    where: { id },
-    include: {
-      mic_address: true,
-      mic_cost: true,
-      mic_occurrence: true,
-      signup_instructions: true,
-      host_mics: {
-        include: { mic_host: true },
+  try {
+    const mic = await prisma.mics.findUnique({
+      where: { id },
+      include: {
+        mic_address: true,
+        mic_cost: true,
+        mic_occurrence: true,
+        signup_instructions: true,
+        host_mics: {
+          include: { mic_host: true },
+        },
       },
-    },
-  });
-  if (!mic) return mic;
-  return { ...mic, venue_image: await venueImageFor(mic.mic_address?.venue) };
+    });
+    if (!mic) return mic;
+    return { ...mic, venue_image: await venueImageFor(mic.mic_address?.venue) };
+  } catch {
+    // DB unavailable (e.g. Neon compute-quota lockout) — serve from the snapshot.
+    // Detail loses map/geo and structured host data until the DB is back.
+    const snap = snapshotMicById(id);
+    if (!snap) return null;
+    return { ...snap, venue_image: await venueImageFor(snap.mic_address?.venue) };
+  }
 };
 
 export { getMics, getMic, venueImageFor, getBoroughCounts, nycDayName };
