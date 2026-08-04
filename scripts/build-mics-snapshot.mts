@@ -1,134 +1,95 @@
 /**
- * Build the id-enriched mic snapshot that backs the listing/search read path
- * while Neon is unavailable.
+ * Rebuild the mic snapshot (lib/data/mics-snapshot.json) that backs the
+ * listing/detail read path as an automatic fallback when Neon is unavailable.
  *
- * prisma/seed-data.json is a seed *input* — it has no `id` and no lat/long,
- * because the DB assigns ids at seed time (autoincrement) and geocoding runs
- * afterwards. The live ids therefore can't be read from that file. But the
- * production sitemap lists every /mics/<id>-<slug> URL, and the slug is a pure
- * function of (name, venue, neighborhood, borough, day) via buildMicSlug. So we
- * recompute each record's slug, match it against the sitemap, and recover the
- * authoritative id offline — no database connection required.
+ * This dumps the live DB by id — real ids, coordinates, host records and every
+ * detail field — so the fallback keeps its map pins and detail pages stay
+ * faithful. Re-run whenever the live data drifts:
  *
- * Run: npx tsx scripts/build-mics-snapshot.mts
+ *   npx tsx scripts/build-mics-snapshot.mts
+ *
+ * The record shape here MUST stay in sync with SnapshotRecord in
+ * lib/data/micsSnapshot.ts (the reader that projects these back into MicListItem
+ * /MicDetail).
  */
-import { readFileSync, writeFileSync } from 'fs';
+import { PrismaClient } from '@prisma/client';
+import { writeFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const SITEMAP_URL = 'https://findopenmyc.com/sitemap.xml';
 
-// Inlined copy of lib/utils/micUrl.ts buildMicSlug — kept identical so recomputed
-// slugs match the sitemap's /mics/<id>-<slug> exactly. (Inlined rather than
-// imported because the type-only import chain trips tsx's ESM loader.)
-const MAX_SLUG_LENGTH = 80;
-const FALLBACK_SLUG = 'open-mic';
-function slugifyPart(value: string): string {
-  return value
-    .toLowerCase()
-    .replace(/&/g, ' and ')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-function buildMicSlug(parts: (string | null | undefined)[]): string {
-  const candidates = parts.filter((v): v is string => Boolean(v && v.trim()));
-  const tokens = candidates.flatMap((v) => slugifyPart(v).split('-')).filter(Boolean);
-  const deduped = tokens.filter((t, i) => tokens.indexOf(t) === i);
-  const joined = deduped.join('-').slice(0, MAX_SLUG_LENGTH).replace(/-+$/g, '');
-  return joined || FALLBACK_SLUG;
-}
+const prisma = new PrismaClient();
 
-interface SeedMic {
-  name: string;
-  day: string | null;
-  start_time: string | null;
-  end_time: string | null;
-  venue_name: string | null;
-  borough: string | null;
-  neighborhood: string | null;
-  address: {
-    street_name?: string;
-    city?: string;
-    state?: string;
-    zipcode?: string;
-    country?: string;
-  };
-  venue_type: string | null;
-  cost: string | null;
-  stage_time: string | null;
-  signup_instructions: string | null;
-  host: string | null;
-  instagram: string | null;
-  confirmed: string | null;
-  other_rules: string | null;
-}
-
-function slugForRecord(mic: SeedMic): string {
-  // Same candidate order as buildMicSlug: name, venue, neighborhood, borough, day
-  return buildMicSlug([mic.name, mic.venue_name, mic.neighborhood, mic.borough, mic.day]);
-}
-
-async function fetchSitemapSlugToId(): Promise<Map<string, string[]>> {
-  const res = await fetch(SITEMAP_URL);
-  if (!res.ok) throw new Error(`sitemap fetch failed: ${res.status}`);
-  const xml = await res.text();
-  const map = new Map<string, string[]>();
-  // /mics/<id>-<slug> — capture id and the slug that follows it
-  const re = /\/mics\/(\d+)-([a-z0-9-]+)/g;
-  let m: RegExpExecArray | null;
-  while ((m = re.exec(xml)) !== null) {
-    const [, id, slug] = m;
-    const ids = map.get(slug) ?? [];
-    if (!ids.includes(id)) ids.push(id);
-    map.set(slug, ids);
-  }
-  return map;
+// Prisma Time(6) comes back as a Date on 1970-01-01; the reader re-wraps the
+// "HH:MM:SS" back into that same ISO string, so store just the clock part.
+function toClock(d: Date | null): string | null {
+  return d ? d.toISOString().slice(11, 19) : null;
 }
 
 async function main() {
-  const raw = readFileSync(join(ROOT, 'prisma', 'seed-data.json'), 'utf-8');
-  const mics: SeedMic[] = JSON.parse(raw);
-  const slugToIds = await fetchSitemapSlugToId();
-  console.log(`Loaded ${mics.length} seed records; ${slugToIds.size} slugs in sitemap.`);
-
-  const usedIds = new Set<string>();
-  const unmatched: string[] = [];
-  const ambiguous: string[] = [];
-
-  const enriched = mics.map((mic) => {
-    const slug = slugForRecord(mic);
-    const candidates = (slugToIds.get(slug) ?? []).filter((id) => !usedIds.has(id));
-    let id: string | null = null;
-    if (candidates.length === 1) {
-      id = candidates[0];
-    } else if (candidates.length > 1) {
-      id = candidates[0]; // deterministic: take the lowest unused; disambiguated by prefix in URL
-      ambiguous.push(`${slug} -> [${candidates.join(', ')}] took ${id}`);
-    }
-    if (id) usedIds.add(id);
-    else unmatched.push(`${mic.name} (${slug})`);
-    return { id, ...mic };
+  const mics = await prisma.mics.findMany({
+    orderBy: { id: 'asc' },
+    include: {
+      mic_address: true,
+      mic_cost: true,
+      mic_occurrence: true,
+      signup_instructions: true,
+      host_mics: { include: { mic_host: true } },
+    },
   });
 
-  const matched = enriched.filter((r) => r.id).length;
-  console.log(`Matched ${matched}/${mics.length} records to live ids.`);
-  if (ambiguous.length) {
-    console.log(`\n${ambiguous.length} ambiguous slug(s):`);
-    ambiguous.forEach((a) => console.log(`  ${a}`));
-  }
-  if (unmatched.length) {
-    console.log(`\n${unmatched.length} UNMATCHED record(s) (no live id — detail link will be absent):`);
-    unmatched.forEach((u) => console.log(`  ${u}`));
-  }
+  const records = mics.map((m) => {
+    const host = m.host_mics[0]?.mic_host ?? null;
+    return {
+      id: String(m.id),
+      name: m.name,
+      day: m.day,
+      start_time: toClock(m.start_time),
+      end_time: toClock(m.end_time),
+      venue_name: m.mic_address?.venue ?? null,
+      borough: m.borough,
+      neighborhood: m.mic_address?.neighborhood ?? null,
+      address: {
+        street_name: m.mic_address?.street_name ?? null,
+        unit_number: m.mic_address?.unit_number ?? null,
+        city: m.mic_address?.city ?? null,
+        state: m.mic_address?.state ?? null,
+        zipcode: m.mic_address?.zipcode ?? null,
+        country: m.mic_address?.country ?? null,
+        latitude: m.mic_address?.latitude ?? null,
+        longitude: m.mic_address?.longitude ?? null,
+      },
+      venue_type: m.venue_type,
+      cost: m.mic_cost?.cost_amount ?? null,
+      stage_time: m.stage_time,
+      schedule: m.mic_occurrence?.schedule ?? null,
+      signup_instructions: m.signup_instructions?.instructions ?? null,
+      host: host?.first_host ?? null,
+      host_email: host?.email ?? null,
+      host_instagram: host?.instagram ?? null,
+      instagram: m.instagram,
+      website: m.website,
+      email: m.email_address,
+      phone: m.phone_number,
+      notes: m.notes,
+      confirmed: m.confirmed,
+      other_rules: m.other_rules,
+    };
+  });
+
+  const withCoords = records.filter((r) => r.address.latitude && r.address.longitude).length;
+  console.log(`Dumped ${records.length} mics (${withCoords} with coordinates).`);
 
   const out = join(ROOT, 'lib', 'data', 'mics-snapshot.json');
-  writeFileSync(out, JSON.stringify(enriched, null, 2) + '\n', 'utf-8');
-  console.log(`\nWrote ${enriched.length} records -> ${out}`);
+  writeFileSync(out, JSON.stringify(records, null, 2) + '\n', 'utf-8');
+  console.log(`Wrote ${records.length} records -> ${out}`);
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exitCode = 1;
+  })
+  .finally(() => prisma.$disconnect());

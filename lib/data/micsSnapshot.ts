@@ -2,17 +2,14 @@ import { MicListItem, MicDetail } from '../types/mic';
 import snapshot from './mics-snapshot.json';
 
 /**
- * Read-side snapshot backing the mic listing/search surface while Neon is
- * unavailable (see scripts/build-mics-snapshot.mts). This is deliberately the
- * only read path for listings during that window; detail pages (getMic) stay on
- * Prisma. Rebuilt faithfully from a live DB dump once the compute limit resets.
+ * Read-side snapshot backing the mic listing/search surface as an automatic
+ * fallback when Neon is unavailable (getMics/getMic try the DB first, then this;
+ * see scripts/build-mics-snapshot.mts). Rebuild it with that script whenever the
+ * live data drifts, so the fallback stays faithful.
  *
- * Fidelity notes for this snapshot generation:
- *  - `id` is recovered from the production sitemap by slug. 5 records had no
- *    match (name drift since the seed) and carry id 0 — callers must treat a
- *    falsy id as "no detail link" rather than build /mics/0-...
- *  - lat/long, website, email, phone, host records and mic_occurrence.schedule
- *    are not in the seed file, so they are null/absent here.
+ * The snapshot is a full dump of the live DB by id — coordinates, host records,
+ * website/email/phone, notes and mic_occurrence.schedule are all present — so
+ * the fallback listing keeps its map pins and the detail fallback is complete.
  */
 
 interface SnapshotRecord {
@@ -25,18 +22,28 @@ interface SnapshotRecord {
   borough: string | null;
   neighborhood: string | null;
   address: {
-    street_name?: string;
-    city?: string;
-    state?: string;
-    zipcode?: string;
-    country?: string;
+    street_name?: string | null;
+    unit_number?: number | null;
+    city?: string | null;
+    state?: string | null;
+    zipcode?: string | null;
+    country?: string | null;
+    latitude?: string | null;
+    longitude?: string | null;
   };
   venue_type: string | null;
   cost: string | null;
   stage_time: string | null;
+  schedule: string | null;
   signup_instructions: string | null;
   host: string | null;
+  host_email: string | null;
+  host_instagram: string | null;
   instagram: string | null;
+  website: string | null;
+  email: string | null;
+  phone: string | null;
+  notes: string | null;
   confirmed: string | null;
   other_rules: string | null;
 }
@@ -64,21 +71,21 @@ export function toMicListItem(r: SnapshotRecord): MicListItem {
     start_time: toTimeValue(r.start_time),
     end_time: toTimeValue(r.end_time),
     instagram: r.instagram,
-    website: null,
-    email_address: null,
+    website: r.website,
+    email_address: r.email,
     venue_type: r.venue_type,
     stage_time: r.stage_time,
     other_rules: r.other_rules,
     mic_address: {
       venue: r.venue_name,
       street_name: r.address?.street_name ?? null,
-      unit_number: 0,
-      latitude: null,
-      longitude: null,
+      unit_number: r.address?.unit_number ?? 0,
+      latitude: r.address?.latitude ?? null,
+      longitude: r.address?.longitude ?? null,
       neighborhood: r.neighborhood,
     },
     mic_cost: r.cost ? { cost_amount: r.cost } : null,
-    mic_occurrence: null,
+    mic_occurrence: r.schedule ? { schedule: r.schedule } : null,
   };
 }
 
@@ -88,11 +95,10 @@ export function allMics(): MicListItem[] {
 }
 
 /**
- * A single mic as MicDetail, by recovered id — the getMic fallback when the DB
- * is down. Detail-only fields absent from the seed (lat/long, phone, notes,
- * structured host records) are null/synthesized; the map component degrades to
- * a "View on Google Maps" link when lat/long is null. `venue_image` is left for
- * the caller to attach (avoids a circular import with mics.service).
+ * A single mic as MicDetail, by id — the getMic fallback when the DB is down.
+ * The snapshot dumps the live DB, so detail fields (lat/long, phone, notes,
+ * host records) are all present. `venue_image` is left for the caller to attach
+ * (avoids a circular import with mics.service).
  */
 export function snapshotMicById(id: bigint | number): MicDetail | null {
   const wanted = String(id);
@@ -100,11 +106,11 @@ export function snapshotMicById(id: bigint | number): MicDetail | null {
   if (!r) return null;
   return {
     ...toMicListItem(r),
-    phone_number: null,
-    notes: null,
+    phone_number: r.phone,
+    notes: r.notes,
     signup_instructions: r.signup_instructions ? { instructions: r.signup_instructions } : null,
     host_mics: r.host
-      ? [{ mic_host: { first_host: r.host, email: null, instagram: r.instagram } }]
+      ? [{ mic_host: { first_host: r.host, email: r.host_email, instagram: r.host_instagram } }]
       : [],
   };
 }
