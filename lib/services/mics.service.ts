@@ -72,10 +72,19 @@ async function getBoroughCounts(): Promise<Record<string, number>> {
   const counts: Record<string, number> = Object.fromEntries(
     ALL_BOROUGHS.map((b) => [b, 0])
   );
-  for (const m of allMics()) {
-    if (m.borough) counts[m.borough] = (counts[m.borough] ?? 0) + 1;
+  try {
+    const rows = await prisma.mics.groupBy({ by: ['borough'], _count: { _all: true } });
+    for (const row of rows) {
+      if (row.borough) counts[row.borough] = row._count._all;
+    }
+    return counts;
+  } catch {
+    // DB unavailable (e.g. Neon compute-quota lockout) — count from the snapshot.
+    for (const m of allMics()) {
+      if (m.borough) counts[m.borough] = (counts[m.borough] ?? 0) + 1;
+    }
+    return counts;
   }
-  return counts;
 }
 
 // "1970-01-01T14:00:00.000Z" -> "14:00:00" for HH:MM:SS string comparison.
@@ -84,6 +93,100 @@ function timeOfDay(startTime: string | null): string | null {
 }
 
 const getMics = async (params: MicQueryParams) => {
+  try {
+    return await getMicsFromDb(params);
+  } catch {
+    // DB unavailable (e.g. Neon compute-quota lockout) — serve listings from the
+    // snapshot. The map loses its pins in this window (the snapshot carries no
+    // lat/long), but search and the cards stay up.
+    return getMicsFromSnapshot(params);
+  }
+};
+
+const getMicsFromDb = async (params: MicQueryParams) => {
+  const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
+  const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
+  // Mirror isFreeCost (lib/utils/isFree.ts): empty/absent cost counts as free,
+  // case-insensitive on a leading "free" — same predicate the Free badge uses.
+  const freeFilter = params.cost === 'true'
+    ? {
+        OR: [
+          { cost_id: null },
+          { mic_cost: { is: { cost_amount: null } } },
+          { mic_cost: { is: { cost_amount: '' } } },
+          {
+            mic_cost: {
+              is: { cost_amount: { startsWith: 'free', mode: 'insensitive' as const } },
+            },
+          },
+        ],
+      }
+    : null;
+  const qFilter = params.q
+    ? {
+        OR: [
+          { name: { contains: params.q, mode: 'insensitive' as const } },
+          { mic_address: { is: { venue: { contains: params.q, mode: 'insensitive' as const } } } },
+          {
+            mic_address: {
+              is: { neighborhood: { contains: params.q, mode: 'insensitive' as const } },
+            },
+          },
+        ],
+      }
+    : null;
+
+  const startTime =
+    params.start_time !== '00:00:00' ? `1970-01-01T${params.start_time}.000Z` : undefined;
+
+  // Both filters carry their own `OR`, so combine through `AND` — spreading them
+  // into one object would silently drop whichever came first.
+  const where = {
+    day: { in: days },
+    borough: { in: boroughs },
+    ...(startTime && { start_time: { gte: startTime } }),
+    AND: [freeFilter, qFilter].filter(Boolean) as object[],
+  };
+
+  // Order by relevance for a comic looking for stage time: today's mics first
+  // (time ascending), then the rest of the week. Day-distance can't be expressed
+  // in a Prisma orderBy, so sort a lightweight id list in JS and hydrate the page.
+  const keys = await prisma.mics.findMany({
+    where,
+    select: { id: true, day: true, start_time: true },
+  });
+  const today = nycDayIndex();
+  keys.sort((a, b) => {
+    const da = ((DAY_INDEX[a.day || ''] ?? 7) - today + 7) % 7;
+    const db = ((DAY_INDEX[b.day || ''] ?? 7) - today + 7) % 7;
+    if (da !== db) return da - db;
+    const ta = a.start_time ? a.start_time.getTime() : 0;
+    const tb = b.start_time ? b.start_time.getTime() : 0;
+    if (ta !== tb) return ta - tb;
+    return Number(a.id - b.id);
+  });
+  const pageIds = keys.slice(params.offset, params.offset + params.limit).map((k) => k.id);
+
+  const rows = await prisma.mics.findMany({
+    include: { mic_address: true, mic_cost: true, mic_occurrence: true },
+    where: { id: { in: pageIds } },
+  });
+  const byId = new Map(rows.map((r) => [r.id.toString(), r]));
+  const ordered = pageIds
+    .map((id) => byId.get(id.toString()))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+
+  const mics = await Promise.all(
+    ordered.map(async (m) => ({
+      ...m,
+      venue_image: await venueImageFor(m.mic_address?.venue),
+    }))
+  );
+
+  return { mics, count: keys.length };
+};
+
+const getMicsFromSnapshot = async (params: MicQueryParams) => {
   const boroughSet = new Set(params.borough.length === 0 ? ALL_BOROUGHS : params.borough);
   const daySet = new Set(params.day.length === 0 ? ALL_DAYS : params.day);
   const q = params.q ? params.q.toLowerCase() : '';

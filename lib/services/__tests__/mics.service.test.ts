@@ -1,14 +1,18 @@
-import { getMics, getMic } from '../mics.service';
+import { getMics, getMic, getBoroughCounts } from '../mics.service';
 import prisma from '../../prisma';
 import { allMics } from '../../data/micsSnapshot';
 import { MicListItem } from '../../types/mic';
 
-// getMics reads the committed snapshot (no DB); getMic still hits Prisma.
+// getMics/getBoroughCounts read the DB first and fall back to the committed
+// snapshot on any DB error; getMic does the same. The snapshot is the fallback,
+// not the primary path — tests cover both.
 jest.mock('../../prisma', () => ({
   __esModule: true,
   default: {
     mics: {
       findUnique: jest.fn(),
+      findMany: jest.fn(),
+      groupBy: jest.fn(),
     },
   },
 }));
@@ -59,9 +63,83 @@ const DEFAULT_PARAMS = {
   cost: 'false',
 };
 
-describe('getMics', () => {
+describe('getMics (DB primary)', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+  });
+
+  it('returns DB rows with coordinates when the DB is up', async () => {
+    const key = { id: BigInt(7), day: 'sunday', start_time: new Date('1970-01-01T14:00:00.000Z') };
+    const row = {
+      id: BigInt(7),
+      name: 'Live Mic',
+      day: 'sunday',
+      start_time: new Date('1970-01-01T14:00:00.000Z'),
+      mic_address: { venue: 'Live Venue', latitude: 40.7, longitude: -73.9 },
+      mic_cost: null,
+      mic_occurrence: null,
+    };
+    // keys query first, then the hydrate-by-id query.
+    (mockPrisma.mics.findMany as jest.Mock)
+      .mockResolvedValueOnce([key])
+      .mockResolvedValueOnce([row]);
+
+    const result = await getMics({ ...DEFAULT_PARAMS });
+
+    expect(result.count).toBe(1);
+    expect(result.mics[0].mic_address).toMatchObject({ latitude: 40.7, longitude: -73.9 });
+    expect(mockAllMics).not.toHaveBeenCalled();
+  });
+
+  it('falls back to the snapshot when the DB throws', async () => {
+    (mockPrisma.mics.findMany as jest.Mock).mockRejectedValue(new Error('compute suspended'));
+    mockAllMics.mockReturnValue([makeItem({ id: 1 }), makeItem({ id: 2 })]);
+
+    const result = await getMics({ ...DEFAULT_PARAMS });
+
+    expect(result.count).toBe(2);
+    expect(mockAllMics).toHaveBeenCalled();
+  });
+});
+
+describe('getBoroughCounts', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('counts from the DB when it is up', async () => {
+    (mockPrisma.mics.groupBy as jest.Mock).mockResolvedValue([
+      { borough: 'manhattan', _count: { _all: 12 } },
+      { borough: 'brooklyn', _count: { _all: 8 } },
+    ]);
+
+    const counts = await getBoroughCounts();
+
+    expect(counts.manhattan).toBe(12);
+    expect(counts.brooklyn).toBe(8);
+    expect(mockAllMics).not.toHaveBeenCalled();
+  });
+
+  it('falls back to snapshot counts when the DB throws', async () => {
+    (mockPrisma.mics.groupBy as jest.Mock).mockRejectedValue(new Error('compute suspended'));
+    mockAllMics.mockReturnValue([
+      makeItem({ id: 1, borough: 'manhattan' }),
+      makeItem({ id: 2, borough: 'manhattan' }),
+      makeItem({ id: 3, borough: 'brooklyn' }),
+    ]);
+
+    const counts = await getBoroughCounts();
+
+    expect(counts.manhattan).toBe(2);
+    expect(counts.brooklyn).toBe(1);
+  });
+});
+
+// The snapshot filtering/sorting path, exercised by forcing the DB to fail.
+describe('getMics (snapshot fallback filtering)', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+    (mockPrisma.mics.findMany as jest.Mock).mockRejectedValue(new Error('compute suspended'));
   });
 
   it('returns all mics with default params', async () => {
