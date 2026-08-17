@@ -6,7 +6,7 @@ export function BoroughDayLinks({ borough, className = '' }: { borough: string; 
   const display = getBoroughDisplayName(borough);
   return (
     <div className={className}>
-      <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2">Filter by day</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Filter by day</p>
       <nav aria-label={`${display} mics by day`} className="flex flex-wrap gap-2">
         {ALL_DAYS.map((day) => (
           <Link

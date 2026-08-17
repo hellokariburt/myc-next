@@ -85,7 +85,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
         dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }}
       />
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
-        <nav className="text-sm text-slate-500">
+        <nav className="text-sm text-slate-600">
           <Link href="/clubs" className="underline decoration-dashed hover:decoration-solid">
             {t('clubs.detail.backLink')}
           </Link>
@@ -119,7 +119,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
             </div>
             <p className="mt-2 text-lg text-slate-600">
               {club.address}
-              {club.neighborhood && <span className="text-slate-500"> · {club.neighborhood}</span>}
+              {club.neighborhood && <span className="text-slate-600"> · {club.neighborhood}</span>}
             </p>
             {club.description && (
               <p className="mt-4 text-base leading-7 text-slate-700 max-w-2xl">{club.description}</p>

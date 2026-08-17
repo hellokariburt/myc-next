@@ -143,7 +143,7 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
         </div>
 
         {serialized.length === 0 && (
-          <p className="text-center text-slate-500 py-12">
+          <p className="text-center text-slate-600 py-12">
             No mics found matching these filters. <Link href="/mics" className="text-blue-600 underline">Browse all mics</Link>.
           </p>
         )}

@@ -145,7 +145,7 @@ const About = () => (
             </div>
           </section>
 
-          <p className="pt-10 text-center text-sm text-slate-500">
+          <p className="pt-10 text-center text-sm text-slate-600">
             vibecoded with <span aria-hidden="true">❤️</span>
             <span className="sr-only">love</span> in NYC
           </p>

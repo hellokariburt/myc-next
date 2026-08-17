@@ -84,7 +84,7 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
               {club.showCount} show{club.showCount === 1 ? '' : 's'}
             </span>
           )}
-          <span className="ml-auto text-xs font-semibold text-slate-400 group-hover:text-blue-600 transition-colors">
+          <span className="ml-auto text-xs font-semibold text-slate-500 group-hover:text-blue-600 transition-colors">
             {t('clubs.card.details')}
           </span>
         </div>
