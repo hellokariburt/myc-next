@@ -95,9 +95,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const endDate = new Date(new Date(startDate).getTime() + ASSUMED_DURATION_MS).toISOString();
 
   function normalizePrice(raw: string | null | undefined): string | null {
-    if (!raw) return null;
+    // Blank/absent cost counts as free here too, matching isFreeCost so the
+    // structured data agrees with how the rest of the site presents the mic.
     if (isFreeCost(raw)) return '0';
-    const match = raw.match(/\d+(?:\.\d+)?/);
+    const match = String(raw).match(/\d+(?:\.\d+)?/);
     return match ? match[0] : null;
   }
   const priceValue = normalizePrice(mic.mic_cost?.cost_amount);
@@ -163,18 +164,17 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           }
         : {}),
     },
-    ...(priceValue !== null
-      ? {
-          offers: {
-            '@type': 'Offer',
-            price: priceValue,
-            priceCurrency: 'USD',
-            availability: 'https://schema.org/InStock',
-            url: micUrl,
-            validFrom: new Date().toISOString(),
-          },
-        }
-      : {}),
+    // Always advertise an offer so every Event listing is eligible for the
+    // price-enhanced rich result. When the cost is a non-numeric policy like
+    // "one drink minimum" there's no dollar figure to state honestly, so we
+    // emit the offer without a price rather than inventing "Free".
+    offers: {
+      '@type': 'Offer',
+      ...(priceValue !== null ? { price: priceValue, priceCurrency: 'USD' } : {}),
+      availability: 'https://schema.org/InStock',
+      url: micUrl,
+      validFrom: new Date().toISOString(),
+    },
   };
 
   return (
