@@ -18,7 +18,7 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
       <div className="flex flex-col items-center justify-start pt-16 md:pt-24 pb-20 px-4">
         <Title />
 
-        <p className="text-slate-500 text-sm md:text-base mt-6">
+        <p className="text-slate-600 text-sm md:text-base mt-6">
           <span className="font-semibold text-slate-800 tabular-nums">{micCount}</span>{' '}
           {t('home.countLineAfterCount')}
         </p>
@@ -33,7 +33,7 @@ export function HomePage({ micCount, upcoming = [] }: Props) {
         </div>
 
         <div className="w-full max-w-2xl mt-2">
-          <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 text-center mb-3">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 text-center mb-3">
             {t('home.jumpTo')}
           </p>
           <QuickFilters variant="subtle" className="justify-center" />

@@ -4,7 +4,7 @@ const BOROUGH_DOTS = ['bg-blue-500', 'bg-purple-500', 'bg-orange-500', 'bg-rose-
 
 export const Title = () => (
   <div className="container flex flex-col items-center">
-    <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+    <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-slate-600">
       <span className="flex gap-1" aria-hidden="true">
         {BOROUGH_DOTS.map((c) => (
           <span key={c} className={`inline-block h-2 w-2 rounded-full ${c}`} />

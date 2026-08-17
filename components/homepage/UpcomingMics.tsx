@@ -15,7 +15,7 @@ export default function UpcomingMics({ mics }: Props) {
       className="w-full max-w-5xl mt-20"
     >
       <div className="flex flex-col items-center text-center mb-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-600">
           Up next
         </p>
         <h2
