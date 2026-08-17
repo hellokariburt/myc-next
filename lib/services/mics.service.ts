@@ -7,6 +7,7 @@ import { nameSlug } from '../utils/nameSlug';
 import { isFreeCost } from '../utils/isFree';
 import { allMics, snapshotMicById } from '../data/micsSnapshot';
 import { MicListItem } from '../types/mic';
+import { buildMicSlug, buildMicPath, type MicUrlSource } from '../utils/micUrl';
 
 // venue -> image lookup: club directory art first, then venue's own art
 // (public/venue-art/<venue-slug>.<ext>); cached per lambda instance
@@ -261,5 +262,58 @@ const getMic = async (id: bigint) => {
     return { ...snap, venue_image: await venueImageFor(snap.mic_address?.venue) };
   }
 };
+
+// Every current mic reduced to the fields buildMicSlug needs, for legacy-URL
+// recovery. Cheap (~a few hundred rows, no relations beyond venue/neighborhood)
+// and only hit on a 404, so no caching layer is warranted.
+const listMicUrlSources = async (): Promise<MicUrlSource[]> => {
+  try {
+    return await prisma.mics.findMany({
+      select: {
+        id: true,
+        name: true,
+        borough: true,
+        day: true,
+        mic_address: { select: { venue: true, neighborhood: true } },
+      },
+    });
+  } catch {
+    // DB unavailable (e.g. Neon compute-quota lockout) — recover from the snapshot.
+    return allMics().filter((m) => m.id);
+  }
+};
+
+/**
+ * Legacy-URL recovery for /mics/[id]. The mic table was reseeded and IDs shifted
+ * into a new range, so URLs Google indexed under the old IDs now 404 even though
+ * the same mic still exists under a new ID. The path slug
+ * (`{id}-{name-venue-neighborhood-borough-day}`) is regenerable from any current
+ * mic, so we strip the dead ID and match the slug against live mics.
+ *
+ * Returns the canonical path to 301 to, or null if nothing confidently matches
+ * (caller should then notFound()).
+ *
+ * Exact-slug match only for now — it fires solely when a current mic produces the
+ * identical slug, which means it IS the same mic under a new ID. A fuzzy
+ * token-overlap fallback for slugs that drifted (renamed venue, tweaked title) is
+ * intentionally deferred until the GSC "Not found (404)" export confirms how many
+ * URLs need it and what they look like. See scripts/analyze-404s (TODO).
+ */
+export async function resolveLegacyMicPath(segment: string): Promise<string | null> {
+  const slug = segment.replace(/^\d+-?/, '');
+  if (!slug) return null; // bare old id with no slug — unrecoverable
+
+  const candidates = await listMicUrlSources();
+  const exact = candidates.find((m) => buildMicSlug(m) === slug);
+  if (exact) {
+    const path = buildMicPath(exact);
+    // Guard against redirecting a URL to itself (would loop): only a genuinely
+    // different id should ever reach here, but belt-and-suspenders.
+    return path === `/mics/${segment}` ? null : path;
+  }
+
+  // TODO(B, gated on GSC export): fuzzy token-overlap match for drifted slugs.
+  return null;
+}
 
 export { getMics, getMic, venueImageFor, getBoroughCounts, nycDayName };

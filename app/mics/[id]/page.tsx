@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import { notFound, permanentRedirect } from 'next/navigation';
-import { getMic } from '@/lib/services/mics.service';
+import { getMic, resolveLegacyMicPath } from '@/lib/services/mics.service';
 import { serialize } from '@/lib/utils/serialize';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
@@ -77,6 +77,11 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   const raw = await getMic(id);
 
   if (!raw) {
+    // The mic table was reseeded and IDs shifted, so URLs Google indexed under
+    // old IDs 404 even when the mic still exists. Try to recover the live URL
+    // from the slug and 301 to it before giving up. (B — legacy-URL recovery.)
+    const recovered = await resolveLegacyMicPath(rawId);
+    if (recovered) permanentRedirect(recovered);
     notFound();
   }
 
