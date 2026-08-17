@@ -5,6 +5,7 @@ import { serialize } from '@/lib/utils/serialize';
 import { parseParams } from '@/lib/api/parseParams';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicListingPage2 } from '../../components/miclistingpage/MicListingPage';
+import AdSenseScript from '../../components/ads/AdSenseScript';
 
 export const metadata: Metadata = {
   title: 'Browse NYC Open Mics | OpenMYC',
@@ -65,12 +66,15 @@ export default async function Page({
   ]);
 
   return (
-    <Suspense>
-      <MicListingPage2
-        serverData={serverData}
-        boroughCounts={boroughCounts}
-        today={nycDayName()}
-      />
-    </Suspense>
+    <>
+      <AdSenseScript />
+      <Suspense>
+        <MicListingPage2
+          serverData={serverData}
+          boroughCounts={boroughCounts}
+          today={nycDayName()}
+        />
+      </Suspense>
+    </>
   );
 }

@@ -52,11 +52,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <head>
           <link rel="apple-touch-icon" href="/icon.png" />
           <link rel="shortcut icon" href="/icon.png" />
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${process.env.NEXT_PUBLIC_GOOGLE_ADSENSE}`}
-            crossOrigin="anonymous"
-          />
+          {/* AdSense loader is NOT global on purpose — it runs Auto Ads on every
+              page and was shifting the homepage. It loads per-route via
+              <AdSenseScript/> only where ads are placed (see components/ads). */}
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
