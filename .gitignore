@@ -138,3 +138,5 @@ dist
 # Claude Code local assistant data
 .claude/
 
+.vercel
+.env*.local
