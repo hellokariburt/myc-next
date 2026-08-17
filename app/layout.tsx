@@ -5,12 +5,16 @@ import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
-const inter = Inter({ subsets: ['latin'] });
+// display: 'optional' — use the metric-matched fallback and don't swap the
+// real font in late. Kills the whole-page CLS from font swap on slow networks
+// (the hero <h1> in Anton was the main culprit) at the cost of possibly showing
+// the fallback on a cold, slow first paint. Repeat visits are cached and swap-free.
+const inter = Inter({ subsets: ['latin'], display: 'optional' });
 const anton = Anton({
   weight: '400',
   subsets: ['latin'],
   variable: '--font-display',
-  display: 'swap',
+  display: 'optional',
 });
 
 export const viewport: Viewport = {
