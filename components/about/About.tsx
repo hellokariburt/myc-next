@@ -77,30 +77,69 @@ const About = () => (
             </h2>
             <div className="mt-4 space-y-4 text-slate-700 leading-8">
               <p>
-                Mic data is sourced from{' '}
-                <Link
-                  href="https://www.comediq.us"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:text-blue-800"
-                >
-                  Comediq
-                </Link>
-                , maintained by{' '}
-                <Link
-                  href="https://instagram.com/malevcomedy"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-700 hover:text-blue-800"
-                >
-                  Adam Malev
-                </Link>
-                . OpenMYC reorganizes that information into a format that is easier to search and
-                use on the fly.
+                Mic data is pulled together from a few trusted community sources and reorganized
+                into a format that is easier to search and use on the fly:
               </p>
+              <ul className="ml-5 list-disc space-y-2">
+                <li>
+                  <Link
+                    href="https://www.comediq.us"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Comediq
+                  </Link>
+                  , maintained by{' '}
+                  <Link
+                    href="https://instagram.com/malevcomedy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Adam Malev
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.laughingbuddhacomedy.com/mics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Laughing Buddha Comedy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://www.comediansontheloose.com/open-mics"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Comedians on the Loose
+                  </Link>
+                </li>
+                <li>
+                  Host and venue{' '}
+                  <Link
+                    href="https://www.instagram.com/explore/tags/nycopenmic/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Instagram
+                  </Link>{' '}
+                  accounts, checked regularly to catch schedule and signup changes
+                </li>
+                <li>
+                  Community submissions from comics who know the rooms firsthand
+                </li>
+              </ul>
               <p>
-                Because open mics change constantly, the site also accepts community submissions.
-                If you know a room that is missing or outdated, use the{' '}
+                Because open mics change constantly, listings are cross-checked against host
+                Instagram posts and community submissions to stay current. If you know a room that
+                is missing or outdated, use the{' '}
                 <Link href="/submit" className="text-blue-700 hover:text-blue-800">
                   submit page
                 </Link>{' '}
