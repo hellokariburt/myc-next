@@ -121,6 +121,16 @@ const About = () => (
                   </Link>
                 </li>
                 <li>
+                  <Link
+                    href="https://badslava.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-700 hover:text-blue-800"
+                  >
+                    Badslava
+                  </Link>
+                </li>
+                <li>
                   Host and venue{' '}
                   <Link
                     href="https://www.instagram.com/explore/tags/nycopenmic/"
