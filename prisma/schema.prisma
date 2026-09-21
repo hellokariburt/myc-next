@@ -148,3 +148,13 @@ model mic_submissions {
   status          String   @default("pending") @db.VarChar(50)
   created_at      DateTime @default(now())
 }
+
+model mic_reports {
+  id         BigInt   @id @default(autoincrement())
+  mic_id     BigInt?
+  mic_name   String?  @db.VarChar(255)
+  reason     String   @db.VarChar(50)
+  details    String?  @db.VarChar(1000)
+  status     String   @default("new") @db.VarChar(50)
+  created_at DateTime @default(now())
+}

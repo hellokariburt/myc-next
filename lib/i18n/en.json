@@ -194,5 +194,24 @@
       "browseMics": "Browse Mics",
       "submitAnother": "Submit Another"
     }
+  },
+  "report": {
+    "trigger": "Report an issue",
+    "title": "Report an issue",
+    "subtitle": "Tell us what's wrong with this mic and we'll take a look.",
+    "reasons": {
+      "incorrect_pricing": "Incorrect pricing",
+      "no_longer_exists": "No longer exists",
+      "wrong_host": "Wrong host",
+      "something_else": "Something else"
+    },
+    "detailsLabel": "Details",
+    "detailsPlaceholder": "Add anything that would help us fix it (optional)",
+    "detailsPlaceholderRequired": "Tell us what's wrong",
+    "submit": "Send report",
+    "submitting": "Sending…",
+    "cancel": "Cancel",
+    "success": "Thanks — we'll take a look.",
+    "error": "Couldn't send that. Please try again."
   }
 }

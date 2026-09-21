@@ -10,6 +10,7 @@ import {
 import { isFreeCost } from '@/lib/utils/isFree';
 import { buildMicPath } from '@/lib/utils/micUrl';
 import ShowThumbnail from '../shows/ShowThumbnail';
+import ReportButton from './ReportButton';
 
 interface Props {
   mic: MicListItem;
@@ -67,7 +68,7 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
           {costCaption && (
             <p className="text-xs text-slate-500 pt-0.5 line-clamp-1">{costCaption}</p>
           )}
-          <div className="flex flex-wrap items-center gap-2 pt-2">
+          <div className="flex flex-wrap items-center gap-2 pt-2 pr-9">
             {!hideBoroughBadge && mic.borough && (
               <span
                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(
@@ -91,19 +92,37 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
       </div>
   );
 
+  // The report control is a sibling of the card, never a child of the <Link>
+  // (a button nested in an anchor is invalid HTML), so it lives in a relative
+  // wrapper and is pinned to the bottom-right corner.
+  const reportButton = (
+    <ReportButton
+      micId={mic.id}
+      micName={mic.name}
+      className="absolute bottom-2 right-2"
+    />
+  );
+
   if (!mic.id) {
-    return <div className={`${baseClass} ${className}`}>{body}</div>;
+    return (
+      <div className={`relative ${className}`}>
+        <div className={baseClass}>{body}</div>
+      </div>
+    );
   }
 
   return (
-    <Link
-      href={buildMicPath(mic)}
-      aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(
-        mic.start_time || ''
-      )}, ${mic.mic_cost?.cost_amount || 'Free'}`}
-      className={`${baseClass} group hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${className}`}
-    >
-      {body}
-    </Link>
+    <div className={`relative ${className}`}>
+      <Link
+        href={buildMicPath(mic)}
+        aria-label={`${mic.name || 'Mic'} — ${capitalizeDay(mic.day || '')} at ${changeTime(
+          mic.start_time || ''
+        )}, ${mic.mic_cost?.cost_amount || 'Free'}`}
+        className={`${baseClass} group hover:shadow-md hover:-translate-y-0.5 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+      >
+        {body}
+      </Link>
+      {reportButton}
+    </div>
   );
 }
