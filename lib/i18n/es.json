@@ -1,20 +1,20 @@
 {
   "nav": {
-    "browseMics": "Browse Mics",
-    "clubs": "Clubs",
-    "about": "About",
-    "submit": "Submit a Mic"
+    "browseMics": "Explorar micrófonos",
+    "clubs": "Clubes",
+    "about": "Acerca de",
+    "submit": "Enviar un micrófono"
   },
   "footer": {
     "browse": {
-      "heading": "Browse",
-      "allMics": "All Mics",
-      "tonight": "Tonight",
-      "freeMics": "Free Mics",
-      "comedyClubs": "Comedy Clubs"
+      "heading": "Explorar",
+      "allMics": "Todos los micrófonos",
+      "tonight": "Esta noche",
+      "freeMics": "Micrófonos gratis",
+      "comedyClubs": "Clubes de comedia"
     },
     "boroughs": {
-      "heading": "Boroughs",
+      "heading": "Distritos",
       "manhattan": "Manhattan",
       "brooklyn": "Brooklyn",
       "queens": "Queens",
@@ -23,195 +23,195 @@
     },
     "site": {
       "heading": "OpenMYC",
-      "about": "About",
-      "submit": "Submit a Mic",
-      "contact": "Contact"
+      "about": "Acerca de",
+      "submit": "Enviar un micrófono",
+      "contact": "Contacto"
     },
     "legal": {
       "heading": "Legal",
-      "privacy": "Privacy",
-      "terms": "Terms"
+      "privacy": "Privacidad",
+      "terms": "Términos"
     }
   },
   "home": {
-    "eyebrow": "Every night · Five boroughs",
+    "eyebrow": "Cada noche · Cinco distritos",
     "headlinePlain": "NYC",
-    "headlineGradient": "open mics,",
-    "headlineRest": "found tonight.",
-    "subhead": "Every comedy open mic in the city — verified, mapped, and ready for your name on the list.",
-    "searchTab": "Find a mic",
-    "jumpTo": "Or jump straight to",
-    "countLineAfterCount": "mics on the board right now — every one checked against the scene"
+    "headlineGradient": "micrófonos abiertos,",
+    "headlineRest": "esta noche.",
+    "subhead": "Cada micrófono abierto de comedia en la ciudad: verificado, ubicado en el mapa y listo para tu nombre en la lista.",
+    "searchTab": "Buscar un micrófono",
+    "jumpTo": "O ve directo a",
+    "countLineAfterCount": "micrófonos en la lista ahora mismo, cada uno verificado en la escena"
   },
   "search": {
-    "button": "Search for mics",
-    "buttonAria": "Search for mics"
+    "button": "Buscar micrófonos",
+    "buttonAria": "Buscar micrófonos"
   },
   "mics": {
     "results": {
-      "free": "Free",
+      "free": "Gratis",
       "allNyc": "NYC",
-      "onDay": " on {day}",
-      "afterTime": " after {time}",
-      "pageOf": "Page {page} of {total}"
+      "onDay": " el {day}",
+      "afterTime": " después de las {time}",
+      "pageOf": "Página {page} de {total}"
     },
     "noResults": {
-      "bummer": "Bummer!",
-      "noMics": "No mics.",
-      "tryBroadening": "Try broadening your search or head back",
-      "homeLink": "home"
+      "bummer": "¡Qué lástima!",
+      "noMics": "No hay micrófonos.",
+      "tryBroadening": "Intenta ampliar tu búsqueda o vuelve al",
+      "homeLink": "inicio"
     },
     "pagination": {
-      "ariaNav": "Pagination",
-      "prev": "Prev",
-      "next": "Next",
-      "prevAria": "Previous page",
-      "nextAria": "Next page",
-      "pageAria": "Page {page}"
+      "ariaNav": "Paginación",
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "prevAria": "Página anterior",
+      "nextAria": "Página siguiente",
+      "pageAria": "Página {page}"
     },
     "selects": {
-      "allBoroughs": "All boroughs",
-      "anyDay": "Any day",
-      "anyTime": "Any time",
-      "startTimeAria": "Start time",
-      "freeAria": "Free mics only",
-      "freeLabel": "Free"
+      "allBoroughs": "Todos los distritos",
+      "anyDay": "Cualquier día",
+      "anyTime": "Cualquier hora",
+      "startTimeAria": "Hora de inicio",
+      "freeAria": "Solo micrófonos gratis",
+      "freeLabel": "Gratis"
     },
     "detail": {
-      "when": "When",
-      "signup": "Signup",
-      "email": "Email",
+      "when": "Cuándo",
+      "signup": "Inscripción",
+      "email": "Correo",
       "instagram": "Instagram",
-      "website": "Website",
-      "getDirections": "Get Directions",
-      "houseRules": "House rules"
+      "website": "Sitio web",
+      "getDirections": "Cómo llegar",
+      "houseRules": "Reglas de la casa"
     },
     "browser": {
-      "searchPlaceholder": "Search mics, venues, neighborhoods…",
-      "searchAria": "Search mics by name, venue, or neighborhood",
-      "boroughGroupAria": "Filter by borough",
-      "dayGroupAria": "Filter by day",
-      "today": "Today",
-      "intentGroupAria": "Quick filters",
-      "tonight": "Tonight",
-      "free": "Free",
-      "countOne": "{count} mic",
-      "countMany": "{count} mics",
-      "clearFilters": "clear filters"
+      "searchPlaceholder": "Busca micrófonos, locales, barrios…",
+      "searchAria": "Buscar micrófonos por nombre, local o barrio",
+      "boroughGroupAria": "Filtrar por distrito",
+      "dayGroupAria": "Filtrar por día",
+      "today": "Hoy",
+      "intentGroupAria": "Filtros rápidos",
+      "tonight": "Esta noche",
+      "free": "Gratis",
+      "countOne": "{count} micrófono",
+      "countMany": "{count} micrófonos",
+      "clearFilters": "borrar filtros"
     }
   },
   "clubs": {
     "page": {
-      "eyebrow": "The rooms",
-      "heading": "NYC comedy clubs"
+      "eyebrow": "Las salas",
+      "heading": "Clubes de comedia de NYC"
     },
     "filters": {
-      "searchPlaceholder": "Search clubs, neighborhoods…",
-      "searchAria": "Search clubs by name, address, or neighborhood",
-      "boroughGroupAria": "Filter by borough",
+      "searchPlaceholder": "Busca clubes, barrios…",
+      "searchAria": "Buscar clubes por nombre, dirección o barrio",
+      "boroughGroupAria": "Filtrar por distrito",
       "countOne": "{count} club",
-      "countMany": "{count} clubs",
-      "clearFilters": "clear filters",
-      "empty": "No clubs match — try clearing a filter."
+      "countMany": "{count} clubes",
+      "clearFilters": "borrar filtros",
+      "empty": "Ningún club coincide: prueba a quitar un filtro."
     },
     "card": {
-      "micCountOne": "{count} open mic",
-      "micCountMany": "{count} open mics",
-      "details": "Details →"
+      "micCountOne": "{count} micrófono abierto",
+      "micCountMany": "{count} micrófonos abiertos",
+      "details": "Detalles →"
     },
     "detail": {
-      "backLink": "← All comedy clubs",
-      "website": "Website",
-      "directions": "Directions",
-      "tabsAria": "Stage time at this club",
-      "tabMics": "Open mics ({count})",
+      "backLink": "← Todos los clubes de comedia",
+      "website": "Sitio web",
+      "directions": "Cómo llegar",
+      "tabsAria": "Tiempo en el escenario en este club",
+      "tabMics": "Micrófonos abiertos ({count})",
       "tabShows": "Shows ({count})",
-      "emptyStage": "No open mics or indie shows listed at this club yet — check the club's site for its full calendar."
+      "emptyStage": "Todavía no hay micrófonos abiertos ni shows independientes en este club; consulta el sitio del club para ver su calendario completo."
     }
   },
   "submit": {
-    "eyebrow": "Add to the board",
-    "titleMic": "Submit a Mic",
-    "titleShow": "Submit a Show",
-    "introMic": "Know of an open mic that's not on the list? Let us know and we'll get it added.",
-    "introShow": "Run or know a show that's not on the list? Let us know and we'll get it added.",
+    "eyebrow": "Agregar a la lista",
+    "titleMic": "Enviar un micrófono",
+    "titleShow": "Enviar un show",
+    "introMic": "¿Conoces un micrófono abierto que no está en la lista? Avísanos y lo agregamos.",
+    "introShow": "¿Organizas o conoces un show que no está en la lista? Avísanos y lo agregamos.",
     "sections": {
-      "micInfo": "Mic Info",
-      "showInfo": "Show Info",
-      "venue": "Venue",
-      "hostSocial": "Host & Social",
-      "extra": "Anything Else"
+      "micInfo": "Información del micrófono",
+      "showInfo": "Información del show",
+      "venue": "Local",
+      "hostSocial": "Anfitrión y redes",
+      "extra": "Algo más"
     },
     "fields": {
-      "micName": "Mic Name *",
-      "showName": "Show Name *",
-      "namePlaceholder": "e.g. Tuesday Night Comedy",
-      "borough": "Borough *",
-      "boroughPlaceholder": "Select borough",
-      "day": "Day *",
-      "dayPlaceholder": "Select day",
-      "startTime": "Start Time *",
-      "endTime": "End Time",
-      "cost": "Cost *",
-      "costShow": "Cost / Tickets",
-      "costPlaceholder": "e.g. Free, $5, 2 drink minimum",
-      "costShowPlaceholder": "e.g. Free, $10 tickets, 2 drink minimum",
-      "venueType": "Venue Type",
-      "venueTypePlaceholder": "e.g. Bar, Comedy Club, Cafe",
-      "stageTime": "Stage Time",
-      "stageTimePlaceholder": "e.g. 5 minutes",
-      "signupInfo": "Signup Info",
-      "signupInfoPlaceholder": "e.g. Sign up at the door, Bucket pull",
-      "schedule": "Schedule",
-      "schedulePlaceholder": "e.g. Weekly, Every other week, First Tuesday of month",
-      "venueName": "Venue Name *",
-      "venueNamePlaceholder": "e.g. The Stand",
-      "streetAddress": "Street Address *",
-      "streetAddressOptional": "Street Address",
-      "streetAddressPlaceholder": "e.g. 239 3rd Ave",
-      "neighborhood": "Neighborhood",
-      "neighborhoodPlaceholder": "e.g. East Village, Williamsburg",
-      "hostName": "Host Name",
-      "hostInstagram": "Host Instagram",
-      "instagramMic": "Mic Instagram",
-      "instagramShow": "Show Instagram",
-      "website": "Website",
+      "micName": "Nombre del micrófono *",
+      "showName": "Nombre del show *",
+      "namePlaceholder": "ej. Comedia del martes por la noche",
+      "borough": "Distrito *",
+      "boroughPlaceholder": "Selecciona un distrito",
+      "day": "Día *",
+      "dayPlaceholder": "Selecciona un día",
+      "startTime": "Hora de inicio *",
+      "endTime": "Hora de fin",
+      "cost": "Costo *",
+      "costShow": "Costo / Entradas",
+      "costPlaceholder": "ej. Gratis, $5, mínimo 2 bebidas",
+      "costShowPlaceholder": "ej. Gratis, entradas $10, mínimo 2 bebidas",
+      "venueType": "Tipo de local",
+      "venueTypePlaceholder": "ej. Bar, Club de comedia, Café",
+      "stageTime": "Tiempo en el escenario",
+      "stageTimePlaceholder": "ej. 5 minutos",
+      "signupInfo": "Información de inscripción",
+      "signupInfoPlaceholder": "ej. Inscripción en la puerta, sorteo por cubo",
+      "schedule": "Frecuencia",
+      "schedulePlaceholder": "ej. Semanal, Cada dos semanas, Primer martes del mes",
+      "venueName": "Nombre del local *",
+      "venueNamePlaceholder": "ej. The Stand",
+      "streetAddress": "Dirección *",
+      "streetAddressOptional": "Dirección",
+      "streetAddressPlaceholder": "ej. 239 3rd Ave",
+      "neighborhood": "Barrio",
+      "neighborhoodPlaceholder": "ej. East Village, Williamsburg",
+      "hostName": "Nombre del anfitrión",
+      "hostInstagram": "Instagram del anfitrión",
+      "instagramMic": "Instagram del micrófono",
+      "instagramShow": "Instagram del show",
+      "website": "Sitio web",
       "websitePlaceholder": "https://",
-      "notes": "Notes",
-      "notesPlaceholder": "Anything else we should know about this mic?",
-      "email": "Your Email (optional)",
-      "emailPlaceholder": "In case we have questions"
+      "notes": "Notas",
+      "notesPlaceholder": "¿Algo más que debamos saber sobre este micrófono?",
+      "email": "Tu correo (opcional)",
+      "emailPlaceholder": "Por si tenemos preguntas"
     },
     "buttons": {
-      "submitMic": "Submit Mic",
-      "submitShow": "Submit Show",
-      "submitting": "Submitting..."
+      "submitMic": "Enviar micrófono",
+      "submitShow": "Enviar show",
+      "submitting": "Enviando..."
     },
     "messages": {
-      "error": "Something went wrong. Please try again.",
-      "thanksTitle": "Thanks!",
-      "thanksBody": "Your submission has been received. We'll review it and get it added to the list — this usually takes a few days.",
-      "browseMics": "Browse Mics",
-      "submitAnother": "Submit Another"
+      "error": "Algo salió mal. Inténtalo de nuevo.",
+      "thanksTitle": "¡Gracias!",
+      "thanksBody": "Recibimos tu envío. Lo revisaremos y lo agregaremos a la lista; esto suele tardar unos días.",
+      "browseMics": "Explorar micrófonos",
+      "submitAnother": "Enviar otro"
     }
   },
   "report": {
-    "trigger": "Report an issue",
-    "title": "Report an issue",
-    "subtitle": "Tell us what's wrong with this mic and we'll take a look.",
+    "trigger": "Reportar un problema",
+    "title": "Reportar un problema",
+    "subtitle": "Cuéntanos qué está mal con este micrófono y lo revisaremos.",
     "reasons": {
-      "incorrect_pricing": "Incorrect pricing",
-      "no_longer_exists": "No longer exists",
-      "wrong_host": "Wrong host",
-      "something_else": "Something else"
+      "incorrect_pricing": "Precio incorrecto",
+      "no_longer_exists": "Ya no existe",
+      "wrong_host": "Anfitrión incorrecto",
+      "something_else": "Otra cosa"
     },
-    "detailsLabel": "Details",
-    "detailsPlaceholder": "Add anything that would help us fix it (optional)",
-    "detailsPlaceholderRequired": "Tell us what's wrong",
-    "submit": "Send report",
-    "submitting": "Sending…",
-    "cancel": "Cancel",
-    "success": "Thanks — we'll take a look.",
-    "error": "Couldn't send that. Please try again."
+    "detailsLabel": "Detalles",
+    "detailsPlaceholder": "Agrega cualquier cosa que nos ayude a corregirlo (opcional)",
+    "detailsPlaceholderRequired": "Cuéntanos qué está mal",
+    "submit": "Enviar reporte",
+    "submitting": "Enviando…",
+    "cancel": "Cancelar",
+    "success": "Gracias, lo revisaremos.",
+    "error": "No se pudo enviar. Inténtalo de nuevo."
   }
 }
