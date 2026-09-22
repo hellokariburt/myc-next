@@ -75,9 +75,14 @@ export default function ReportButton({ micId, micName, className = '' }: Props) 
     }
   };
 
+  // `className` places the control (e.g. "absolute bottom-2 right-2" on a card).
+  // Keep it on the outer wrapper and anchor the popover to a separate `relative`
+  // div — putting both `relative` and an incoming `absolute` on one element loses
+  // to `relative` in Tailwind's cascade, so the control would never pin to the card.
   return (
-    <div ref={rootRef} className={`relative ${className}`}>
-      <button
+    <div className={className}>
+      <div ref={rootRef} className="relative">
+        <button
         type="button"
         onClick={() => (open ? close() : setOpen(true))}
         aria-label={t('report.trigger')}
@@ -179,6 +184,7 @@ export default function ReportButton({ micId, micName, className = '' }: Props) 
           )}
         </div>
       )}
+      </div>
     </div>
   );
 }
