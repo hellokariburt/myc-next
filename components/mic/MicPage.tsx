@@ -20,6 +20,7 @@ import extractHandles from '@/lib/utils/extractHandles';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { linkifyText } from '@/lib/utils/linkifyText';
 import MicHosts from './MicHosts';
+import ReportButton from './ReportButton';
 import { t } from '@/lib/i18n';
 
 const labelClass =
@@ -205,6 +206,13 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>
         )}
         </div>
+      </div>
+
+      {/* Report control lives outside the card: the card is `overflow-hidden`,
+          which would clip the popover. */}
+      <div className="mt-4 flex items-center justify-end gap-2 text-sm text-slate-500">
+        <span>{t('report.detailPrompt')}</span>
+        <ReportButton micId={mic.id} micName={mic.name} />
       </div>
     </div>
   );

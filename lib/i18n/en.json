@@ -197,6 +197,7 @@
   },
   "report": {
     "trigger": "Report an issue",
+    "detailPrompt": "See something wrong?",
     "title": "Report an issue",
     "subtitle": "Tell us what's wrong with this mic and we'll take a look.",
     "reasons": {

@@ -197,6 +197,7 @@
   },
   "report": {
     "trigger": "Reportar un problema",
+    "detailPrompt": "¿Ves algo incorrecto?",
     "title": "Reportar un problema",
     "subtitle": "Cuéntanos qué está mal con este micrófono y lo revisaremos.",
     "reasons": {
