@@ -47,6 +47,18 @@ describe('parseParams', () => {
     expect(result.day).toEqual(['monday', 'friday']);
   });
 
+  it('rejects an unknown borough', () => {
+    const result = parseParams(params({ borough: 'brooklyn,atlantis' }));
+    expect(typeof result).toBe('string');
+    expect(result).toContain('atlantis');
+  });
+
+  it('rejects an unknown day', () => {
+    const result = parseParams(params({ day: 'funday' }));
+    expect(typeof result).toBe('string');
+    expect(result).toContain('funday');
+  });
+
   it('parses offset and limit', () => {
     const result = parseParams(params({ offset: '20', limit: '5' })) as MicQueryParams;
     expect(result.offset).toBe(20);

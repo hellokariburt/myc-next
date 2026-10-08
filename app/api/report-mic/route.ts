@@ -67,12 +67,14 @@ export async function POST(request: NextRequest) {
 
     // Cheap flood suppression: the same reason for the same mic within the last
     // hour is treated as already received, so a replay loop stops adding rows
-    // while a double-clicking human sees no error.
+    // while a double-clicking human sees no error. For id-less snapshot cards
+    // (mic_id null) we key on mic_name instead, so reports for two different
+    // such mics don't collide into one.
     const duplicate = await prisma.mic_reports.findFirst({
       where: {
-        mic_id: micId,
         reason,
         created_at: { gte: new Date(Date.now() - 60 * 60 * 1000) },
+        ...(micId !== null ? { mic_id: micId } : { mic_id: null, mic_name: micName }),
       },
       select: { id: true },
     });
