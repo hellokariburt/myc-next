@@ -15,7 +15,8 @@ const NoMicFound = () => (
         href="/"
       >
         {t('mics.noResults.homeLink')}
-      </a>.
+      </a>
+      .
     </p>
   </div>
 );

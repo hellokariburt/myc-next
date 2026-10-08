@@ -10,14 +10,9 @@ export default function UpcomingMics({ mics }: Props) {
   if (mics.length === 0) return null;
 
   return (
-    <section
-      aria-labelledby="upcoming-mics-heading"
-      className="w-full max-w-5xl mt-20"
-    >
+    <section aria-labelledby="upcoming-mics-heading" className="w-full max-w-5xl mt-20">
       <div className="flex flex-col items-center text-center mb-6">
-        <p className="text-xs font-semibold uppercase tracking-wider text-slate-600">
-          Up next
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-wider text-slate-600">Up next</p>
         <h2
           id="upcoming-mics-heading"
           className="font-bold text-xl md:text-2xl text-slate-900 mt-1"

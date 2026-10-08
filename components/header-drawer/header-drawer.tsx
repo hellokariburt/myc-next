@@ -29,11 +29,7 @@ export function HeaderDrawer({ opened, close }: HeaderDrawerProps) {
   return (
     <>
       {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/30 z-40"
-        onClick={close}
-        role="presentation"
-      />
+      <div className="fixed inset-0 bg-black/30 z-40" onClick={close} role="presentation" />
       {/* Drawer */}
       <nav
         role="dialog"

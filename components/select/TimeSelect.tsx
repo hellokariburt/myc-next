@@ -18,7 +18,10 @@ const TimeSelect = ({ value, setValue }: TimeSelectProps) => {
   const times = generateTimeOptions();
   return (
     <div className="relative flex-1 min-w-0">
-      <IconClock size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+      <IconClock
+        size={16}
+        className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+      />
       <select
         value={value || ''}
         onChange={(e) => setValue(e.target.value || '')}
@@ -29,10 +32,17 @@ const TimeSelect = ({ value, setValue }: TimeSelectProps) => {
       >
         <option value="">{t('mics.selects.anyTime')}</option>
         {times.map((t) => (
-          <option key={t.value} value={t.value}>{t.label}</option>
+          <option key={t.value} value={t.value}>
+            {t.label}
+          </option>
         ))}
       </select>
-      <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
     </div>

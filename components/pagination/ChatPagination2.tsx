@@ -32,7 +32,10 @@ const ChatPagination2 = () => {
   }
 
   return (
-    <nav className="flex items-center gap-1 justify-center pb-16" aria-label={t('mics.pagination.ariaNav')}>
+    <nav
+      className="flex items-center gap-1 justify-center pb-16"
+      aria-label={t('mics.pagination.ariaNav')}
+    >
       <button
         type="button"
         disabled={currentPage <= 1}
@@ -44,7 +47,9 @@ const ChatPagination2 = () => {
       </button>
       {pages.map((page, idx) =>
         page === '...' ? (
-          <span key={`dots-${idx}`} className="px-1 text-slate-400" aria-hidden="true">...</span>
+          <span key={`dots-${idx}`} className="px-1 text-slate-400" aria-hidden="true">
+            ...
+          </span>
         ) : (
           <button
             type="button"

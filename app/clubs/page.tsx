@@ -33,8 +33,11 @@ export default async function ClubsPage() {
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-700">
             The city&apos;s dedicated stand-up rooms — verified open, borough by borough. Many run
-            open mics too: check <a href="/mics" className="underline">the mic list</a> for stage
-            time at these clubs.
+            open mics too: check{' '}
+            <a href="/mics" className="underline">
+              the mic list
+            </a>{' '}
+            for stage time at these clubs.
           </p>
         </div>
 

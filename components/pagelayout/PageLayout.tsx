@@ -2,11 +2,7 @@ import React from 'react';
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
 
-function PageLayout({
-  children,
-  className,
-  hasBackButton,
-}: PageLayoutProps) {
+function PageLayout({ children, className, hasBackButton }: PageLayoutProps) {
   // Nav bar = 56px (h-14); back button bar ~48px. The filter bar this also
   // used to account for is gone. These values are inherited, not re-measured —
   // if header spacing ever looks off, measure it rather than trusting them.

@@ -55,7 +55,10 @@ export function getBoroughBorderColor(borough: string): string {
 }
 
 export function getBoroughBadgeClasses(borough: string): string {
-  return boroughBadgeClasses[borough.toLowerCase()] || 'bg-slate-100 text-slate-700 ring-1 ring-slate-200';
+  return (
+    boroughBadgeClasses[borough.toLowerCase()] ||
+    'bg-slate-100 text-slate-700 ring-1 ring-slate-200'
+  );
 }
 
 export function getBoroughDisplayShort(borough: string): string {

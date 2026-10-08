@@ -9,6 +9,7 @@ describe('parseParams', () => {
   it('returns defaults when no params provided', () => {
     const result = parseParams(params({})) as MicQueryParams;
     expect(result).toEqual({
+      q: '',
       day: [],
       borough: [],
       limit: 10,
@@ -20,15 +21,19 @@ describe('parseParams', () => {
 
   it('expands borough=all to all boroughs', () => {
     const result = parseParams(params({ borough: 'all' })) as MicQueryParams;
-    expect(result.borough).toEqual([
-      'manhattan', 'queens', 'staten-island', 'bronx', 'brooklyn',
-    ]);
+    expect(result.borough).toEqual(['manhattan', 'queens', 'staten-island', 'bronx', 'brooklyn']);
   });
 
   it('expands day=all to all days', () => {
     const result = parseParams(params({ day: 'all' })) as MicQueryParams;
     expect(result.day).toEqual([
-      'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
     ]);
   });
 

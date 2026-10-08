@@ -57,9 +57,10 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
     }
   };
 
-  const display = value.length > 0
-    ? value.map((v) => boroughs.find((b) => b.value === v)?.label).join(', ')
-    : t('mics.selects.allBoroughs');
+  const display =
+    value.length > 0
+      ? value.map((v) => boroughs.find((b) => b.value === v)?.label).join(', ')
+      : t('mics.selects.allBoroughs');
 
   return (
     <div className="relative flex-1 min-w-0" ref={ref}>
@@ -79,11 +80,20 @@ const BoroughSelect = ({ value, setValue }: BoroughSelectProps) => {
           {display}
         </span>
       </button>
-      <svg className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg
+        className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
       </svg>
       {open && (
-        <div className="absolute mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg z-50 py-1" role="group" aria-label="Borough options">
+        <div
+          className="absolute mt-1 w-full bg-white border border-slate-200 rounded-lg shadow-lg z-50 py-1"
+          role="group"
+          aria-label="Borough options"
+        >
           {boroughs.map((b) => (
             <label
               key={b.value}

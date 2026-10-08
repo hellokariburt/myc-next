@@ -42,15 +42,17 @@ export async function POST(request: NextRequest) {
 
     // "Something else" is only actionable with a written-in explanation.
     if (reason === REPORT_REASON_OTHER && !details) {
-      return NextResponse.json(
-        { error: 'Please describe what is wrong' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Please describe what is wrong' }, { status: 400 });
     }
 
     // mic_id is optional — a handful of snapshot cards have no detail id (0).
     let micId: bigint | null = null;
-    if (body.mic_id !== undefined && body.mic_id !== null && body.mic_id !== '' && body.mic_id !== 0) {
+    if (
+      body.mic_id !== undefined &&
+      body.mic_id !== null &&
+      body.mic_id !== '' &&
+      body.mic_id !== 0
+    ) {
       const n = Number(body.mic_id);
       if (!Number.isInteger(n) || n < 0) {
         return NextResponse.json({ error: 'mic_id must be a positive integer' }, { status: 400 });

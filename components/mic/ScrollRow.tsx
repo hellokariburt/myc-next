@@ -51,9 +51,9 @@ export default function ScrollRow({
   const fadeEnd = edges.overflowing && !edges.atEnd;
   const mask =
     fadeStart || fadeEnd
-      ? `linear-gradient(to right, ${
-          fadeStart ? 'transparent 0, black 2rem' : 'black 0'
-        }, ${fadeEnd ? 'black calc(100% - 2rem), transparent 100%' : 'black 100%'})`
+      ? `linear-gradient(to right, ${fadeStart ? 'transparent 0, black 2rem' : 'black 0'}, ${
+          fadeEnd ? 'black calc(100% - 2rem), transparent 100%' : 'black 100%'
+        })`
       : undefined;
 
   return (

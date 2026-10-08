@@ -31,7 +31,16 @@ interface SeoListingProps {
   boroughKey?: string;
 }
 
-export async function SeoListingPage({ title, borough, day, free, breadcrumbs, pageUrl, dayLinksBorough, boroughKey }: SeoListingProps) {
+export async function SeoListingPage({
+  title,
+  borough,
+  day,
+  free,
+  breadcrumbs,
+  pageUrl,
+  dayLinksBorough,
+  boroughKey,
+}: SeoListingProps) {
   // Caps page weight — Manhattan alone is 263 mics. `count` is the unclamped
   // total, so it must never be presented as the number of cards on the page.
   const LISTING_LIMIT = 100;
@@ -105,7 +114,11 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
         {boroughKey && (
           <>
             <div className={`h-1 ${getBoroughAccentBar(boroughKey)} rounded-full mb-6`} />
-            <p className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(boroughKey)}`}>
+            <p
+              className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(
+                boroughKey
+              )}`}
+            >
               {getBoroughDisplayShort(boroughKey)} · NYC Open Mics
             </p>
           </>
@@ -134,17 +147,17 @@ export async function SeoListingPage({ title, borough, day, free, breadcrumbs, p
 
         <div className="flex flex-col gap-3 mb-8">
           {serialized.map((mic) => (
-            <MicListCard
-              key={mic.id}
-              mic={mic}
-              hideBoroughBadge={borough?.length === 1}
-            />
+            <MicListCard key={mic.id} mic={mic} hideBoroughBadge={borough?.length === 1} />
           ))}
         </div>
 
         {serialized.length === 0 && (
           <p className="text-center text-slate-600 py-12">
-            No mics found matching these filters. <Link href="/mics" className="text-blue-600 underline">Browse all mics</Link>.
+            No mics found matching these filters.{' '}
+            <Link href="/mics" className="text-blue-600 underline">
+              Browse all mics
+            </Link>
+            .
           </p>
         )}
 

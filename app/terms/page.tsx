@@ -27,8 +27,8 @@ export default function TermsPage() {
           <p className="pt-2">
             OpenMYC is a free directory of comedy open mics in New York City. You may use the site
             for personal, non-commercial purposes such as finding mics to attend or perform at. You
-            may not scrape the site at scale, attempt to disrupt the service, or use the site in
-            any way that violates applicable laws.
+            may not scrape the site at scale, attempt to disrupt the service, or use the site in any
+            way that violates applicable laws.
           </p>
 
           <h2 className="font-bold text-2xl pt-8">Accuracy of information</h2>
@@ -52,16 +52,16 @@ export default function TermsPage() {
             >
               submit form
             </Link>
-            , you grant OpenMYC permission to publish that information on the site. You agree not
-            to submit content that is false, defamatory, or that infringes anyone&rsquo;s rights.
-            We reserve the right to edit, decline, or remove any submission at our discretion.
+            , you grant OpenMYC permission to publish that information on the site. You agree not to
+            submit content that is false, defamatory, or that infringes anyone&rsquo;s rights. We
+            reserve the right to edit, decline, or remove any submission at our discretion.
           </p>
 
           <h2 className="font-bold text-2xl pt-8">Third-party links</h2>
           <p className="pt-2">
             Mic listings include links to host social profiles, venue maps, and other external
-            sites. OpenMYC does not control these third-party sites and is not responsible for
-            their content, practices, or policies.
+            sites. OpenMYC does not control these third-party sites and is not responsible for their
+            content, practices, or policies.
           </p>
 
           <h2 className="font-bold text-2xl pt-8">Advertising</h2>
@@ -86,8 +86,8 @@ export default function TermsPage() {
 
           <h2 className="font-bold text-2xl pt-8">Changes</h2>
           <p className="pt-2">
-            We may update these terms from time to time. Continued use of the site after changes
-            are posted constitutes acceptance of the updated terms.
+            We may update these terms from time to time. Continued use of the site after changes are
+            posted constitutes acceptance of the updated terms.
           </p>
 
           <h2 className="font-bold text-2xl pt-8">Contact</h2>

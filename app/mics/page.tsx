@@ -14,8 +14,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://findopenmyc.com/mics' },
   openGraph: {
     title: 'Browse NYC Open Mics | OpenMYC',
-    description:
-      'Browse and filter comedy open mics across all 5 NYC boroughs.',
+    description: 'Browse and filter comedy open mics across all 5 NYC boroughs.',
     url: 'https://findopenmyc.com/mics',
   },
 };

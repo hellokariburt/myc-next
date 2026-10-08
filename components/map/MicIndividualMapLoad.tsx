@@ -41,7 +41,9 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
           View on Google Maps
         </a>
       </div>
-    ) : <></>;
+    ) : (
+      <></>
+    );
   }
 
   const position = { lat: Number(micLat), lng: Number(micLong) };
@@ -62,7 +64,9 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
             day={mic.day || ''}
             time={changeTime(mic.start_time || '')}
             cost={mic.mic_cost?.cost_amount || 'Free'}
-            href={`https://maps.google.com/maps?q=${mic.mic_address!.venue},${mic.mic_address!.unit_number > 0 ? `${mic.mic_address!.unit_number},` : ''}${mic.mic_address!.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
+            href={`https://maps.google.com/maps?q=${mic.mic_address!.venue},${
+              mic.mic_address!.unit_number > 0 ? `${mic.mic_address!.unit_number},` : ''
+            }${mic.mic_address!.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
           />
         </GoogleMap>
       </div>

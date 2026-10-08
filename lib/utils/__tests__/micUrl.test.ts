@@ -42,9 +42,7 @@ const mic: MicListItem = {
 
 describe('micUrl', () => {
   it('builds a stable keyword-rich slug', () => {
-    expect(buildMicSlug(mic)).toBe(
-      'comedy-cellar-open-mic-greenwich-village-manhattan-monday'
-    );
+    expect(buildMicSlug(mic)).toBe('comedy-cellar-open-mic-greenwich-village-manhattan-monday');
   });
 
   it('builds path, URL, and og image URL from the slugged segment', () => {

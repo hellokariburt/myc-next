@@ -60,10 +60,7 @@ export default function ShowsBrowser({ shows }: { shows: ShowListItem[] }) {
 
   const listRef = useRef<HTMLDivElement>(null);
   const inViewIds = useInViewIds(listRef, visible);
-  const pinned = useMemo(
-    () => visible.filter((s) => inViewIds.has(s.id)),
-    [visible, inViewIds]
-  );
+  const pinned = useMemo(() => visible.filter((s) => inViewIds.has(s.id)), [visible, inViewIds]);
 
   return (
     <>

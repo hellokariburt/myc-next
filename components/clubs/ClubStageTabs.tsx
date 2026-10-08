@@ -18,11 +18,7 @@ export default function ClubStageTabs({
   const [tab, setTab] = useState<'mics' | 'shows'>(defaultTab);
 
   if (mics.length === 0 && shows.length === 0) {
-    return (
-      <p className="mt-10 text-slate-600">
-        {t('clubs.detail.emptyStage')}
-      </p>
-    );
+    return <p className="mt-10 text-slate-600">{t('clubs.detail.emptyStage')}</p>;
   }
 
   const tabClass = (active: boolean) =>

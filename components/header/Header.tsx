@@ -29,9 +29,21 @@ const Header = ({ hasBackButton }: HeaderProps) => {
           aria-label="Toggle menu"
           aria-expanded={drawerOpen}
         >
-          <span className={`block w-5 h-0.5 bg-slate-700 transition-transform ${drawerOpen ? 'rotate-45 translate-y-1.5' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-700 transition-opacity ${drawerOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-700 transition-transform ${drawerOpen ? '-rotate-45 -translate-y-1.5' : ''}`} />
+          <span
+            className={`block w-5 h-0.5 bg-slate-700 transition-transform ${
+              drawerOpen ? 'rotate-45 translate-y-1.5' : ''
+            }`}
+          />
+          <span
+            className={`block w-5 h-0.5 bg-slate-700 transition-opacity ${
+              drawerOpen ? 'opacity-0' : ''
+            }`}
+          />
+          <span
+            className={`block w-5 h-0.5 bg-slate-700 transition-transform ${
+              drawerOpen ? '-rotate-45 -translate-y-1.5' : ''
+            }`}
+          />
         </button>
         {/* Desktop nav */}
         <nav className="hidden sm:flex items-center gap-1">

@@ -2,11 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  IconExternalLink,
-  IconMapPin,
-  IconMail,
-} from '@tabler/icons-react';
+import { IconExternalLink, IconMapPin, IconMail } from '@tabler/icons-react';
 
 import { MicDetail } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
@@ -23,8 +19,7 @@ import MicHosts from './MicHosts';
 import ReportButton from './ReportButton';
 import { t } from '@/lib/i18n';
 
-const labelClass =
-  'text-xs font-semibold uppercase tracking-wider text-slate-500 shrink-0';
+const labelClass = 'text-xs font-semibold uppercase tracking-wider text-slate-500 shrink-0';
 
 const MicPage = ({ mic }: { mic: MicDetail }) => {
   const directionsUrl = mic?.mic_address?.street_name
@@ -55,156 +50,152 @@ const MicPage = ({ mic }: { mic: MicDetail }) => {
           </div>
         )}
         <div className={mic.venue_image ? 'px-6 md:px-8 pb-0' : ''}>
-        {/* Eyebrow */}
-        <p
-          className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(
-            mic.borough || ''
-          )}`}
-        >
-          {capitalizeDay(mic.day || '')} · {getBoroughDisplayShort(mic.borough || '')} Open Mic
-        </p>
-
-        {/* Title */}
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-slate-900">
-          {mic?.name}
-        </h1>
-        <p className="text-base lg:text-lg text-slate-600 mt-2">
-          {mic?.mic_address?.venue}
-          {mic?.mic_address?.neighborhood && (
-            <span className="text-slate-500"> · {mic.mic_address.neighborhood}</span>
-          )}
-        </p>
-
-        {/* Showtime hero */}
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
-          <div>
-            <p className={labelClass}>{t('mics.detail.when')}</p>
-            <p className="mt-1 text-2xl md:text-3xl font-bold text-slate-900 tabular-nums leading-tight">
-              {capitalizeDay(mic.day || '')}s · {changeTime(mic.start_time || '')}
-            </p>
-            {mic?.mic_occurrence?.schedule && (
-              <p className="text-sm text-slate-600 mt-1">{mic.mic_occurrence.schedule}</p>
-            )}
-          </div>
-          <span
-            className={`inline-flex items-center self-start sm:self-end px-3 py-1 rounded-full text-sm font-semibold ring-1 ${
-              isFree
-                ? 'bg-green-50 text-green-700 ring-green-200'
-                : 'bg-amber-50 text-amber-700 ring-amber-200'
-            }`}
+          {/* Eyebrow */}
+          <p
+            className={`text-xs font-semibold uppercase tracking-wider mb-2 ${getBoroughEyebrow(
+              mic.borough || ''
+            )}`}
           >
-            {isFree ? 'Free' : mic?.mic_cost?.cost_amount}
-          </span>
-        </div>
+            {capitalizeDay(mic.day || '')} · {getBoroughDisplayShort(mic.borough || '')} Open Mic
+          </p>
 
-        {/* Address + directions */}
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div className="text-slate-600">
-            {mic.mic_address && mic.mic_address.unit_number > 0 && (
-              <span>{mic.mic_address.unit_number} </span>
+          {/* Title */}
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight text-slate-900">
+            {mic?.name}
+          </h1>
+          <p className="text-base lg:text-lg text-slate-600 mt-2">
+            {mic?.mic_address?.venue}
+            {mic?.mic_address?.neighborhood && (
+              <span className="text-slate-500"> · {mic.mic_address.neighborhood}</span>
             )}
-            <span>{mic?.mic_address?.street_name}</span>
-          </div>
-          {directionsUrl && (
-            <a
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors w-fit"
+          </p>
+
+          {/* Showtime hero */}
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 rounded-xl border border-slate-200 bg-slate-50 px-5 py-4">
+            <div>
+              <p className={labelClass}>{t('mics.detail.when')}</p>
+              <p className="mt-1 text-2xl md:text-3xl font-bold text-slate-900 tabular-nums leading-tight">
+                {capitalizeDay(mic.day || '')}s · {changeTime(mic.start_time || '')}
+              </p>
+              {mic?.mic_occurrence?.schedule && (
+                <p className="text-sm text-slate-600 mt-1">{mic.mic_occurrence.schedule}</p>
+              )}
+            </div>
+            <span
+              className={`inline-flex items-center self-start sm:self-end px-3 py-1 rounded-full text-sm font-semibold ring-1 ${
+                isFree
+                  ? 'bg-green-50 text-green-700 ring-green-200'
+                  : 'bg-amber-50 text-amber-700 ring-amber-200'
+              }`}
             >
-              <IconMapPin size={18} />
-              {t('mics.detail.getDirections')}
-            </a>
-          )}
-        </div>
+              {isFree ? 'Free' : mic?.mic_cost?.cost_amount}
+            </span>
+          </div>
 
-        <div className="my-8 h-px bg-slate-200" />
+          {/* Address + directions */}
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+            <div className="text-slate-600">
+              {mic.mic_address && mic.mic_address.unit_number > 0 && (
+                <span>{mic.mic_address.unit_number} </span>
+              )}
+              <span>{mic?.mic_address?.street_name}</span>
+            </div>
+            {directionsUrl && (
+              <a
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors w-fit"
+              >
+                <IconMapPin size={18} />
+                {t('mics.detail.getDirections')}
+              </a>
+            )}
+          </div>
 
-        {/* Detail rows — label-on-left grid */}
-        <dl className="grid grid-cols-1 sm:grid-cols-[110px_1fr] gap-y-5 gap-x-6">
-          <MicHosts mic={mic} labelClass={labelClass} />
+          <div className="my-8 h-px bg-slate-200" />
 
-          {mic?.signup_instructions?.instructions && (
-            <>
-              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.signup')}</dt>
-              <dd className="text-slate-800 leading-relaxed">
-                {linkifyText(mic.signup_instructions.instructions)}
-              </dd>
-            </>
-          )}
+          {/* Detail rows — label-on-left grid */}
+          <dl className="grid grid-cols-1 sm:grid-cols-[110px_1fr] gap-y-5 gap-x-6">
+            <MicHosts mic={mic} labelClass={labelClass} />
 
-          {mic?.email_address && (
-            <>
-              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.email')}</dt>
-              <dd>
-                <a
-                  href={`mailto:${mic.email_address}`}
-                  className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
-                >
-                  <IconMail size={16} />
-                  {mic.email_address}
-                </a>
-              </dd>
-            </>
-          )}
+            {mic?.signup_instructions?.instructions && (
+              <>
+                <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.signup')}</dt>
+                <dd className="text-slate-800 leading-relaxed">
+                  {linkifyText(mic.signup_instructions.instructions)}
+                </dd>
+              </>
+            )}
 
-          {mic?.instagram && (
-            <>
-              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.instagram')}</dt>
-              <dd className="flex flex-wrap gap-x-4 gap-y-1">
-                {extractHandles(mic.instagram).map((handle) => (
+            {mic?.email_address && (
+              <>
+                <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.email')}</dt>
+                <dd>
                   <a
-                    key={handle}
-                    href={`https://instagram.com/${handle.replace(/^@/, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline underline-offset-2"
+                    href={`mailto:${mic.email_address}`}
+                    className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
                   >
-                    @{handle.replace(/^@/, '')}
+                    <IconMail size={16} />
+                    {mic.email_address}
                   </a>
-                ))}
-              </dd>
-            </>
-          )}
+                </dd>
+              </>
+            )}
 
-          {mic?.website && /^https?:\/\//i.test(mic.website) && (
-            <>
-              <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.website')}</dt>
-              <dd>
-                <a
-                  className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
-                  href={mic.website}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <IconExternalLink size={16} />
-                  Visit site
-                </a>
-              </dd>
-            </>
-          )}
-        </dl>
+            {mic?.instagram && (
+              <>
+                <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.instagram')}</dt>
+                <dd className="flex flex-wrap gap-x-4 gap-y-1">
+                  {extractHandles(mic.instagram).map((handle) => (
+                    <a
+                      key={handle}
+                      href={`https://instagram.com/${handle.replace(/^@/, '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-800 underline underline-offset-2"
+                    >
+                      @{handle.replace(/^@/, '')}
+                    </a>
+                  ))}
+                </dd>
+              </>
+            )}
 
-        {/* House rules replace the generated "What to expect / Venue notes /
+            {mic?.website && /^https?:\/\//i.test(mic.website) && (
+              <>
+                <dt className={`${labelClass} pt-0.5`}>{t('mics.detail.website')}</dt>
+                <dd>
+                  <a
+                    className="inline-flex items-center gap-1.5 text-blue-600 hover:text-blue-800 underline underline-offset-2"
+                    href={mic.website}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <IconExternalLink size={16} />
+                    Visit site
+                  </a>
+                </dd>
+              </>
+            )}
+          </dl>
+
+          {/* House rules replace the generated "What to expect / Venue notes /
             Before you go" prose, which restated facts already on this page and
             padded them. This is real per-mic information (62 of 406 mics have
             it) and was previously buried at the bottom of that filler. Mics
             without rules simply show nothing here — the listing facts above
             stand on their own. */}
-        {mic?.other_rules && (
-          <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-              {t('mics.detail.houseRules')}
-            </h2>
-            <p className="mt-4 text-slate-700 leading-7">
-              {linkifyText(mic.other_rules)}
-            </p>
-          </div>
-        )}
+          {mic?.other_rules && (
+            <div className="mt-10 rounded-2xl border border-slate-200 bg-slate-50/80 p-5 md:p-6">
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+                {t('mics.detail.houseRules')}
+              </h2>
+              <p className="mt-4 text-slate-700 leading-7">{linkifyText(mic.other_rules)}</p>
+            </div>
+          )}
 
-        {mic?.confirmed && (
-          <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>
-        )}
+          {mic?.confirmed && <p className="text-xs text-slate-500 mt-8">{mic.confirmed}</p>}
         </div>
       </div>
 

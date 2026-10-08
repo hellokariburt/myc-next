@@ -41,8 +41,7 @@ export async function approveSubmission(id: bigint): Promise<ApproveResult> {
 
   // Geocode before the transaction so no network latency holds it open.
   const coords =
-    (await geocode(sub.street_address)) ??
-    (await geocode(`${sub.street_address}, New York, NY`));
+    (await geocode(sub.street_address)) ?? (await geocode(`${sub.street_address}, New York, NY`));
 
   const today = new Date().toLocaleDateString('en-US');
 
@@ -58,9 +57,7 @@ export async function approveSubmission(id: bigint): Promise<ApproveResult> {
       },
     });
 
-    const cost = sub.cost
-      ? await tx.mic_cost.create({ data: { cost_amount: sub.cost } })
-      : null;
+    const cost = sub.cost ? await tx.mic_cost.create({ data: { cost_amount: sub.cost } }) : null;
 
     const signup = sub.signup_info
       ? await tx.signup_instructions.create({ data: { instructions: sub.signup_info } })

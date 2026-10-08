@@ -11,12 +11,14 @@
  * consumers (Google's parser included) see exactly the same data.
  */
 export function jsonLdHtml(payload: unknown): string {
-  return JSON.stringify(payload)
-    .replace(/</g, '\\u003c')
-    .replace(/>/g, '\\u003e')
-    .replace(/&/g, '\\u0026')
-    // U+2028/U+2029 are valid in JSON strings but are line terminators in JS,
-    // which breaks the script block for anything that evaluates it.
-    .replace(/\u2028/g, '\\u2028')
-    .replace(/\u2029/g, '\\u2029');
+  return (
+    JSON.stringify(payload)
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+      .replace(/&/g, '\\u0026')
+      // U+2028/U+2029 are valid in JSON strings but are line terminators in JS,
+      // which breaks the script block for anything that evaluates it.
+      .replace(/\u2028/g, '\\u2028')
+      .replace(/\u2029/g, '\\u2029')
+  );
 }

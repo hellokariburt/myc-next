@@ -33,7 +33,9 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
         time={changeTime(mic.start_time || '')}
         cost={mic.mic_cost?.cost_amount || 'Free'}
         borough={mic.borough}
-        href={`https://maps.google.com/maps?q=${mic.mic_address!.venue},${mic.mic_address!.unit_number > 0 ? `${mic.mic_address!.unit_number},` : ''}${mic.mic_address!.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
+        href={`https://maps.google.com/maps?q=${mic.mic_address!.venue},${
+          mic.mic_address!.unit_number > 0 ? `${mic.mic_address!.unit_number},` : ''
+        }${mic.mic_address!.street_name}+NewYork+NY&hl=es;z=14&amp;output=embed`}
       />
     ));
 

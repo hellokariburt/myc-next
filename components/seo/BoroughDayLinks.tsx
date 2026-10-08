@@ -2,11 +2,19 @@ import Link from 'next/link';
 import { ALL_DAYS } from '@/lib/types/api';
 import { getBoroughDisplayName, capitalize } from '@/lib/seo/boroughDayPage';
 
-export function BoroughDayLinks({ borough, className = '' }: { borough: string; className?: string }) {
+export function BoroughDayLinks({
+  borough,
+  className = '',
+}: {
+  borough: string;
+  className?: string;
+}) {
   const display = getBoroughDisplayName(borough);
   return (
     <div className={className}>
-      <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">Filter by day</p>
+      <p className="text-xs font-semibold uppercase tracking-wider text-slate-600 mb-2">
+        Filter by day
+      </p>
       <nav aria-label={`${display} mics by day`} className="flex flex-wrap gap-2">
         {ALL_DAYS.map((day) => (
           <Link

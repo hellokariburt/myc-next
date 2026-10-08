@@ -114,7 +114,11 @@ export default function MicsQuickChrome({
       />
 
       {/* Intent row: the two highest-frequency queries, one tap each. */}
-      <div className="flex flex-wrap gap-2" role="group" aria-label={t('mics.browser.intentGroupAria')}>
+      <div
+        className="flex flex-wrap gap-2"
+        role="group"
+        aria-label={t('mics.browser.intentGroupAria')}
+      >
         {today && (
           <button
             type="button"

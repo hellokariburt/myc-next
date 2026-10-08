@@ -58,7 +58,9 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
     const filtered = clubs.filter((c) => {
       if (borough && c.borough !== borough) return false;
       if (q) {
-        const hay = `${c.name} ${c.address || ''} ${c.neighborhood || ''} ${c.description || ''}`.toLowerCase();
+        const hay = `${c.name} ${c.address || ''} ${c.neighborhood || ''} ${
+          c.description || ''
+        }`.toLowerCase();
         if (!hay.includes(q)) return false;
       }
       return true;
@@ -72,10 +74,7 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
 
   const listRef = useRef<HTMLDivElement>(null);
   const inViewIds = useInViewIds(listRef, visible);
-  const pinned = useMemo(
-    () => visible.filter((c) => inViewIds.has(c.id)),
-    [visible, inViewIds]
-  );
+  const pinned = useMemo(() => visible.filter((c) => inViewIds.has(c.id)), [visible, inViewIds]);
 
   return (
     <>
@@ -91,7 +90,11 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
           placeholder={t('clubs.filters.searchPlaceholder')}
           className="w-full max-w-md px-4 py-2.5 border border-slate-300 rounded-lg text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-slate-400 transition-colors"
         />
-        <div className="flex flex-wrap gap-2" role="group" aria-label={t('clubs.filters.boroughGroupAria')}>
+        <div
+          className="flex flex-wrap gap-2"
+          role="group"
+          aria-label={t('clubs.filters.boroughGroupAria')}
+        >
           {FILTER_BOROUGHS.map((b) => (
             <button
               key={b.value}
@@ -105,7 +108,9 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
           ))}
         </div>
         <p className="text-sm text-slate-500" role="status">
-          {ordered.length === 1 ? t('clubs.filters.countOne', { count: ordered.length }) : t('clubs.filters.countMany', { count: ordered.length })}
+          {ordered.length === 1
+            ? t('clubs.filters.countOne', { count: ordered.length })
+            : t('clubs.filters.countMany', { count: ordered.length })}
           {(query || borough) && (
             <>
               {' · '}
@@ -125,46 +130,48 @@ export default function ClubsBrowser({ clubs }: { clubs: ClubListItem[] }) {
       </div>
 
       <div className="mt-2 lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:items-start">
-      <div ref={listRef}>
-        {ordered.length === 0 && (
-          <div
-            className={`mt-10 bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
-              borough || ''
-            )} p-8 text-center text-slate-600`}
-          >
-            {t('clubs.filters.empty')}
-          </div>
-        )}
-        {grouped.map(([groupBorough, list]) => (
-          <section key={groupBorough} className="mt-10">
-            <h2 className="flex items-center gap-3 text-2xl font-bold tracking-tight text-slate-900">
-              <span
-                className={`inline-block h-7 w-1.5 rounded-full ${getBoroughAccentBar(groupBorough)}`}
-                aria-hidden="true"
-              />
-              {BOROUGH_LABEL[groupBorough]}
-              <span className={`text-base font-semibold ${getBoroughEyebrow(groupBorough)}`}>
-                {fullCounts.get(groupBorough) ?? list.length}
-              </span>
-            </h2>
-            <div className="mt-4 grid gap-4 xl:grid-cols-2">
-              {list.map((club) => (
-                <div key={club.id} data-pin={club.id} className="min-w-0">
-                  <ClubCard club={club} />
-                </div>
-              ))}
+        <div ref={listRef}>
+          {ordered.length === 0 && (
+            <div
+              className={`mt-10 bg-white rounded-xl border border-slate-200 border-l-[6px] ${getBoroughBorderColor(
+                borough || ''
+              )} p-8 text-center text-slate-600`}
+            >
+              {t('clubs.filters.empty')}
             </div>
-          </section>
-        ))}
-        {!done && (
-          <div ref={sentinelRef} className="flex justify-center py-6" aria-hidden="true">
-            <div className="w-6 h-6 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
-          </div>
-        )}
-      </div>
-      <div className="mt-10 lg:mt-0 lg:self-stretch">
-        <ClubsMapSection clubs={pinned} />
-      </div>
+          )}
+          {grouped.map(([groupBorough, list]) => (
+            <section key={groupBorough} className="mt-10">
+              <h2 className="flex items-center gap-3 text-2xl font-bold tracking-tight text-slate-900">
+                <span
+                  className={`inline-block h-7 w-1.5 rounded-full ${getBoroughAccentBar(
+                    groupBorough
+                  )}`}
+                  aria-hidden="true"
+                />
+                {BOROUGH_LABEL[groupBorough]}
+                <span className={`text-base font-semibold ${getBoroughEyebrow(groupBorough)}`}>
+                  {fullCounts.get(groupBorough) ?? list.length}
+                </span>
+              </h2>
+              <div className="mt-4 grid gap-4 xl:grid-cols-2">
+                {list.map((club) => (
+                  <div key={club.id} data-pin={club.id} className="min-w-0">
+                    <ClubCard club={club} />
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))}
+          {!done && (
+            <div ref={sentinelRef} className="flex justify-center py-6" aria-hidden="true">
+              <div className="w-6 h-6 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            </div>
+          )}
+        </div>
+        <div className="mt-10 lg:mt-0 lg:self-stretch">
+          <ClubsMapSection clubs={pinned} />
+        </div>
       </div>
     </>
   );

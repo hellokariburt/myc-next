@@ -5,19 +5,11 @@ import { notFound } from 'next/navigation';
 import PageLayout from '@/components/pagelayout/PageLayout';
 import ClubStageTabs from '@/components/clubs/ClubStageTabs';
 import ClubsMapSection from '@/components/clubs/ClubsMapSection';
-import {
-  getClubs,
-  getMicsAtClub,
-  clubSlug,
-  ClubListItem,
-} from '@/lib/services/clubs.service';
+import { getClubs, getMicsAtClub, clubSlug, ClubListItem } from '@/lib/services/clubs.service';
 import { serialize } from '@/lib/utils/serialize';
 import { t } from '@/lib/i18n';
 import { MicListItem } from '@/lib/types/mic';
-import {
-  getBoroughBadgeClasses,
-  getBoroughDisplayShort,
-} from '@/lib/utils/boroughColor';
+import { getBoroughBadgeClasses, getBoroughDisplayShort } from '@/lib/utils/boroughColor';
 import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
 export const revalidate = 3600;
@@ -32,7 +24,11 @@ export async function generateStaticParams() {
   return clubs.map((c) => ({ slug: clubSlug(c.name) }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const club = await getClub(params.slug);
   if (!club) return {};
   const title = `${club.name} | NYC Comedy Clubs | OpenMYC`;
@@ -43,7 +39,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title,
     description,
     alternates: { canonical: `https://findopenmyc.com/clubs/${params.slug}` },
-    openGraph: { title: club.name, description, url: `https://findopenmyc.com/clubs/${params.slug}` },
+    openGraph: {
+      title: club.name,
+      description,
+      url: `https://findopenmyc.com/clubs/${params.slug}`,
+    },
   };
 }
 
@@ -80,10 +80,7 @@ export default async function ClubPage({ params }: { params: { slug: string } })
 
   return (
     <PageLayout className="bg-[#f6efe4]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }} />
       <section className="max-w-7xl mx-auto px-4 py-12 md:py-16">
         <nav className="text-sm text-slate-600">
           <Link href="/clubs" className="underline decoration-dashed hover:decoration-solid">
@@ -111,7 +108,9 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               </h1>
               {club.borough && (
                 <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(club.borough)}`}
+                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(
+                    club.borough
+                  )}`}
                 >
                   {getBoroughDisplayShort(club.borough)}
                 </span>
@@ -122,7 +121,9 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               {club.neighborhood && <span className="text-slate-600"> · {club.neighborhood}</span>}
             </p>
             {club.description && (
-              <p className="mt-4 text-base leading-7 text-slate-700 max-w-2xl">{club.description}</p>
+              <p className="mt-4 text-base leading-7 text-slate-700 max-w-2xl">
+                {club.description}
+              </p>
             )}
             <div className="flex flex-wrap items-center gap-2 pt-4">
               {club.website && (
@@ -147,7 +148,9 @@ export default async function ClubPage({ params }: { params: { slug: string } })
               )}
               {club.address && (
                 <a
-                  href={`https://maps.google.com/maps?q=${encodeURIComponent(`${club.name}, ${club.address}, New York NY ${club.zipcode || ''}`)}`}
+                  href={`https://maps.google.com/maps?q=${encodeURIComponent(
+                    `${club.name}, ${club.address}, New York NY ${club.zipcode || ''}`
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-full bg-white border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500"

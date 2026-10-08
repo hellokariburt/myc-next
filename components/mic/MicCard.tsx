@@ -41,13 +41,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const mapMicsToCards = (x: MicListResponse) => {
     const items: React.ReactNode[] = [];
     x.mics.forEach((mic: MicListItem, index: number) => {
-      items.push(
-        <MicListCard
-          key={mic.id}
-          mic={mic}
-          className="w-full"
-        />
-      );
+      items.push(<MicListCard key={mic.id} mic={mic} className="w-full" />);
       if (adsEnabled && (index + 1) % 5 === 0) {
         items.push(<AdBanner key={`ad-${index}`} />);
       }
@@ -61,9 +55,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
     <div className="flex flex-col px-3 py-6 sm:p-6 min-w-0">
       {mics && <SearchResults />}
       <div className="flex flex-col gap-3">{openMic}</div>
-      <div className="flex justify-center pt-8">
-        {mics && <ChatPagination2 />}
-      </div>
+      <div className="flex justify-center pt-8">{mics && <ChatPagination2 />}</div>
     </div>
   );
 };

@@ -49,8 +49,8 @@ export default function PrivacyPage() {
           <h2 className="font-bold text-2xl pt-8">Cookies and similar technologies</h2>
           <p className="pt-2">
             Like most websites, OpenMYC and its third-party partners use cookies and similar
-            technologies to deliver and improve the service. You can disable cookies in your
-            browser settings, although some parts of the site may not work as expected.
+            technologies to deliver and improve the service. You can disable cookies in your browser
+            settings, although some parts of the site may not work as expected.
           </p>
 
           <h2 className="font-bold text-2xl pt-8">Third-party services</h2>
@@ -58,9 +58,9 @@ export default function PrivacyPage() {
           <h3 className="font-bold text-lg pt-4">Google AdSense</h3>
           <p className="pt-2">
             We use Google AdSense to display ads on the site. Google, as a third-party vendor, uses
-            cookies (including the DART cookie) to serve ads based on a user&rsquo;s prior visits
-            to this site and other sites on the internet. You may opt out of personalized
-            advertising by visiting{' '}
+            cookies (including the DART cookie) to serve ads based on a user&rsquo;s prior visits to
+            this site and other sites on the internet. You may opt out of personalized advertising
+            by visiting{' '}
             <a
               href="https://www.google.com/settings/ads"
               target="_blank"

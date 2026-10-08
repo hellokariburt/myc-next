@@ -36,7 +36,5 @@ export function t(
     return key;
   }
   if (!vars) return raw;
-  return raw.replace(/\{(\w+)\}/g, (_, name) =>
-    name in vars ? String(vars[name]) : `{${name}}`
-  );
+  return raw.replace(/\{(\w+)\}/g, (_, name) => (name in vars ? String(vars[name]) : `{${name}}`));
 }

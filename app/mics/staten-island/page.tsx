@@ -6,7 +6,8 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Open Mics in Staten Island | OpenMYC',
-  description: 'Find every comedy open mic in Staten Island, NYC. Browse by day, time, and cost. Free to use.',
+  description:
+    'Find every comedy open mic in Staten Island, NYC. Browse by day, time, and cost. Free to use.',
   alternates: { canonical: 'https://findopenmyc.com/mics/staten-island' },
   openGraph: {
     title: 'Open Mics in Staten Island | OpenMYC',

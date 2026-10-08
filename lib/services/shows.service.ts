@@ -1,7 +1,6 @@
 import { existsSync } from 'fs';
 import { join } from 'path';
 
-
 export type ShowListItem = {
   id: string;
   name: string;
