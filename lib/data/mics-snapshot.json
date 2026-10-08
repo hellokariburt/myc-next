@@ -1194,7 +1194,7 @@
     "day": "monday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club Midtown",
+    "venue_name": "New York Comedy Club - Midtown",
     "borough": "manhattan",
     "neighborhood": "Gramercy",
     "address": {
@@ -2886,7 +2886,7 @@
     "day": "tuesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -4722,7 +4722,7 @@
     "day": "wednesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -7998,7 +7998,7 @@
     "day": "friday",
     "start_time": "16:00:00",
     "end_time": "17:30:00",
-    "venue_name": "New York Comedy Club Midtown",
+    "venue_name": "New York Comedy Club - Midtown",
     "borough": "manhattan",
     "neighborhood": "Gramercy",
     "address": {
@@ -10410,7 +10410,7 @@
     "day": "friday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -11706,7 +11706,7 @@
     "day": "sunday",
     "start_time": "17:30:00",
     "end_time": "20:00:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -12066,7 +12066,7 @@
     "day": "monday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club Midtown",
+    "venue_name": "New York Comedy Club - Midtown",
     "borough": "manhattan",
     "neighborhood": "Midtown",
     "address": {
@@ -12714,7 +12714,7 @@
     "day": "tuesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -13650,7 +13650,7 @@
     "day": "wednesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -14298,7 +14298,7 @@
     "day": "thursday",
     "start_time": "17:30:00",
     "end_time": "19:30:00",
-    "venue_name": "New York Comedy Club Midtown",
+    "venue_name": "New York Comedy Club - Midtown",
     "borough": "manhattan",
     "neighborhood": "Gramercy",
     "address": {
@@ -15810,7 +15810,7 @@
     "day": "monday",
     "start_time": "16:00:00",
     "end_time": "17:00:00",
-    "venue_name": "New York Comedy Club Midtown",
+    "venue_name": "New York Comedy Club - Midtown",
     "borough": "manhattan",
     "neighborhood": "Midtown",
     "address": {
@@ -15846,7 +15846,7 @@
     "day": "monday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East Village",
+    "venue_name": "New York Comedy Club - East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
