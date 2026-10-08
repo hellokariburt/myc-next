@@ -76,6 +76,10 @@ model mics {
   venue_type          String?              @db.VarChar(255)
   stage_time          String?              @db.VarChar(255)
   other_rules         String?              @db.VarChar(500)
+  // Soft-delete / takedown flag. Inactive mics (e.g. venue closed) are hidden
+  // from listings, search, the sitemap and the detail page, but the row is
+  // kept so reports stay linked and legacy-URL recovery still works.
+  active              Boolean              @default(true)
   host_mics           host_mics[]
   mic_address         mic_address?         @relation(fields: [address_id], references: [address_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_address_fk")
   mic_cost            mic_cost?            @relation(fields: [cost_id], references: [cost_id], onDelete: NoAction, onUpdate: NoAction, map: "mics_mic_cost_fk")

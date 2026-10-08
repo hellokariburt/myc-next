@@ -44,6 +44,7 @@ async function main() {
     const host = m.host_mics[0]?.mic_host ?? null;
     return {
       id: String(m.id),
+      active: m.active,
       name: m.name,
       day: m.day,
       start_time: toClock(m.start_time),

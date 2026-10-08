@@ -15,6 +15,7 @@ jest.mock('@tabler/icons-react', () => ({
 
 const fullMic: MicDetail = {
   id: 36,
+  active: true,
   borough: 'manhattan',
   confirmed: '2024-01-15',
   day: 'sunday',

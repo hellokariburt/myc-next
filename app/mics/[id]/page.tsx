@@ -30,7 +30,7 @@ async function fetchMic(rawId: string): Promise<MicDetail | null> {
   const id = parseMicIdParam(rawId);
   if (!id) return null;
   const raw = await getMic(id);
-  if (!raw) return null;
+  if (!raw || raw.active === false) return null;
   return serialize(raw) as unknown as MicDetail;
 }
 
@@ -75,6 +75,10 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   if (!id) notFound();
 
   const raw = await getMic(id);
+
+  // A taken-down mic (venue closed, etc.) 404s like a missing row. We skip legacy
+  // recovery for it — its slug won't match any active mic anyway.
+  if (raw && raw.active === false) notFound();
 
   if (!raw) {
     // The mic table was reseeded and IDs shifted, so URLs Google indexed under
