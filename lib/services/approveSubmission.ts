@@ -45,10 +45,22 @@ export async function approveSubmission(id: bigint): Promise<ApproveResult> {
 
   const today = new Date().toLocaleDateString('en-US');
 
+  // Normalized key so the same venue under a different spelling reuses one row.
+  const venueSlug = sub.venue.toLowerCase().replace(/[^a-z0-9]+/g, '');
+
   const mic = await prisma.$transaction(async (tx) => {
+    // Find-or-create the canonical venue; reuse its stored name so the display
+    // stays consistent with venues created earlier.
+    const venue =
+      (venueSlug &&
+        ((await tx.venues.findUnique({ where: { slug: venueSlug } })) ??
+          (await tx.venues.create({ data: { name: sub.venue, slug: venueSlug } })))) ||
+      null;
+
     const address = await tx.mic_address.create({
       data: {
-        venue: sub.venue,
+        venue: venue?.name ?? sub.venue,
+        venue_id: venue?.id ?? null,
         street_name: sub.street_address,
         neighborhood: sub.neighborhood,
         unit_number: 0,

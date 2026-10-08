@@ -294,7 +294,7 @@
     "day": "sunday",
     "start_time": "16:00:00",
     "end_time": "20:30:00",
-    "venue_name": "House Watch",
+    "venue_name": "Housewatch",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -1014,7 +1014,7 @@
     "day": "monday",
     "start_time": "15:00:00",
     "end_time": "16:45:00",
-    "venue_name": "Greenwich village comedy club",
+    "venue_name": "Greenwich Village Comedy Club",
     "borough": "manhattan",
     "neighborhood": "Greenwich Village",
     "address": {
@@ -2886,7 +2886,7 @@
     "day": "tuesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club east village",
+    "venue_name": "New York Comedy Club East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -2958,7 +2958,7 @@
     "day": "tuesday",
     "start_time": "17:15:00",
     "end_time": "18:30:00",
-    "venue_name": "Greenwich village comedy club",
+    "venue_name": "Greenwich Village Comedy Club",
     "borough": "manhattan",
     "neighborhood": "Greenwich Village",
     "address": {
@@ -4686,7 +4686,7 @@
     "day": "wednesday",
     "start_time": "17:00:00",
     "end_time": "18:45:00",
-    "venue_name": "Greenwich village comedy club",
+    "venue_name": "Greenwich Village Comedy Club",
     "borough": "manhattan",
     "neighborhood": "Greenwich Village",
     "address": {
@@ -4722,7 +4722,7 @@
     "day": "wednesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club East village",
+    "venue_name": "New York Comedy Club East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -4758,7 +4758,7 @@
     "day": "wednesday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "St. Mark's Comedy Club",
+    "venue_name": "St. Marks Comedy Club",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -5010,7 +5010,7 @@
     "day": "wednesday",
     "start_time": "17:45:00",
     "end_time": "19:15:00",
-    "venue_name": "Grove34",
+    "venue_name": "Grove 34",
     "borough": "queens",
     "neighborhood": "Astoria",
     "address": {
@@ -5046,7 +5046,7 @@
     "day": "wednesday",
     "start_time": "17:45:00",
     "end_time": "19:15:00",
-    "venue_name": "west side comedy club",
+    "venue_name": "West Side Comedy Club",
     "borough": "manhattan",
     "neighborhood": "UWS",
     "address": {
@@ -7422,7 +7422,7 @@
     "day": "thursday",
     "start_time": "19:00:00",
     "end_time": "21:00:00",
-    "venue_name": "alligator lounge",
+    "venue_name": "Alligator lounge",
     "borough": "brooklyn",
     "neighborhood": "Williamsburg",
     "address": {
@@ -7530,7 +7530,7 @@
     "day": "thursday",
     "start_time": "20:00:00",
     "end_time": "22:00:00",
-    "venue_name": "easy lover BK",
+    "venue_name": "Easy Lover BK",
     "borough": "brooklyn",
     "neighborhood": "Williamsburg",
     "address": {
@@ -8754,7 +8754,7 @@
     "day": "friday",
     "start_time": "18:30:00",
     "end_time": "19:45:00",
-    "venue_name": "Flop house comedy club",
+    "venue_name": "Flop House Comedy Club",
     "borough": "brooklyn",
     "neighborhood": "Williamsburg",
     "address": {
@@ -9222,7 +9222,7 @@
     "day": "saturday",
     "start_time": "15:30:00",
     "end_time": "17:00:00",
-    "venue_name": "pete's candy store",
+    "venue_name": "Pete's Candy Store",
     "borough": "brooklyn",
     "neighborhood": "Williamsburg",
     "address": {
@@ -9258,7 +9258,7 @@
     "day": "saturday",
     "start_time": "16:00:00",
     "end_time": "17:30:00",
-    "venue_name": "St. Mark's Comedy Club",
+    "venue_name": "St. Marks Comedy Club",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -9330,7 +9330,7 @@
     "day": "saturday",
     "start_time": "16:00:00",
     "end_time": "17:30:00",
-    "venue_name": "St. Mark's Comedy Club",
+    "venue_name": "St. Marks Comedy Club",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
@@ -9474,7 +9474,7 @@
     "day": "saturday",
     "start_time": "17:30:00",
     "end_time": "19:00:00",
-    "venue_name": "easy lover bk",
+    "venue_name": "Easy Lover BK",
     "borough": "brooklyn",
     "neighborhood": "Williamsburg",
     "address": {
@@ -11418,7 +11418,7 @@
     "day": "sunday",
     "start_time": "13:00:00",
     "end_time": "14:30:00",
-    "venue_name": "New York Comedy Club UWS",
+    "venue_name": "New York Comedy Club - UWS",
     "borough": "manhattan",
     "neighborhood": "UWS",
     "address": {
@@ -14802,7 +14802,7 @@
     "day": "thursday",
     "start_time": "18:00:00",
     "end_time": "19:30:00",
-    "venue_name": "Pinebox Rock Shop",
+    "venue_name": "Pine Box Rock Shop",
     "borough": "brooklyn",
     "neighborhood": "Bushwick",
     "address": {
@@ -15810,7 +15810,7 @@
     "day": "monday",
     "start_time": "16:00:00",
     "end_time": "17:00:00",
-    "venue_name": "New York Comedy Club - Midtown",
+    "venue_name": "New York Comedy Club Midtown",
     "borough": "manhattan",
     "neighborhood": "Midtown",
     "address": {
@@ -15846,7 +15846,7 @@
     "day": "monday",
     "start_time": "17:00:00",
     "end_time": "18:30:00",
-    "venue_name": "New York Comedy Club - East Village",
+    "venue_name": "New York Comedy Club East Village",
     "borough": "manhattan",
     "neighborhood": "East Village",
     "address": {
