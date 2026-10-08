@@ -22,13 +22,27 @@ model mic_address {
   country      String? @db.VarChar(255)
   latitude     String? @db.VarChar(255)
   longitude    String? @db.VarChar(255)
+  // Denormalized canonical venue name, kept in sync with venues.name on write.
+  // The venues relation is the authority; this column stays for the read path
+  // (and as a fallback when venue_id is null).
   venue        String? @db.VarChar(255)
+  venue_id     BigInt?
   state        String? @db.VarChar(255)
   street_name  String? @db.VarChar(255)
   unit_number  Int
   zipcode      String? @db.VarChar(255)
   neighborhood String? @db.VarChar
+  venues       venues? @relation(fields: [venue_id], references: [id], onDelete: SetNull, onUpdate: Cascade, map: "mic_address_venue_fk")
   mics         mics[]
+}
+
+/// Canonical comedy venue. Deduplicates the free-text venue names that were
+/// previously repeated (and inconsistently spelled) across mic_address rows.
+model venues {
+  id           BigInt        @id @default(autoincrement())
+  name         String        @db.VarChar(255)
+  slug         String        @unique @db.VarChar(255)
+  mic_address  mic_address[]
 }
 
 model mic_cost {
