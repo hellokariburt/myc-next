@@ -182,8 +182,16 @@ describe('getMics (snapshot fallback filtering)', () => {
   it('matches q against name, venue and neighborhood', async () => {
     mockAllMics.mockReturnValue([
       makeItem({ id: 1, name: 'Grisly Pear Mic' }),
-      makeItem({ id: 2, name: 'Other', mic_address: { ...makeItem().mic_address!, venue: 'The Grisly Pear' } }),
-      makeItem({ id: 3, name: 'Nope', mic_address: { ...makeItem().mic_address!, venue: 'Elsewhere', neighborhood: 'Harlem' } }),
+      makeItem({
+        id: 2,
+        name: 'Other',
+        mic_address: { ...makeItem().mic_address!, venue: 'The Grisly Pear' },
+      }),
+      makeItem({
+        id: 3,
+        name: 'Nope',
+        mic_address: { ...makeItem().mic_address!, venue: 'Elsewhere', neighborhood: 'Harlem' },
+      }),
     ]);
 
     const result = await getMics({ ...DEFAULT_PARAMS, q: 'grisly' });

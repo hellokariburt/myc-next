@@ -1,10 +1,4 @@
-export const ALL_BOROUGHS = [
-  'manhattan',
-  'queens',
-  'staten-island',
-  'bronx',
-  'brooklyn',
-] as const;
+export const ALL_BOROUGHS = ['manhattan', 'queens', 'staten-island', 'bronx', 'brooklyn'] as const;
 
 export const ALL_DAYS = [
   'sunday',

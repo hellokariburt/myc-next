@@ -21,7 +21,9 @@ export function useInViewIds(containerRef: RefObject<HTMLElement>, dep: unknown)
   // how many, and the effect must re-run then or the observer keeps watching
   // detached nodes.
   const depKey = Array.isArray(dep)
-    ? dep.map((item, i) => (item && typeof item === 'object' && 'id' in item ? item.id : i)).join(',')
+    ? dep
+        .map((item, i) => (item && typeof item === 'object' && 'id' in item ? item.id : i))
+        .join(',')
     : String(dep);
 
   useEffect(() => {

@@ -2,14 +2,13 @@
 
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { ADMIN_COOKIE, adminTokenHash } from '@/lib/auth/admin';
+import { ADMIN_COOKIE, adminTokenHash, verifyAdminPassword } from '@/lib/auth/admin';
 
 export async function login(formData: FormData) {
   const password = String(formData.get('password') || '');
-  const token = process.env.ADMIN_TOKEN;
   const hash = adminTokenHash();
   const next = String(formData.get('next') || '/admin/submissions');
-  if (token && hash && password === token) {
+  if (hash && verifyAdminPassword(password)) {
     cookies().set(ADMIN_COOKIE, hash, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',

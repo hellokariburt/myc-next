@@ -28,7 +28,10 @@ const AdBanner = () => {
     // display ad on mobile; items-center keeps a shorter ad centered in the
     // reserved box. Tune the value against a real /mics PageSpeed run if the
     // served ad height differs.
-    <div ref={adRef} className="w-full my-2 flex items-center justify-center lg:max-w-[calc(50vw-50px)] min-w-[330px] min-h-[280px]">
+    <div
+      ref={adRef}
+      className="w-full my-2 flex items-center justify-center lg:max-w-[calc(50vw-50px)] min-w-[330px] min-h-[280px]"
+    >
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

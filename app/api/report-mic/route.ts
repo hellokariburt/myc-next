@@ -42,15 +42,17 @@ export async function POST(request: NextRequest) {
 
     // "Something else" is only actionable with a written-in explanation.
     if (reason === REPORT_REASON_OTHER && !details) {
-      return NextResponse.json(
-        { error: 'Please describe what is wrong' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Please describe what is wrong' }, { status: 400 });
     }
 
     // mic_id is optional — a handful of snapshot cards have no detail id (0).
     let micId: bigint | null = null;
-    if (body.mic_id !== undefined && body.mic_id !== null && body.mic_id !== '' && body.mic_id !== 0) {
+    if (
+      body.mic_id !== undefined &&
+      body.mic_id !== null &&
+      body.mic_id !== '' &&
+      body.mic_id !== 0
+    ) {
       const n = Number(body.mic_id);
       if (!Number.isInteger(n) || n < 0) {
         return NextResponse.json({ error: 'mic_id must be a positive integer' }, { status: 400 });
@@ -65,12 +67,14 @@ export async function POST(request: NextRequest) {
 
     // Cheap flood suppression: the same reason for the same mic within the last
     // hour is treated as already received, so a replay loop stops adding rows
-    // while a double-clicking human sees no error.
+    // while a double-clicking human sees no error. For id-less snapshot cards
+    // (mic_id null) we key on mic_name instead, so reports for two different
+    // such mics don't collide into one.
     const duplicate = await prisma.mic_reports.findFirst({
       where: {
-        mic_id: micId,
         reason,
         created_at: { gte: new Date(Date.now() - 60 * 60 * 1000) },
+        ...(micId !== null ? { mic_id: micId } : { mic_id: null, mic_name: micName }),
       },
       select: { id: true },
     });

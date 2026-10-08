@@ -38,8 +38,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Find Open Mics in NYC | Free Comedy Open Mic Finder',
-    description:
-      'Search and filter comedy open mics across all 5 NYC boroughs. Free to use.',
+    description: 'Search and filter comedy open mics across all 5 NYC boroughs. Free to use.',
   },
   alternates: {
     canonical: 'https://findopenmyc.com',
@@ -48,37 +47,37 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-      <html lang="en">
-        <head>
-          <link rel="apple-touch-icon" href="/icon.png" />
-          <link rel="shortcut icon" href="/icon.png" />
-          {/* AdSense loader is NOT global on purpose — it runs Auto Ads on every
+    <html lang="en">
+      <head>
+        <link rel="apple-touch-icon" href="/icon.png" />
+        <link rel="shortcut icon" href="/icon.png" />
+        {/* AdSense loader is NOT global on purpose — it runs Auto Ads on every
               page and was shifting the homepage. It loads per-route via
               <AdSenseScript/> only where ads are placed (see components/ads). */}
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: jsonLdHtml({
-                '@context': 'https://schema.org',
-                '@type': 'WebSite',
-                name: 'OpenMYC',
-                url: 'https://findopenmyc.com',
-                description:
-                  'A free search engine for comedy open mics in New York City, covering Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
-              }),
-            }}
-          />
-        </head>
-        <body className={`${inter.className} ${anton.variable}`}>
-          {children}
-          <Analytics />
-          <Script
-            src="https://gc.zgo.at/count.js"
-            strategy="lazyOnload"
-            data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
-            data-goatcounter-settings='{"allow_local": true}'
-          />
-        </body>
-      </html>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdHtml({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'OpenMYC',
+              url: 'https://findopenmyc.com',
+              description:
+                'A free search engine for comedy open mics in New York City, covering Manhattan, Brooklyn, Queens, the Bronx, and Staten Island.',
+            }),
+          }}
+        />
+      </head>
+      <body className={`${inter.className} ${anton.variable}`}>
+        {children}
+        <Analytics />
+        <Script
+          src="https://gc.zgo.at/count.js"
+          strategy="lazyOnload"
+          data-goatcounter={`https://${process.env.NEXT_PUBLIC_GOAT_COUNTER}.goatcounter.com/count`}
+          data-goatcounter-settings='{"allow_local": true}'
+        />
+      </body>
+    </html>
   );
 }

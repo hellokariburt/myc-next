@@ -26,9 +26,7 @@ export function buildMicSlug(mic: MicUrlSource): string {
     mic.day,
   ].filter((value): value is string => Boolean(value && value.trim()));
 
-  const tokens = candidates
-    .flatMap((value) => slugifyPart(value).split('-'))
-    .filter(Boolean);
+  const tokens = candidates.flatMap((value) => slugifyPart(value).split('-')).filter(Boolean);
 
   const deduped = tokens.filter((token, index) => tokens.indexOf(token) === index);
   const joined = deduped.join('-').slice(0, MAX_SLUG_LENGTH).replace(/-+$/g, '');

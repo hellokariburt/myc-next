@@ -13,7 +13,11 @@ function etParts(iso: string) {
     weekday: 'long',
   }).formatToParts(new Date(iso));
   const g = (t: string) => p.find((x) => x.type === t)?.value ?? '';
-  return { date: `${g('year')}-${g('month')}-${g('day')}`, time: `${g('hour')}:${g('minute')}`, weekday: g('weekday') };
+  return {
+    date: `${g('year')}-${g('month')}-${g('day')}`,
+    time: `${g('hour')}:${g('minute')}`,
+    weekday: g('weekday'),
+  };
 }
 
 // 2026-07-21 is a Tuesday. 18:00Z = 14:00 ET (EDT, UTC-4).
@@ -31,24 +35,32 @@ describe('getNextOccurrence', () => {
     // 19:30 ET, for a 19:00 mic — under way, so the rich result should not
     // jump to next week mid-event.
     const during = new Date('2026-07-21T23:30:00Z');
-    expect(etParts(getNextOccurrence('tuesday', { hours: 19, minutes: 0 }, during)).date).toBe('2026-07-21');
+    expect(etParts(getNextOccurrence('tuesday', { hours: 19, minutes: 0 }, during)).date).toBe(
+      '2026-07-21'
+    );
   });
 
   it('rolls to next week once the mic has finished', () => {
     // 22:00 ET, past the assumed 2h run of a 19:00 mic.
     const after = new Date('2026-07-22T02:00:00Z');
-    expect(etParts(getNextOccurrence('tuesday', { hours: 19, minutes: 0 }, after)).date).toBe('2026-07-28');
+    expect(etParts(getNextOccurrence('tuesday', { hours: 19, minutes: 0 }, after)).date).toBe(
+      '2026-07-28'
+    );
   });
 
   it('finds the next matching weekday later this week', () => {
-    expect(etParts(getNextOccurrence('friday', { hours: 20, minutes: 0 }, TUE_2PM_ET))).toMatchObject({
+    expect(
+      etParts(getNextOccurrence('friday', { hours: 20, minutes: 0 }, TUE_2PM_ET))
+    ).toMatchObject({
       date: '2026-07-24',
       weekday: 'Friday',
     });
   });
 
   it('wraps to the following week for a weekday already past', () => {
-    expect(etParts(getNextOccurrence('monday', { hours: 20, minutes: 0 }, TUE_2PM_ET)).date).toBe('2026-07-27');
+    expect(etParts(getNextOccurrence('monday', { hours: 20, minutes: 0 }, TUE_2PM_ET)).date).toBe(
+      '2026-07-27'
+    );
   });
 
   it('defaults to 7pm ET when no start time is known', () => {
@@ -62,7 +74,9 @@ describe('getNextOccurrence', () => {
   it('crosses a month boundary correctly', () => {
     // Tue 2026-07-28 -> next Saturday is 2026-08-01.
     const lateJuly = new Date('2026-07-28T18:00:00Z');
-    expect(etParts(getNextOccurrence('saturday', { hours: 21, minutes: 0 }, lateJuly)).date).toBe('2026-08-01');
+    expect(etParts(getNextOccurrence('saturday', { hours: 21, minutes: 0 }, lateJuly)).date).toBe(
+      '2026-08-01'
+    );
   });
 });
 

@@ -17,7 +17,9 @@ const FreeSwitch = ({ checked, setChecked }: FreeSwitchProps) => (
     }`}
   >
     <IconCurrencyDollar size={16} className={checked ? 'text-green-600' : 'text-slate-400'} />
-    <span className={checked ? 'font-medium text-green-700' : 'text-slate-500'}>{t('mics.selects.freeLabel')}</span>
+    <span className={checked ? 'font-medium text-green-700' : 'text-slate-500'}>
+      {t('mics.selects.freeLabel')}
+    </span>
   </button>
 );
 

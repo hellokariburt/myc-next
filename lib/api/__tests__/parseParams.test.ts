@@ -9,6 +9,7 @@ describe('parseParams', () => {
   it('returns defaults when no params provided', () => {
     const result = parseParams(params({})) as MicQueryParams;
     expect(result).toEqual({
+      q: '',
       day: [],
       borough: [],
       limit: 10,
@@ -20,15 +21,19 @@ describe('parseParams', () => {
 
   it('expands borough=all to all boroughs', () => {
     const result = parseParams(params({ borough: 'all' })) as MicQueryParams;
-    expect(result.borough).toEqual([
-      'manhattan', 'queens', 'staten-island', 'bronx', 'brooklyn',
-    ]);
+    expect(result.borough).toEqual(['manhattan', 'queens', 'staten-island', 'bronx', 'brooklyn']);
   });
 
   it('expands day=all to all days', () => {
     const result = parseParams(params({ day: 'all' })) as MicQueryParams;
     expect(result.day).toEqual([
-      'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday',
+      'sunday',
+      'monday',
+      'tuesday',
+      'wednesday',
+      'thursday',
+      'friday',
+      'saturday',
     ]);
   });
 
@@ -40,6 +45,18 @@ describe('parseParams', () => {
   it('splits comma-separated days', () => {
     const result = parseParams(params({ day: 'monday,friday' })) as MicQueryParams;
     expect(result.day).toEqual(['monday', 'friday']);
+  });
+
+  it('rejects an unknown borough', () => {
+    const result = parseParams(params({ borough: 'brooklyn,atlantis' }));
+    expect(typeof result).toBe('string');
+    expect(result).toContain('atlantis');
+  });
+
+  it('rejects an unknown day', () => {
+    const result = parseParams(params({ day: 'funday' }));
+    expect(typeof result).toBe('string');
+    expect(result).toContain('funday');
   });
 
   it('parses offset and limit', () => {

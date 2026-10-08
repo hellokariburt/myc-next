@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SeoListingPage } from '@/components/seo/SeoListingPage';
-import { generateBoroughDayMetadata, getBoroughDayBreadcrumbs, getBoroughDisplayName, capitalize, validDays } from '@/lib/seo/boroughDayPage';
+import {
+  generateBoroughDayMetadata,
+  getBoroughDayBreadcrumbs,
+  getBoroughDisplayName,
+  capitalize,
+  validDays,
+} from '@/lib/seo/boroughDayPage';
 
 export const revalidate = 3600;
 
@@ -11,7 +17,11 @@ export async function generateStaticParams() {
   return validDays.map((day) => ({ day }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ day: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ day: string }>;
+}): Promise<Metadata> {
   const { day } = await params;
   if (!validDays.includes(day)) return {};
   return generateBoroughDayMetadata(BOROUGH, day);

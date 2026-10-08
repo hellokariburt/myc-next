@@ -2,15 +2,7 @@ import { allMics } from '../data/micsSnapshot';
 import { venueImageFor } from '../services/mics.service';
 import { MicListItem } from '../types/mic';
 
-const DAYS = [
-  'sunday',
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-];
+const DAYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 function getEtNow(): { dow: number; hhmm: string } {
   const parts = new Intl.DateTimeFormat('en-US', {

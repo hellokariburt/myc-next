@@ -5,7 +5,6 @@ import prisma from '../prisma';
 import clubsSeed from '../../prisma/clubs-seed-data.json';
 import { allMics } from '../data/micsSnapshot';
 
-
 // Optional imagery harvested from each club's own website.
 // <name-slug>.<ext> = photo/banner (cover rendering); <name-slug>.logo.<ext> =
 // logo fallback (contained rendering on a tinted band) used until a photo exists.

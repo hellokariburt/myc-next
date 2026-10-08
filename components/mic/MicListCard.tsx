@@ -41,66 +41,60 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
 
   const body = (
     <div className="flex flex-row gap-4 lg:gap-6 min-w-0 w-full items-start">
-        <div className="hidden sm:block shrink-0">
-          <ShowThumbnail name={mic.mic_address?.venue || mic.name || ''} image={mic.venue_image} />
-        </div>
-        <div className="pr-3 lg:pr-4 pt-0.5 border-r border-slate-200 shrink-0 w-[88px] lg:w-[110px]">
-          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-            {capitalizeDay(mic.day || '')}
-          </p>
-          <p className="text-xl lg:text-2xl font-bold text-slate-900 tabular-nums leading-tight">
-            {changeTime(mic.start_time || '')}
-          </p>
-          {mic.mic_occurrence?.schedule && (
-            <p className="text-xs text-slate-500 pt-2">{mic.mic_occurrence.schedule}</p>
+      <div className="hidden sm:block shrink-0">
+        <ShowThumbnail name={mic.mic_address?.venue || mic.name || ''} image={mic.venue_image} />
+      </div>
+      <div className="pr-3 lg:pr-4 pt-0.5 border-r border-slate-200 shrink-0 w-[88px] lg:w-[110px]">
+        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+          {capitalizeDay(mic.day || '')}
+        </p>
+        <p className="text-xl lg:text-2xl font-bold text-slate-900 tabular-nums leading-tight">
+          {changeTime(mic.start_time || '')}
+        </p>
+        {mic.mic_occurrence?.schedule && (
+          <p className="text-xs text-slate-500 pt-2">{mic.mic_occurrence.schedule}</p>
+        )}
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="text-base lg:text-lg font-semibold text-slate-900 group-hover:underline decoration-slate-400 underline-offset-2 line-clamp-2 break-words">
+          {mic.name}
+        </p>
+        <p className="text-slate-600 text-sm lg:text-base line-clamp-2 break-words">
+          {mic.mic_address?.venue}
+          {mic.mic_address?.neighborhood && (
+            <span className="text-slate-500"> · {mic.mic_address.neighborhood}</span>
           )}
-        </div>
-        <div className="min-w-0 flex-1">
-          <p className="text-base lg:text-lg font-semibold text-slate-900 group-hover:underline decoration-slate-400 underline-offset-2 line-clamp-2 break-words">
-            {mic.name}
-          </p>
-          <p className="text-slate-600 text-sm lg:text-base line-clamp-2 break-words">
-            {mic.mic_address?.venue}
-            {mic.mic_address?.neighborhood && (
-              <span className="text-slate-500"> · {mic.mic_address.neighborhood}</span>
-            )}
-          </p>
-          {costCaption && (
-            <p className="text-xs text-slate-500 pt-0.5 line-clamp-1">{costCaption}</p>
-          )}
-          <div className="flex flex-wrap items-center gap-2 pt-2 pr-9">
-            {!hideBoroughBadge && mic.borough && (
-              <span
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(
-                  mic.borough
-                )}`}
-              >
-                {getBoroughDisplayShort(mic.borough)}
-              </span>
-            )}
+        </p>
+        {costCaption && <p className="text-xs text-slate-500 pt-0.5 line-clamp-1">{costCaption}</p>}
+        <div className="flex flex-wrap items-center gap-2 pt-2 pr-9">
+          {!hideBoroughBadge && mic.borough && (
             <span
-              className={`inline-flex items-center whitespace-nowrap px-2.5 py-0.5 rounded-full text-xs font-medium ring-1 ${
-                isFree
-                  ? 'bg-green-50 text-green-700 ring-green-200'
-                  : 'bg-amber-50 text-amber-700 ring-amber-200'
-              }`}
+              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(
+                mic.borough
+              )}`}
             >
-              {token}
+              {getBoroughDisplayShort(mic.borough)}
             </span>
-          </div>
+          )}
+          <span
+            className={`inline-flex items-center whitespace-nowrap px-2.5 py-0.5 rounded-full text-xs font-medium ring-1 ${
+              isFree
+                ? 'bg-green-50 text-green-700 ring-green-200'
+                : 'bg-amber-50 text-amber-700 ring-amber-200'
+            }`}
+          >
+            {token}
+          </span>
         </div>
       </div>
+    </div>
   );
 
   // The report control is a sibling of the card, never a child of the <Link>
   // (a button nested in an anchor is invalid HTML), so it lives in a relative
   // wrapper and is pinned to the bottom-right corner.
   const reportButton = (
-    <ReportButton
-      micId={mic.id}
-      micName={mic.name}
-      className="absolute bottom-2 right-2"
-    />
+    <ReportButton micId={mic.id} micName={mic.name} className="absolute bottom-2 right-2" />
   );
 
   if (!mic.id) {

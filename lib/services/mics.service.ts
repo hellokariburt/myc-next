@@ -70,9 +70,7 @@ function nycDayIndex(): number {
 async function getBoroughCounts(): Promise<Record<string, number>> {
   // Seed every borough at 0 first: a borough with no mics needs to read as
   // "zero mics" (chip hidden) rather than "counts unavailable" (empty object).
-  const counts: Record<string, number> = Object.fromEntries(
-    ALL_BOROUGHS.map((b) => [b, 0])
-  );
+  const counts: Record<string, number> = Object.fromEntries(ALL_BOROUGHS.map((b) => [b, 0]));
   try {
     const rows = await prisma.mics.groupBy({
       by: ['borough'],
@@ -113,20 +111,21 @@ const getMicsFromDb = async (params: MicQueryParams) => {
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
   // Mirror isFreeCost (lib/utils/isFree.ts): empty/absent cost counts as free,
   // case-insensitive on a leading "free" — same predicate the Free badge uses.
-  const freeFilter = params.cost === 'true'
-    ? {
-        OR: [
-          { cost_id: null },
-          { mic_cost: { is: { cost_amount: null } } },
-          { mic_cost: { is: { cost_amount: '' } } },
-          {
-            mic_cost: {
-              is: { cost_amount: { startsWith: 'free', mode: 'insensitive' as const } },
+  const freeFilter =
+    params.cost === 'true'
+      ? {
+          OR: [
+            { cost_id: null },
+            { mic_cost: { is: { cost_amount: null } } },
+            { mic_cost: { is: { cost_amount: '' } } },
+            {
+              mic_cost: {
+                is: { cost_amount: { startsWith: 'free', mode: 'insensitive' as const } },
+              },
             },
-          },
-        ],
-      }
-    : null;
+          ],
+        }
+      : null;
   const qFilter = params.q
     ? {
         OR: [

@@ -142,9 +142,7 @@ const About = () => (
                   </Link>{' '}
                   accounts, checked regularly to catch schedule and signup changes
                 </li>
-                <li>
-                  Community submissions from comics who know the rooms firsthand
-                </li>
+                <li>Community submissions from comics who know the rooms firsthand</li>
               </ul>
               <p>
                 Because open mics change constantly, listings are cross-checked against host
@@ -159,7 +157,9 @@ const About = () => (
           </section>
 
           <section className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm">
-            <h2 className="text-2xl font-bold tracking-tight text-slate-900">Support the project</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900">
+              Support the project
+            </h2>
             <div className="mt-4 space-y-4 text-slate-700 leading-8">
               <p>
                 OpenMYC is free to use. Support helps cover hosting, maintenance, and the ongoing

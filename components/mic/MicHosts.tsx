@@ -27,17 +27,18 @@ const MicHosts = ({ mic, labelClass }: { mic: MicDetail; labelClass?: string }) 
                 {x.mic_host.email}
               </a>
             )}
-            {x.mic_host.instagram && extractHandles(x.mic_host.instagram).map((handle) => (
-              <a
-                key={handle}
-                href={`https://instagram.com/${handle.replace(/^@/, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline underline-offset-2 text-sm"
-              >
-                @{handle.replace(/^@/, '')}
-              </a>
-            ))}
+            {x.mic_host.instagram &&
+              extractHandles(x.mic_host.instagram).map((handle) => (
+                <a
+                  key={handle}
+                  href={`https://instagram.com/${handle.replace(/^@/, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 underline underline-offset-2 text-sm"
+                >
+                  @{handle.replace(/^@/, '')}
+                </a>
+              ))}
           </div>
         ))}
       </dd>

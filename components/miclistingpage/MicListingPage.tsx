@@ -9,7 +9,9 @@ import { MicListResponse } from '@/lib/types/mic';
 
 const MicMapLoad = dynamic(() => import('../map/MicMapLoad'), {
   ssr: false,
-  loading: () => <div className="w-full h-[65vh] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start bg-slate-100 animate-pulse" />,
+  loading: () => (
+    <div className="w-full h-[65vh] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start bg-slate-100 animate-pulse" />
+  ),
 });
 
 export function MicListingPage2({

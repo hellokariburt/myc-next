@@ -8,8 +8,9 @@
 export function formatTimeText(raw: string | null): string {
   if (!raw) return '';
   const text = raw.trim();
-  // fast path: single clean time
-  if (/^\d{1,2}(:\d{2})?\s*(AM|PM)$/i.test(text)) return text.toUpperCase().replace(/\s+/, ' ');
+  // fast path: single already-clean time (minutes required). A minute-less time
+  // like "8pm" is NOT clean — it falls through so the normalizer adds ":00".
+  if (/^\d{1,2}:\d{2}\s*(AM|PM)$/i.test(text)) return text.toUpperCase().replace(/\s+/, ' ');
 
   const suffixMatch = text.match(/(am|pm)\b\s*$/i);
   if (!suffixMatch) return text; // not time-shaped — leave alone

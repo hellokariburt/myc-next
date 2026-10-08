@@ -127,7 +127,9 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: mic.name,
-    description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${mic.mic_address?.neighborhood ?? mic.borough ?? 'NYC'}`,
+    description: `Comedy open mic at ${mic.mic_address?.venue ?? 'venue'} in ${
+      mic.mic_address?.neighborhood ?? mic.borough ?? 'NYC'
+    }`,
     url: micUrl,
     image: buildMicOgImageUrl(mic),
     startDate,
@@ -183,10 +185,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
   return (
     <PageLayout hasBackButton className="pb-16 bg-[#f6efe4]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(jsonLd) }} />
       <div className="lg:grid lg:grid-cols-[1fr_minmax(360px,40vw)] lg:gap-4 lg:px-4 max-w-7xl mx-auto">
         <MicPage mic={mic} />
         <div className="px-4 lg:px-0 lg:py-6">

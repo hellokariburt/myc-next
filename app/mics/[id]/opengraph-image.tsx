@@ -47,9 +47,29 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   if (!mic) {
     return new ImageResponse(
       (
-        <div style={{ display: 'flex', width: '100%', height: '100%', background: '#1E293B', color: 'white', alignItems: 'center', justifyContent: 'center', fontSize: 48, fontWeight: 800 }}>
+        <div
+          style={{
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            background: '#1E293B',
+            color: 'white',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 48,
+            fontWeight: 800,
+          }}
+        >
           <span>Open</span>
-          <span style={{ background: 'linear-gradient(to right, #3B82F6, #F97316)', backgroundClip: 'text', color: 'transparent' }}>MYC</span>
+          <span
+            style={{
+              background: 'linear-gradient(to right, #3B82F6, #F97316)',
+              backgroundClip: 'text',
+              color: 'transparent',
+            }}
+          >
+            MYC
+          </span>
         </div>
       ),
       { ...size }
@@ -80,8 +100,18 @@ export default async function Image({ params }: { params: Promise<{ id: string }
         </div>
 
         {/* Middle: mic info */}
-        <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}>
-          <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1.1, marginBottom: '24px', maxWidth: '1000px' }}>
+        <div
+          style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'center' }}
+        >
+          <div
+            style={{
+              fontSize: 56,
+              fontWeight: 800,
+              lineHeight: 1.1,
+              marginBottom: '24px',
+              maxWidth: '1000px',
+            }}
+          >
             {mic.name}
           </div>
           <div style={{ fontSize: 28, color: '#94A3B8', marginBottom: '16px' }}>
@@ -117,7 +147,9 @@ export default async function Image({ params }: { params: Promise<{ id: string }
             <div
               style={{
                 display: 'flex',
-                background: isFreeCost(mic.mic_cost?.cost_amount) ? '#16A34A' : 'rgba(255,255,255,0.1)',
+                background: isFreeCost(mic.mic_cost?.cost_amount)
+                  ? '#16A34A'
+                  : 'rgba(255,255,255,0.1)',
                 padding: '8px 20px',
                 borderRadius: '999px',
                 fontWeight: 600,

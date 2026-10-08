@@ -6,7 +6,8 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Open Mics in the Bronx | OpenMYC',
-  description: 'Find every comedy open mic in the Bronx, NYC. Browse by day, time, and cost. Free to use.',
+  description:
+    'Find every comedy open mic in the Bronx, NYC. Browse by day, time, and cost. Free to use.',
   alternates: { canonical: 'https://findopenmyc.com/mics/bronx' },
   openGraph: {
     title: 'Open Mics in the Bronx | OpenMYC',

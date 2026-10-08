@@ -1,16 +1,29 @@
 import { MicQueryParams, ALL_BOROUGHS, ALL_DAYS, TIME_FORMAT } from '../types/api';
 
 export function parseParams(searchParams: URLSearchParams): MicQueryParams | string {
+  // Empty (param absent) means "no filter" — getMics treats [] as all boroughs.
+  // An explicit value must be "all" or a comma-list of known slugs; anything
+  // else is a 400 rather than a silent empty result.
   const borough = searchParams.get('borough') ?? undefined;
-  let boroughArray = borough ? borough.split(',') : [];
+  let boroughArray: string[] = [];
   if (borough === 'all') {
     boroughArray = [...ALL_BOROUGHS];
+  } else if (borough) {
+    boroughArray = borough.split(',');
+    const unknown = boroughArray.filter(
+      (b) => !ALL_BOROUGHS.includes(b as (typeof ALL_BOROUGHS)[number])
+    );
+    if (unknown.length) return `Unrecognized borough: ${unknown.join(', ')}`;
   }
 
   const day = searchParams.get('day') ?? undefined;
-  let dayArray = day ? day.split(',') : [];
+  let dayArray: string[] = [];
   if (day === 'all') {
     dayArray = [...ALL_DAYS];
+  } else if (day) {
+    dayArray = day.split(',');
+    const unknown = dayArray.filter((d) => !ALL_DAYS.includes(d as (typeof ALL_DAYS)[number]));
+    if (unknown.length) return `Unrecognized day: ${unknown.join(', ')}`;
   }
 
   const rawLimit = searchParams.get('limit');

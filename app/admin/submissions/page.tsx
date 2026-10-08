@@ -36,7 +36,8 @@ export default async function AdminSubmissionsPage() {
   return (
     <AdminShell active="submissions">
       <p className="text-sm text-slate-500 mb-4">
-        {submissions.length} submission{submissions.length === 1 ? '' : 's'} · {pendingCount} pending
+        {submissions.length} submission{submissions.length === 1 ? '' : 's'} · {pendingCount}{' '}
+        pending
       </p>
 
       {submissions.length === 0 ? (
@@ -47,10 +48,7 @@ export default async function AdminSubmissionsPage() {
             const id = s.id.toString();
             const isPending = s.status === 'pending';
             return (
-              <div
-                key={id}
-                className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm"
-              >
+              <div key={id} className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
                 <div className="flex items-start justify-between gap-4">
                   <div className="min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">

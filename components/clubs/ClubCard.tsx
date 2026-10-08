@@ -44,7 +44,9 @@ export default function ClubCard({ club }: { club: ClubListItem }) {
       ) : (
         <div
           aria-hidden="true"
-          className={`w-full h-36 flex items-center justify-center px-6 ${getBoroughBanner(club.borough || '')}`}
+          className={`w-full h-36 flex items-center justify-center px-6 ${getBoroughBanner(
+            club.borough || ''
+          )}`}
         >
           <span className="font-display uppercase text-2xl text-white/95 text-center leading-none">
             {club.name}
