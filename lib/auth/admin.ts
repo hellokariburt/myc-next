@@ -17,6 +17,19 @@ export function adminTokenHash(): string | null {
   return createHash('sha256').update(token).digest('hex');
 }
 
+/**
+ * Constant-time check of a submitted password against ADMIN_TOKEN. Comparing
+ * the SHA-256 digests (always 32 bytes) sidesteps the length-leak a raw
+ * `===`/timingSafeEqual on the strings would have.
+ */
+export function verifyAdminPassword(password: string): boolean {
+  const token = process.env.ADMIN_TOKEN;
+  if (!token) return false;
+  const a = createHash('sha256').update(password).digest();
+  const b = createHash('sha256').update(token).digest();
+  return timingSafeEqual(a, b);
+}
+
 /** Whether the current request carries a valid admin cookie. */
 export function isAdmin(): boolean {
   const expected = adminTokenHash();
