@@ -28,6 +28,7 @@ const mockAllMics = allMics as jest.MockedFunction<typeof allMics>;
 
 const makeItem = (o: Partial<MicListItem> = {}): MicListItem => ({
   id: 36,
+  active: true,
   borough: 'manhattan',
   confirmed: null,
   day: 'sunday',

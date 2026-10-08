@@ -14,6 +14,9 @@ import snapshot from './mics-snapshot.json';
 
 interface SnapshotRecord {
   id: string | null;
+  // Optional for backward-compat with snapshots written before the flag existed;
+  // a missing value reads as active (see toMicListItem).
+  active?: boolean;
   name: string;
   day: string | null;
   start_time: string | null;
@@ -64,6 +67,7 @@ function toTimeValue(t: string | null): string | null {
 export function toMicListItem(r: SnapshotRecord): MicListItem {
   return {
     id: r.id ? Number(r.id) : 0,
+    active: r.active !== false,
     borough: r.borough,
     confirmed: r.confirmed,
     day: r.day,
@@ -89,9 +93,10 @@ export function toMicListItem(r: SnapshotRecord): MicListItem {
   };
 }
 
-/** All mics as MicListItem, in snapshot (seed) order. */
+/** All active mics as MicListItem, in snapshot (seed) order. Inactive (taken-down)
+ *  mics are excluded, matching the DB read path's `active: true` filter. */
 export function allMics(): MicListItem[] {
-  return records.map(toMicListItem);
+  return records.map(toMicListItem).filter((m) => m.active);
 }
 
 /**

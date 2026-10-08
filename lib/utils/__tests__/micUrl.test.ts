@@ -11,6 +11,7 @@ import { MicListItem } from '../../types/mic';
 
 const mic: MicListItem = {
   id: 100,
+  active: true,
   borough: 'manhattan',
   confirmed: null,
   day: 'monday',

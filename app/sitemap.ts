@@ -19,6 +19,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     const mics = await prisma.mics.findMany({
+      where: { active: true },
       select: {
         id: true,
         name: true,

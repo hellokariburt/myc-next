@@ -1,6 +1,8 @@
 /** Mic listing item — shape returned by GET /api/mics after serialization */
 export interface MicListItem {
   id: number;
+  /** Soft-delete flag; inactive mics are hidden from listings and 404 on detail. */
+  active: boolean;
   borough: string | null;
   confirmed: string | null;
   day: string | null;

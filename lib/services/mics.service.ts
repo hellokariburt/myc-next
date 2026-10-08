@@ -74,7 +74,11 @@ async function getBoroughCounts(): Promise<Record<string, number>> {
     ALL_BOROUGHS.map((b) => [b, 0])
   );
   try {
-    const rows = await prisma.mics.groupBy({ by: ['borough'], _count: { _all: true } });
+    const rows = await prisma.mics.groupBy({
+      by: ['borough'],
+      where: { active: true },
+      _count: { _all: true },
+    });
     for (const row of rows) {
       if (row.borough) counts[row.borough] = row._count._all;
     }
@@ -143,6 +147,7 @@ const getMicsFromDb = async (params: MicQueryParams) => {
   // Both filters carry their own `OR`, so combine through `AND` — spreading them
   // into one object would silently drop whichever came first.
   const where = {
+    active: true,
     day: { in: days },
     borough: { in: boroughs },
     ...(startTime && { start_time: { gte: startTime } }),
@@ -269,6 +274,7 @@ const getMic = async (id: bigint) => {
 const listMicUrlSources = async (): Promise<MicUrlSource[]> => {
   try {
     return await prisma.mics.findMany({
+      where: { active: true },
       select: {
         id: true,
         name: true,
