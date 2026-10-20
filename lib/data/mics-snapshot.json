@@ -5008,8 +5008,8 @@
     "active": true,
     "name": "Greek Yogurt",
     "day": "wednesday",
-    "start_time": "17:45:00",
-    "end_time": "19:15:00",
+    "start_time": "22:30:00",
+    "end_time": null,
     "venue_name": "Grove 34",
     "borough": "queens",
     "neighborhood": "Astoria",
@@ -5036,7 +5036,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Verified 5/8 Malev",
+    "confirmed": "Time corrected 10/19/2026 per report #4 (was 5:45 PM; prior note: Verified 5/8 Malev)",
     "other_rules": null
   },
   {
@@ -14152,8 +14152,8 @@
     "active": true,
     "name": "Greek Yogurt",
     "day": "wednesday",
-    "start_time": "21:45:00",
-    "end_time": "23:15:00",
+    "start_time": "22:15:00",
+    "end_time": "23:45:00",
     "venue_name": "Grove 34",
     "borough": "queens",
     "neighborhood": "Astoria",
@@ -16849,7 +16849,7 @@
   },
   {
     "id": "1656",
-    "active": true,
+    "active": false,
     "name": "Greek Yogurt",
     "day": "wednesday",
     "start_time": "22:30:00",
@@ -16880,7 +16880,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Manually added 10/15/2026 (3rd Wed slot, 10:30 PM)",
+    "confirmed": "Deactivated 10/19/2026 — consolidated into #1327 (10:30 PM Behavior Mic)",
     "other_rules": null
   }
 ]
