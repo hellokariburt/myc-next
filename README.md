@@ -14,7 +14,7 @@ get the details that matter (sign-up, cost, host, exact time and location).
 - **Reports** — visitors can flag an incorrect or closed mic; reports are triaged in the admin dashboard.
 - **Admin dashboard** (`/admin`) — review submissions, resolve reports, token-gated and never indexed.
 - **Soft deletes** — mics can be taken down (e.g. a venue closes) via an `active` flag without deleting the row, so reports stay linked and old URLs still resolve.
-- **Resilient reads** — if the database is unavailable, listings and detail pages fall back to a committed snapshot so the site stays up.
+- **Resilient, cached reads** — the high-traffic `/mics` listing and `/api/mics` endpoint read through a tagged data cache, so repeat and crawler filter traffic doesn't re-hit the database; if the database is unavailable, listings and detail pages fall back to a committed snapshot so the site stays up.
 - **SEO** — dynamic sitemap, Open Graph images, and legacy-URL recovery (old `/mics/<id>` links redirect to their current canonical path).
 - **Bilingual** — English and Spanish via a lightweight in-repo i18n layer.
 
@@ -98,6 +98,9 @@ scripts/          one-off + maintenance scripts (snapshot builder, …)
 
 Mics are stored normalized: `mics` references `mic_address`, `mic_cost`,
 `signup_instructions`, and `mic_occurrence`, with hosts joined through
-`host_mics` → `mic_host`. Alongside live mics, the schema holds `shows` and
-`clubs` (directory content), `mic_submissions` (the pending-review queue), and
-`mic_reports` (user-flagged issues). See `prisma/schema.prisma` for the full shape.
+`host_mics` → `mic_host`. Venue names are themselves normalized into a `venues`
+table that `mic_address` points at via `venue_id` (the denormalized
+`mic_address.venue` string is still the read path for now). Alongside live mics,
+the schema holds `shows` and `clubs` (directory content), `mic_submissions` (the
+pending-review queue), and `mic_reports` (user-flagged issues). See
+`prisma/schema.prisma` for the full shape.
