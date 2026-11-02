@@ -11,8 +11,9 @@ export async function approveSubmissionAction(formData: FormData) {
   const id = String(formData.get('id') || '');
   if (!id) return;
   await approveSubmission(BigInt(id));
-  // The approved mic is now live; drop the cached /mics + /api/mics payloads so
-  // it shows up without waiting out the data-cache TTL.
+  // The approved mic is now live; drop the cached /mics + /api/mics data-cache
+  // payloads so it shows up without waiting out the TTL. Note the /api/mics HTTP
+  // response can still be served from the CDN for its s-maxage window (~5m).
   revalidateTag(MICS_CACHE_TAG);
   revalidatePath('/admin/submissions');
 }

@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getMicsResponseCached, getBoroughCountsCached, nycDayName } from '@/lib/services/mics.service';
+import {
+  getMicsResponseCached,
+  getBoroughCountsCached,
+  nycDayName,
+} from '@/lib/services/mics.service';
 import { parseParams } from '@/lib/api/parseParams';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicListingPage2 } from '../../components/miclistingpage/MicListingPage';
