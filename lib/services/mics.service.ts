@@ -1,13 +1,27 @@
 import { existsSync } from 'fs';
 import { join } from 'path';
+import { unstable_cache } from 'next/cache';
 import prisma from '../prisma';
 import { MicQueryParams, ALL_BOROUGHS, ALL_DAYS } from '../types/api';
 import { clubArtDirectory, venueMatchesClub } from './clubs.service';
 import { nameSlug } from '../utils/nameSlug';
 import { isFreeCost } from '../utils/isFree';
 import { allMics, snapshotMicById } from '../data/micsSnapshot';
-import { MicListItem } from '../types/mic';
+import { MicListItem, MicListResponse } from '../types/mic';
+import { serialize } from '../utils/serialize';
 import { buildMicSlug, buildMicPath, type MicUrlSource } from '../utils/micUrl';
+
+/**
+ * Cache tag for every cached mic-listing read. Bust it with
+ * `revalidateTag(MICS_CACHE_TAG)` after a mutation that changes live mics
+ * (e.g. approving a submission) so the cached `/mics` + `/api/mics` payloads
+ * refresh immediately instead of waiting out the revalidate window.
+ */
+export const MICS_CACHE_TAG = 'mics';
+
+// Data cache lives for an hour; correctness between deploys relies on the tag
+// bust above, not the TTL. A new deploy ships a cold cache anyway.
+const MICS_CACHE_TTL = 3600;
 
 // venue -> image lookup: club directory art first, then venue's own art
 // (public/venue-art/<venue-slug>.<ext>); cached per lambda instance
@@ -67,26 +81,38 @@ function nycDayIndex(): number {
  * currently has none). Deliberately unfiltered: these read as "how big is this
  * borough's scene", not "how many match your current query".
  */
+// Seed every borough at 0 first: a borough with no mics needs to read as
+// "zero mics" (chip hidden) rather than "counts unavailable" (empty object).
+const seededBoroughCounts = (): Record<string, number> =>
+  Object.fromEntries(ALL_BOROUGHS.map((b) => [b, 0]));
+
+async function getBoroughCountsFromDb(): Promise<Record<string, number>> {
+  const counts = seededBoroughCounts();
+  const rows = await prisma.mics.groupBy({
+    by: ['borough'],
+    where: { active: true },
+    _count: { _all: true },
+  });
+  for (const row of rows) {
+    if (row.borough) counts[row.borough] = row._count._all;
+  }
+  return counts;
+}
+
+function boroughCountsFromSnapshot(): Record<string, number> {
+  const counts = seededBoroughCounts();
+  for (const m of allMics()) {
+    if (m.borough) counts[m.borough] = (counts[m.borough] ?? 0) + 1;
+  }
+  return counts;
+}
+
 async function getBoroughCounts(): Promise<Record<string, number>> {
-  // Seed every borough at 0 first: a borough with no mics needs to read as
-  // "zero mics" (chip hidden) rather than "counts unavailable" (empty object).
-  const counts: Record<string, number> = Object.fromEntries(ALL_BOROUGHS.map((b) => [b, 0]));
   try {
-    const rows = await prisma.mics.groupBy({
-      by: ['borough'],
-      where: { active: true },
-      _count: { _all: true },
-    });
-    for (const row of rows) {
-      if (row.borough) counts[row.borough] = row._count._all;
-    }
-    return counts;
+    return await getBoroughCountsFromDb();
   } catch {
     // DB unavailable (e.g. Neon compute-quota lockout) — count from the snapshot.
-    for (const m of allMics()) {
-      if (m.borough) counts[m.borough] = (counts[m.borough] ?? 0) + 1;
-    }
-    return counts;
+    return boroughCountsFromSnapshot();
   }
 }
 
@@ -241,6 +267,72 @@ const getMicsFromSnapshot = async (params: MicQueryParams) => {
 
   return { mics, count: filtered.length };
 };
+
+// Stable, order-independent cache key for a filter combo. Borough/day arrays are
+// sorted so ?borough=a,b and ?borough=b,a share one entry.
+function micsCacheKey(p: MicQueryParams): string {
+  return JSON.stringify([
+    p.q ?? '',
+    [...p.borough].sort(),
+    [...p.day].sort(),
+    p.start_time,
+    p.cost,
+    p.limit,
+    p.offset,
+  ]);
+}
+
+/**
+ * The read surface for the dynamic `/mics` page and the `/api/mics` endpoint,
+ * both of which are request-time (searchParams / force-dynamic) and so are NOT
+ * covered by route-level ISR. Without this, every request — including each
+ * distinct crawler filter combo — ran getMics against Neon and kept the
+ * compute instance from auto-suspending.
+ *
+ * Only genuine DB results are cached: if Neon is down, getMicsFromDb throws,
+ * we skip the cache and serve the snapshot uncached, so the cache repopulates
+ * with real data the moment Neon recovers. Returns the already-serialized
+ * envelope (BigInt ids -> numbers) so the value is cache-safe and both callers
+ * can return it as-is.
+ */
+export async function getMicsResponseCached(params: MicQueryParams): Promise<MicListResponse> {
+  // getMicsFromDb yields raw rows with BigInt ids; serialize() converts those to
+  // numbers, producing the MicListResponse shape. Typed loosely here for that
+  // reason (same cast the page/route used before).
+  const toEnvelope = (mics: unknown[], count: number): MicListResponse =>
+    serialize({
+      totalMics: count,
+      offset: params.offset,
+      limit: params.limit,
+      mics,
+    }) as unknown as MicListResponse;
+
+  try {
+    return await unstable_cache(
+      async () => {
+        const { mics, count } = await getMicsFromDb(params);
+        return toEnvelope(mics, count);
+      },
+      ['mics-list', micsCacheKey(params)],
+      { revalidate: MICS_CACHE_TTL, tags: [MICS_CACHE_TAG] }
+    )();
+  } catch {
+    const { mics, count } = await getMicsFromSnapshot(params);
+    return toEnvelope(mics, count);
+  }
+}
+
+/** Cached borough chip counts for the dynamic `/mics` page. See getMicsResponseCached. */
+export async function getBoroughCountsCached(): Promise<Record<string, number>> {
+  try {
+    return await unstable_cache(getBoroughCountsFromDb, ['borough-counts'], {
+      revalidate: MICS_CACHE_TTL,
+      tags: [MICS_CACHE_TAG],
+    })();
+  } catch {
+    return boroughCountsFromSnapshot();
+  }
+}
 
 const getMic = async (id: bigint) => {
   try {

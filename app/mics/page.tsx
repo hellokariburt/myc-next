@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getMics, getBoroughCounts, nycDayName } from '@/lib/services/mics.service';
-import { serialize } from '@/lib/utils/serialize';
+import {
+  getMicsResponseCached,
+  getBoroughCountsCached,
+  nycDayName,
+} from '@/lib/services/mics.service';
 import { parseParams } from '@/lib/api/parseParams';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicListingPage2 } from '../../components/miclistingpage/MicListingPage';
@@ -41,13 +44,7 @@ async function fetchInitialMics(
     const parsed = parseParams(urlParams);
     if (typeof parsed === 'string') return undefined;
 
-    const { mics, count } = await getMics(parsed);
-    return serialize({
-      totalMics: count,
-      offset: parsed.offset,
-      limit: parsed.limit,
-      mics,
-    }) as unknown as MicListResponse;
+    return await getMicsResponseCached(parsed);
   } catch {
     return undefined;
   }
@@ -61,7 +58,7 @@ export default async function Page({
   const params = await searchParams;
   const [serverData, boroughCounts] = await Promise.all([
     fetchInitialMics(params),
-    getBoroughCounts().catch(() => ({})),
+    getBoroughCountsCached().catch(() => ({})),
   ]);
 
   return (

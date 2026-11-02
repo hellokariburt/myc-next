@@ -1,7 +1,23 @@
-import { getMics, getMic, getBoroughCounts } from '../mics.service';
+import {
+  getMics,
+  getMic,
+  getBoroughCounts,
+  getMicsResponseCached,
+  getBoroughCountsCached,
+} from '../mics.service';
 import prisma from '../../prisma';
 import { allMics } from '../../data/micsSnapshot';
 import { MicListItem } from '../../types/mic';
+
+// unstable_cache is a passthrough in tests: run the callback directly so these
+// tests exercise our serialization + fallback logic, not Next's cache store.
+jest.mock('next/cache', () => ({
+  __esModule: true,
+  unstable_cache:
+    (fn: (...args: unknown[]) => unknown) =>
+    (...args: unknown[]) =>
+      fn(...args),
+}));
 
 // getMics/getBoroughCounts read the DB first and fall back to the committed
 // snapshot on any DB error; getMic does the same. The snapshot is the fallback,
@@ -99,6 +115,79 @@ describe('getMics (DB primary)', () => {
     const result = await getMics({ ...DEFAULT_PARAMS });
 
     expect(result.count).toBe(2);
+    expect(mockAllMics).toHaveBeenCalled();
+  });
+});
+
+describe('getMicsResponseCached', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('returns a cache-safe envelope with numeric ids when the DB is up', async () => {
+    const key = { id: BigInt(7), day: 'sunday', start_time: new Date('1970-01-01T14:00:00.000Z') };
+    const row = {
+      id: BigInt(7),
+      name: 'Live Mic',
+      day: 'sunday',
+      start_time: new Date('1970-01-01T14:00:00.000Z'),
+      mic_address: { venue: 'Live Venue', latitude: 40.7, longitude: -73.9 },
+      mic_cost: null,
+      mic_occurrence: null,
+    };
+    (mockPrisma.mics.findMany as jest.Mock)
+      .mockResolvedValueOnce([key])
+      .mockResolvedValueOnce([row]);
+
+    const res = await getMicsResponseCached({ ...DEFAULT_PARAMS });
+
+    expect(res).toMatchObject({ totalMics: 1, offset: 0, limit: 10 });
+    // BigInt must be serialized to a number so the value is safe to store in
+    // Next's data cache (JSON can't hold a BigInt).
+    expect(res.mics[0].id).toBe(7);
+    expect(typeof res.mics[0].id).toBe('number');
+    expect(mockAllMics).not.toHaveBeenCalled();
+  });
+
+  it('serves the snapshot (uncached) when the DB throws', async () => {
+    (mockPrisma.mics.findMany as jest.Mock).mockRejectedValue(new Error('compute suspended'));
+    mockAllMics.mockReturnValue([makeItem({ id: 1 }), makeItem({ id: 2 })]);
+
+    const res = await getMicsResponseCached({ ...DEFAULT_PARAMS });
+
+    expect(res.totalMics).toBe(2);
+    expect(mockAllMics).toHaveBeenCalled();
+  });
+});
+
+describe('getBoroughCountsCached', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('counts from the DB when it is up', async () => {
+    (mockPrisma.mics.groupBy as jest.Mock).mockResolvedValue([
+      { borough: 'manhattan', _count: { _all: 5 } },
+      { borough: 'brooklyn', _count: { _all: 3 } },
+    ]);
+
+    const counts = await getBoroughCountsCached();
+
+    expect(counts.manhattan).toBe(5);
+    expect(counts.brooklyn).toBe(3);
+    expect(mockAllMics).not.toHaveBeenCalled();
+  });
+
+  it('falls back to snapshot counts when the DB throws', async () => {
+    (mockPrisma.mics.groupBy as jest.Mock).mockRejectedValue(new Error('compute suspended'));
+    mockAllMics.mockReturnValue([
+      makeItem({ id: 1, borough: 'queens' }),
+      makeItem({ id: 2, borough: 'queens' }),
+    ]);
+
+    const counts = await getBoroughCountsCached();
+
+    expect(counts.queens).toBe(2);
     expect(mockAllMics).toHaveBeenCalled();
   });
 });
