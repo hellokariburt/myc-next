@@ -23,6 +23,11 @@ export function useMicSearch(serverData?: MicListResponse) {
     queryFn: () => request<MicListResponse>(`/api/mics?${apiQueryString}`),
     retry: false,
     initialData: serverData,
+    // Treat the server-rendered data as fresh for the CDN window so hydration
+    // doesn't immediately refetch /api/mics (and re-hit Neon). Mic data changes
+    // at approval/deploy time, not second-to-second.
+    staleTime: 5 * 60 * 1000,
+    refetchOnWindowFocus: false,
   });
 
   return {

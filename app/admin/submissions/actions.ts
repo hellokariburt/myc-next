@@ -1,15 +1,19 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import prisma from '@/lib/prisma';
 import { isAdmin } from '@/lib/auth/admin';
 import { approveSubmission } from '@/lib/services/approveSubmission';
+import { MICS_CACHE_TAG } from '@/lib/services/mics.service';
 
 export async function approveSubmissionAction(formData: FormData) {
   if (!isAdmin()) return;
   const id = String(formData.get('id') || '');
   if (!id) return;
   await approveSubmission(BigInt(id));
+  // The approved mic is now live; drop the cached /mics + /api/mics payloads so
+  // it shows up without waiting out the data-cache TTL.
+  revalidateTag(MICS_CACHE_TAG);
   revalidatePath('/admin/submissions');
 }
 
