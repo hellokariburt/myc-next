@@ -55,7 +55,7 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
           expanded ? 'h-[65vh] pb-16' : 'h-[250px] pb-4'
         } lg:pb-0`}
       >
-        <GoogleMap mapContainerStyle={containerStyle} center={position} zoom={12}>
+        <GoogleMap mapContainerStyle={containerStyle} center={position} zoom={15}>
           <InfoMarker
             latitude={micLat}
             longitude={micLong}
