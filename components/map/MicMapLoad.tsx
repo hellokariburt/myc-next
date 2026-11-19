@@ -25,6 +25,7 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
     .map((mic: MicListItem) => (
       <InfoMarker
         key={mic.id}
+        id={mic.id}
         latitude={mic.mic_address!.latitude!}
         longitude={mic.mic_address!.longitude!}
         name={mic.name || ''}
