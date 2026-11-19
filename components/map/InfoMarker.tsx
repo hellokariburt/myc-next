@@ -15,7 +15,6 @@ const InfoMarker = ({
   venue,
   cost,
   href,
-  borough,
 }: InfoMarkerProps) => {
   const [infowindowOpen, setInfowindowOpen] = useState(false);
   const { hoveredId, setHoveredId } = useMicHover();
@@ -72,5 +71,4 @@ export type InfoMarkerProps = {
   venue: string;
   cost: string;
   href: string;
-  borough?: string | null;
 };
