@@ -31,7 +31,7 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
       : null;
 
     return fallbackQuery ? (
-      <div className="flex w-full lg:sticky lg:top-4 h-[250px] lg:h-[calc(100vh-2rem)] lg:self-start bg-slate-100 items-center justify-center rounded-2xl">
+      <div className="flex w-full lg:sticky lg:top-4 h-[250px] lg:h-[70vh] lg:self-start bg-slate-100 items-center justify-center rounded-2xl">
         <a
           href={`https://www.google.com/maps/search/?api=1&query=${fallbackQuery}`}
           target="_blank"
@@ -51,7 +51,7 @@ const MicIndividualMapLoad = ({ mic }: { mic: MicDetail }) => {
   return isLoaded ? (
     <>
       <div
-        className={`flex w-full lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start overflow-hidden rounded-2xl ${
+        className={`flex w-full lg:sticky lg:top-4 lg:h-[70vh] lg:self-start overflow-hidden rounded-2xl ${
           expanded ? 'h-[65vh] pb-16' : 'h-[250px] pb-4'
         } lg:pb-0`}
       >
