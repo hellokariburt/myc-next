@@ -24,7 +24,7 @@ const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividua
   ),
 });
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 async function fetchMic(rawId: string): Promise<MicDetail | null> {
   const id = parseMicIdParam(rawId);

@@ -4,7 +4,7 @@ import ClubsBrowser from '@/components/clubs/ClubsBrowser';
 import { getClubs } from '@/lib/services/clubs.service';
 import { t } from '@/lib/i18n';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'NYC Comedy Clubs | OpenMYC',
