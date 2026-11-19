@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import ChatPagination2 from '../pagination/ChatPagination2';
@@ -14,6 +15,10 @@ const adsEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
 const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const { mics, isLoading, isError } = useMicSearch(serverData);
   const { hoveredId, setHoveredId } = useMicHover();
+  // When the list is already filtered to one weekday, the per-card weekday
+  // label just repeats it, so hide it.
+  const day = useSearchParams().get('day') || '';
+  const singleDay = day !== '' && day !== 'all';
 
   if (isError) {
     return (
@@ -54,7 +59,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
             hoveredId === mic.id ? 'rounded-xl ring-2 ring-blue-400 ring-offset-2' : undefined
           }
         >
-          <MicListCard mic={mic} className="w-full" />
+          <MicListCard mic={mic} className="w-full" hideDay={singleDay} />
         </div>
       );
       if (adsEnabled && (index + 1) % 5 === 0) {
