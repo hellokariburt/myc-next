@@ -12,7 +12,7 @@ import { MicListItem } from '@/lib/types/mic';
 import { getBoroughBadgeClasses, getBoroughDisplayShort } from '@/lib/utils/boroughColor';
 import { jsonLdHtml } from '@/lib/seo/jsonLd';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 async function getClub(slug: string): Promise<ClubListItem | null> {
   const clubs = await getClubs();

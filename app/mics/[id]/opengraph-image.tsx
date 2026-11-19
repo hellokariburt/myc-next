@@ -5,7 +5,7 @@ import { isFreeCost } from '@/lib/utils/isFree';
 import { MicDetail } from '@/lib/types/mic';
 import { parseMicIdParam } from '@/lib/utils/micUrl';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 

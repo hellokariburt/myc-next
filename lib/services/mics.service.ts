@@ -19,9 +19,11 @@ import { buildMicSlug, buildMicPath, type MicUrlSource } from '../utils/micUrl';
  */
 export const MICS_CACHE_TAG = 'mics';
 
-// Data cache lives for an hour; correctness between deploys relies on the tag
-// bust above, not the TTL. A new deploy ships a cold cache anyway.
-const MICS_CACHE_TTL = 3600;
+// Data cache lives for a day; correctness between deploys relies on the tag
+// bust above, not the TTL. A new deploy ships a cold cache anyway. A long TTL
+// keeps Neon suspended (CU-hours) since mic data changes only a few times a
+// week and every mutation already busts the tag for immediate freshness.
+const MICS_CACHE_TTL = 86400;
 
 // venue -> image lookup: club directory art first, then venue's own art
 // (public/venue-art/<venue-slug>.<ext>); cached per lambda instance

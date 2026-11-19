@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { SeoListingPage } from '@/components/seo/SeoListingPage';
 import { getBoroughBreadcrumbs } from '@/lib/seo/boroughDayPage';
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Open Mics in Brooklyn | OpenMYC',
