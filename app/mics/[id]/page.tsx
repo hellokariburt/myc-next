@@ -20,7 +20,7 @@ import { parseTimeOfDay, getNextOccurrence, ASSUMED_DURATION_MS } from '@/lib/ut
 const MicIndividualMapLoad = dynamic(() => import('@/components/map/MicIndividualMapLoad'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[250px] lg:sticky lg:top-4 lg:h-[calc(100vh-2rem)] lg:self-start bg-slate-100 animate-pulse rounded-2xl" />
+    <div className="w-full h-[250px] lg:sticky lg:top-4 lg:h-[70vh] lg:self-start bg-slate-100 animate-pulse rounded-2xl" />
   ),
 });
 
