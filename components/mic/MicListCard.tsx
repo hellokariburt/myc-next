@@ -16,6 +16,8 @@ interface Props {
   mic: MicListItem;
   className?: string;
   hideBoroughBadge?: boolean;
+  /** Hide the weekday label — redundant when the list is already filtered to one day. */
+  hideDay?: boolean;
 }
 
 // one-line badge token; prose like "but you get a free drink" moves to a caption
@@ -27,7 +29,7 @@ function costToken(cost: string | null | undefined, isFree: boolean): string {
   return c.length <= 14 ? c : 'Paid';
 }
 
-export default function MicListCard({ mic, className = '', hideBoroughBadge }: Props) {
+export default function MicListCard({ mic, className = '', hideBoroughBadge, hideDay }: Props) {
   const isFree = isFreeCost(mic.mic_cost?.cost_amount);
   const rawCost = mic.mic_cost?.cost_amount || 'Free';
   const token = costToken(rawCost, isFree);
@@ -45,9 +47,11 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge }: P
         <ShowThumbnail name={mic.mic_address?.venue || mic.name || ''} image={mic.venue_image} />
       </div>
       <div className="pr-3 lg:pr-4 pt-0.5 border-r border-slate-200 shrink-0 w-[88px] lg:w-[110px]">
-        <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          {capitalizeDay(mic.day || '')}
-        </p>
+        {!hideDay && (
+          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+            {capitalizeDay(mic.day || '')}
+          </p>
+        )}
         <p className="text-xl lg:text-2xl font-bold text-slate-900 tabular-nums leading-tight">
           {changeTime(mic.start_time || '')}
         </p>

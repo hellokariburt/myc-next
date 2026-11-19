@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import ChatPagination2 from '../pagination/ChatPagination2';
@@ -7,11 +8,17 @@ import { SearchResults } from './SearchResults';
 import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
 import MicListCard from './MicListCard';
+import { useMicHover } from './MicHoverContext';
 
 const adsEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
 
 const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const { mics, isLoading, isError } = useMicSearch(serverData);
+  const { hoveredId, setHoveredId } = useMicHover();
+  // When the list is already filtered to one weekday, the per-card weekday
+  // label just repeats it, so hide it.
+  const day = useSearchParams().get('day') || '';
+  const singleDay = day !== '' && day !== 'all';
 
   if (isError) {
     return (
@@ -41,7 +48,20 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const mapMicsToCards = (x: MicListResponse) => {
     const items: React.ReactNode[] = [];
     x.mics.forEach((mic: MicListItem, index: number) => {
-      items.push(<MicListCard key={mic.id} mic={mic} className="w-full" />);
+      // Wrapper (not MicListCard itself) carries the hover sync, so the shared
+      // card component stays hook-free and safe in server-rendered surfaces.
+      items.push(
+        <div
+          key={mic.id}
+          onMouseEnter={() => setHoveredId(mic.id)}
+          onMouseLeave={() => setHoveredId(null)}
+          className={
+            hoveredId === mic.id ? 'rounded-xl ring-2 ring-blue-400 ring-offset-2' : undefined
+          }
+        >
+          <MicListCard mic={mic} className="w-full" hideDay={singleDay} />
+        </div>
+      );
       if (adsEnabled && (index + 1) % 5 === 0) {
         items.push(<AdBanner key={`ad-${index}`} />);
       }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { MarkerF, InfoWindow } from '@react-google-maps/api';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
-import { pinIcon, PIN_FREE, PIN_PAID } from '@/lib/utils/mapPin';
+import { pinIcon, PIN_FREE, PIN_PAID, PIN_BRAND } from '@/lib/utils/mapPin';
 import { isFreeCost } from '@/lib/utils/isFree';
+import { useMicHover } from '../mic/MicHoverContext';
 
 const InfoMarker = ({
+  id,
   latitude,
   longitude,
   name,
@@ -13,19 +15,25 @@ const InfoMarker = ({
   venue,
   cost,
   href,
-  borough,
 }: InfoMarkerProps) => {
   const [infowindowOpen, setInfowindowOpen] = useState(false);
+  const { hoveredId, setHoveredId } = useMicHover();
+  const highlighted = hoveredId === id;
 
   return (
     <MarkerF
       onClick={() => setInfowindowOpen(true)}
+      onMouseOver={() => setHoveredId(id ?? null)}
+      onMouseOut={() => setHoveredId(null)}
       position={{
         lat: parseFloat(`${latitude}`),
         lng: parseFloat(`${longitude}`),
       }}
       title={name}
-      icon={pinIcon(isFreeCost(cost) ? PIN_FREE : PIN_PAID)}
+      // Hovered pin turns brand-blue and jumps above the others. Blue isn't used
+      // for cost on the mic map (free=green, paid=amber), so it reads as "this one".
+      icon={pinIcon(highlighted ? PIN_BRAND : isFreeCost(cost) ? PIN_FREE : PIN_PAID)}
+      zIndex={highlighted ? 999 : undefined}
     >
       {infowindowOpen && (
         <InfoWindow onCloseClick={() => setInfowindowOpen(false)}>
@@ -53,6 +61,8 @@ const InfoMarker = ({
 export default InfoMarker;
 
 export type InfoMarkerProps = {
+  // Optional: the detail-page map renders a lone marker with no list to sync to.
+  id?: number;
   latitude: string | number;
   longitude: string | number;
   name: string;
@@ -61,5 +71,4 @@ export type InfoMarkerProps = {
   venue: string;
   cost: string;
   href: string;
-  borough?: string | null;
 };
