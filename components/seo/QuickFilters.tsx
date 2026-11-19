@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getBoroughAccentBar } from '@/lib/utils/boroughColor';
 
 const boroughs = [
   { slug: 'manhattan', label: 'Manhattan' },
@@ -28,7 +29,7 @@ export function QuickFilters({
     : 'inline-flex items-center px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-green-600 text-white text-sm font-semibold hover:bg-green-700 transition-colors';
 
   const boroughCls =
-    'inline-flex items-center px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors';
+    'inline-flex items-center gap-1.5 px-3 py-2.5 sm:py-1.5 min-h-[44px] sm:min-h-0 items-center rounded-full bg-white border border-slate-200 text-slate-700 text-sm font-medium hover:border-blue-500 hover:text-blue-600 transition-colors';
 
   return (
     <nav aria-label="Quick filters" className={`flex flex-wrap gap-2 ${className}`}>
@@ -44,6 +45,10 @@ export function QuickFilters({
         .filter((b) => b.slug !== hideBorough)
         .map((b) => (
           <Link key={b.slug} href={`/mics/${b.slug}`} className={boroughCls}>
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${getBoroughAccentBar(b.slug)}`}
+              aria-hidden
+            />
             {b.label}
           </Link>
         ))}
