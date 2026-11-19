@@ -1,9 +1,14 @@
+// 700-weight, not 600: on the cream (#f6efe4) / white backgrounds these render
+// as small text, and orange-600 (Queens, ~3.1:1) and teal-600 (Staten Island,
+// ~3.3:1) fail WCAG AA (4.5:1). The 700 shade clears AA (orange ~4.5, teal ~4.8)
+// with a barely-perceptible hue shift. All five kept at one weight for a uniform
+// set; the three that already passed move imperceptibly.
 const boroughColors: Record<string, string> = {
-  manhattan: 'text-blue-600',
-  brooklyn: 'text-purple-600',
-  queens: 'text-orange-600',
-  bronx: 'text-rose-600',
-  'staten-island': 'text-teal-600',
+  manhattan: 'text-blue-700',
+  brooklyn: 'text-purple-700',
+  queens: 'text-orange-700',
+  bronx: 'text-rose-700',
+  'staten-island': 'text-teal-700',
 };
 
 const boroughBorderColors: Record<string, string> = {
