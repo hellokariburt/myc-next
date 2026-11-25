@@ -120,5 +120,8 @@ export function snapshotMicById(id: bigint | number): MicDetail | null {
   };
 }
 
-/** Total mic count — replaces prisma.mics.count() on the read surface. */
-export const micCount = records.length;
+/** Active mic count — replaces prisma.mics.count({ where: { active: true } }) on
+ *  the read surface. Counts active only (matching allMics and the /mics listing),
+ *  so the home/OG headline agrees with the live listing rather than including
+ *  taken-down mics. `active` missing reads as active (see toMicListItem). */
+export const micCount = records.filter((r) => r.active !== false).length;
