@@ -9,12 +9,15 @@ import NoMicFound from '../not-found/NoMicFound';
 import AdBanner from '../ads/AdBanner';
 import MicListCard from './MicListCard';
 import { useMicHover } from './MicHoverContext';
+import { useMicGeo } from './MicGeoContext';
+import { distanceMiles } from '@/lib/utils/distance';
 
 const adsEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === 'true';
 
 const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const { mics, isLoading, isError } = useMicSearch(serverData);
   const { hoveredId, setHoveredId } = useMicHover();
+  const { userLocation } = useMicGeo();
   // When the list is already filtered to one weekday, the per-card weekday
   // label just repeats it, so hide it.
   const day = useSearchParams().get('day') || '';
@@ -48,6 +51,15 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
   const mapMicsToCards = (x: MicListResponse) => {
     const items: React.ReactNode[] = [];
     x.mics.forEach((mic: MicListItem, index: number) => {
+      // Distance from the visitor (when "Near me" is on) — computed here in the
+      // client wrapper and passed down, so MicListCard stays hook-free and safe
+      // in server-rendered surfaces that have no location context.
+      const lat = parseFloat(`${mic.mic_address?.latitude}`);
+      const lng = parseFloat(`${mic.mic_address?.longitude}`);
+      const distanceMi =
+        userLocation && Number.isFinite(lat) && Number.isFinite(lng)
+          ? distanceMiles(userLocation.lat, userLocation.lng, lat, lng)
+          : null;
       // Wrapper (not MicListCard itself) carries the hover sync, so the shared
       // card component stays hook-free and safe in server-rendered surfaces.
       items.push(
@@ -59,7 +71,7 @@ const MicCard = ({ serverData }: { serverData?: MicListResponse }) => {
             hoveredId === mic.id ? 'rounded-xl ring-2 ring-blue-400 ring-offset-2' : undefined
           }
         >
-          <MicListCard mic={mic} className="w-full" hideDay={singleDay} />
+          <MicListCard mic={mic} className="w-full" hideDay={singleDay} distanceMi={distanceMi} />
         </div>
       );
       if (adsEnabled && (index + 1) % 5 === 0) {

@@ -6,6 +6,7 @@ import { t } from '@/lib/i18n';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
 import { getBoroughSolid } from '@/lib/utils/boroughColor';
 import ScrollRow from './ScrollRow';
+import { useMicGeo } from './MicGeoContext';
 
 const BOROUGHS = [
   { value: 'manhattan', label: 'Manhattan' },
@@ -45,6 +46,7 @@ export default function MicsQuickChrome({
 }) {
   const router = useRouter();
   const params = useSearchParams();
+  const { userLocation, status: geoStatus, toggleLocation } = useMicGeo();
   const [q, setQ] = useState(params.get('q') || '');
   const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -119,6 +121,26 @@ export default function MicsQuickChrome({
         role="group"
         aria-label={t('mics.browser.intentGroupAria')}
       >
+        <button
+          type="button"
+          aria-pressed={Boolean(userLocation)}
+          onClick={toggleLocation}
+          disabled={geoStatus === 'locating' || geoStatus === 'unsupported'}
+          title={
+            geoStatus === 'denied'
+              ? t('mics.browser.nearMeDenied')
+              : geoStatus === 'unsupported'
+                ? t('mics.browser.nearMeUnsupported')
+                : undefined
+          }
+          className={
+            userLocation
+              ? `${pillBase} bg-blue-600 border-blue-600 text-white`
+              : `${pillOff} disabled:opacity-60`
+          }
+        >
+          {geoStatus === 'locating' ? t('mics.browser.nearMeLocating') : t('mics.browser.nearMe')}
+        </button>
         {today && (
           <button
             type="button"
@@ -140,6 +162,14 @@ export default function MicsQuickChrome({
           {t('mics.browser.free')}
         </button>
       </div>
+
+      {(geoStatus === 'denied' || geoStatus === 'unsupported') && (
+        <p className="text-xs text-slate-600" role="status">
+          {geoStatus === 'denied'
+            ? t('mics.browser.nearMeDenied')
+            : t('mics.browser.nearMeUnsupported')}
+        </p>
+      )}
 
       <ScrollRow
         className="-mx-3 px-3 sm:mx-0 sm:px-0"

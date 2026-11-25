@@ -8,6 +8,7 @@ import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import { useMicPins } from '@/lib/hooks/useMicPins';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicHoverProvider } from '../mic/MicHoverContext';
+import { MicGeoProvider } from '../mic/MicGeoContext';
 
 const MicMapLoad = dynamic(() => import('../map/MicMapLoad'), {
   ssr: false,
@@ -39,21 +40,23 @@ export function MicListingPage2({
   // term. That component has since been deleted outright.
   return (
     <PageLayout className="pb-16 bg-[#f6efe4] bg-cover">
-      <MicHoverProvider>
-        <div className="lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:px-4">
-          <div>
-            <div className="px-3 pt-4 sm:px-6 lg:px-0">
-              <MicsQuickChrome
-                boroughCounts={boroughCounts}
-                today={today}
-                totalMics={mics?.totalMics}
-              />
+      <MicGeoProvider>
+        <MicHoverProvider>
+          <div className="lg:grid lg:grid-cols-[1fr_minmax(380px,40vw)] lg:gap-4 lg:px-4">
+            <div>
+              <div className="px-3 pt-4 sm:px-6 lg:px-0">
+                <MicsQuickChrome
+                  boroughCounts={boroughCounts}
+                  today={today}
+                  totalMics={mics?.totalMics}
+                />
+              </div>
+              <MicCard serverData={serverData} />
             </div>
-            <MicCard serverData={serverData} />
+            <MicMapLoad mics={pins} isLoading={!pins} />
           </div>
-          <MicMapLoad mics={pins} isLoading={!pins} />
-        </div>
-      </MicHoverProvider>
+        </MicHoverProvider>
+      </MicGeoProvider>
     </PageLayout>
   );
 }

@@ -9,6 +9,7 @@ import {
 } from '@/lib/utils/boroughColor';
 import { isFreeCost } from '@/lib/utils/isFree';
 import { buildMicPath } from '@/lib/utils/micUrl';
+import { formatMiles } from '@/lib/utils/distance';
 import ShowThumbnail from '../shows/ShowThumbnail';
 import ReportButton from './ReportButton';
 
@@ -18,6 +19,8 @@ interface Props {
   hideBoroughBadge?: boolean;
   /** Hide the weekday label — redundant when the list is already filtered to one day. */
   hideDay?: boolean;
+  /** Distance in miles from the visitor, when "Near me" is active; null otherwise. */
+  distanceMi?: number | null;
 }
 
 // one-line badge token; prose like "but you get a free drink" moves to a caption
@@ -29,7 +32,13 @@ function costToken(cost: string | null | undefined, isFree: boolean): string {
   return c.length <= 14 ? c : 'Paid';
 }
 
-export default function MicListCard({ mic, className = '', hideBoroughBadge, hideDay }: Props) {
+export default function MicListCard({
+  mic,
+  className = '',
+  hideBoroughBadge,
+  hideDay,
+  distanceMi,
+}: Props) {
   const isFree = isFreeCost(mic.mic_cost?.cost_amount);
   const rawCost = mic.mic_cost?.cost_amount || 'Free';
   const token = costToken(rawCost, isFree);
@@ -71,6 +80,11 @@ export default function MicListCard({ mic, className = '', hideBoroughBadge, hid
         </p>
         {costCaption && <p className="text-xs text-slate-500 pt-0.5 line-clamp-1">{costCaption}</p>}
         <div className="flex flex-wrap items-center gap-2 pt-2 pr-9">
+          {typeof distanceMi === 'number' && (
+            <span className="inline-flex items-center whitespace-nowrap px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 ring-1 ring-blue-200">
+              {formatMiles(distanceMi)}
+            </span>
+          )}
           {!hideBoroughBadge && mic.borough && (
             <span
               className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${getBoroughBadgeClasses(
