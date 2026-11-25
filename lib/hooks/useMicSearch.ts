@@ -1,9 +1,10 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import { request } from '../utils/request';
 import { MicListResponse } from '../types/mic';
+import { DEFAULT_PAGE_SIZE } from '../constants/pagination';
 
 export function useMicSearch(serverData?: MicListResponse) {
   const searchParams = useSearchParams();
@@ -11,7 +12,7 @@ export function useMicSearch(serverData?: MicListResponse) {
   // Convert page-based URL params to offset/limit for the API
   const apiParams = new URLSearchParams(searchParams);
   const pageNo = parseInt(apiParams.get('pageNo') || '1', 10);
-  const pageSize = parseInt(apiParams.get('pageSize') || '10', 10);
+  const pageSize = parseInt(apiParams.get('pageSize') || String(DEFAULT_PAGE_SIZE), 10);
   apiParams.set('offset', String((pageNo - 1) * pageSize));
   apiParams.set('limit', String(pageSize));
   apiParams.delete('pageNo');
@@ -23,6 +24,11 @@ export function useMicSearch(serverData?: MicListResponse) {
     queryFn: () => request<MicListResponse>(`/api/mics?${apiQueryString}`),
     retry: false,
     initialData: serverData,
+    // Keep the current page's results on screen while the next page loads instead
+    // of unmounting the list for a full-height spinner. This removes the flash on
+    // every page change and keeps the results summary (the focus target for
+    // pagination) mounted so focus management works.
+    placeholderData: keepPreviousData,
     // Treat the server-rendered data as fresh for the CDN window so hydration
     // doesn't immediately refetch /api/mics (and re-hit Neon). Mic data changes
     // at approval/deploy time, not second-to-second.

@@ -10,6 +10,7 @@ import { allMics, snapshotMicById } from '../data/micsSnapshot';
 import { MicListItem, MicListResponse } from '../types/mic';
 import { serialize } from '../utils/serialize';
 import { buildMicSlug, buildMicPath, type MicUrlSource } from '../utils/micUrl';
+import { MAP_PIN_CAP } from '../constants/pagination';
 
 /**
  * Cache tag for every cached mic-listing read. Bust it with
@@ -134,7 +135,9 @@ const getMics = async (params: MicQueryParams) => {
   }
 };
 
-const getMicsFromDb = async (params: MicQueryParams) => {
+// Prisma `where` for a filter combo, shared by the paginated list and the map's
+// pins query so both see the exact same result set (just sliced differently).
+function buildMicWhere(params: MicQueryParams) {
   const boroughs = params.borough.length === 0 ? [...ALL_BOROUGHS] : params.borough;
   const days = params.day.length === 0 ? [...ALL_DAYS] : params.day;
   // Mirror isFreeCost (lib/utils/isFree.ts): empty/absent cost counts as free,
@@ -173,21 +176,20 @@ const getMicsFromDb = async (params: MicQueryParams) => {
 
   // Both filters carry their own `OR`, so combine through `AND` — spreading them
   // into one object would silently drop whichever came first.
-  const where = {
+  return {
     active: true,
     day: { in: days },
     borough: { in: boroughs },
     ...(startTime && { start_time: { gte: startTime } }),
     AND: [freeFilter, qFilter].filter(Boolean) as object[],
   };
+}
 
-  // Order by relevance for a comic looking for stage time: today's mics first
-  // (time ascending), then the rest of the week. Day-distance can't be expressed
-  // in a Prisma orderBy, so sort a lightweight id list in JS and hydrate the page.
-  const keys = await prisma.mics.findMany({
-    where,
-    select: { id: true, day: true, start_time: true },
-  });
+// Relevance order for a comic looking for stage time: today's mics first (time
+// ascending), then the rest of the week. Day-distance can't be expressed in a
+// Prisma orderBy, so we sort a lightweight id list in JS. Shared by list + pins.
+type MicSortKey = { id: bigint; day: string | null; start_time: Date | null };
+function sortMicKeys(keys: MicSortKey[]): void {
   const today = nycDayIndex();
   keys.sort((a, b) => {
     const da = ((DAY_INDEX[a.day || ''] ?? 7) - today + 7) % 7;
@@ -198,6 +200,16 @@ const getMicsFromDb = async (params: MicQueryParams) => {
     if (ta !== tb) return ta - tb;
     return Number(a.id - b.id);
   });
+}
+
+const getMicsFromDb = async (params: MicQueryParams) => {
+  const where = buildMicWhere(params);
+
+  const keys = await prisma.mics.findMany({
+    where,
+    select: { id: true, day: true, start_time: true },
+  });
+  sortMicKeys(keys);
   const pageIds = keys.slice(params.offset, params.offset + params.limit).map((k) => k.id);
 
   const rows = await prisma.mics.findMany({
@@ -219,7 +231,10 @@ const getMicsFromDb = async (params: MicQueryParams) => {
   return { mics, count: keys.length };
 };
 
-const getMicsFromSnapshot = async (params: MicQueryParams) => {
+// Snapshot-side equivalent of buildMicWhere + sortMicKeys: the filtered, relevance-
+// sorted full result set for a filter combo, used by both the list and pins
+// fallbacks when Neon is down. Callers slice it and attach venue_image as needed.
+function filteredSortedSnapshot(params: MicQueryParams): MicListItem[] {
   const boroughSet = new Set(params.borough.length === 0 ? ALL_BOROUGHS : params.borough);
   const daySet = new Set(params.day.length === 0 ? ALL_DAYS : params.day);
   const q = params.q ? params.q.toLowerCase() : '';
@@ -259,6 +274,11 @@ const getMicsFromSnapshot = async (params: MicQueryParams) => {
     return a.id - b.id;
   });
 
+  return filtered;
+}
+
+const getMicsFromSnapshot = async (params: MicQueryParams) => {
+  const filtered = filteredSortedSnapshot(params);
   const page = filtered.slice(params.offset, params.offset + params.limit);
   const mics: MicListItem[] = await Promise.all(
     page.map(async (m) => ({
@@ -268,6 +288,37 @@ const getMicsFromSnapshot = async (params: MicQueryParams) => {
   );
 
   return { mics, count: filtered.length };
+};
+
+// Map pins for a filter combo: the full filtered result set (relevance-sorted,
+// capped at MAP_PIN_CAP), independent of the list's offset/limit so the map shows
+// every matching mic rather than just the current page. Lighter than the list
+// query — no venue_image lookups, no mic_occurrence — since the map only needs
+// coordinates and the hover label.
+const getMicPinsFromDb = async (params: MicQueryParams) => {
+  const where = buildMicWhere(params);
+  const keys = await prisma.mics.findMany({
+    where,
+    select: { id: true, day: true, start_time: true },
+  });
+  sortMicKeys(keys);
+  const pinIds = keys.slice(0, MAP_PIN_CAP).map((k) => k.id);
+
+  const rows = await prisma.mics.findMany({
+    include: { mic_address: true, mic_cost: true },
+    where: { id: { in: pinIds } },
+  });
+  const byId = new Map(rows.map((r) => [r.id.toString(), r]));
+  const mics = pinIds
+    .map((id) => byId.get(id.toString()))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+
+  return { mics, count: keys.length };
+};
+
+const getMicPinsFromSnapshot = async (params: MicQueryParams) => {
+  const filtered = filteredSortedSnapshot(params);
+  return { mics: filtered.slice(0, MAP_PIN_CAP), count: filtered.length };
 };
 
 // Stable, order-independent cache key for a filter combo. Borough/day arrays are
@@ -320,6 +371,38 @@ export async function getMicsResponseCached(params: MicQueryParams): Promise<Mic
     )();
   } catch {
     const { mics, count } = await getMicsFromSnapshot(params);
+    return toEnvelope(mics, count);
+  }
+}
+
+/**
+ * Cached map-pins read for the dynamic `/mics` finder. Same caching contract as
+ * getMicsResponseCached (DB-first, snapshot fallback, tag-busted), but the cache
+ * key is normalized to offset 0 / limit MAP_PIN_CAP so every page of a filter
+ * combo shares ONE pins entry — the map doesn't refetch as the user pages. The
+ * returned envelope reuses MicListResponse (map reads only id/coords/label).
+ */
+export async function getMicPinsCached(params: MicQueryParams): Promise<MicListResponse> {
+  const pinParams: MicQueryParams = { ...params, offset: 0, limit: MAP_PIN_CAP };
+  const toEnvelope = (mics: unknown[], count: number): MicListResponse =>
+    serialize({
+      totalMics: count,
+      offset: 0,
+      limit: MAP_PIN_CAP,
+      mics,
+    }) as unknown as MicListResponse;
+
+  try {
+    return await unstable_cache(
+      async () => {
+        const { mics, count } = await getMicPinsFromDb(pinParams);
+        return toEnvelope(mics, count);
+      },
+      ['mic-pins', micsCacheKey(pinParams)],
+      { revalidate: MICS_CACHE_TTL, tags: [MICS_CACHE_TAG] }
+    )();
+  } catch {
+    const { mics, count } = await getMicPinsFromSnapshot(pinParams);
     return toEnvelope(mics, count);
   }
 }

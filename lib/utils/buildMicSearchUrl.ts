@@ -1,3 +1,5 @@
+import { DEFAULT_PAGE_SIZE } from '../constants/pagination';
+
 export function buildMicSearchUrl(filters: {
   borough: string[];
   day: string;
@@ -12,6 +14,6 @@ export function buildMicSearchUrl(filters: {
   params.set('start-time', filters.startTime || '00:00:00');
   params.set('free', String(filters.free));
   params.set('pageNo', String(filters.pageNo ?? 1));
-  params.set('pageSize', String(filters.pageSize ?? 10));
+  params.set('pageSize', String(filters.pageSize ?? DEFAULT_PAGE_SIZE));
   return `/mics?${params.toString()}`;
 }

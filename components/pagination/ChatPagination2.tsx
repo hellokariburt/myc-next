@@ -17,7 +17,19 @@ const ChatPagination2 = () => {
     const params = new URLSearchParams(searchParams);
     params.set('pageNo', String(page));
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Move focus to the results summary so keyboard and screen-reader users land
+    // on the new results (it announces them as a live region) rather than staying
+    // on a page button that may now be disabled. preventScroll so it doesn't
+    // fight the scroll below.
+    document.getElementById('mic-results-summary')?.focus({ preventScroll: true });
+
+    // Respect reduced-motion: smooth scroll becomes an instant jump for users who
+    // ask for less animation (WCAG 2.3.3).
+    const prefersReduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
   };
 
   if (totalPages <= 1) return null;

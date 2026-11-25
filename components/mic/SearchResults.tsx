@@ -1,5 +1,6 @@
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
 import capitalizeDay from '@/lib/utils/capitalizeDay';
+import { DEFAULT_PAGE_SIZE } from '@/lib/constants/pagination';
 
 function convertTo12HourFormat(x: string) {
   const [hours, minutes] = x.split(':').map(Number);
@@ -45,17 +46,30 @@ export const SearchResults = () => {
 
   const paramsFree = params.get('free') === 'true' ? t('mics.results.free') : '';
 
+  // Use the live response's page size (falls back to the default) rather than a
+  // hardcoded 10, so the "X–Y of N" range stays correct after the page-size bump.
+  const pageSize = mics?.limit || DEFAULT_PAGE_SIZE;
   const paramsPage = parseInt(params.get('pageNo') || '1', 10);
-  const startPage = 1 + (paramsPage - 1) * 10;
-  const endPage = Math.min(paramsPage * 10, mics?.totalMics || 0);
+  const startPage = 1 + (paramsPage - 1) * pageSize;
+  const endPage = Math.min(paramsPage * pageSize, mics?.totalMics || 0);
 
   const pagingString = `${startPage}-${endPage} of `;
 
-  const totalPages = Math.ceil((mics?.totalMics || 0) / 10);
+  const totalPages = Math.ceil((mics?.totalMics || 0) / pageSize);
 
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 pb-3">
-      <p className="text-base font-semibold text-slate-800">
+      {/* Focus lands here on page change (see ChatPagination2) and the range is a
+          polite live region, so screen-reader users hear the new results without
+          a jarring focus jump — WCAG 4.1.3 Status Messages. */}
+      <p
+        id="mic-results-summary"
+        tabIndex={-1}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="text-base font-semibold text-slate-800 focus:outline-none"
+      >
         {pagingString}
         {mics?.totalMics} {paramsFree} mics in {boroughsArray}
         {daysArray}
