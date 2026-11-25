@@ -15,6 +15,7 @@ const InfoMarker = ({
   venue,
   cost,
   href,
+  clusterer,
 }: InfoMarkerProps) => {
   const [infowindowOpen, setInfowindowOpen] = useState(false);
   const { hoveredId, setHoveredId } = useMicHover();
@@ -22,6 +23,7 @@ const InfoMarker = ({
 
   return (
     <MarkerF
+      clusterer={clusterer}
       onClick={() => setInfowindowOpen(true)}
       onMouseOver={() => setHoveredId(id ?? null)}
       onMouseOut={() => setHoveredId(null)}
@@ -63,6 +65,10 @@ export default InfoMarker;
 export type InfoMarkerProps = {
   // Optional: the detail-page map renders a lone marker with no list to sync to.
   id?: number;
+  // Optional: on the /mics finder map, markers register with a MarkerClusterer so
+  // a dense city map collapses into count bubbles. The single-marker detail map
+  // leaves this undefined and renders the pin directly.
+  clusterer?: React.ComponentProps<typeof MarkerF>['clusterer'];
   latitude: string | number;
   longitude: string | number;
   name: string;
