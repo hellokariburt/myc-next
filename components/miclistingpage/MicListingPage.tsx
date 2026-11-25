@@ -5,6 +5,7 @@ import MicCard from '../mic/MicCard';
 import MicsQuickChrome from '../mic/MicsQuickChrome';
 import PageLayout from '../pagelayout/PageLayout';
 import { useMicSearch } from '@/lib/hooks/useMicSearch';
+import { useMicPins } from '@/lib/hooks/useMicPins';
 import { MicListResponse } from '@/lib/types/mic';
 import { MicHoverProvider } from '../mic/MicHoverContext';
 
@@ -17,14 +18,19 @@ const MicMapLoad = dynamic(() => import('../map/MicMapLoad'), {
 
 export function MicListingPage2({
   serverData,
+  serverPins,
   boroughCounts = {},
   today,
 }: {
   serverData?: MicListResponse;
+  serverPins?: MicListResponse;
   boroughCounts?: Record<string, number>;
   today?: string;
 }) {
-  const { mics, isLoading } = useMicSearch(serverData);
+  const { mics } = useMicSearch(serverData);
+  // The map plots the full filtered set (capped), not the current page slice, so
+  // it's driven by its own filter-keyed query — it does not refetch on paging.
+  const { pins } = useMicPins(serverPins);
 
   // MicsQuickChrome is the only filter surface here. The header Filter that
   // used to render alongside it rebuilt the URL from scratch via
@@ -45,7 +51,7 @@ export function MicListingPage2({
             </div>
             <MicCard serverData={serverData} />
           </div>
-          <MicMapLoad mics={mics} isLoading={isLoading} />
+          <MicMapLoad mics={pins} isLoading={!pins} />
         </div>
       </MicHoverProvider>
     </PageLayout>

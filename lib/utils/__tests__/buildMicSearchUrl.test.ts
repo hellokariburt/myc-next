@@ -9,7 +9,7 @@ describe('buildMicSearchUrl', () => {
       free: false,
     });
     expect(url).toBe(
-      '/mics?borough=all&day=all&start-time=00%3A00%3A00&free=false&pageNo=1&pageSize=10'
+      '/mics?borough=all&day=all&start-time=00%3A00%3A00&free=false&pageNo=1&pageSize=24'
     );
   });
 
