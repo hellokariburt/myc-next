@@ -14,6 +14,23 @@ const containerStyle = {
   height: '100%',
 };
 
+// Every mic is in NYC, so a pin outside a generous 5-borough box is a bad
+// geocode (e.g. an importer resolving a venue *name* to a same-named place
+// abroad — "St. Marks Comedy Club" landing in London). Drop those from the map
+// so they never plot in the wrong country or blow fitBounds out to sea. They
+// still appear in the list; the fix for their coordinates is in the data.
+const NYC_BOUNDS = { minLat: 40.3, maxLat: 41.1, minLng: -74.5, maxLng: -73.4 };
+function inNyc(lat: number, lng: number): boolean {
+  return (
+    !Number.isNaN(lat) &&
+    !Number.isNaN(lng) &&
+    lat >= NYC_BOUNDS.minLat &&
+    lat <= NYC_BOUNDS.maxLat &&
+    lng >= NYC_BOUNDS.minLng &&
+    lng <= NYC_BOUNDS.maxLng
+  );
+}
+
 // Initial view before pins load / if a filter yields nothing: NYC-ish center.
 // Once there are pins, fitToPins reframes the map around them.
 const center = { lat: 40.7447, lng: -73.936 };
@@ -28,9 +45,11 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
 
   const geoMics = useMemo(
     () =>
-      mics?.mics?.filter(
-        (mic: MicListItem) => mic?.mic_address?.latitude && mic?.mic_address?.longitude
-      ) ?? [],
+      mics?.mics?.filter((mic: MicListItem) => {
+        const lat = parseFloat(`${mic?.mic_address?.latitude}`);
+        const lng = parseFloat(`${mic?.mic_address?.longitude}`);
+        return inNyc(lat, lng);
+      }) ?? [],
     [mics]
   );
 
