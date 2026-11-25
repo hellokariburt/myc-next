@@ -1356,8 +1356,8 @@
   {
     "name": "Freak Latte",
     "day": "monday",
-    "start_time": "19:00:00",
-    "end_time": "20:30:00",
+    "start_time": "20:00:00",
+    "end_time": "21:30:00",
     "venue_name": "Good Judy",
     "borough": "brooklyn",
     "neighborhood": "Park Slope",
@@ -2640,29 +2640,6 @@
     "signup_instructions": "signup there",
     "host": null,
     "instagram": "@adskolar",
-    "confirmed": "Unverified",
-    "other_rules": null
-  },
-  {
-    "name": "Daily Press",
-    "day": "tuesday",
-    "start_time": "20:00:00",
-    "end_time": "21:30:00",
-    "venue_name": "The Daily Press",
-    "borough": "brooklyn",
-    "neighborhood": "Clinton Hill",
-    "address": {
-      "street_name": "38 Somers St",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11233"
-    },
-    "venue_type": "Coffee Shop",
-    "cost": "free",
-    "stage_time": null,
-    "signup_instructions": null,
-    "host": null,
-    "instagram": "@daily_press",
     "confirmed": "Unverified",
     "other_rules": null
   },
