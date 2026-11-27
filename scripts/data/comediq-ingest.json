@@ -1469,28 +1469,6 @@
       "longitude": "-74.0008199"
     },
     {
-      "name": "Digiii",
-      "day": "Monday",
-      "borough": "Brooklyn",
-      "neighborhood": null,
-      "venue": "Crystal Lake",
-      "start_time": "19:30:00",
-      "end_time": "21:00:00",
-      "street_name": "647 Manhattan Ave",
-      "city": "Brooklyn",
-      "state": "NY",
-      "zipcode": "11222",
-      "address_full": "647 Manhattan Ave, Brooklyn, NY 11222",
-      "venue_type": "Other",
-      "cost": null,
-      "stage_time": null,
-      "signup": null,
-      "first_host": null,
-      "host_instagram": null,
-      "latitude": "40.7244212",
-      "longitude": "-73.9512796"
-    },
-    {
       "name": "We're All Friends Here",
       "day": "Monday",
       "borough": "Brooklyn",
@@ -2685,6 +2663,29 @@
       "latitude": "40.7122084",
       "longitude": "-73.9557789",
       "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Digiii",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Crystal Lake",
+      "start_time": "19:30:00",
+      "end_time": "21:00:00",
+      "street_name": "647 Manhattan Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11222",
+      "address_full": "647 Manhattan Ave, Brooklyn, NY 11222",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7244212",
+      "longitude": "-73.9512796",
+      "hold_reason": "duplicate of existing #1633 Digiii Mic @ Crystal Lake"
     }
   ]
 }
