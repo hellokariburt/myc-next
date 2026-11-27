@@ -1,0 +1,2690 @@
+{
+  "generated": "2026-11-26",
+  "source": "comediq.us public Google Sheet (NY subset)",
+  "protected_ids": [
+    "1327",
+    "1581",
+    "1608",
+    "1655"
+  ],
+  "time_updates": [
+    {
+      "id": "1506",
+      "name": "Greenwich Village Comedy Club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Sunday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "14:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1508",
+      "name": "Pear TS 4",
+      "venue": "Grisly Pear Midtown",
+      "day": "Sunday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "14:00:00",
+        "end_time": "15:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "16:00:00",
+        "end_time": "17:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1507",
+      "name": "Greenwich Village Comedy Club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Sunday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "15:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1509",
+      "name": "Buddha 4",
+      "venue": "The Buddha Room",
+      "day": "Sunday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "17:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1515",
+      "name": "Buddha 6",
+      "venue": "The Buddha Room",
+      "day": "Sunday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "18:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1623",
+      "name": "Have A Good Mic",
+      "venue": "Liffy II Bar",
+      "day": "Sunday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "20:00:00",
+        "end_time": "21:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:30:00",
+        "end_time": "22:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1216",
+      "name": "Greenwich village comedy club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "16:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "16:45:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1597",
+      "name": "Funny Lines Open Mic",
+      "venue": "Comedy in Harlem",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "17:00:00",
+        "end_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:30:00",
+        "end_time": null
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1524",
+      "name": "Buddha 5:30",
+      "venue": "The Buddha Room",
+      "day": "Monday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1226",
+      "name": "Midtown Pear LaughingBuddha Mic",
+      "venue": "Grisly Pear Midtown",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:00:00",
+        "end_time": "18:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1535",
+      "name": "SkyBox",
+      "venue": "SkyBox Sports Bar & Grill",
+      "day": "Monday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:00:00",
+        "end_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:00:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1236",
+      "name": "*biweekly* Good Skunk",
+      "venue": "Secret Pour",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:00:00",
+        "end_time": "20:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:00:00",
+        "end_time": "19:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1244",
+      "name": "Fun Mic",
+      "venue": "Freddy's",
+      "day": "Monday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "21:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "20:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1250",
+      "name": "All Friends Here/Open to Suggestions",
+      "venue": "Cobra Club Brooklyn",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:45:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1257",
+      "name": "Producer's Club",
+      "venue": "Producer's Club",
+      "day": "Monday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "22:15:00"
+      },
+      "snapshot_current": {
+        "end_time": "22:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1537",
+      "name": "Buddha 9",
+      "venue": "The Buddha Room",
+      "day": "Monday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:30:00",
+        "end_time": "23:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1539",
+      "name": "Brett Singer",
+      "venue": "West Side Comedy Club",
+      "day": "Tuesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "17:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1643",
+      "name": "Eiffel Tower",
+      "venue": "Easy Lover",
+      "day": "Tuesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "18:30:00",
+        "end_time": "20:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:15:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1284",
+      "name": "Bushwick Comedy Club",
+      "venue": "Bushwick Comedy Club",
+      "day": "Tuesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "20:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "19:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1285",
+      "name": "No Material mic",
+      "venue": "Flop House Comedy Club",
+      "day": "Tuesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:45:00",
+        "end_time": "21:15:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:30:00",
+        "end_time": "20:00:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1631",
+      "name": "Everybody Sleeps",
+      "venue": "Cordelia",
+      "day": "Tuesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "21:30:00",
+        "end_time": "23:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:00:00",
+        "end_time": "19:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1557",
+      "name": "Buddha 10",
+      "venue": "The Buddha Room",
+      "day": "Tuesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1308",
+      "name": "Under St Marks Mixed Open Mic",
+      "venue": "FRIGID Theater",
+      "day": "Tuesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "21:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1561",
+      "name": "Jonno Duska",
+      "venue": "West Side Comedy Club",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "14:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1562",
+      "name": "Greenwich Village Comedy Club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "15:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1563",
+      "name": "Zoe Levy",
+      "venue": "West Side Comedy Club",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1564",
+      "name": "Greenwich Village Comedy Club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "17:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1324",
+      "name": "teachers lounge",
+      "venue": "Halyards",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "18:00:00",
+        "end_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1325",
+      "name": "fully charged",
+      "venue": "Starr bar",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "18:00:00",
+        "end_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1343",
+      "name": "Freddy's mic",
+      "venue": "Freddy's Bar",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "20:30:00"
+      },
+      "snapshot_current": {
+        "end_time": "21:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1351",
+      "name": "Suite Weekly Open Mic",
+      "venue": "NYC Suite Bar",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:15:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1351",
+      "name": "Suite Weekly Open Mic",
+      "venue": "NYC Suite Bar",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:15:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1349",
+      "name": "Bushwick Comedy Club",
+      "venue": "Bushwick Comedy Club",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "20:30:00"
+      },
+      "snapshot_current": {
+        "end_time": "20:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1353",
+      "name": "sick hat / mic 2",
+      "venue": "Cobra Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "20:00:00",
+        "end_time": "21:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:45:00",
+        "end_time": "21:15:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1353",
+      "name": "sick hat / mic 2",
+      "venue": "Cobra Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "20:00:00",
+        "end_time": "20:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:45:00",
+        "end_time": "21:15:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1652",
+      "name": "Punching Bag",
+      "venue": "O'Keefe's Bar",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "22:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "22:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1359",
+      "name": "Soho Playhouse",
+      "venue": "Soho Playhouse",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "23:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "02:00:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1579",
+      "name": "Buddha 9:45",
+      "venue": "The Buddha Room",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:45:00",
+        "end_time": "23:15:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1582",
+      "name": "Headliners 1st",
+      "venue": "West Side Comedy Club",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1583",
+      "name": "Buddha 4 Hour",
+      "venue": "The Buddha Room",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "16:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1582",
+      "name": "Headliners 1st",
+      "venue": "West Side Comedy Club",
+      "day": "Thursday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "16:30:00",
+        "end_time": "18:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "15:00:00",
+        "end_time": null
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1370",
+      "name": "The Grisly Pear Guest Spot Mic",
+      "venue": "Grisly Pear Midtown",
+      "day": "Thursday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:00:00",
+        "end_time": "18:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1463",
+      "name": "6pm mic",
+      "venue": "BKLYN Made Comedy",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "00:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "19:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1587",
+      "name": "BK Made Open Mic",
+      "venue": "BKLYN Made Comedy",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "18:00:00",
+        "end_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:00:00",
+        "end_time": "21:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1459",
+      "name": "Buddha 6",
+      "venue": "The Buddha Room",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "18:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1394",
+      "name": "pizzagator",
+      "venue": "Alligator lounge",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "19:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1466",
+      "name": "Buddha 7:30",
+      "venue": "The Buddha Room",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "20:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "19:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1602",
+      "name": "Acoustik Garden Lounge Mic",
+      "venue": "Acoustik Garden Lounge",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "21:00:00",
+        "end_time": "22:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:00:00",
+        "end_time": "22:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1398",
+      "name": "Producer's Club",
+      "venue": "Producer's Club",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "20:30:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1469",
+      "name": "Buddha 9:45",
+      "venue": "The Buddha Room",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "23:15:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1470",
+      "name": "Tiny Cupboard",
+      "venue": "The Tiny Cupboard",
+      "day": "Thursday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "23:00:00",
+        "end_time": "23:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "23:15:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1473",
+      "name": "Rory Lutz",
+      "venue": "West Side Comedy Club",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1475",
+      "name": "Buddha 4",
+      "venue": "The Buddha Room",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "16:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1478",
+      "name": "Shareef Taher",
+      "venue": "West Side Comedy Club",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "18:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1417",
+      "name": "The Grisly Pear Mic",
+      "venue": "Grisly Pear Midtown",
+      "day": "Friday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:00:00",
+        "end_time": "18:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1480",
+      "name": "Buddha 5",
+      "venue": "The Buddha Room",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "17:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1485",
+      "name": "Buddha 6",
+      "venue": "The Buddha Room",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "18:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1486",
+      "name": "Buddha 9",
+      "venue": "The Buddha Room",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:45:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1488",
+      "name": "The Pit Mic",
+      "venue": "The PIT NYC",
+      "day": "Friday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "01:30:00"
+      },
+      "snapshot_current": {
+        "end_time": "01:00:00"
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1489",
+      "name": "Tiny Cupboard",
+      "venue": "The Tiny Cupboard",
+      "day": "Friday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "23:45:00",
+        "end_time": "01:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "23:59:00",
+        "end_time": null
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1438",
+      "name": "Weekend Warrior Mic",
+      "venue": "Pioneers Bar",
+      "day": "Saturday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "14:15:00"
+      },
+      "snapshot_current": {
+        "end_time": "14:30:00"
+      },
+      "confidence": "sole-venue"
+    },
+    {
+      "id": "1491",
+      "name": "QED 1st Saturday Mic",
+      "venue": "QED Astoria",
+      "day": "Saturday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1492",
+      "name": "Reuben Wolf",
+      "venue": "West Side Comedy Club",
+      "day": "Saturday",
+      "name_match": true,
+      "sole_at_venue": true,
+      "set": {
+        "end_time": "16:30:00"
+      },
+      "snapshot_current": {
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1502",
+      "name": "Buddha Late",
+      "venue": "The Buddha Room",
+      "day": "Saturday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:45:00",
+        "end_time": "23:15:00"
+      },
+      "snapshot_current": {
+        "start_time": "22:30:00",
+        "end_time": null
+      },
+      "confidence": "name"
+    },
+    {
+      "id": "1504",
+      "name": "Tiny Cupboard",
+      "venue": "The Tiny Cupboard",
+      "day": "Saturday",
+      "name_match": false,
+      "sole_at_venue": true,
+      "set": {
+        "start_time": "23:45:00",
+        "end_time": "01:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "23:59:00",
+        "end_time": null
+      },
+      "confidence": "sole-venue"
+    }
+  ],
+  "time_updates_held": [
+    {
+      "id": "1237",
+      "name": "Eastville House Mic Mondays",
+      "venue": "Eastville Comedy Club",
+      "day": "Monday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "17:00:00",
+        "end_time": "18:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:00:00",
+        "end_time": "19:00:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1203",
+      "name": "*1st/3rd Sun* Party Salad",
+      "venue": "Easy Lover BK",
+      "day": "Sunday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "17:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "18:00:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1190",
+      "name": "Greenwich village comedy club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Sunday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "16:45:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1539",
+      "name": "Brett Singer",
+      "venue": "West Side Comedy Club",
+      "day": "Tuesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "13:00:00",
+        "end_time": "14:30:00"
+      },
+      "snapshot_current": {
+        "start_time": "16:00:00",
+        "end_time": null
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1636",
+      "name": "5:30 Buddha Room Hour Mic",
+      "venue": "The Buddha Room",
+      "day": "Tuesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "18:30:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1312",
+      "name": "Greenwich Village CC",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "14:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "15:00:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1314",
+      "name": "Greenwich Village CC",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "16:45:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1318",
+      "name": "Greenwich village comedy club",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "18:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "18:45:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1320",
+      "name": "Get it goin",
+      "venue": "St. Marks Comedy Club",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "17:30:00",
+        "end_time": "19:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "17:00:00",
+        "end_time": "18:30:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1358",
+      "name": "QED Late Mic",
+      "venue": "QED Astoria",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "22:45:00"
+      },
+      "snapshot_current": {
+        "end_time": "23:15:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1581",
+      "name": "Greek Yogurt",
+      "venue": "Grove 34",
+      "day": "Wednesday",
+      "name_match": true,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "21:45:00",
+        "end_time": "23:15:00"
+      },
+      "snapshot_current": {
+        "start_time": "22:15:00",
+        "end_time": "23:45:00"
+      },
+      "hold_reason": "protected (deliberately-unverified time)"
+    },
+    {
+      "id": "1356",
+      "name": "*Monthly* external use only",
+      "venue": "Halyards",
+      "day": "Wednesday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "start_time": "22:30:00",
+        "end_time": "00:00:00"
+      },
+      "snapshot_current": {
+        "start_time": "21:00:00",
+        "end_time": "22:30:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1459",
+      "name": "Buddha 6",
+      "venue": "The Buddha Room",
+      "day": "Thursday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "18:30:00"
+      },
+      "snapshot_current": {
+        "end_time": "19:30:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1407",
+      "name": "Greenwich Village CC",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Friday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "14:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "15:00:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    },
+    {
+      "id": "1409",
+      "name": "Greenwich Village CC",
+      "venue": "Greenwich Village Comedy Club",
+      "day": "Friday",
+      "name_match": false,
+      "sole_at_venue": false,
+      "set": {
+        "end_time": "16:00:00"
+      },
+      "snapshot_current": {
+        "end_time": "16:30:00"
+      },
+      "hold_reason": "venue-only match, multiple mics at venue+day"
+    }
+  ],
+  "new_mics": [
+    {
+      "name": "Sunday Scaries",
+      "day": "Sunday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Flophouse",
+      "start_time": "16:00:00",
+      "end_time": "17:30:00",
+      "street_name": "362 Grand St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "362 Grand St, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7122084",
+      "longitude": "-73.9557789"
+    },
+    {
+      "name": "Joke Rodeo",
+      "day": "Sunday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Rodeo Bar",
+      "start_time": "17:00:00",
+      "end_time": "18:30:00",
+      "street_name": "220 Berry St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11249",
+      "address_full": "220 Berry St, Brooklyn, NY 11249",
+      "venue_type": "Bar",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7158480",
+      "longitude": "-73.9621626"
+    },
+    {
+      "name": "*2nd/4th Sun* The Teeny Tiny Mic",
+      "day": "Sunday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Easy Lover",
+      "start_time": "20:00:00",
+      "end_time": "21:30:00",
+      "street_name": "221 N 14th St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "221 N 14th St, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7227933",
+      "longitude": "-73.9547725"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Sunday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "14:00:00",
+      "end_time": "15:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "*1st Sun* Thalia is a silly goose open MIKE",
+      "day": "Sunday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Whiskey Cellar",
+      "start_time": "17:00:00",
+      "end_time": "18:00:00",
+      "street_name": "77 E 7th St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10003",
+      "address_full": "77 E 7th St, New York, NY 10003",
+      "venue_type": "Bar",
+      "cost": "$5/7min; $8/10min",
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7274444",
+      "longitude": "-73.9863010"
+    },
+    {
+      "name": "FM Open Mic",
+      "day": "Sunday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Whiskey Cellar",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "street_name": "77 E 7th St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10003",
+      "address_full": "77 E 7th St, New York, NY 10003",
+      "venue_type": "Bar",
+      "cost": "$5/7min; $8/10min",
+      "stage_time": null,
+      "signup": null,
+      "first_host": "Shannon Moffett",
+      "host_instagram": null,
+      "latitude": "40.7274444",
+      "longitude": "-73.9863010"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Monday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Everybody Sleeps",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Rodeo",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "1134 President St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11225",
+      "address_full": "1134 President St, Brooklyn, NY 11225",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6680702",
+      "longitude": "-73.9531254"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Monday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Digiii",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Crystal Lake",
+      "start_time": "19:30:00",
+      "end_time": "21:00:00",
+      "street_name": "647 Manhattan Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11222",
+      "address_full": "647 Manhattan Ave, Brooklyn, NY 11222",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7244212",
+      "longitude": "-73.9512796"
+    },
+    {
+      "name": "We're All Friends Here",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "The Cobra Club",
+      "start_time": "19:45:00",
+      "end_time": "21:15:00",
+      "street_name": "6 Wyckoff Ave Brooklyn NY",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "6 Wyckoff Ave Brooklyn NY",
+      "venue_type": "Comedy Club",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7066852",
+      "longitude": "-73.9235217"
+    },
+    {
+      "name": "Area 140 First Bar Mic",
+      "day": "Monday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Area 140 First Bar",
+      "start_time": "20:00:00",
+      "end_time": "21:30:00",
+      "street_name": "140 1st Ave New York NY",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "140 1st Ave New York NY",
+      "venue_type": "Bar",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7278022",
+      "longitude": "-73.9848156"
+    },
+    {
+      "name": "Mixed mic!The Joy of Ranting",
+      "day": "Monday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Windjammer",
+      "start_time": "21:00:00",
+      "end_time": "22:30:00",
+      "street_name": "5-52 Grandview Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "11385",
+      "address_full": "5-52 Grandview Ave, Ridgewood, NY 11385",
+      "venue_type": "Bar",
+      "cost": "Free",
+      "stage_time": null,
+      "signup": "Sign up in person",
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7123090",
+      "longitude": "-73.9113215"
+    },
+    {
+      "name": "Weakened Update",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Secret Pour (Topical)",
+      "start_time": "21:00:00",
+      "end_time": "22:30:00",
+      "street_name": "1114 Dekalb Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11221",
+      "address_full": "1114 Dekalb Ave, Brooklyn, NY 11221",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6937282",
+      "longitude": "-73.9298594"
+    },
+    {
+      "name": "The Throwback Open Mic",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "The Throwback",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "710 Amsterdam Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "710 Amsterdam Ave, New York, NY",
+      "venue_type": "Other",
+      "cost": "Free",
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": "@dmruizcreative",
+      "latitude": "40.7931896",
+      "longitude": "-73.9713554"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Yikes",
+      "day": "Tuesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Flophouse",
+      "start_time": "18:30:00",
+      "end_time": "20:00:00",
+      "street_name": "362 Grand St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "362 Grand St, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": "$4",
+      "stage_time": null,
+      "signup": "https://checkout.square.site/merchant/MLE3S94S31KSN/checkout/SIS6B57KN346S6DZKXCFZ26T?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPOTM2NjE5NzQzMzkyNDU5AAGnuIK9CwDobbCzQi9HK58rtR-V9TyYkQbLAwUtKvGkbka-ZGpgwZcLlhwPGZ4_aem_1ZFhzYS9ytUypXBtspHwzQ&utm_id=97760_v0_s00_e0_tv3",
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7122084",
+      "longitude": "-73.9557789"
+    },
+    {
+      "name": "That's Entertainment",
+      "day": "Tuesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Hart Bar",
+      "start_time": "19:30:00",
+      "end_time": "21:00:00",
+      "street_name": "538 Hart St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11221",
+      "address_full": "538 Hart St, Brooklyn, NY 11221",
+      "venue_type": "Bar",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6963535",
+      "longitude": "-73.9299985"
+    },
+    {
+      "name": "The Corner Store Mic",
+      "day": "Tuesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "The Corner Store",
+      "start_time": "19:45:00",
+      "end_time": "21:15:00",
+      "street_name": "753 Nostrand Ave Brooklyn NY",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "753 Nostrand Ave Brooklyn NY",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6715078",
+      "longitude": "-73.9502019"
+    },
+    {
+      "name": "Hot Mic",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Somebody's Darling",
+      "start_time": "20:00:00",
+      "end_time": "21:30:00",
+      "street_name": "1664 1st Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10028",
+      "address_full": "1664 1st Ave, New York, NY 10028",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7772741",
+      "longitude": "-73.9487230"
+    },
+    {
+      "name": "Otto\u2019s Shrunken Head Mic",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Otto\u2019s Shrunken Head",
+      "start_time": "22:00:00",
+      "end_time": "23:30:00",
+      "street_name": "538 E 14th St New York NY",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "538 E 14th St New York NY",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7294241",
+      "longitude": "-73.9787003"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Get It Going",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "St. Mark's Comedy Club",
+      "start_time": "17:00:00",
+      "end_time": "18:30:00",
+      "street_name": "12 St Marks Pl",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10003",
+      "address_full": "12 St Marks Pl, New York, NY 10003, USA",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash",
+      "stage_time": null,
+      "signup": "in person",
+      "first_host": "Josue Reveles",
+      "host_instagram": null,
+      "latitude": "40.7290207",
+      "longitude": "-73.9893198"
+    },
+    {
+      "name": "Grisly Pear Midtown",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Midtown",
+      "start_time": "17:30:00",
+      "end_time": "19:00:00",
+      "street_name": "243 W 54th St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "243 W 54th St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearmidtown",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7645366",
+      "longitude": "-73.9833266"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Brooklyn Beso Mic",
+      "day": "Wednesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Brooklyn Beso",
+      "start_time": "19:00:00",
+      "end_time": "20:30:00",
+      "street_name": "370 Lewis Ave Brooklyn NY",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "370 Lewis Ave Brooklyn NY",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6829344",
+      "longitude": "-73.9352729"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Thursday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Adhd",
+      "day": "Thursday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Commune",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "415 Classon Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11238",
+      "address_full": "415 Classon Ave, Brooklyn, NY 11238",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6868310",
+      "longitude": "-73.9593734"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Thursday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "N&M's Pizza Bar Mic",
+      "day": "Thursday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "N&M's Pizza Bar",
+      "start_time": "20:00:00",
+      "end_time": "21:30:00",
+      "street_name": "2048 Amsterdam Ave New York NY",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "2048 Amsterdam Ave New York NY",
+      "venue_type": "Restaurant",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.8357123",
+      "longitude": "-73.9401766"
+    },
+    {
+      "name": "Cool Beans Coffee House Mic",
+      "day": "Thursday",
+      "borough": "Queens",
+      "neighborhood": null,
+      "venue": "Cool Beans! Coffee House",
+      "start_time": "20:00:00",
+      "end_time": "21:30:00",
+      "street_name": "50-20 39th Ave Queens NY",
+      "city": "Queens",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "50-20 39th Ave Queens NY",
+      "venue_type": "Coffee Shop",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7486201",
+      "longitude": "-73.9130718"
+    },
+    {
+      "name": "The LMAO Show",
+      "day": "Thursday",
+      "borough": "Queens",
+      "neighborhood": null,
+      "venue": "",
+      "start_time": "22:00:00",
+      "end_time": "23:30:00",
+      "street_name": "31-35 Steinway St",
+      "city": "Astoria",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "31-35 Steinway St, Astoria, NY",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": "@myaccountclosed",
+      "latitude": "40.7603338",
+      "longitude": "-73.9176880"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Friday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "16:00:00",
+      "end_time": "17:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    },
+    {
+      "name": "Phoenix Bar Mic",
+      "day": "Friday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Phoenix Bar",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "447 E 13th St New York NY",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "447 E 13th St New York NY",
+      "venue_type": "Bar",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7299744",
+      "longitude": "-73.9811697"
+    },
+    {
+      "name": "Is This Gay?",
+      "day": "Friday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Mood Ring (LGBTQ + Women)",
+      "start_time": "19:00:00",
+      "end_time": "20:30:00",
+      "street_name": "101 Avenue A",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10009",
+      "address_full": "101 Avenue A, New York, NY 10009",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7258533",
+      "longitude": "-73.9840365"
+    },
+    {
+      "name": "Laughing Pack Productions Open Mic",
+      "day": "Friday",
+      "borough": "Bronx",
+      "neighborhood": null,
+      "venue": "",
+      "start_time": "20:00:00",
+      "end_time": "21:00:00",
+      "street_name": "2418 3rd Ave.",
+      "city": "Bronx",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "2418 3rd Ave., Bronx, NY",
+      "venue_type": null,
+      "cost": "Free (donations encouraged)",
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.8086192",
+      "longitude": "-73.9302967"
+    },
+    {
+      "name": "The LMAO Show",
+      "day": "Friday",
+      "borough": "Queens",
+      "neighborhood": null,
+      "venue": "",
+      "start_time": "22:00:00",
+      "end_time": "23:30:00",
+      "street_name": "31-35 Steinway St",
+      "city": "Astoria",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "31-35 Steinway St, Astoria, NY",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": "@myaccountclosed",
+      "latitude": "40.7603338",
+      "longitude": "-73.9176880"
+    },
+    {
+      "name": "Grisly Pear Village",
+      "day": "Saturday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Grisly Pear Village",
+      "start_time": "14:00:00",
+      "end_time": "15:30:00",
+      "street_name": "107 MacDougal St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "107 MacDougal St, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$5 cash + 1 item",
+      "stage_time": null,
+      "signup": "Sign up in person, check calendar - https://bit.ly/pearvillage",
+      "first_host": null,
+      "host_instagram": "@grislypear",
+      "latitude": "40.7298492",
+      "longitude": "-74.0008199"
+    }
+  ],
+  "new_mics_held": [
+    {
+      "name": "",
+      "venue": "Easy Lover",
+      "day": "Sunday",
+      "start": "6:00 PM",
+      "end": "20:00:00",
+      "address": "221 N 14th St, Brooklyn, NY 11211",
+      "cost": "",
+      "host": "",
+      "signup": "",
+      "venue_type": "Bar",
+      "issues": [
+        "blank-name"
+      ],
+      "region": "NYC",
+      "hold_reason": "blank-name"
+    },
+    {
+      "name": "",
+      "venue": "New York Comedy Club East 4th",
+      "day": "Sunday",
+      "start": "5:30 PM",
+      "end": "19:00:00",
+      "address": "85 East 4th Street, New York, NY 10003",
+      "cost": "Free (1 drink minimum)",
+      "host": "@comedymobnyc",
+      "signup": "Sign up via comedymob.com. Random draw. Large weekly signup pool.",
+      "venue_type": "Comedy Club",
+      "issues": [
+        "blank-name"
+      ],
+      "region": "NYC",
+      "hold_reason": "blank-name"
+    },
+    {
+      "name": "",
+      "venue": "Whiskey Cellar",
+      "day": "Sunday",
+      "start": "6:00 PM",
+      "end": "19:30:00",
+      "address": "77 E 7th St, New York, NY 10003",
+      "cost": "$5/7min; $8/10min",
+      "host": "",
+      "signup": "",
+      "venue_type": "Bar",
+      "issues": [
+        "blank-name"
+      ],
+      "region": "NYC",
+      "hold_reason": "blank-name"
+    },
+    {
+      "name": "Salty's Mic",
+      "venue": "VFW Post 8691",
+      "day": "Tuesday",
+      "start": "7:00 PM",
+      "end": "20:30:00",
+      "address": "44 Main St, Washingtonville, NY",
+      "cost": "2 Item Minimum",
+      "host": "Michael Saltz",
+      "signup": "Sign up begins at 6:30 PM",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "Mirabella's Open Mic",
+      "venue": "Mirabella's Restaurant and Lounge",
+      "day": "Tuesday",
+      "start": "7:00 PM",
+      "end": "20:30:00",
+      "address": "123 Partition St, Saugerties, NY",
+      "cost": "2 Item Minimum",
+      "host": "",
+      "signup": "Sign up at 6:30 PM, show starts 7:00 PM",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "Pine Island Mic",
+      "venue": "Polish Legion of American Vets",
+      "day": "Tuesday",
+      "start": "8:00 PM",
+      "end": "21:30:00",
+      "address": "16 Legion Rd, Pine Island, NY",
+      "cost": "Free",
+      "host": "Jakob",
+      "signup": "In person",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "Somebody\u2019s Darling Mic",
+      "venue": "Somebody\u2019s Darling",
+      "day": "Tuesday",
+      "start": "8:00 PM",
+      "end": "21:30:00",
+      "address": "1664 1st Ave New York NY",
+      "cost": "",
+      "host": "",
+      "signup": "",
+      "venue_type": "Other",
+      "issues": [
+        "dup-in-sheet"
+      ],
+      "region": "NYC",
+      "hold_reason": "dup-in-sheet"
+    },
+    {
+      "name": "Garden Grill Mic",
+      "venue": "Garden Grill",
+      "day": "Wednesday",
+      "start": "6:30 PM",
+      "end": "20:00:00",
+      "address": "64 N Country Rd Smithtown NY",
+      "cost": "",
+      "host": "",
+      "signup": "",
+      "venue_type": "Restaurant",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "Kroeg Comedy",
+      "venue": "The Kroeg",
+      "day": "Thursday",
+      "start": "7:00 PM",
+      "end": "20:30:00",
+      "address": "41 E Market St, Rhinebeck, NY",
+      "cost": "1 Item Minimum",
+      "host": "David Stickle",
+      "signup": "In person",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "3RD Thursday\u2019s Comedy Open Mic",
+      "venue": "Tapped Craft Beer & Restaurant",
+      "day": "Thursday",
+      "start": "8:00 PM",
+      "end": "21:30:00",
+      "address": "22 Henry St #2, Middletown, NY",
+      "cost": "2 Item Minimum",
+      "host": "Corner Store Comedy",
+      "signup": "7:30 PM",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear"
+    },
+    {
+      "name": "Tapped Comedy Open Mic",
+      "venue": "Tapped Craft Beer & Restaurant",
+      "day": "Thursday",
+      "start": "8:00 PM",
+      "end": "21:30:00",
+      "address": "22 Henry St #2, Middletown, NY",
+      "cost": "Free",
+      "host": "",
+      "signup": "In person",
+      "venue_type": "Bar",
+      "issues": [
+        "region-unclear",
+        "dup-in-sheet"
+      ],
+      "region": "VERIFY",
+      "hold_reason": "region-unclear, dup-in-sheet"
+    },
+    {
+      "name": "All American",
+      "day": "Sunday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Pine Box",
+      "start_time": "15:00:00",
+      "end_time": "16:00:00",
+      "street_name": "12 Grattan St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11206",
+      "address_full": "12 Grattan St, Brooklyn, NY 11206, USA",
+      "venue_type": "Bar",
+      "cost": "Drink",
+      "stage_time": null,
+      "signup": "sign up in person list / @allamericancomedy",
+      "first_host": "NatalieLin",
+      "host_instagram": null,
+      "latitude": "40.7052293",
+      "longitude": "-73.9326664",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Community Service",
+      "day": "",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Brooklyn Art Haus",
+      "start_time": null,
+      "end_time": null,
+      "street_name": "24 Marcy Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "24 Marcy Ave, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7133906",
+      "longitude": "-73.9549636",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Buddha NYCC UWS",
+      "day": "Sunday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "NY Comedy Club",
+      "start_time": "13:00:00",
+      "end_time": "14:30:00",
+      "street_name": "236 W 78th St. New York",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10024",
+      "address_full": "236 W 78th St. New York, NY 10024",
+      "venue_type": "Comedy Club",
+      "cost": "$5",
+      "stage_time": null,
+      "signup": "Check laughingbuddhacomedy.com/mics for updated schedule and sign-up info",
+      "first_host": null,
+      "host_instagram": "@laughingbuddhacomedy",
+      "latitude": "40.7828012",
+      "longitude": "-73.9801773",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Doodle Mic",
+      "day": "Monday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Young Ethels",
+      "start_time": "22:00:00",
+      "end_time": "23:30:00",
+      "street_name": "506 5th Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11215",
+      "address_full": "506 5th Ave, Brooklyn, NY 11215",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.6672248",
+      "longitude": "-73.9883056",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Buddha StM 5",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "St Marks CC",
+      "start_time": "17:00:00",
+      "end_time": "18:30:00",
+      "street_name": "12 St Marks Pl",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "12 St Marks Pl, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$8 + 1 drink min",
+      "stage_time": null,
+      "signup": "Check laughingbuddhacomedy.com/mics for updated schedule and sign-up info",
+      "first_host": null,
+      "host_instagram": "@laughingbuddhacomedy",
+      "latitude": "40.7290207",
+      "longitude": "-73.9893198",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "We Wear Pink",
+      "day": "Tuesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Westside Comedy Club (LGBTQ + Women)",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "315 W 22nd St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10011",
+      "address_full": "315 W 22nd St, New York, NY 10011",
+      "venue_type": "Comedy Club",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7451708",
+      "longitude": "-73.9996308",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Jeans and a Nice Top",
+      "day": "Tuesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Pine Box",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "12 Grattan St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11206",
+      "address_full": "12 Grattan St, Brooklyn, NY 11206",
+      "venue_type": "Bar",
+      "cost": "Free",
+      "stage_time": null,
+      "signup": "signup there",
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7052293",
+      "longitude": "-73.9326664",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Bcc Open Ass Mic",
+      "day": "Tuesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Eris",
+      "start_time": "20:30:00",
+      "end_time": "22:00:00",
+      "street_name": "167 Graham Ave",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11206",
+      "address_full": "167 Graham Ave, Brooklyn, NY 11206",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7077257",
+      "longitude": "-73.9434941",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Finite Jest",
+      "day": "Wednesday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Flophouse",
+      "start_time": "18:30:00",
+      "end_time": "20:00:00",
+      "street_name": "362 Grand St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "362 Grand St, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7122084",
+      "longitude": "-73.9557789",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Death To All Of Them",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "Telephone Room (Women + Lgbtq)",
+      "start_time": "18:45:00",
+      "end_time": "20:15:00",
+      "street_name": "144 10th Ave",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10011",
+      "address_full": "144 10th Ave, New York, NY 10011",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7448105",
+      "longitude": "-74.0058645",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Fun Mug 2 Man Riff Mic",
+      "day": "Wednesday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "BK Made Comedy Club",
+      "start_time": "19:00:00",
+      "end_time": "20:30:00",
+      "street_name": "1241 Halsey St",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "11237",
+      "address_full": "1241 Halsey St, New York, New York 11237",
+      "venue_type": "Comedy Club",
+      "cost": "1 drink",
+      "stage_time": null,
+      "signup": "first 30 on the list",
+      "first_host": "Pablo Pantalones",
+      "host_instagram": null,
+      "latitude": "40.6939774",
+      "longitude": "-73.9073961",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Buddha StM 4:30",
+      "day": "Thursday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "St Marks CC",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "12 St Marks Pl",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "12 St Marks Pl, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$8 + 1 drink min",
+      "stage_time": null,
+      "signup": "Check laughingbuddhacomedy.com/mics for updated schedule and sign-up info",
+      "first_host": null,
+      "host_instagram": "@laughingbuddhacomedy",
+      "latitude": "40.7290207",
+      "longitude": "-73.9893198",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Comedy Mob 24",
+      "day": "Thursday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "New York Comedy Club 24th St",
+      "start_time": "17:30:00",
+      "end_time": "19:30:00",
+      "street_name": "241 East 24th Street",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10010",
+      "address_full": "241 East 24th Street, New York, NY 10010",
+      "venue_type": "Comedy Club",
+      "cost": "Free (1 drink minimum)",
+      "stage_time": null,
+      "signup": "Sign up via comedymob.com. Random draw. Large weekly signup pool.",
+      "first_host": null,
+      "host_instagram": "@comedymobnyc",
+      "latitude": "40.7389213",
+      "longitude": "-73.9808057",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Jestermaxxing",
+      "day": "Thursday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Pinebox Rock Shop",
+      "start_time": "18:00:00",
+      "end_time": "19:30:00",
+      "street_name": "12 Grattan St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11237",
+      "address_full": "12 Grattan St, Brooklyn, NY 11237",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7052293",
+      "longitude": "-73.9326664",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Buddha StM 4:30",
+      "day": "Friday",
+      "borough": "Manhattan",
+      "neighborhood": null,
+      "venue": "St Marks CC",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "12 St Marks Pl",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": null,
+      "address_full": "12 St Marks Pl, New York, NY",
+      "venue_type": "Comedy Club",
+      "cost": "$8 + 1 drink min",
+      "stage_time": null,
+      "signup": "Check laughingbuddhacomedy.com/mics for updated schedule and sign-up info",
+      "first_host": null,
+      "host_instagram": "@laughingbuddhacomedy",
+      "latitude": "40.7290207",
+      "longitude": "-73.9893198",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    },
+    {
+      "name": "Listen Up Queers!",
+      "day": "Saturday",
+      "borough": "Brooklyn",
+      "neighborhood": null,
+      "venue": "Flophouse (Queer & Allys)",
+      "start_time": "16:30:00",
+      "end_time": "18:00:00",
+      "street_name": "362 Grand St",
+      "city": "Brooklyn",
+      "state": "NY",
+      "zipcode": "11211",
+      "address_full": "362 Grand St, Brooklyn, NY 11211",
+      "venue_type": "Other",
+      "cost": null,
+      "stage_time": null,
+      "signup": null,
+      "first_host": null,
+      "host_instagram": null,
+      "latitude": "40.7122084",
+      "longitude": "-73.9557789",
+      "hold_reason": "duplicate of existing mic (same name + day, venue spelled differently)"
+    }
+  ]
+}
