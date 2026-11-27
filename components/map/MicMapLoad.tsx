@@ -1,8 +1,20 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
-import { GoogleMap, MarkerClustererF, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, MarkerClustererF, MarkerF, useJsApiLoader } from '@react-google-maps/api';
 import InfoMarker from './InfoMarker';
+import { useMicGeo } from '../mic/MicGeoContext';
 import { MicListItem, MicListResponse } from '@/lib/types/mic';
 import changeTime from '@/lib/utils/changeTime';
+
+// "You are here" dot for the Near-me location — a filled blue disc, distinct from
+// the teardrop mic pins (and from the blue hover pin, which is a teardrop).
+const USER_DOT_ICON = {
+  url:
+    'data:image/svg+xml;charset=UTF-8,' +
+    encodeURIComponent(
+      `<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">` +
+        `<circle cx="11" cy="11" r="7" fill="#2563eb" stroke="white" stroke-width="3"/></svg>`
+    ),
+};
 
 // Default cluster-bubble icons (the classic m1–m5 sprites) are served from this
 // Google-hosted path; without it the clusterer renders no bubble art.
@@ -41,6 +53,7 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
     googleMapsApiKey: `${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`,
   });
 
+  const { userLocation } = useMicGeo();
   const mapRef = useRef<google.maps.Map | null>(null);
 
   const geoMics = useMemo(
@@ -58,28 +71,28 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
   // the Bronx leaves the map parked over Queens with the pins off-screen.
   const fitToPins = useCallback(() => {
     const map = mapRef.current;
-    if (!map || typeof google === 'undefined' || geoMics.length === 0) return;
+    if (!map || typeof google === 'undefined') return;
 
-    if (geoMics.length === 1) {
-      const only = geoMics[0];
-      map.setCenter({
-        lat: parseFloat(`${only.mic_address!.latitude}`),
-        lng: parseFloat(`${only.mic_address!.longitude}`),
-      });
+    // Frame the pins, plus the visitor's location when "Near me" is on, so the
+    // user sees themselves relative to the mics.
+    const points = geoMics.map((m) => ({
+      lat: parseFloat(`${m.mic_address!.latitude}`),
+      lng: parseFloat(`${m.mic_address!.longitude}`),
+    }));
+    if (userLocation) points.push(userLocation);
+    if (points.length === 0) return;
+
+    if (points.length === 1) {
+      map.setCenter(points[0]);
       map.setZoom(14);
       return;
     }
 
     const bounds = new google.maps.LatLngBounds();
-    geoMics.forEach((m) =>
-      bounds.extend({
-        lat: parseFloat(`${m.mic_address!.latitude}`),
-        lng: parseFloat(`${m.mic_address!.longitude}`),
-      })
-    );
+    points.forEach((p) => bounds.extend(p));
     // Pad so edge pins aren't flush against the frame.
     map.fitBounds(bounds, 48);
-  }, [geoMics]);
+  }, [geoMics, userLocation]);
 
   // Refit whenever the filtered pin set changes (fires only when geoMics changes,
   // not on hover — MicMapLoad doesn't subscribe to hover state).
@@ -132,6 +145,14 @@ const MicMapLoad = ({ mics, isLoading }: { mics?: MicListResponse; isLoading: bo
               </>
             )}
           </MarkerClustererF>
+        )}
+        {userLocation && (
+          <MarkerF
+            position={userLocation}
+            icon={USER_DOT_ICON}
+            title="You are here"
+            zIndex={1000}
+          />
         )}
       </GoogleMap>
     </div>
