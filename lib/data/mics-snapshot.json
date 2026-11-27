@@ -9905,7 +9905,7 @@
     "name": "6pm mic",
     "day": "thursday",
     "start_time": "18:00:00",
-    "end_time": "00:00:00",
+    "end_time": "19:30:00",
     "venue_name": "BKLYN Made Comedy",
     "borough": "brooklyn",
     "neighborhood": "Bushwick",
@@ -12061,7 +12061,7 @@
   },
   {
     "id": "1523",
-    "active": true,
+    "active": false,
     "name": "NYCC Mid Mic",
     "day": "monday",
     "start_time": "17:00:00",
@@ -12092,7 +12092,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Unverified",
+    "confirmed": "Unverified | deactivated: duplicate of #1221",
     "other_rules": null
   },
   {
@@ -13645,7 +13645,7 @@
   },
   {
     "id": "1567",
-    "active": true,
+    "active": false,
     "name": "NYCC East Mic",
     "day": "wednesday",
     "start_time": "17:00:00",
@@ -13676,7 +13676,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Unverified",
+    "confirmed": "Unverified | deactivated: duplicate of #1319",
     "other_rules": null
   },
   {
