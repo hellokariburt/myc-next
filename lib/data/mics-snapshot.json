@@ -9325,7 +9325,7 @@
   },
   {
     "id": "1447",
-    "active": true,
+    "active": false,
     "name": "St. Marks mic",
     "day": "saturday",
     "start_time": "16:00:00",
@@ -9356,7 +9356,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Verified 5/8 Malev",
+    "confirmed": "Verified 5/8 Malev | deactivated: duplicate of #1445",
     "other_rules": null
   },
   {
@@ -10369,7 +10369,7 @@
   },
   {
     "id": "1476",
-    "active": true,
+    "active": false,
     "name": "Buddha StM 4:30",
     "day": "friday",
     "start_time": "16:30:00",
@@ -10400,7 +10400,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Unverified",
+    "confirmed": "Unverified | deactivated: duplicate of #1414",
     "other_rules": null
   },
   {
@@ -14113,7 +14113,7 @@
   },
   {
     "id": "1581",
-    "active": true,
+    "active": false,
     "name": "Greek Yogurt",
     "day": "wednesday",
     "start_time": "22:15:00",
@@ -14144,7 +14144,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Unverified",
+    "confirmed": "Unverified | deactivated: duplicate of #1327",
     "other_rules": null
   },
   {
@@ -14221,7 +14221,7 @@
   },
   {
     "id": "1584",
-    "active": true,
+    "active": false,
     "name": "Buddha StM 4:30",
     "day": "thursday",
     "start_time": "16:30:00",
@@ -14252,7 +14252,7 @@
     "email": null,
     "phone": null,
     "notes": null,
-    "confirmed": "Unverified",
+    "confirmed": "Unverified | deactivated: duplicate of #1366",
     "other_rules": null
   },
   {
